@@ -1,0 +1,151 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{PLAYER\PYGZus{}O} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}O\PYGZsq{}}
+\PYG{n}{PLAYER\PYGZus{}X} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}X\PYGZsq{}}
+
+\PYG{n}{ROWS} \PYG{o}{=} \PYG{l+m+mi}{3}
+\PYG{n}{COLS} \PYG{o}{=} \PYG{l+m+mi}{3}
+
+\PYG{k}{class} \PYG{n+nc}{Error}\PYG{p}{(}\PYG{n+ne}{Exception}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Base class for exceptions\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{pass}
+	
+\PYG{k}{class} \PYG{n+nc}{MovementError}\PYG{p}{(}\PYG{n}{Error}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{} Inherits from Error \PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	\PYG{k}{pass}
+
+\PYG{k}{class} \PYG{n+nc}{Board}\PYG{p}{:}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Create an empty board.}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board} \PYG{o}{=} \PYG{p}{[}
+			\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{],}
+			\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{]}
+		\PYG{p}{]}
+		
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{row\PYGZus{}count} \PYG{o}{=} \PYG{n}{ROWS}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{col\PYGZus{}count} \PYG{o}{=} \PYG{n}{COLS}
+		
+	\PYG{k}{def} \PYG{n+nf}{show}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{n}{line}\PYG{p}{)}
+		
+	\PYG{k}{def} \PYG{n+nf}{is\PYGZus{}full}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{:}
+			\PYG{c+c1}{\PYGZsh{} If there is a space on a board, it\PYGZsq{}s not full.}
+			\PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}} \PYG{o+ow}{in} \PYG{n}{line}\PYG{p}{:}
+				\PYG{k}{return} \PYG{n+nb+bp}{False}
+				
+		\PYG{k}{return} \PYG{n+nb+bp}{True}
+		
+	\PYG{k}{def} \PYG{n+nf}{columns}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Return board \PYGZdq{}as is\PYGZdq{}}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}
+		
+	\PYG{k}{def} \PYG{n+nf}{rows}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Return transposed board}
+		\PYG{k}{return} \PYG{p}{[}\PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{x}\PYG{p}{)} \PYG{k}{for} \PYG{n}{x} \PYG{o+ow}{in} \PYG{n+nb}{zip}\PYG{p}{(}\PYG{o}{*}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{)]}
+		
+	\PYG{k}{def} \PYG{n+nf}{main\PYGZus{}diagonal}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{],} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{]]}
+		
+	\PYG{k}{def} \PYG{n+nf}{anti\PYGZus{}diagonal}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{p}{[}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{0}\PYG{p}{][}\PYG{l+m+mi}{2}\PYG{p}{],} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{1}\PYG{p}{][}\PYG{l+m+mi}{1}\PYG{p}{],} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]]}
+		
+	\PYG{k}{def} \PYG{n+nf}{set\PYGZus{}position}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{pos\PYGZus{}x}\PYG{p}{,} \PYG{n}{pos\PYGZus{}y}\PYG{p}{,} \PYG{n}{val}\PYG{p}{):}
+		\PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{position\PYGZus{}is\PYGZus{}valid}\PYG{p}{(}\PYG{n}{pos\PYGZus{}x}\PYG{p}{,} \PYG{n}{pos\PYGZus{}y}\PYG{p}{):}
+			\PYG{k}{raise} \PYG{n}{MovementError}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}position not valid\PYGZsq{}}\PYG{p}{)}
+			
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{n}{pos\PYGZus{}x}\PYG{p}{][}\PYG{n}{pos\PYGZus{}y}\PYG{p}{]} \PYG{o}{=} \PYG{n}{val}
+			
+	\PYG{k}{def} \PYG{n+nf}{position\PYGZus{}is\PYGZus{}valid}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{pos\PYGZus{}x}\PYG{p}{,} \PYG{n}{pos\PYGZus{}y}\PYG{p}{):}
+		\PYG{k}{try}\PYG{p}{:}
+			\PYG{n}{curval} \PYG{o}{=} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{n}{pos\PYGZus{}x}\PYG{p}{][}\PYG{n}{pos\PYGZus{}y}\PYG{p}{]} \PYG{o}{!=} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}
+		\PYG{k}{except} \PYG{n+ne}{Exception} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Cannot retrieve board value: \PYGZob{}\PYGZcb{}\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{e}\PYG{p}{))}
+			\PYG{k}{return} \PYG{n+nb+bp}{False}
+				
+		\PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{p}{[}\PYG{n}{pos\PYGZus{}x}\PYG{p}{][}\PYG{n}{pos\PYGZus{}y}\PYG{p}{]} \PYG{o}{!=} \PYG{l+s+s1}{\PYGZsq{} \PYGZsq{}}\PYG{p}{:}
+			\PYG{k}{return} \PYG{n+nb+bp}{False}
+			
+		\PYG{k}{if} \PYG{n}{pos\PYGZus{}x} \PYG{o}{\PYGZgt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{col\PYGZus{}count} \PYG{o+ow}{or} \PYG{n}{pos\PYGZus{}y} \PYG{o}{\PYGZgt{}} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{row\PYGZus{}count}\PYG{p}{:}
+			\PYG{k}{return} \PYG{n+nb+bp}{False}
+			
+		\PYG{k}{return} \PYG{n+nb+bp}{True}
+
+\PYG{k}{class} \PYG{n+nc}{TicTacToeGame}\PYG{p}{:}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Create an empty board}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board} \PYG{o}{=} \PYG{n}{Board}\PYG{p}{()}
+		
+	\PYG{k}{def} \PYG{n+nf}{show\PYGZus{}board}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+	
+	\PYG{k}{def} \PYG{n+nf}{move}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{player}\PYG{p}{,} \PYG{n}{pos\PYGZus{}x}\PYG{p}{,} \PYG{n}{pos\PYGZus{}y}\PYG{p}{):}
+		\PYG{k}{try}\PYG{p}{:}
+			\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{set\PYGZus{}position}\PYG{p}{(}\PYG{n}{pos\PYGZus{}x}\PYG{p}{,} \PYG{n}{pos\PYGZus{}y}\PYG{p}{,} \PYG{n}{player}\PYG{p}{)}
+		\PYG{k}{except} \PYG{n+ne}{Exception} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+			\PYG{k}{raise} \PYG{n}{e}
+			
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}winner}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{for} \PYG{n}{player} \PYG{o+ow}{in} \PYG{p}{(}\PYG{n}{PLAYER\PYGZus{}X}\PYG{p}{,} \PYG{n}{PLAYER\PYGZus{}O}\PYG{p}{):}
+			\PYG{k}{if} \PYG{n}{line\PYGZus{}wins}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{main\PYGZus{}diagonal}\PYG{p}{(),} \PYG{n}{player}\PYG{p}{):}
+				\PYG{k}{return} \PYG{n}{player}
+				
+			\PYG{k}{if} \PYG{n}{line\PYGZus{}wins}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{anti\PYGZus{}diagonal}\PYG{p}{(),} \PYG{n}{player}\PYG{p}{):}
+				\PYG{k}{return} \PYG{n}{player}
+				
+			\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{rows}\PYG{p}{():}
+				\PYG{k}{if} \PYG{n}{line\PYGZus{}wins}\PYG{p}{(}\PYG{n}{line}\PYG{p}{,} \PYG{n}{player}\PYG{p}{):}
+					\PYG{k}{return} \PYG{n}{player}
+					
+			\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{():}
+				\PYG{k}{if} \PYG{n}{line\PYGZus{}wins}\PYG{p}{(}\PYG{n}{line}\PYG{p}{,} \PYG{n}{player}\PYG{p}{):}
+					\PYG{k}{return} \PYG{n}{player}
+		
+	\PYG{k}{def} \PYG{n+nf}{is\PYGZus{}over}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{if} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{is\PYGZus{}full}\PYG{p}{()} \PYG{o+ow}{or} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}winner}\PYG{p}{():}
+			\PYG{k}{return} \PYG{n+nb+bp}{True}
+		
+		\PYG{k}{return} \PYG{n+nb+bp}{False}
+		
+\PYG{k}{def} \PYG{n+nf}{player\PYGZus{}make\PYGZus{}move}\PYG{p}{(}\PYG{n}{game}\PYG{p}{,} \PYG{n}{player}\PYG{p}{):}
+	\PYG{k}{while} \PYG{n+nb+bp}{True}\PYG{p}{:}
+		\PYG{k}{try}\PYG{p}{:}
+			\PYG{n}{x}\PYG{p}{,} \PYG{n}{y} \PYG{o}{=} \PYG{n+nb}{map}\PYG{p}{(}\PYG{n+nb}{int}\PYG{p}{,} \PYG{n+nb}{input}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Player \PYGZsq{}} \PYG{o}{+} \PYG{n}{player}
+			\PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}, please make a move (x, y): \PYGZsq{}}\PYG{p}{))}
+			\PYG{n}{game}\PYG{o}{.}\PYG{n}{move}\PYG{p}{(}\PYG{n}{player}\PYG{p}{,} \PYG{n}{x}\PYG{p}{,} \PYG{n}{y}\PYG{p}{)}
+			\PYG{k}{break}
+		\PYG{k}{except} \PYG{n+ne}{Exception} \PYG{k}{as} \PYG{n}{e}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}There was an error: \PYGZob{}\PYGZcb{}\PYGZsq{}}\PYG{o}{.}\PYG{n}{format}\PYG{p}{(}\PYG{n}{e}\PYG{p}{))}
+		
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}This is a tic\PYGZhy{}tac\PYGZhy{}toe game.}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}
+	      \PYG{l+s+s1}{\PYGZsq{}Cells are 0\PYGZhy{}indexed as (x, y).}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{n}{tictactoe} \PYG{o}{=} \PYG{n}{TicTacToeGame}\PYG{p}{()}
+	
+	\PYG{n}{tictactoe}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+	
+	\PYG{n}{current\PYGZus{}player} \PYG{o}{=} \PYG{l+m+mi}{0}
+	\PYG{k}{while} \PYG{o+ow}{not} \PYG{n}{tictactoe}\PYG{o}{.}\PYG{n}{is\PYGZus{}over}\PYG{p}{():}
+		\PYG{n}{players} \PYG{o}{=} \PYG{p}{(}\PYG{n}{PLAYER\PYGZus{}X}\PYG{p}{,} \PYG{n}{PLAYER\PYGZus{}O}\PYG{p}{)}
+		\PYG{n}{player\PYGZus{}make\PYGZus{}move}\PYG{p}{(}\PYG{n}{tictactoe}\PYG{p}{,} \PYG{n}{players}\PYG{p}{[}\PYG{n}{current\PYGZus{}player}\PYG{p}{])}
+		
+		\PYG{n}{current\PYGZus{}player} \PYG{o}{=} \PYG{p}{(}\PYG{n}{current\PYGZus{}player} \PYG{o}{+} \PYG{l+m+mi}{1}\PYG{p}{)} \PYG{o}{\PYGZpc{}} \PYG{l+m+mi}{2}
+		
+		\PYG{n}{tictactoe}\PYG{o}{.}\PYG{n}{board}\PYG{o}{.}\PYG{n}{show}\PYG{p}{()}
+		\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{n}{winner} \PYG{o}{=} \PYG{n}{tictactoe}\PYG{o}{.}\PYG{n}{get\PYGZus{}winner}\PYG{p}{()}
+	\PYG{k}{if} \PYG{n}{winner} \PYG{o}{!=} \PYG{n+nb+bp}{None}\PYG{p}{:}
+		\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Player \PYGZsq{}} \PYG{o}{+} \PYG{n}{winner} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{} won the game!\PYGZsq{}}\PYG{p}{)}
+	\PYG{k}{else}\PYG{p}{:}
+		\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Game ended in a draw.\PYGZsq{}}\PYG{p}{)}
+	
+\PYG{c+c1}{\PYGZsh{} Checks if line wins the game for a player.}
+\PYG{k}{def} \PYG{n+nf}{line\PYGZus{}wins}\PYG{p}{(}\PYG{n}{line}\PYG{p}{,} \PYG{n}{player}\PYG{p}{):}
+	\PYG{k}{return} \PYG{n}{line} \PYG{o}{==} \PYG{n+nb}{list}\PYG{p}{(}\PYG{n}{player} \PYG{o}{*} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{line}\PYG{p}{))}
+	
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+	\PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}

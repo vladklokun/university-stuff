@@ -1,0 +1,54 @@
+\documentclass[a4paper,oneside,DIV=9,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+		inter-unit-product = \ensuremath{{}\cdot{}},
+		exponent-product = \cdot}
+
+\newcommand\given{\noindent\textbf{Дано:}}
+\newcommand\find{\noindent\textbf{Знайти:}}
+\newcommand\solution{\noindent\textbf{Розв'язання:}}
+\newcommand\answer[1]{\noindent\textbf{Відповідь:} #1}
+
+\begin{document}
+	
+	\given\par
+		$\nu = \SI{4e6}{\hertz}$;
+		
+		$\mu = 1$;
+		
+		$\Delta \lambda = \SI{37,5}{\hertz}$.
+		
+	\find\par
+		$n$ --- ?.
+		
+	\solution\par
+		Показник заломлення середовища визначається за формулою:
+		\[
+			n = \frac{c}{v}.
+		\]
+		
+		Знайдемо $v$:
+		\[
+			\Delta \lambda = \frac{v}{\nu} \quad \implies \quad v = \Delta \lambda \nu.
+		\]
+		
+		Знаходимо $n$:
+		\[
+			n = \frac{c}{\Delta \lambda \nu} = \frac{\num{3e8}}{\num{37,5} \cdot \num{4e6}} = \frac{\num{3e8}}{\num{1,5e8}} = \num{2}.
+		\]
+	\answer{2}.
+	
+\end{document}

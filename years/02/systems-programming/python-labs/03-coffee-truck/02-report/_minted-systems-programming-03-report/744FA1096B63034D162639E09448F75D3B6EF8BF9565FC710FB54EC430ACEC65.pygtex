@@ -1,0 +1,67 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{from} \PYG{n+nn}{random} \PYG{k+kn}{import} \PYG{n}{randrange}
+
+\PYG{n}{MAX\PYGZus{}COFFEE\PYGZus{}PRICE}  \PYG{o}{=} \PYG{l+m+mi}{500}
+\PYG{n}{MAX\PYGZus{}CRATE\PYGZus{}WEIGHT}  \PYG{o}{=} \PYG{l+m+mi}{100}
+\PYG{n}{MAX\PYGZus{}TRUCK\PYGZus{}SIZE}    \PYG{o}{=} \PYG{l+m+mi}{1000}
+\PYG{n}{COFFEE\PYGZus{}TYPES}      \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}Arusha\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Mocha\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Mundo\PYGZsq{}}\PYG{p}{]}
+
+\PYG{k}{class} \PYG{n+nc}{Coffee}\PYG{p}{:}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{name} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{,} \PYG{n}{price} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{):}
+		\PYG{k}{if} \PYG{n}{name} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{:}
+			\PYG{n}{name} \PYG{o}{=} \PYG{n}{COFFEE\PYGZus{}TYPES}\PYG{p}{[}\PYG{n}{randrange}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{COFFEE\PYGZus{}TYPES}\PYG{p}{))]}
+		\PYG{k}{if} \PYG{n}{price} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+			\PYG{n}{price} \PYG{o}{=} \PYG{n}{randrange}\PYG{p}{(}\PYG{n}{MAX\PYGZus{}COFFEE\PYGZus{}PRICE}\PYG{p}{)}
+			
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{name} \PYG{o}{=} \PYG{n}{name}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{price\PYGZus{}per\PYGZus{}kilo} \PYG{o}{=} \PYG{n}{price}
+	
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}price}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{price\PYGZus{}per\PYGZus{}kilo}
+		
+\PYG{k}{class} \PYG{n+nc}{Crate}\PYG{p}{:}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{contents}\PYG{p}{,} \PYG{n}{weight} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{):}
+		\PYG{k}{if} \PYG{n}{weight} \PYG{o}{==} \PYG{l+m+mi}{0}\PYG{p}{:}
+			\PYG{n}{weight} \PYG{o}{=} \PYG{n}{randrange}\PYG{p}{(}\PYG{n}{MAX\PYGZus{}CRATE\PYGZus{}WEIGHT}\PYG{p}{)}
+			
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weight} \PYG{o}{=} \PYG{n}{weight}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{contents} \PYG{o}{=} \PYG{n}{contents}
+		
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}price}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{weight} \PYG{o}{*} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{contents}\PYG{o}{.}\PYG{n}{get\PYGZus{}price}\PYG{p}{()}
+		
+\PYG{k}{class} \PYG{n+nc}{Truck}\PYG{p}{:}
+	\PYG{c+c1}{\PYGZsh{} It\PYGZsq{}s better to do contents as dictionary}
+	\PYG{c+c1}{\PYGZsh{} since there can be multiple crates with}
+	\PYG{c+c1}{\PYGZsh{} one type of coffee. WONTFIX}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{contents} \PYG{o}{=} \PYG{p}{[],} \PYG{n}{size} \PYG{o}{=} \PYG{l+m+mi}{0}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{size} \PYG{o}{=} \PYG{n}{size}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{contents} \PYG{o}{=} \PYG{n}{contents}
+		
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}price}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{c+c1}{\PYGZsh{} Sum all crate prices in truck instance contents}
+		\PYG{k}{return} \PYG{n+nb}{sum}\PYG{p}{(}\PYG{n}{crate}\PYG{o}{.}\PYG{n}{get\PYGZus{}price}\PYG{p}{()} \PYG{k}{for} \PYG{n}{crate} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{contents}\PYG{p}{)}
+		
+	\PYG{k}{def} \PYG{n+nf}{add\PYGZus{}crate}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{crate}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{contents}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{crate}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{size} \PYG{o}{+=} \PYG{l+m+mi}{1}
+		
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{():}
+	
+	\PYG{n}{truck} \PYG{o}{=} \PYG{n}{Truck}\PYG{p}{()}
+	
+	\PYG{n}{coffee\PYGZus{}types} \PYG{o}{=} \PYG{p}{[}\PYG{n}{Coffee}\PYG{p}{(),} \PYG{n}{Coffee}\PYG{p}{(),} \PYG{n}{Coffee}\PYG{p}{()]}
+	
+	\PYG{c+c1}{\PYGZsh{} Add a random quantity of crates with}
+	\PYG{c+c1}{\PYGZsh{} random types of coffee. Class constructors}
+	\PYG{c+c1}{\PYGZsh{} take care of the rest.}
+	\PYG{k}{for} \PYG{n}{i} \PYG{o+ow}{in} \PYG{n+nb}{xrange}\PYG{p}{(}\PYG{n}{randrange}\PYG{p}{(}\PYG{n}{MAX\PYGZus{}TRUCK\PYGZus{}SIZE}\PYG{p}{)):}
+		\PYG{n}{truck}\PYG{o}{.}\PYG{n}{add\PYGZus{}crate}\PYG{p}{(}\PYG{n}{Crate}\PYG{p}{(}\PYG{n}{coffee\PYGZus{}types}\PYG{p}{[}\PYG{n}{randrange}\PYG{p}{(}\PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{coffee\PYGZus{}types}\PYG{p}{))]))}
+
+	
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}The price of goods in the truck: \PYGZsq{}} \PYG{o}{+} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{truck}\PYG{o}{.}\PYG{n}{get\PYGZus{}price}\PYG{p}{()))}
+	
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+	\PYG{n}{main}\PYG{p}{()}
+	
+\end{Verbatim}

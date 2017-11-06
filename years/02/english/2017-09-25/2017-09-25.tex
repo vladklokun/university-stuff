@@ -1,0 +1,52 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{PT Serif}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage[variant=uk]{english}
+
+\newcommand\texteng[1]{\begin{english}#1\end{english}}
+
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{x}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\renewcommand{\arraystretch}{1.4}
+
+\begin{document}
+	\pagenumbering{gobble}
+	\textbf{Exercise 21.} Translate the word combinations below into Ukrainian.
+
+		\begin{longtable}{x{0.45\textwidth}x{0.45\textwidth}}
+		\toprule
+		English & Ukrainian \\
+		\midrule
+		\endhead
+		\bottomrule
+		\endfoot
+			\texteng{Fundamentals of software construction.} & Основи конструювання програмного забезпечення. \\
+			\texteng{Minimizing complexity.} & Зменшення складності. \\
+			\texteng{Anticipating change.} & Передбачення змін.\\
+			\texteng{Constructing for verification.} & Конструювання для перевірки (верифікації).\\
+			\texteng{To define the concepts.} & Визначати поняття (концепції).\\
+			\texteng{Reduced complexity.} & Зменшена складність.\\
+			\texteng{To emphasize the creation of code.} & Акцентувати увагу на створенні коду.\\
+			\texteng{To be particularly critical to the process of verification and testing of software construction.} & Бути особливо критичною в процесі перевірки та верифікації конструювання програмного забезпечення.\\
+			\texteng{To be a part of changing external environments.} & Бути частиною змінюючихся зовнішніх середовищ. \\
+			\texteng{To affect software in diverse ways.} & По-різному впливати на програмне забезпечення.\\
+			\texteng{To be supported by many specific techniques.} & Підтримуватись багатьма певними техніками.\\
+			\texteng{Communication method.} & Спосіб коммунікації.\\
+			\texteng{Programmer interface standards.} & Стандарти інтерфейсів для програмістів.\\
+			\texteng{Operating system calls.} & Системні виклики.\\
+			\texteng{To ferret out the faults.} & Розшукувати дефекти.\\
+			\texteng{Software engineers.} & Спеціалісти з розробки програмного забезпечення.\\
+			\texteng{To support code reviews.} & Підтримувати перевірки (рецензії) коду.\\
+			\texteng{Hard-to-understand language structures.} & Важкі для розуміння мовні структури.\\
+			\texteng{Standards that directly affect construction issues.} & Стандарти, що безпосередньо впливають на проблеми конструювання.\\
+			\texteng{Numerous sources.} & Численні джерела.\\
+		\end{longtable}
+\end{document}

@@ -1,0 +1,5 @@
+\select@language {ukrainian}
+\contentsline {section}{\numberline {1}Мета та основні завдання роботи}{3}
+\contentsline {section}{\numberline {2}Хід роботи}{3}
+\contentsline {subsection}{\numberline {2.1}Побудова вольт-амперних характеристик}{4}
+\contentsline {section}{\numberline {3}Висновки}{4}

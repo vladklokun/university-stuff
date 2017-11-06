@@ -1,0 +1,128 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '2p3v-nodiode-edited.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{450bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.5)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.3245){\makebox(0,0)[rb]{\smash{-5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.36066667){\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.397){\makebox(0,0)[rb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.43316667){\makebox(0,0)[rb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.46933333){\makebox(0,0)[rb]{\smash{15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{2p3v-nodiode-edited.pdf}}%
+    \put(0.10383333,0.2995){\makebox(0,0)[b]{\smash{0.96}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{2p3v-nodiode-edited.pdf}}%
+    \put(0.19133333,0.2995){\makebox(0,0)[b]{\smash{1.02}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{2p3v-nodiode-edited.pdf}}%
+    \put(0.27883333,0.2995){\makebox(0,0)[b]{\smash{1.08}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{2p3v-nodiode-edited.pdf}}%
+    \put(0.3665,0.2995){\makebox(0,0)[b]{\smash{1.14}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{2p3v-nodiode-edited.pdf}}%
+    \put(0.454,0.2995){\makebox(0,0)[b]{\smash{1.20}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{2p3v-nodiode-edited.pdf}}%
+    \put(0.54166667,0.2995){\makebox(0,0)[b]{\smash{1.26}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{2p3v-nodiode-edited.pdf}}%
+    \put(0.62916667,0.2995){\makebox(0,0)[b]{\smash{1.32}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{2p3v-nodiode-edited.pdf}}%
+    \put(0.71666667,0.2995){\makebox(0,0)[b]{\smash{1.38}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{2p3v-nodiode-edited.pdf}}%
+    \put(0.80433333,0.2995){\makebox(0,0)[b]{\smash{1.44}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{2p3v-nodiode-edited.pdf}}%
+    \put(0.89183333,0.2995){\makebox(0,0)[b]{\smash{1.50}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{2p3v-nodiode-edited.pdf}}%
+    \put(0.02283333,0.40233333){\rotatebox{90}{\makebox(0,0)[b]{\smash{$U_{\text{Б}}$ (В)}}}}%
+    \put(0.527,0.262){\makebox(0,0)[b]{\smash{t (\si{\micro\second})}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.0745){\makebox(0,0)[rb]{\smash{-5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.11083333){\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.147){\makebox(0,0)[rb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.18333333){\makebox(0,0)[rb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{2p3v-nodiode-edited.pdf}}%
+    \put(0.0775,0.2195){\makebox(0,0)[rb]{\smash{15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{2p3v-nodiode-edited.pdf}}%
+    \put(0.10383333,0.0495){\makebox(0,0)[b]{\smash{0.96}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{2p3v-nodiode-edited.pdf}}%
+    \put(0.19133333,0.0495){\makebox(0,0)[b]{\smash{1.02}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{2p3v-nodiode-edited.pdf}}%
+    \put(0.27883333,0.0495){\makebox(0,0)[b]{\smash{1.08}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{2p3v-nodiode-edited.pdf}}%
+    \put(0.3665,0.0495){\makebox(0,0)[b]{\smash{1.14}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{2p3v-nodiode-edited.pdf}}%
+    \put(0.454,0.0495){\makebox(0,0)[b]{\smash{1.20}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{2p3v-nodiode-edited.pdf}}%
+    \put(0.54166667,0.0495){\makebox(0,0)[b]{\smash{1.26}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{2p3v-nodiode-edited.pdf}}%
+    \put(0.62916667,0.0495){\makebox(0,0)[b]{\smash{1.32}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{2p3v-nodiode-edited.pdf}}%
+    \put(0.71666667,0.0495){\makebox(0,0)[b]{\smash{1.38}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{2p3v-nodiode-edited.pdf}}%
+    \put(0.80433333,0.0495){\makebox(0,0)[b]{\smash{1.44}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{2p3v-nodiode-edited.pdf}}%
+    \put(0.89183333,0.0495){\makebox(0,0)[b]{\smash{1.50}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{2p3v-nodiode-edited.pdf}}%
+    \put(0.02283333,0.1525){\rotatebox{90}{\makebox(0,0)[b]{\smash{$U_{\text{К}}$ (В)}}}}%
+    \put(0.527,0.012){\makebox(0,0)[b]{\smash{t (\si{\micro\second})}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{2p3v-nodiode-edited.pdf}}%
+    \put(0.08986149,0.28063301){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{ЗТ}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=34]{2p3v-nodiode-edited.pdf}}%
+    \put(0.21684029,0.25763888){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{НР}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=35]{2p3v-nodiode-edited.pdf}}%
+    \put(0.83281464,0.28270119){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{Р}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=36]{2p3v-nodiode-edited.pdf}}%
+    \put(0.79818054,0.25333333){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{СП}}$}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=37]{2p3v-nodiode-edited.pdf}}%
+  \end{picture}%
+\endgroup%

@@ -1,0 +1,8 @@
+\select@language {russian}
+\contentsline {section}{\numberline {1}Что это?}{1}{section.1}
+\contentsline {section}{\numberline {2}Перед работой}{2}{section.2}
+\contentsline {section}{\numberline {3}Как пользоваться?}{3}{section.3}
+\contentsline {subsection}{\numberline {3.1}Получение файла с координатами}{3}{subsection.3.1}
+\contentsline {subsection}{\numberline {3.2}Построение графиков скриптом}{5}{subsection.3.2}
+\contentsline {subsection}{\numberline {3.3}Сохранение построенных графиков}{6}{subsection.3.3}
+\contentsline {section}{\numberline {4}Примечания}{6}{section.4}

@@ -1,0 +1,22 @@
+\select@language {ukrainian}
+\contentsline {section}{\numberline {1}Мета та основні завдання роботи}{3}
+\contentsline {section}{\numberline {2}Короткі теоретичні відомості}{3}
+\contentsline {subsection}{\numberline {2.1}Біполярний транзистор і його структура}{3}
+\contentsline {subsection}{\numberline {2.2}Умовно-графічні зображення біполярних транзисторів}{3}
+\contentsline {subsection}{\numberline {2.3}Схеми ввімкнення біполярного транзистора}{4}
+\contentsline {subsection}{\numberline {2.4}Вхідна і вихідна вольт-амперна характеристика біполярного транзистора}{4}
+\contentsline {subsection}{\numberline {2.5}Навантажувальна пряма}{4}
+\contentsline {subsection}{\numberline {2.6}$h$-параметри}{5}
+\contentsline {section}{\numberline {3}Принципова схема віртуальних лабораторних установок}{7}
+\contentsline {section}{\numberline {4}Хід виконання завдання лабораторної роботи.}{7}
+\contentsline {subsection}{\numberline {4.1}Побудова вхідних вольт-амперних характеристик}{7}
+\contentsline {subsubsection}{\numberline {4.1.1}Підготовка лабораторної установки до роботи}{7}
+\contentsline {subsubsection}{\numberline {4.1.2}Увімкнення лабораторної установки}{7}
+\contentsline {subsubsection}{\numberline {4.1.3}Побудова першої вольт-амперної характеристики}{8}
+\contentsline {subsubsection}{\numberline {4.1.4}Побудова другої вольт-амперної характеристики}{8}
+\contentsline {subsubsection}{\numberline {4.1.5}Побудова третьої вольт-амперної характеристики}{9}
+\contentsline {subsection}{\numberline {4.2}Побудова вихідних вольт-амперних характеристик}{9}
+\contentsline {subsubsection}{\numberline {4.2.1}Побудова першої вольт-амперної характеристики}{9}
+\contentsline {subsubsection}{\numberline {4.2.2}Побудова другої вольт-амперної характеристики}{10}
+\contentsline {subsubsection}{\numberline {4.2.3}Побудова третьої вольт-амперної характеристики}{10}
+\contentsline {section}{\numberline {5}Висновки}{11}

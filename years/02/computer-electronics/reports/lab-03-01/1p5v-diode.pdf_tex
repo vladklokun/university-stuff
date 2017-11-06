@@ -1,0 +1,124 @@
+%% Creator: Inkscape inkscape 0.92.2, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file '1p5v-diode.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{450bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.5)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{1p5v-diode.pdf}}%
+    \put(0.0775,0.3245){\makebox(0,0)[rb]{\smash{-5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{1p5v-diode.pdf}}%
+    \put(0.0775,0.36066667){\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{1p5v-diode.pdf}}%
+    \put(0.0775,0.397){\makebox(0,0)[rb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{1p5v-diode.pdf}}%
+    \put(0.0775,0.43316667){\makebox(0,0)[rb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{1p5v-diode.pdf}}%
+    \put(0.0775,0.46933333){\makebox(0,0)[rb]{\smash{15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{1p5v-diode.pdf}}%
+    \put(0.16133333,0.2995){\makebox(0,0)[b]{\smash{1.02}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{1p5v-diode.pdf}}%
+    \put(0.24883333,0.2995){\makebox(0,0)[b]{\smash{1.11}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{1p5v-diode.pdf}}%
+    \put(0.33633333,0.2995){\makebox(0,0)[b]{\smash{1.19}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{1p5v-diode.pdf}}%
+    \put(0.424,0.2995){\makebox(0,0)[b]{\smash{1.28}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{1p5v-diode.pdf}}%
+    \put(0.5115,0.2995){\makebox(0,0)[b]{\smash{1.36}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{1p5v-diode.pdf}}%
+    \put(0.59916667,0.2995){\makebox(0,0)[b]{\smash{1.45}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{1p5v-diode.pdf}}%
+    \put(0.68666667,0.2995){\makebox(0,0)[b]{\smash{1.53}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{1p5v-diode.pdf}}%
+    \put(0.77416667,0.2995){\makebox(0,0)[b]{\smash{1.61}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{1p5v-diode.pdf}}%
+    \put(0.86183333,0.2995){\makebox(0,0)[b]{\smash{1.70}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{1p5v-diode.pdf}}%
+    \put(0.94933333,0.2995){\makebox(0,0)[b]{\smash{1.79}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{1p5v-diode.pdf}}%
+    \put(0.02283333,0.40233333){\rotatebox{90}{\makebox(0,0)[b]{\smash{$U_{\text{ВХ}}$ (В)}}}}%
+    \put(0.527,0.262){\makebox(0,0)[b]{\smash{t (\si{\micro\second})}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{1p5v-diode.pdf}}%
+    \put(0.0775,0.0745){\makebox(0,0)[rb]{\smash{-5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{1p5v-diode.pdf}}%
+    \put(0.0775,0.11083333){\makebox(0,0)[rb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{1p5v-diode.pdf}}%
+    \put(0.0775,0.147){\makebox(0,0)[rb]{\smash{5}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=20]{1p5v-diode.pdf}}%
+    \put(0.0775,0.18333333){\makebox(0,0)[rb]{\smash{10}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=21]{1p5v-diode.pdf}}%
+    \put(0.0775,0.2195){\makebox(0,0)[rb]{\smash{15}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=22]{1p5v-diode.pdf}}%
+    \put(0.16133333,0.0495){\makebox(0,0)[b]{\smash{1.02}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=23]{1p5v-diode.pdf}}%
+    \put(0.24883333,0.0495){\makebox(0,0)[b]{\smash{1.11}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=24]{1p5v-diode.pdf}}%
+    \put(0.33633333,0.0495){\makebox(0,0)[b]{\smash{1.19}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=25]{1p5v-diode.pdf}}%
+    \put(0.424,0.0495){\makebox(0,0)[b]{\smash{1.28}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=26]{1p5v-diode.pdf}}%
+    \put(0.5115,0.0495){\makebox(0,0)[b]{\smash{1.36}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=27]{1p5v-diode.pdf}}%
+    \put(0.59916667,0.0495){\makebox(0,0)[b]{\smash{1.45}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=28]{1p5v-diode.pdf}}%
+    \put(0.68666667,0.0495){\makebox(0,0)[b]{\smash{1.53}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=29]{1p5v-diode.pdf}}%
+    \put(0.77416667,0.0495){\makebox(0,0)[b]{\smash{1.61}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=30]{1p5v-diode.pdf}}%
+    \put(0.86183333,0.0495){\makebox(0,0)[b]{\smash{1.70}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=31]{1p5v-diode.pdf}}%
+    \put(0.94933333,0.0495){\makebox(0,0)[b]{\smash{1.79}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=32]{1p5v-diode.pdf}}%
+    \put(0.02283333,0.1525){\rotatebox{90}{\makebox(0,0)[b]{\smash{$U_{\text{ВИХ}}$ (В)}}}}%
+    \put(0.527,0.012){\makebox(0,0)[b]{\smash{t (\si{\micro\second})}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=33]{1p5v-diode.pdf}}%
+    \put(0.06631945,0.2440153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{ЗТ}}$}}}%
+    \put(0.26232745,0.2440153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{НР}}$}}}%
+    \put(0.59135523,0.2440153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{Р}}$}}}%
+    \put(0.861633,0.2440153){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{$t_{\text{СП}}$}}}%
+  \end{picture}%
+\endgroup%

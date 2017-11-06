@@ -1,0 +1,282 @@
+\documentclass[a4paper,oneside,DIV=10,12pt]{scrartcl}
+
+\usepackage{float}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{Roboto}
+%\newfontfamily{\cyrillicfontsf}{Raleway}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{subcaption}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}}
+
+\newcommand\schel[1]{\textit{#1}}
+
+\begin{document}
+	\begin{titlepage}
+	\begin{center}
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace{\fill}
+		Лабораторна робота №3\\
+		з дисципліни «Комп'ютерна електроніка»\\
+		на тему «Дослідження біполярного транзистора у~ключовому режимі для~схеми с загальною базою»\\
+		Варіант №3
+		
+		\vspace{\fill}
+		\begin{flushright}
+		Виконав:\\
+		студент ННІКІТ СП-225\\
+		Клокун Владислав\\
+		Перевірив:\\
+		Андрєєв О. В.
+		\end{flushright}
+		
+		Київ 2017
+	\end{center}
+	\end{titlepage}
+	
+	\section{Мета та основні завдання роботи}
+		\begin{enumerate}
+			\item Закріпити теоретичні знання з фізики процесів, що відбуваються в біполярному тразисторі, який працює в ключовому режимі.
+			\item Набути практичних навичок у визначенні основних параметрів перехідних процесів.
+			\item Вивчити процеси,  що відбуваються у біполярному транзисторі у ключовому режимі.
+			\item Вивчити, від чого залежить час увімкнення й вимкнення біполярного транзистора.
+		\end{enumerate}
+	
+	\section{Принципова схема віртуальної лабораторної установки}
+		Принципова схема віртуальної лабораторної установки для дослідження біполярного транзистора у ключовому режимі зображена на рис. \ref{fig:schematic}.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=\textwidth]{lab-03-01-schematic.png}
+			\caption{Принципова схема віртуальної лабораторної установки}
+			\label{fig:schematic}
+		\end{figure}
+		
+	\section{Хід роботи}
+		Вмикаємо біполярний транзистор за схемою з загальною базою. Для цього встановлюємо перемикач \schel{SA1} у верхнє положення. Відключаємо діод, встановивши перемикач \schel{SA2} у верхнє положення. Вмикаємо осцилограф та встановлюємо на ньому такі режими і масштаби:
+		\begin{table}[H]
+		\centering
+			\begin{tabular}{lll}
+			Time Base & 0,2 μs/div & Y/T; Auto\\
+			Channel A & 20 V/div & DC \\
+			Channel B & 5 V/div & DC
+			\end{tabular}
+		\end{table}
+		
+		Вмикаємо функціональний генератор та налаштовуємо його на генерацію прямокутних імпульсів. Встановлюємо такі налаштування:
+		\begin{table}[H]
+		\centering
+			\begin{tabular}{ll}
+			Frequency & 1 MHz\\
+			Duty cycle & 50\%\\
+			Amplitude & 13,3 V
+			\end{tabular}
+		\end{table}
+		
+		Запускаємо віртуальну установку на моделювання. На екрані осцилографа з'я\-ви\-лась часова діаграма вхідної і вихідної напруг транзистора. Призупиняємо моделювання і вимірюємо амплітуди вхідного імпульсу: $U_{\text{Е}} = \SI{13,3}{\volt}$ та вихідного імпульсу: $U_{\text{К}} = \SI{10}{\volt}$. Амплітуда вихідного імпульсу близька за значенням до напруги $E_{\text{К}} = \SI{10}{\volt}$ --- транзистор знаходиться в \emph{режимі насичення}.
+		
+		За допомогою візирних ліній визначаємо часові параметри з діодом і без.
+		
+		%$t_{\text{ЗТ}} = \SI{2,5}{\nano\second}$, $t_{\text{НР}} = \SI{11,8}{\nano\second}$, $t_{\text{Р}} = \SI{3,6}{\nano\second}$, $t_{\text{СП}} = \SI{7,6}{\nano\second}$.
+		
+		\begin{table}[H]
+		\centering
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{0}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{1}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,35}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{3,3}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З вимкненим діодом}
+			\end{subtable}
+			~
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{0}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{17}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,55}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{22}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З ввімкненим діодом}
+			\end{subtable}
+		\caption{Часові параметри біполярного транзистора, підключеного за схемою с загальною базою при $U_{\text{Е}} = \SI{13,3}{\volt}$}
+		\end{table}
+		
+		За отриманими часовими параметрами рахуємо $t_{\text{ВВІМК}}$ і $t_{\text{ВИМК}}$:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{1}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{3,7}{\nano\second}.
+		\]
+		
+		Для ввімкненого діода:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{17}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{22,6}{\nano\second}.
+		\]
+		
+		\begin{figure}[p]
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{01-13p3-01-nodiode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{13,3}{\volt}$ з вимкненим діодом}
+			
+			\vspace*{\floatsep}
+		
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{01-13p3-02-diode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{13,3}{\volt}$ з ввімкненим діодом}
+		\end{figure}
+		
+		Відключаємо діод. На функціональному генераторі встановлюємо амплітуду вхідних імпульсів рівну $U_{\text{ВХ}} = \SI{16,3}{\volt}$. При цьому амплітуда вихідних імпульсів зменшилась. Біполярний транзистор знаходиться в \emph{активному режимі}. За допомогою візирних ліній визначаємо часові параметри.
+		
+		\begin{table}[H]
+		\centering
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{0}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{1}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,4}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{3,2}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З вимкненим діодом}
+			\end{subtable}
+			~
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{0}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{15}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,6}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{21}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З ввімкненим діодом}
+			\end{subtable}
+		\caption{Часові параметри біполярного транзистора, підключеного за схемою с загальною базою при $U_{\text{Е}} = \SI{10,3}{\volt}$}
+		\end{table}
+		
+		За отриманими часовими параметрами рахуємо $t_{\text{ВВІМК}}$ і $t_{\text{ВИМК}}$:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{1}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{3,6}{\nano\second}.
+		\]
+		
+		Для ввімкненого діода:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{15}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{20,4}{\nano\second}.
+		\]
+		
+		\begin{figure}[p]
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{02-10p3-01-nodiode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{10,3}{\volt}$ з вимкненим діодом}
+			
+			\vspace*{\floatsep}
+		
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{02-10p3-02-diode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{10,3}{\volt}$ з ввімкненим діодом}
+		\end{figure}
+		
+		Відключаємо діод. На функціональному генераторі встановлюємо амплітуду вхідних імпульсів рівну $U_{\text{ВХ}} = \SI{16,3}{\volt}$. При цьому амплітуда вихідних імпульсів зменшилась. Біполярний транзистор знаходиться в \emph{режимі глибокого насичення}. За допомогою візирних ліній визначаємо часові параметри.
+		
+		\begin{table}[H]
+		\centering
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{0,9}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{1,8}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,4}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{2}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З вимкненим діодом}
+			\end{subtable}
+			~
+			\begin{subtable}[h]{0.4\textwidth}
+			\centering
+				\begin{tabular}{lr}
+				\toprule
+				Параметр & Значення\\
+				\midrule
+				$t_{\text{ЗТ}}$ & $\SI{62}{\nano\second}$\\
+				$t_{\text{НР}}$ & $\SI{52}{\nano\second}$\\
+				$t_{\text{Р}}$ & $\SI{0,5}{\nano\second}$\\
+				$t_{\text{СП}}$ & $\SI{17}{\nano\second}$\\
+				\bottomrule
+				\end{tabular}
+				\caption{З ввімкненим діодом}
+			\end{subtable}
+		\caption{Часові параметри біполярного транзистора, підключеного за схемою с загальною базою при $U_{\text{Е}} = \SI{16,3}{\volt}$}
+		\end{table}
+		
+		За отриманими часовими параметрами рахуємо $t_{\text{ВВІМК}}$ і $t_{\text{ВИМК}}$:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{2,7}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{2,4}{\nano\second}.
+		\]
+		
+		Для ввімкненого діода:
+		\[
+			t_{\text{ВВІМК}} = t_{\text{ЗТ}} + t_{\text{НР}} = \SI{134}{\nano\second}, \quad t_{\text{ВИМК}} = t_{\text{Р}} + t_{\text{СП}} = \SI{17,5}{\nano\second}.
+		\]
+		
+		\begin{figure}[p]
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{03-16p3-01-nodiode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{16,3}{\volt}$ з вимкненим діодом}
+			
+			\vspace*{\floatsep}
+		
+			\centering
+			%\def\svgwidth{\columnwidth}
+			\includegraphics[width=\textwidth]{03-16p3-02-diode-edited.pdf}
+			\caption{Часова діаграма вхідної і вихідної напруг для $U_{\text{Е}} = \SI{16,3}{\volt}$ з ввімкненим діодом}
+		\end{figure}
+		
+	\section{Висновки}
+		
+\end{document}

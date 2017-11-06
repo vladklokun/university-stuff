@@ -1,0 +1,849 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="345pt"
+   version="1.1"
+   viewBox="0 0 460 345"
+   width="460pt"
+   id="svg348"
+   sodipodi:docname="p-nag.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata352">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview350"
+     showgrid="false"
+     inkscape:zoom="1.8663195"
+     inkscape:cx="290.3645"
+     inkscape:cy="212.74033"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="patch_1" />
+  <defs
+     id="defs4">
+    <style
+       type="text/css"
+       id="style2">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+  </defs>
+  <g
+     id="figure_1">
+    <g
+       id="patch_1">
+      <path
+         d="M 0 345.6  L 460.8 345.6  L 460.8 0  L 0 0  z "
+         style="fill:#ffffff;"
+         id="path6" />
+    </g>
+    <g
+       id="axes_1">
+      <g
+         id="patch_2">
+        <path
+           d="M 49.736 303.784  L 447.48 303.784  L 447.48 13.32  L 49.736 13.32  z "
+           style="fill:#ffffff;"
+           id="path9" />
+      </g>
+      <g
+         id="matplotlib.axis_1">
+        <g
+           id="xtick_1">
+          <g
+             id="line2d_1">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 303.784  L 49.736 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path12" />
+          </g>
+          <g
+             id="line2d_2">
+            <defs
+               id="defs16">
+              <path
+                 d="M 0 0  L 0 3.5  "
+                 id="m7038964a9d"
+                 style="stroke:#000000;stroke-width:0.8;" />
+            </defs>
+            <g
+               id="g20">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use18" />
+            </g>
+          </g>
+          <g
+             id="text_1">
+            <!-- 0 -->
+            <defs
+               id="defs24">
+              <path
+                 d="M 46.796875 31.703125  C 46.796875 52.296875 37.796875 64.203125 24.90625 64.203125  C 10.40625 64.203125 2.703125 51 2.703125 32  C 2.703125 14.296875 8.59375 -1.09375 24.703125 -1.09375  C 40.40625 -1.09375 46.796875 14.59375 46.796875 31.703125  z M 37.09375 31.09375  C 37.09375 11.90625 32.59375 2.5 24.703125 2.5  C 16.703125 2.5 12.296875 12.09375 12.296875 31.5  C 12.296875 51.296875 16.703125 60.796875 24.59375 60.796875  C 32.796875 60.796875 37.09375 51.40625 37.09375 31.09375  z "
+                 id="STIXTwoMath-30" />
+            </defs>
+            <g
+               transform="translate(47.261 317.843375)scale(0.1 -0.1)"
+               id="g28">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use26" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_2">
+          <g
+             id="line2d_3">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 102.34764 303.784  L 102.34764 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path32" />
+          </g>
+          <g
+             id="line2d_4">
+            <g
+               id="g37">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="102.34764"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use35" />
+            </g>
+          </g>
+          <g
+             id="text_2">
+            <!-- 50 -->
+            <defs
+               id="defs41">
+              <path
+                 d="M 41.703125 54.90625  L 43.296875 63  L 15.90625 63  L 9.703125 36.90625  L 10.90625 35.40625  C 12.296875 35.40625 12.796875 35.40625 15.40625 35.203125  C 29.203125 34.5 37 30.40625 37 17.90625  C 37 7.5 30.703125 3.703125 23.59375 3.703125  C 17.203125 3.703125 13.90625 8.59375 9.90625 8.59375  C 7.40625 8.59375 5.90625 6.59375 5.90625 4.296875  C 5.90625 0.59375 9.703125 -1.296875 17.40625 -1.296875  C 33.296875 -1.296875 44.296875 6.5 44.296875 21.90625  C 44.296875 37.59375 32 42.296875 20.203125 43.203125  L 15.5 43.5  L 18.203125 54.90625  z "
+                 id="STIXTwoMath-35" />
+            </defs>
+            <g
+               transform="translate(97.39764 317.843375)scale(0.1 -0.1)"
+               id="g47">
+              <use
+                 xlink:href="#STIXTwoMath-35"
+                 id="use43" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use45" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_3">
+          <g
+             id="line2d_5">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 154.95928 303.784  L 154.95928 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path51" />
+          </g>
+          <g
+             id="line2d_6">
+            <g
+               id="g56">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="154.95928"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use54" />
+            </g>
+          </g>
+          <g
+             id="text_3">
+            <!-- 100 -->
+            <defs
+               id="defs60">
+              <path
+                 d="M 42.59375 0  L 42.59375 2.796875  C 33.40625 2.796875 29.703125 4.59375 29.703125 9.5  L 29.703125 63.90625  L 26.796875 63.90625  L 7.40625 58.40625  L 7.40625 55.09375  C 10.5 56.09375 15.59375 56.703125 17.59375 56.703125  C 20.09375 56.703125 20.90625 55.296875 20.90625 51.796875  L 20.90625 9.5  C 20.90625 4.5 17.40625 2.796875 8 2.796875  L 8 0  z "
+                 id="STIXTwoMath-31" />
+            </defs>
+            <g
+               transform="translate(147.53428 317.843375)scale(0.1 -0.1)"
+               id="g68">
+              <use
+                 xlink:href="#STIXTwoMath-31"
+                 id="use62" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use64" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use66" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_4">
+          <g
+             id="line2d_7">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 207.570921 303.784  L 207.570921 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path72" />
+          </g>
+          <g
+             id="line2d_8">
+            <g
+               id="g77">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="207.570921"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use75" />
+            </g>
+          </g>
+          <g
+             id="text_4">
+            <!-- 150 -->
+            <g
+               transform="translate(200.145921 317.843375)scale(0.1 -0.1)"
+               id="g86">
+              <use
+                 xlink:href="#STIXTwoMath-31"
+                 id="use80" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-35"
+                 id="use82" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use84" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_5">
+          <g
+             id="line2d_9">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 260.182561 303.784  L 260.182561 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path90" />
+          </g>
+          <g
+             id="line2d_10">
+            <g
+               id="g95">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="260.182561"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use93" />
+            </g>
+          </g>
+          <g
+             id="text_5">
+            <!-- 200 -->
+            <defs
+               id="defs99">
+              <path
+                 d="M 46.40625 16  L 43.5 16  C 41.203125 10 39.90625 7.90625 34.59375 7.90625  L 20.703125 7.90625  L 13.703125 7.59375  L 13.703125 8.09375  L 26.90625 20.59375  C 37.5 31.296875 43.203125 38.203125 43.203125 47.09375  C 43.203125 57.59375 35.296875 64.40625 24 64.40625  C 14.296875 64.40625 7.5 58.796875 4.40625 49.09375  L 6.796875 48.09375  C 10.5 55.59375 14.90625 57.90625 21.40625 57.90625  C 29.09375 57.90625 33.90625 53.09375 33.90625 45.59375  C 33.90625 35.09375 28.90625 28.796875 19 18.59375  L 3.796875 3.40625  L 3.796875 0  L 43.203125 0  z "
+                 id="STIXTwoMath-32" />
+            </defs>
+            <g
+               transform="translate(252.757561 317.843375)scale(0.1 -0.1)"
+               id="g107">
+              <use
+                 xlink:href="#STIXTwoMath-32"
+                 id="use101" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use103" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use105" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_6">
+          <g
+             id="line2d_11">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 312.794201 303.784  L 312.794201 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path111" />
+          </g>
+          <g
+             id="line2d_12">
+            <g
+               id="g116">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="312.794201"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use114" />
+            </g>
+          </g>
+          <g
+             id="text_6">
+            <!-- 250 -->
+            <g
+               transform="translate(305.369201 317.843375)scale(0.1 -0.1)"
+               id="g125">
+              <use
+                 xlink:href="#STIXTwoMath-32"
+                 id="use119" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-35"
+                 id="use121" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use123" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_7">
+          <g
+             id="line2d_13">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 365.405841 303.784  L 365.405841 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path129" />
+          </g>
+          <g
+             id="line2d_14">
+            <g
+               id="g134">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="365.405841"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use132" />
+            </g>
+          </g>
+          <g
+             id="text_7">
+            <!-- 300 -->
+            <defs
+               id="defs138">
+              <path
+                 d="M 8.59375 49.796875  C 12 55.09375 15.703125 57.90625 21.703125 57.90625  C 27.90625 57.90625 31.90625 54.5 31.90625 48.59375  C 31.90625 40.5 24.796875 35 18 35  L 16.09375 35  L 16.09375 31.203125  L 18.09375 31.203125  C 27.703125 31.203125 36.203125 25.296875 36.203125 16.40625  C 36.203125 6.59375 30.09375 3.703125 23.796875 3.703125  C 21.40625 3.703125 20 4.09375 15.703125 6.296875  C 12.203125 8.09375 11.40625 8.59375 9.796875 8.59375  C 7.203125 8.59375 5.90625 6.296875 5.90625 4.203125  C 5.90625 1.59375 8.09375 -1.296875 17.09375 -1.296875  C 31.703125 -1.296875 44.40625 5.703125 44.40625 19.40625  C 44.40625 28.296875 37.703125 33.59375 29.703125 36.09375  L 29.703125 36.40625  C 36 40.40625 40.5 44.09375 40.5 51  C 40.5 58.59375 34.59375 64.40625 24.40625 64.40625  C 16.203125 64.40625 10 59.796875 6.296875 51.09375  z "
+                 id="STIXTwoMath-33" />
+            </defs>
+            <g
+               transform="translate(357.980841 317.843375)scale(0.1 -0.1)"
+               id="g146">
+              <use
+                 xlink:href="#STIXTwoMath-33"
+                 id="use140" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use142" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use144" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="xtick_8">
+          <g
+             id="line2d_15">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 418.017481 303.784  L 418.017481 13.32  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path150" />
+          </g>
+          <g
+             id="line2d_16">
+            <g
+               id="g155">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="418.017481"
+                 xlink:href="#m7038964a9d"
+                 y="303.784"
+                 id="use153" />
+            </g>
+          </g>
+          <g
+             id="text_8">
+            <!-- 350 -->
+            <g
+               transform="translate(410.592481 317.843375)scale(0.1 -0.1)"
+               id="g164">
+              <use
+                 xlink:href="#STIXTwoMath-33"
+                 id="use158" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-35"
+                 id="use160" />
+              <use
+                 x="98.999969"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use162" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="text_9">
+          <!-- $R_Н$ -->
+          <defs
+             id="defs170">
+            <path
+               d="M 13.203125 65.296875  L 38.40625 65.296875  Q 48.09375 65.296875 53.4375 61.5  Q 58.796875 57.703125 58.796875 51.203125  Q 58.796875 43.40625 52.203125 38.40625  Q 48.296875 35.40625 39.09375 33.296875  L 48 9.796875  Q 49.703125 5.203125 51.546875 3.390625  Q 53.40625 1.59375 56.703125 1.59375  L 56.703125 0  L 42 0  L 29.703125 32.40625  L 23.09375 32.90625  L 17.59375 12.59375  Q 16.296875 8 16.296875 6.296875  Q 16.296875 4 17.59375 3  Q 18.90625 2 23 1.59375  L 23 0  L -1.296875 0  L -1.296875 1.59375  Q 2.703125 2.09375 4.34375 3.796875  Q 6 5.5 7.203125 10.09375  L 19.09375 53.203125  Q 20.296875 57.796875 20.296875 59.5  Q 20.296875 61.296875 18.90625 62.296875  Q 17.703125 63.09375 13.203125 63.703125  z M 30.59375 59.296875  L 24.296875 36.59375  Q 27.40625 36.09375 29.40625 36.09375  Q 38.296875 36.09375 43.296875 40.09375  Q 48.296875 44.09375 48.296875 51.09375  Q 48.296875 56.296875 45.1875 59.296875  Q 42.09375 62.296875 36.296875 62.296875  Q 31.40625 62.296875 30.59375 59.296875  z "
+               id="STIXGeneral-Italic-52" />
+            <path
+               d="M 74.90625 65.296875  L 74.90625 63.703125  Q 70.5 62.90625 69.046875 61.703125  Q 67.59375 60.5 66.5 56.296875  L 53.703125 8.203125  Q 53.40625 7 53.40625 5.796875  Q 53.40625 3.703125 54.90625 2.890625  Q 56.40625 2.09375 61.296875 1.59375  L 61.296875 0  L 34.09375 0  L 34.09375 1.59375  Q 39.203125 2 41.25 3.703125  Q 43.296875 5.40625 44.296875 9.296875  L 50.59375 32.59375  L 21.90625 32.59375  L 15.296875 8.203125  Q 15 7.203125 15 6  Q 15 3.796875 16.25 3  Q 17.5 2.203125 22 1.59375  L 22 0  L -2.59375 0  L -2.40625 1.59375  Q 1.796875 2 3.34375 3.640625  Q 4.90625 5.296875 6.203125 10.203125  L 17.703125 53.203125  Q 18.90625 57.796875 18.90625 59.59375  Q 18.90625 61.796875 17.5 62.5  Q 16.09375 63.203125 11.296875 63.703125  L 11.296875 65.296875  L 38.40625 65.296875  L 38.40625 63.703125  Q 33.90625 63.40625 31.546875 61.796875  Q 29.203125 60.203125 28.203125 56.59375  L 23 36.796875  L 51.59375 36.796875  L 56.09375 53.203125  Q 57.5 58.40625 57.5 59.5  Q 57.5 61.40625 55.890625 62.40625  Q 54.296875 63.40625 50.296875 63.703125  L 50.296875 65.296875  z "
+               id="STIXGeneral-Italic-41d" />
+          </defs>
+          <g
+             transform="translate(242.808 331.10275)scale(0.1 -0.1)"
+             id="g176">
+            <use
+               transform="translate(0 0.703125)"
+               xlink:href="#STIXGeneral-Italic-52"
+               id="use172" />
+            <use
+               transform="translate(61.099991 -12.525)scale(0.7)"
+               xlink:href="#STIXGeneral-Italic-41d"
+               id="use174" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_2">
+        <g
+           id="ytick_1">
+          <g
+             id="line2d_17">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 303.784  L 447.48 303.784  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path180" />
+          </g>
+          <g
+             id="line2d_18">
+            <defs
+               id="defs184">
+              <path
+                 d="M 0 0  L -3.5 0  "
+                 id="mcd60a321eb"
+                 style="stroke:#000000;stroke-width:0.8;" />
+            </defs>
+            <g
+               id="g188">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="303.784"
+                 id="use186" />
+            </g>
+          </g>
+          <g
+             id="text_10">
+            <!-- 0.00 -->
+            <defs
+               id="defs192">
+              <path
+                 d="M 18.203125 4.90625  C 18.203125 8.203125 16.09375 11.09375 12.296875 11.09375  C 8.59375 11.09375 6.40625 8.296875 6.40625 5  C 6.40625 1.59375 8.296875 -0.796875 12.203125 -0.796875  C 16.09375 -0.796875 18.203125 1.796875 18.203125 4.90625  z "
+                 id="STIXTwoMath-2e" />
+            </defs>
+            <g
+               transform="translate(25.426625 307.313688)scale(0.1 -0.1)"
+               id="g202">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use194" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use196" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use198" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use200" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="ytick_2">
+          <g
+             id="line2d_19">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 249.542357  L 447.48 249.542357  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path206" />
+          </g>
+          <g
+             id="line2d_20">
+            <g
+               id="g211">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="249.542357"
+                 id="use209" />
+            </g>
+          </g>
+          <g
+             id="text_11">
+            <!-- 0.02 -->
+            <g
+               transform="translate(25.426625 253.072044)scale(0.1 -0.1)"
+               id="g222">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use214" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use216" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use218" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-32"
+                 id="use220" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="ytick_3">
+          <g
+             id="line2d_21">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 195.300713  L 447.48 195.300713  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path226" />
+          </g>
+          <g
+             id="line2d_22">
+            <g
+               id="g231">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="195.300713"
+                 id="use229" />
+            </g>
+          </g>
+          <g
+             id="text_12">
+            <!-- 0.04 -->
+            <defs
+               id="defs235">
+              <path
+                 d="M 48.09375 15.796875  L 48.09375 22.703125  L 37.90625 22.703125  L 37.90625 64.5  L 31.796875 64.5  L 1.296875 22.09375  L 1.296875 15.796875  L 29 15.796875  L 29 0  L 37.90625 0  L 37.90625 15.796875  z M 29 22.703125  L 6.796875 22.703125  L 6.796875 23.09375  L 28.59375 53.59375  L 29 53.59375  z "
+                 id="STIXTwoMath-34" />
+            </defs>
+            <g
+               transform="translate(25.426625 198.830401)scale(0.1 -0.1)"
+               id="g245">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use237" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use239" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use241" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-34"
+                 id="use243" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="ytick_4">
+          <g
+             id="line2d_23">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 141.05907  L 447.48 141.05907  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path249" />
+          </g>
+          <g
+             id="line2d_24">
+            <g
+               id="g254">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="141.05907"
+                 id="use252" />
+            </g>
+          </g>
+          <g
+             id="text_13">
+            <!-- 0.06 -->
+            <defs
+               id="defs258">
+              <path
+                 d="M 41.5 64.59375  C 20 63.703125 4.5 49.796875 4.5 25.703125  C 4.5 11 11 -1.203125 25.90625 -1.203125  C 38.5 -1.203125 45.703125 6.703125 45.703125 20.296875  C 45.703125 33.40625 38.59375 41.296875 27.703125 41.296875  C 22.5 41.296875 18.796875 39.09375 14.703125 35.09375  L 14 35.203125  C 16.5 49.796875 27.703125 59.59375 41.703125 61.703125  z M 37 19.5  C 37 6.796875 33 2.296875 26.296875 2.296875  C 17.59375 2.296875 13.5 11.203125 13.5 23.59375  C 13.5 32.296875 18.90625 35.5 24.703125 35.5  C 33 35.5 37 28.5 37 19.5  z "
+                 id="STIXTwoMath-36" />
+            </defs>
+            <g
+               transform="translate(25.426625 144.588758)scale(0.1 -0.1)"
+               id="g268">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use260" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use262" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use264" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-36"
+                 id="use266" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="ytick_5">
+          <g
+             id="line2d_25">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 86.817427  L 447.48 86.817427  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path272" />
+          </g>
+          <g
+             id="line2d_26">
+            <g
+               id="g277">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="86.817427"
+                 id="use275" />
+            </g>
+          </g>
+          <g
+             id="text_14">
+            <!-- 0.08 -->
+            <defs
+               id="defs281">
+              <path
+                 d="M 44.796875 15  C 44.796875 23 41.203125 27.796875 29.5 34.90625  L 29.5 35.203125  C 38.796875 40.296875 42.40625 43.59375 42.40625 50.90625  C 42.40625 58.796875 34.796875 64.703125 24.90625 64.703125  C 13.90625 64.703125 5.90625 59 5.90625 49.90625  C 5.90625 43.09375 8.09375 39 18.296875 31.90625  L 18.296875 31.59375  C 9 25.40625 4.59375 22.203125 4.59375 14.203125  C 4.59375 4 13 -1.203125 24.59375 -1.203125  C 36.5 -1.203125 44.796875 4.5 44.796875 15  z M 35 51.09375  C 35 44.703125 33 40.796875 26.40625 36.796875  C 17.5 42.203125 13.703125 45.796875 13.703125 51.703125  C 13.703125 57.796875 17.90625 61.40625 24.703125 61.40625  C 31.09375 61.40625 35 57.703125 35 51.09375  z M 21.296875 30  C 33.40625 22.203125 36.40625 18.5 36.40625 12.09375  C 36.40625 5.296875 31.203125 1.90625 25 1.90625  C 17.40625 1.90625 12.40625 6 12.40625 15  C 12.40625 21.90625 15.59375 25.40625 21.296875 30  z "
+                 id="STIXTwoMath-38" />
+            </defs>
+            <g
+               transform="translate(25.426625 90.347114)scale(0.1 -0.1)"
+               id="g291">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use283" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use285" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use287" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-38"
+                 id="use289" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="ytick_6">
+          <g
+             id="line2d_27">
+            <path
+               clip-path="url(#p2d168016a7)"
+               d="M 49.736 32.575783  L 447.48 32.575783  "
+               style="fill:none;stroke:#b0b0b0;stroke-linecap:square;stroke-width:0.8;"
+               id="path295" />
+          </g>
+          <g
+             id="line2d_28">
+            <g
+               id="g300">
+              <use
+                 style="stroke:#000000;stroke-width:0.8;"
+                 x="49.736"
+                 xlink:href="#mcd60a321eb"
+                 y="32.575783"
+                 id="use298" />
+            </g>
+          </g>
+          <g
+             id="text_15">
+            <!-- 0.10 -->
+            <g
+               transform="translate(25.426625 36.105471)scale(0.1 -0.1)"
+               id="g311">
+              <use
+                 xlink:href="#STIXTwoMath-30"
+                 id="use303" />
+              <use
+                 x="49.499985"
+                 xlink:href="#STIXTwoMath-2e"
+                 id="use305" />
+              <use
+                 x="74.099976"
+                 xlink:href="#STIXTwoMath-31"
+                 id="use307" />
+              <use
+                 x="123.59996"
+                 xlink:href="#STIXTwoMath-30"
+                 id="use309" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="text_16">
+          <!-- $P_{Н}$ -->
+          <defs
+             id="defs316">
+            <path
+               d="M 14.59375 65.296875  L 38.703125 65.296875  Q 60.5 65.296875 60.5 50.5  Q 60.5 46.5 58.640625 42.640625  Q 56.796875 38.796875 53.703125 36.203125  Q 46.796875 30.5 33.203125 30.5  Q 27.703125 30.5 24.203125 31.296875  L 18.90625 12  Q 17.5 6.59375 17.5 5.703125  Q 17.5 3.90625 19 2.953125  Q 20.5 2 24.40625 1.59375  L 24.40625 0  L 0 0  L 0 1.59375  Q 4.296875 2.203125 5.640625 3.546875  Q 7 4.90625 8.40625 9.796875  L 20 51.203125  Q 21.703125 57.296875 21.703125 59.5  Q 21.703125 61.5 20.296875 62.34375  Q 18.90625 63.203125 14.59375 63.703125  z M 32 59.203125  L 25.09375 34.703125  Q 28 34.203125 30.296875 34.203125  Q 39 34.203125 43.09375 36.59375  Q 50.203125 40.59375 50.203125 50  Q 50.203125 62.296875 37.203125 62.296875  Q 32.796875 62.296875 32 59.203125  z "
+               id="STIXGeneral-Italic-50" />
+          </defs>
+          <g
+             transform="translate(19.226625 164.352)rotate(-90)scale(0.1 -0.1)"
+             id="g322">
+            <use
+               transform="translate(0 0.703125)"
+               xlink:href="#STIXGeneral-Italic-50"
+               id="use318" />
+            <use
+               transform="translate(61.099991 -12.525)scale(0.7)"
+               xlink:href="#STIXGeneral-Italic-41d"
+               id="use320" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_29">
+        <path
+           clip-path="url(#p2d168016a7)"
+           d="M 49.736 303.784  L 91.825312 157.331563  L 133.914624 84.105345  L 176.003937 46.136194  L 218.093249 32.575783  L 260.182561 27.151619  L 302.271873 30.677326  L 344.361185 59.696605  L 386.450497 39.084781  L 428.53981 43.424112  "
+           style="fill:none;stroke:#1f77b4;stroke-linecap:square;stroke-width:1.5;"
+           id="path326" />
+      </g>
+      <g
+         id="patch_3">
+        <path
+           d="M 49.736 303.784  L 49.736 13.32  "
+           style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"
+           id="path329" />
+      </g>
+      <g
+         id="patch_4">
+        <path
+           d="M 447.48 303.784  L 447.48 13.32  "
+           style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"
+           id="path332" />
+      </g>
+      <g
+         id="patch_5">
+        <path
+           d="M 49.736 303.784  L 447.48 303.784  "
+           style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"
+           id="path335" />
+      </g>
+      <g
+         id="patch_6">
+        <path
+           d="M 49.736 13.32  L 447.48 13.32  "
+           style="fill:none;stroke:#000000;stroke-linecap:square;stroke-linejoin:miter;stroke-width:0.8;"
+           id="path338" />
+      </g>
+    </g>
+  </g>
+  <defs
+     id="defs346">
+    <clipPath
+       id="p2d168016a7">
+      <rect
+         height="290.464"
+         width="397.744"
+         x="49.736"
+         y="13.32"
+         id="rect343" />
+    </clipPath>
+  </defs>
+</svg>

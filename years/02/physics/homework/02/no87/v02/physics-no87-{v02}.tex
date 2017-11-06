@@ -1,0 +1,74 @@
+\documentclass[a4paper,oneside,DIV=9,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+		inter-unit-product = \ensuremath{{}\cdot{}},
+		exponent-product = \cdot}
+
+\newcommand\given{\noindent\textbf{Дано:}}
+\newcommand\find{\noindent\textbf{Знайти:}}
+\newcommand\solution{\noindent\textbf{Розв'язання:}}
+\newcommand\answer[1]{\noindent\textbf{Відповідь: #1}}
+
+\begin{document}
+	%\noindent\begin{tabular}{ll}
+	%	Дано & Знайти \\
+	%	$S = \num{0,6} \cos (1800t - \num{5,3}x)\, \si{\metre}$ & $\varepsilon_{\text{max}}$ --- ?\\
+%		$S_0 = \SI{0,6}{\metre}$ & $\dfrac{\varepsilon_{\text{max}}}{v}$ --- ?\\
+%		$\omega = \SI{1800}{\per\second}$ & \\
+%		$k = \SI{5,3}{\per\metre}$ & \\
+%	\end{tabular}
+	
+	\given\par
+	$S = \num{60} \cos (1800t - \num{5,3}x)\, \si{\centi\metre}$
+	
+	
+	$S_0 = \SI{60}{\centi\metre} = \SI{0,6}{\metre}$
+	
+	
+	$\omega = \SI{1800}{\per\second}$
+	
+	
+	$k = \SI{5,3}{\per\centi\metre} = \SI{0,053}{\per\metre}$
+	
+	\find\par
+	$\varepsilon_{\text{max}}$ --- ?
+	
+	$\frac{\varepsilon_{\text{max}}}{v}$ --- ?
+	
+	\solution\par
+	%Щоб знайти відносну деформацію середовища, продиференціюємо рівняння плоскої хвилі по $x$:
+	%\[
+	%	\varepsilon = \frac{\partial (S_{0} \cos (\omega t - kx))}{\partial x} = -S_{0}k \sin (wt - kx).
+	%\]
+	
+	Знайдемо амплітуду коливань відносної деформації середовища:
+	\[
+		\varepsilon_{\text{max}} = S_{0}k = \SI{0,6}{\metre} \cdot \SI{0,053}{\per\metre} = \num{0,0318}.
+	\]
+	
+	Знайдемо ампілтуду коливань швидкості частинок:
+	\[
+		v_{\text{чmax}} = S_0 \omega = \SI{0,6}{\metre} \cdot \SI{1800}{\per\second} = \SI{1080}{\metre\per\second}.
+	\]
+	
+	Знайдемо відношення амплітуди коливань відносної деформації середовища до амплітуди коливань швидкості частинок:
+	\[
+		\frac{\varepsilon_{\text{max}}}{v_{\text{чmax}}} = \frac{\num{0,0318}}{\SI{1080}{\metre\per\second}} = \SI{0,0000294}{\second\per\metre}.
+	\]
+	
+	\answer{\SI{0,0000294}{\second\per\metre}}.
+	
+\end{document}

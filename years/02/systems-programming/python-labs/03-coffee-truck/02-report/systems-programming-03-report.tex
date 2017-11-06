@@ -1,0 +1,72 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{PT Serif}
+\setsansfont{PT Sans}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{minted}
+
+\usepackage{mdframed}
+\usepackage{xcolor}
+\mdfsetup{%
+%backgroundcolor = black!1,%
+linecolor = black!0,%
+%innerleftmargin = 0.5em, innerrightmargin = 0.5em,innertopmargin = 0.5em, %innerbottommargin = 0.5em%
+}
+
+\begin{document}
+	\begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №3\\
+	з дисципліни «Системне програмування»\\
+	на тему «Класи»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+				Виконав:\\
+				студент ННІКІТ СП-225\\
+				Клокун Владислав\\
+				Перевірив:\\
+				Радченко П.~В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	\section{Завдання}
+		Припустимо, що є вантажівка, у якій знаходяться коробки, кожна з яких містить кавові боби певного сорту. Використовуючи класи, підрахувати загальну вартість усієї кави у вантажівці.
+		
+	\section{Розв'язання}
+		%\begin{listing}[htbp]
+			\begin{mdframed}
+			\inputminted[
+				mathescape,
+				tabsize=4,
+				linenos,
+				breaklines,
+				breakbytokenanywhere,
+				breaksymbol={},
+				style=bw,
+				%fontsize=\small
+				]{python}{../01-code/03-coffee-truck.py}
+			\end{mdframed}
+		%\caption{Початковий код програми «Хрестики-нулики»}
+		%\end{listing}
+		
+\end{document}

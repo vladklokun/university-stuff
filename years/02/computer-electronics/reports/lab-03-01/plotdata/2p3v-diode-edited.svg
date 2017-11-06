@@ -1,0 +1,2137 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="600"
+   height="300"
+   viewBox="0 0 600 300"
+   version="1.1"
+   id="svg561"
+   sodipodi:docname="2p3v-diode-edited.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata567">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>Gnuplot</dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs565">
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker2605"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         id="path2603" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker2491"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2489"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker2147"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         id="path2145" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="marker2009"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path2007"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;"
+       id="marker1805"
+       refX="0.0"
+       refY="0.0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(0.6) rotate(180) translate(0,0)"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         id="path1803" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Mend"
+       style="overflow:visible;"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1444"
+         style="fill-rule:evenodd;stroke-width:0.625;stroke-linejoin:round;stroke:#000000;stroke-opacity:1;fill:#000000;fill-opacity:1"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(0.6) rotate(180) translate(0,0)" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2605-9"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path2603-9" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible"
+       id="marker2605-9-0"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         inkscape:connector-curvature="0"
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linejoin:round;stroke-opacity:1"
+         id="path2603-9-5" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview563"
+     showgrid="false"
+     inkscape:zoom="3.3941125"
+     inkscape:cx="454.48542"
+     inkscape:cy="194.70509"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg561" />
+  <title
+     id="title2">Gnuplot</title>
+  <desc
+     id="desc4">Produced by GNUPLOT 5.2 patchlevel 0 </desc>
+  <g
+     id="gnuplot_canvas">
+    <rect
+       x="0"
+       y="0"
+       width="600"
+       height="300"
+       fill="none"
+       id="rect6" />
+    <defs
+       id="defs34">
+      <circle
+         id="gpDot"
+         r="0.5"
+         stroke-width="0.5" />
+      <path
+         id="gpPt0"
+         stroke-width="0.267"
+         stroke="currentColor"
+         d="M-1,0 h2 M0,-1 v2" />
+      <path
+         id="gpPt1"
+         stroke-width="0.267"
+         stroke="currentColor"
+         d="M-1,-1 L1,1 M1,-1 L-1,1" />
+      <path
+         id="gpPt2"
+         stroke-width="0.267"
+         stroke="currentColor"
+         d="M-1,0 L1,0 M0,-1 L0,1 M-1,-1 L1,1 M-1,1 L1,-1" />
+      <rect
+         id="gpPt3"
+         stroke-width="0.267"
+         stroke="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <rect
+         id="gpPt4"
+         stroke-width="0.267"
+         stroke="currentColor"
+         fill="currentColor"
+         x="-1"
+         y="-1"
+         width="2"
+         height="2" />
+      <circle
+         id="gpPt5"
+         stroke-width="0.267"
+         stroke="currentColor"
+         cx="0"
+         cy="0"
+         r="1" />
+      <use
+         xlink:href="#gpPt5"
+         id="gpPt6"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt7"
+         stroke-width="0.267"
+         stroke="currentColor"
+         d="M0,-1.33 L-1.33,0.67 L1.33,0.67 z" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt8"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt7"
+         id="gpPt9"
+         stroke="currentColor"
+         transform="rotate(180)" />
+      <use
+         xlink:href="#gpPt9"
+         id="gpPt10"
+         fill="currentColor"
+         stroke="none" />
+      <use
+         xlink:href="#gpPt3"
+         id="gpPt11"
+         stroke="currentColor"
+         transform="rotate(45)" />
+      <use
+         xlink:href="#gpPt11"
+         id="gpPt12"
+         fill="currentColor"
+         stroke="none" />
+      <path
+         id="gpPt13"
+         stroke-width="0.267"
+         stroke="currentColor"
+         d="M0,1.330 L1.265,0.411 L0.782,-1.067 L-0.782,-1.076 L-1.265,0.411 z" />
+      <use
+         xlink:href="#gpPt13"
+         id="gpPt14"
+         fill="currentColor"
+         stroke="none" />
+      <filter
+         id="textbox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="white"
+           flood-opacity="1"
+           result="bgnd"
+           id="feFlood24" />
+        <feComposite
+           in="SourceGraphic"
+           in2="bgnd"
+           operator="atop"
+           id="feComposite26" />
+      </filter>
+      <filter
+         id="greybox"
+         filterUnits="objectBoundingBox"
+         x="0"
+         y="0"
+         height="1"
+         width="1">
+        <feFlood
+           flood-color="lightgrey"
+           flood-opacity="1"
+           result="grey"
+           id="feFlood29" />
+        <feComposite
+           in="SourceGraphic"
+           in2="grey"
+           operator="atop"
+           id="feComposite31" />
+      </filter>
+    </defs>
+    <g
+       fill="none"
+       color="white"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g36" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g38" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g42">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,102.0 L578.9,102.0  "
+         id="path40" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g50">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,102.0 L61.0,102.0  "
+         id="path44" />
+      <g
+         transform="translate(46.5,105.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g48">
+        <text
+           id="text46">-5</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g52" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g56">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,80.3 L578.9,80.3  "
+         id="path54" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g64">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,80.3 L61.0,80.3  "
+         id="path58" />
+      <g
+         transform="translate(46.5,83.6)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g62">
+        <text
+           id="text60"> 0</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g66" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g70">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,58.5 L578.9,58.5  "
+         id="path68" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g78">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,58.5 L61.0,58.5  "
+         id="path72" />
+      <g
+         transform="translate(46.5,61.8)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g76">
+        <text
+           id="text74"> 5</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g80" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g84">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,36.8 L578.9,36.8  "
+         id="path82" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g92">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,36.8 L61.0,36.8  "
+         id="path86" />
+      <g
+         transform="translate(46.5,40.1)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g90">
+        <text
+           id="text88"> 10</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g94" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g98">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,15.1 L578.9,15.1  "
+         id="path96" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g106">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,15.1 L61.0,15.1  "
+         id="path100" />
+      <g
+         transform="translate(46.5,18.4)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g104">
+        <text
+           id="text102"> 15</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g108" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g112">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M97.3,102.0 L97.3,15.1  "
+         id="path110" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g120">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M97.3,102.0 L97.3,94.5  "
+         id="path114" />
+      <g
+         transform="translate(97.3,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g118">
+        <text
+           id="text116">1.20</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g122" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g126">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M149.8,102.0 L149.8,15.1  "
+         id="path124" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g134">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M149.8,102.0 L149.8,94.5  "
+         id="path128" />
+      <g
+         transform="translate(149.8,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g132">
+        <text
+           id="text130">1.26</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g136" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g140">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M202.4,102.0 L202.4,15.1  "
+         id="path138" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g148">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M202.4,102.0 L202.4,94.5  "
+         id="path142" />
+      <g
+         transform="translate(202.4,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g146">
+        <text
+           id="text144">1.32</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g150" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g154">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M254.9,102.0 L254.9,15.1  "
+         id="path152" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g162">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M254.9,102.0 L254.9,94.5  "
+         id="path156" />
+      <g
+         transform="translate(254.9,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g160">
+        <text
+           id="text158">1.38</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g164" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g168">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M307.4,102.0 L307.4,15.1  "
+         id="path166" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g176">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M307.4,102.0 L307.4,94.5  "
+         id="path170" />
+      <g
+         transform="translate(307.4,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g174">
+        <text
+           id="text172">1.44</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g178" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g182">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M360.0,102.0 L360.0,15.1  "
+         id="path180" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g190">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M360.0,102.0 L360.0,94.5  "
+         id="path184" />
+      <g
+         transform="translate(360.0,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g188">
+        <text
+           id="text186">1.50</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g192" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g196">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M412.5,102.0 L412.5,15.1  "
+         id="path194" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g204">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M412.5,102.0 L412.5,94.5  "
+         id="path198" />
+      <g
+         transform="translate(412.5,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g202">
+        <text
+           id="text200">1.56</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g206" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g210">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M465.1,102.0 L465.1,15.1  "
+         id="path208" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g218">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M465.1,102.0 L465.1,94.5  "
+         id="path212" />
+      <g
+         transform="translate(465.1,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g216">
+        <text
+           id="text214">1.62</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g220" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g224">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M517.6,102.0 L517.6,15.1  "
+         id="path222" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g232">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M517.6,102.0 L517.6,94.5  "
+         id="path226" />
+      <g
+         transform="translate(517.6,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g230">
+        <text
+           id="text228">1.68</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g234" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g238">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M570.1,102.0 L570.1,15.1  "
+         id="path236" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g246">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M570.1,102.0 L570.1,94.5  "
+         id="path240" />
+      <g
+         transform="translate(570.1,120.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g244">
+        <text
+           id="text242">1.74</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g248" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g264">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,15.1 L53.5,102.0 L578.9,102.0 M578.9,15.1 M53.5,15.1  "
+         id="path250" />
+      <g
+         stroke="none"
+         shape-rendering="crispEdges"
+         id="g254">
+        <polygon
+           fill="rgb(  0,   0,   0)"
+           points="587.3,102.0 586.5,98.6 592.0,102.0 586.5,105.4 587.3,102.0 "
+           id="polygon252" />
+      </g>
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M587.3,102.0 L586.5,98.6 L592.0,102.0 L586.5,105.4 L587.3,102.0 M578.9,102.0 L587.3,102.0  "
+         id="path256" />
+      <g
+         stroke="none"
+         shape-rendering="crispEdges"
+         id="g260">
+        <polygon
+           fill="rgb(  0,   0,   0)"
+           points="53.5,11.6 51.7,11.8 53.5,10.8 55.3,11.8 53.5,11.6 "
+           id="polygon258" />
+      </g>
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,11.6 L51.7,11.8 L53.5,10.8 L55.3,11.8 L53.5,11.6 M53.5,15.1 L53.5,11.6  "
+         id="path262" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g270">
+      <g
+         transform="translate(13.7,58.6) rotate(270)"
+         stroke="none"
+         fill="black"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g268">
+        <text
+           id="text266">$U_{\text{Б}}$ (В)</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g276">
+      <g
+         transform="translate(316.2,142.8)"
+         stroke="none"
+         fill="black"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g274">
+        <text
+           id="text272">t (\si{\micro\second})</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g278" />
+    <g
+       id="gnuplot_plot_1a">
+      <title
+         id="title280">&quot;2p3v-diode-in&quot;</title>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="1.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g284">
+        <path
+           stroke="rgb(148,   0, 211)"
+           d="M53.5,70.3 L81.7,70.3 L90.3,70.3 L90.3,72.3 L90.3,76.3 L90.3,84.3 L90.3,90.3 L90.4,90.3   L90.5,90.3 L90.6,90.3 L90.9,90.3 L91.5,90.3 L92.1,90.3 L93.2,90.3 L94.6,90.3 L97.5,90.3   L103.4,90.3 L115.1,90.3 L138.5,90.3 L185.3,90.3 L279.0,90.3 L339.2,90.3 L394.1,90.3 L418.6,90.3   L458.5,90.3 L506.2,90.3 L506.2,88.3 L506.2,84.3 L506.2,76.3 L506.2,70.3 L506.3,70.3 L506.4,70.3   L506.5,70.3 L506.8,70.3 L507.0,70.3 L507.3,70.3 L507.6,70.3 L508.0,70.3 L508.7,70.3 L510.1,70.3   L512.4,70.3 L514.8,70.3 L519.5,70.3 L523.1,70.3 L531.8,70.3 L545.9,70.3 L555.0,70.3 L561.0,70.3   L567.0,70.3 L578.8,70.3 L578.9,70.3  "
+           id="path282" />
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="white"
+       stroke="rgb(148,   0, 211)"
+       stroke-width="2.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g287" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="2.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g289" />
+    <g
+       fill="none"
+       color="black"
+       stroke="black"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g291" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g295">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,15.1 L53.5,102.0 L578.9,102.0 M578.9,15.1 M53.5,15.1  "
+         id="path293" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g297" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g299" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g303">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,252.0 L578.9,252.0  "
+         id="path301" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g311">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,252.0 L61.0,252.0  "
+         id="path305" />
+      <g
+         transform="translate(46.5,255.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g309">
+        <text
+           id="text307">-5</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g313" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g317">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,230.2 L578.9,230.2  "
+         id="path315" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g325">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,230.2 L61.0,230.2  "
+         id="path319" />
+      <g
+         transform="translate(46.5,233.5)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g323">
+        <text
+           id="text321"> 0</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g327" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g331">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,208.5 L578.9,208.5  "
+         id="path329" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g339">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,208.5 L61.0,208.5  "
+         id="path333" />
+      <g
+         transform="translate(46.5,211.8)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g337">
+        <text
+           id="text335"> 5</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g341" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g345">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,186.7 L578.9,186.7  "
+         id="path343" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g353">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,186.7 L61.0,186.7  "
+         id="path347" />
+      <g
+         transform="translate(46.5,190.0)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g351">
+        <text
+           id="text349"> 10</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g355" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g359">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M53.5,165.0 L578.9,165.0  "
+         id="path357" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g367">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,165.0 L61.0,165.0  "
+         id="path361" />
+      <g
+         transform="translate(46.5,168.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="end"
+         id="g365">
+        <text
+           id="text363"> 15</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g369" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g373">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M97.3,252.0 L97.3,165.0  "
+         id="path371" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g381">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M97.3,252.0 L97.3,244.5  "
+         id="path375" />
+      <g
+         transform="translate(97.3,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g379">
+        <text
+           id="text377">1.20</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g383" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g387">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M149.8,252.0 L149.8,165.0  "
+         id="path385" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g395">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M149.8,252.0 L149.8,244.5  "
+         id="path389" />
+      <g
+         transform="translate(149.8,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g393">
+        <text
+           id="text391">1.26</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g397" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g401">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M202.4,252.0 L202.4,165.0  "
+         id="path399" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g409">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M202.4,252.0 L202.4,244.5  "
+         id="path403" />
+      <g
+         transform="translate(202.4,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g407">
+        <text
+           id="text405">1.32</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g411" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g415">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M254.9,252.0 L254.9,165.0  "
+         id="path413" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g423">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M254.9,252.0 L254.9,244.5  "
+         id="path417" />
+      <g
+         transform="translate(254.9,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g421">
+        <text
+           id="text419">1.38</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g425" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g429">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M307.4,252.0 L307.4,165.0  "
+         id="path427" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g437">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M307.4,252.0 L307.4,244.5  "
+         id="path431" />
+      <g
+         transform="translate(307.4,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g435">
+        <text
+           id="text433">1.44</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g439" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g443">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M360.0,252.0 L360.0,165.0  "
+         id="path441" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g451">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M360.0,252.0 L360.0,244.5  "
+         id="path445" />
+      <g
+         transform="translate(360.0,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g449">
+        <text
+           id="text447">1.50</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g453" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g457">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M412.5,252.0 L412.5,165.0  "
+         id="path455" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g465">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M412.5,252.0 L412.5,244.5  "
+         id="path459" />
+      <g
+         transform="translate(412.5,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g463">
+        <text
+           id="text461">1.56</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g467" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g471">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M465.1,252.0 L465.1,165.0  "
+         id="path469" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g479">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M465.1,252.0 L465.1,244.5  "
+         id="path473" />
+      <g
+         transform="translate(465.1,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g477">
+        <text
+           id="text475">1.62</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g481" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g485">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M517.6,252.0 L517.6,165.0  "
+         id="path483" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g493">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M517.6,252.0 L517.6,244.5  "
+         id="path487" />
+      <g
+         transform="translate(517.6,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g491">
+        <text
+           id="text489">1.68</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g495" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g499">
+      <path
+         stroke="rgb(128, 128, 128)"
+         class="gridline"
+         d="M570.1,252.0 L570.1,165.0  "
+         id="path497" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g507">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M570.1,252.0 L570.1,244.5  "
+         id="path501" />
+      <g
+         transform="translate(570.1,270.3)"
+         stroke="none"
+         fill="rgb(0,0,0)"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g505">
+        <text
+           id="text503">1.74</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g509" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g525">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,165.0 L53.5,252.0 L578.9,252.0 M578.9,165.0 M53.5,165.0  "
+         id="path511" />
+      <g
+         stroke="none"
+         shape-rendering="crispEdges"
+         id="g515">
+        <polygon
+           fill="rgb(  0,   0,   0)"
+           points="587.3,252.0 586.5,248.6 592.0,252.0 586.5,255.4 587.3,252.0 "
+           id="polygon513" />
+      </g>
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M587.3,252.0 L586.5,248.6 L592.0,252.0 L586.5,255.4 L587.3,252.0 M578.9,252.0 L587.3,252.0  "
+         id="path517" />
+      <g
+         stroke="none"
+         shape-rendering="crispEdges"
+         id="g521">
+        <polygon
+           fill="rgb(  0,   0,   0)"
+           points="53.5,161.4 51.6,161.6 53.5,160.6 55.4,161.6 53.5,161.4 "
+           id="polygon519" />
+      </g>
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,161.4 L51.6,161.6 L53.5,160.6 L55.4,161.6 L53.5,161.4 M53.5,165.0 L53.5,161.4  "
+         id="path523" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g531">
+      <g
+         transform="translate(13.7,208.5) rotate(270)"
+         stroke="none"
+         fill="black"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g529">
+        <text
+           id="text527">$U_{\text{К}}$ (В)</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g537">
+      <g
+         transform="translate(316.2,292.8)"
+         stroke="none"
+         fill="black"
+         font-family="STIX Two Text"
+         font-size="10.00"
+         text-anchor="middle"
+         id="g535">
+        <text
+           id="text533">t (\si{\micro\second})</text>
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g539" />
+    <g
+       id="gnuplot_plot_1b">
+      <title
+         id="title541">&quot;2p3v-diode-out&quot;</title>
+      <g
+         fill="none"
+         color="black"
+         stroke="currentColor"
+         stroke-width="1.00"
+         stroke-linecap="butt"
+         stroke-linejoin="miter"
+         id="g545">
+        <path
+           stroke="rgb(148,   0, 211)"
+           d="M53.5,228.6 L81.7,228.7 L90.3,228.7 L90.4,228.7 L90.5,228.7 L90.6,228.7 L90.9,228.7 L91.5,228.7   L92.1,228.7 L93.2,228.7 L94.6,228.7 L97.5,228.7 L103.4,228.7 L115.1,228.7 L138.5,228.7 L185.3,228.6   L279.0,228.1 L339.2,184.1 L394.1,188.6 L418.6,185.6 L458.5,187.6 L506.2,186.1 L506.2,186.0 L506.2,185.9   L506.2,185.7 L506.2,185.4 L506.3,184.8 L506.3,183.8 L506.4,182.2 L506.5,180.4 L506.8,179.2 L507.0,178.8   L507.3,178.9 L507.6,179.2 L508.0,179.6 L508.7,180.5 L510.1,182.0 L512.4,186.2 L514.8,190.7 L519.5,199.0   L523.1,206.0 L531.8,217.9 L545.9,227.7 L555.0,227.9 L561.0,228.0 L567.0,228.1 L578.8,228.2 L578.9,228.2    "
+           id="path543" />
+      </g>
+    </g>
+    <g
+       fill="none"
+       color="white"
+       stroke="rgb(148,   0, 211)"
+       stroke-width="2.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g548" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="2.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g550" />
+    <g
+       fill="none"
+       color="black"
+       stroke="black"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g552" />
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g556">
+      <path
+         stroke="rgb(  0,   0,   0)"
+         d="M53.5,165.0 L53.5,252.0 L578.9,252.0 M578.9,165.0 M53.5,165.0  "
+         id="path554" />
+    </g>
+    <g
+       fill="none"
+       color="black"
+       stroke="currentColor"
+       stroke-width="1.00"
+       stroke-linecap="butt"
+       stroke-linejoin="miter"
+       id="g558" />
+  </g>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:4,4;stroke-dashoffset:0"
+     d="M 90.3,54.3 V 263.16667"
+     id="path1374"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 279,54.3 V 263.16667"
+     id="path1374-0"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 339.2,54.3 V 263.16667"
+     id="path1374-2"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 506.2,54.3 V 263.16667"
+     id="path1374-5"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:4, 4;stroke-dashoffset:0;stroke-opacity:1"
+     d="M 545.9,54.3 V 263.16667"
+     id="path1374-28"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 78.333333,125.25 H 290"
+     id="path1409"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'STIX Two Text';-inkscape-font-specification:'STIX Two Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="143.2298"
+     y="140.70833"
+     id="text1413"><tspan
+       sodipodi:role="line"
+       id="tspan1411"
+       x="143.2298"
+       y="140.70833">$t_{\text{ЗТ}}$</tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Mend)"
+     d="M 78.333333,125.24896 H 89.43575"
+     id="path1415"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker1805)"
+     d="M 290,125.25076 H 279.82874"
+     id="path1795"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="m 271.95439,174.90843 h 79.16666"
+     id="path1891"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'STIX Two Text';-inkscape-font-specification:'STIX Two Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="289.18158"
+     y="159.20776"
+     id="text1895"><tspan
+       sodipodi:role="line"
+       id="tspan1893"
+       x="289.18158"
+       y="159.20776">$t_{\text{НР}}$</tspan></text>
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2009)"
+     d="M 351.12105,174.90909 H 340.04399"
+     id="path1999"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2147)"
+     d="m 266.23327,174.90721 h 11.70635"
+     id="path2137"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     d="M 491.29167,136.25 H 559.625"
+     id="path2479"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2491)"
+     d="M 591.6083,136.25066 H 546.80078"
+     id="path2481"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2605)"
+     d="m 491.29167,136.24944 h 13.93646"
+     id="path2595"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:0.99999994px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2605-9)"
+     d="m 451.31134,152.41504 h 53.91678"
+     id="path2595-7"
+     inkscape:connector-curvature="0" />
+  <path
+     style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#marker2605-9-0)"
+     d="M 521.16165,152.39583 H 507.22519"
+     id="path2595-7-2"
+     inkscape:connector-curvature="0" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'STIX Two Text';-inkscape-font-specification:'STIX Two Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="451.54166"
+     y="145.10417"
+     id="text3527"><tspan
+       sodipodi:role="line"
+       id="tspan3525"
+       x="451.54166"
+       y="145.10417">$t_{\text{Р}}$</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'STIX Two Text';-inkscape-font-specification:'STIX Two Text';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+     x="556.97137"
+     y="150.28918"
+     id="text3621"><tspan
+       sodipodi:role="line"
+       id="tspan3619"
+       x="556.97137"
+       y="150.28918">$t_{\text{СП}}$</tspan></text>
+</svg>

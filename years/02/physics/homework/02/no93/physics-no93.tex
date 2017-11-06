@@ -1,0 +1,59 @@
+\documentclass[a4paper,oneside,DIV=9,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{ieeetrantools}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+		inter-unit-product = \ensuremath{{}\cdot{}},
+		exponent-product = \cdot}
+
+\newcommand\given{\noindent\textbf{Дано:}}
+\newcommand\find{\noindent\textbf{Знайти:}}
+\newcommand\solution{\noindent\textbf{Розв'язання:}}
+\newcommand\answer[1]{\noindent\textbf{Відповідь:} #1}
+
+\begin{document}
+	
+	\given\par
+		$v_{\text{дж}} = \SI{200}{\metre\per\second}$;
+		
+		$v = \SI{333}{\metre\per\second}$.
+		
+	\find\par
+		$\frac{\nu}{\nu_{0}}$ --- ?.
+		
+	\solution\par
+		Формула, що описує ефект Доплера:
+		\[
+			\nu = \nu_0 \frac{v + v_{\text{пр}}}{v + v_{\text{дж}}}.
+		\]
+		
+		Оскільки спостерігач (приймач) нерухомий, а куля рухається йому назустріч, то формула приймає такий вигляд ($v_{\text{пр}} = 0, \, v_{\text{дж}} < 0$):
+		\[
+			\nu = \nu_0 \frac{v}{v - v_{\text{дж}}} = \nu_0 \frac{333}{333 - 200} \approx \num{2,5}\nu_0.
+		\]
+		
+		Якщо врахувати, що політ кулі складається з польоту до спостерігача (частота тону $\nu_1$) та від нього (частота тону $\nu_2$), то різниця між цими тонами:
+		\[
+			\nu_1 = \nu_0 \frac{v}{v - v_{\text{дж}}}, \quad \nu_2 = \nu_0 \frac{v}{v + v_{\text{дж}}}.
+		\]
+		
+		Отже:
+		\[
+			\frac{\nu_1}{\nu_2} = \frac{\nu_0 \frac{v}{v - v_{\text{дж}}}}{\nu_0 \frac{v}{v + v_{\text{дж}}}} = \frac{v + v_{\text{дж}}}{v - v_{\text{дж}}} =\frac{333 + 200}{333 - 200} \approx 4.
+		\]
+	\answer{\num{2,5}; \num{4}}.
+	
+\end{document}

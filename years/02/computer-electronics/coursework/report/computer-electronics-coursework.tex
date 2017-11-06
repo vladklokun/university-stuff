@@ -1,0 +1,181 @@
+\documentclass[ukrainian,utf8,nocolumnsxix,nocolumnxxxi,nocolumnxxxii]{eskdtext}
+
+% eskdx compatibility with XeTeX
+\usepackage{xecyr}
+
+\setmainfont{Times New Roman}
+\setmonofont{Courier New}
+\setsansfont{Arial}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{polyglossia}
+\setdefaultlanguage{ukrainian}
+
+% Units typesetting
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+exponent-product = {\cdot}}
+
+% Каждый раздел с новой страницы
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+% Ragged columns
+\usepackage{array}
+\newcolumntype{x}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\renewcommand{\arraystretch}{1.4}
+
+% Long tables
+\usepackage{longtable}
+
+\ESKDdepartment{Національний авіаційний університет}
+\ESKDclassCode{}
+\ESKDtitle{Робота транзистора з навантаженням}
+%\ESKDdocName{Курсова робота}
+\ESKDsignature{НАУ 16 2100002 ПЗ}
+\ESKDauthor{Клокун~В.~Д.}
+\ESKDtitleApprovedBy{%
+Керівник роботи}{Андрєєв~О.~В.}
+%\ESKDtitleAgreedBy{Директор АМО ЗИЛ}{Иванов~И.~И.}
+%\ESKDtitleDesignedBy{Главный инженер АМО ЗИЛ}{Петров~И.~И}
+
+\begin{document}
+
+	% \begin{titlepage}
+	% \begin{center}
+			% Міністерство освіти і науки України\\
+			% Національний авіаційний університет\\
+			% Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+			% Кафедра комп'ютеризованих систем управління
+
+			% \vspace{\fill}
+			% Курсова робота\\
+			% з дисципліни «Комп'ютерна електроніка»\\
+			% на тему «Робота транзистора з навантаженням»
+			
+			% \vspace{\fill}
+			% \begin{flushright}
+			% Виконав:\\
+			% студент ННІКІТ СП-225\\
+			% Клокун Владислав\\
+			% Перевірив:\\
+			% Андрєєв О. В.
+			% \end{flushright}
+			
+			% Київ 2017
+		% \end{center}
+	% \end{titlepage}
+	
+	\maketitle
+
+	\newpage
+	
+	\section*{Вступ}
+	\addcontentsline{toc}{section}{Вступ}
+		Транзистор --- напівпровідниковий елемент електронної техніки, що дозволяє керувати струмом, що протікає через нього, за допомогою зміни вхідної напруги або струму, поданих на базу, або інший електрод. Невелика зміна вхідних величин може призводити до суттєво більшої зміни вихідної напруги та струму.
+		
+		Дана курсова робота виконується з~метою закріплення та~поглиблення теоретичних знань та~навичок в~області біполярних транзисторів. Транзистори є основними елементами сучасної електроніки. Тому під час виконання курсової роботи слід побудувати пряму навантаження на~вольт-амперній характеристиці для заданого типу транзистора та~режиму; вибрати робочу точку та визначити графоаналітичним методом $h$-параметри, коефіцієнт підсилення та~значення зворотного струму колектора $I_{\text{КЗ}}$ для заданої температури.
+	
+	\section{Довідкові дані транзистора}
+		\subsection{Загальні відомості}
+			КТ104А, КТ104Б, КТ104В, КТ104Г --- це кремнієві планарно-епітаксіальні \mbox{p-n-p}-транзистори, призначені для роботи в схемах радіомовних приймачів та іншій апаратурі.
+		
+			Корпус металевий, герметичний, з гнучкими виводами. Маса транзистора не більше \SI{0,5}{\gram}.
+		
+		\subsection{Електричні параметри}
+		
+			Електричні параметри транзистора КТ104А наведені у таблиці \ref{tab:ktelectricparams}.
+			% \begin{table}[!htbp]
+				% \caption{Електричні параметри транзистора КТ104А}
+				% \label{tab:ktelectricparams}
+				% \centering
+				%\begin{tabular}{|x{0.2\textwidth}|c|r|r|r|r|r|r|r|}
+				\begin{center}
+				\begin{longtable}{|x{0.22\textwidth}|c|r|r|r|r|r|r|r|}
+					\caption{Електричні параметри транзистора КТ104А}
+					\label{tab:ktelectricparams}\\
+					
+					\hline
+						Найменування & Позн. & \multicolumn{2}{c|}{Значення} & \multicolumn{5}{c|}{Режим виміру} \\
+						& & Мін. & Макс. & $U_{\text{К}}, \si{\volt}$ & $U_{\text{Е}}, \si{\volt}$ & $I_{\text{К}}, \si{\milli\ampere}$ & $I_{\text{Б}}, \si{\milli\ampere}$ & $I_{\text{Е}}, \si{\milli\ampere}$ \\
+					\hline
+					\endhead
+						Зворотний~струм колектора, \si{\micro\ampere} & $I_{\text{КБЗ}}$ & & 1 & 30 & & & & \\
+						при $T_{\text{С}} = \SI{+100}{\celsius}$ & & & 15 & 20 & & & & \\
+						при $T_{\text{С}} = \SI{-060}{\celsius}$ & & &  1 & 30 & & & & \\
+						\hline
+						%КТ104А, КТ104Г & & & 1 & 30 & & & \\
+						%КТ104Б, КТ104В & & & 1 & 30 & & & \\
+						Зворотний~струм емітера, \si{\micro\ampere}& $I_{\text{ЕБЗ}}$ & & 1 & & 10 & & & \\
+						при $T_{\text{С}} = \SI{+100}{\celsius}$ & & & 10 & & 5 & & & \\
+						при $T_{\text{С}} = \SI{-060}{\celsius}$ & & & 1 & & 10 & & & \\
+						\hline
+						Гранична напруга транзистора ($T_{\text{С}} = -60 \ldots +100~\si{\celsius}$), \si{\volt} & $U_{\text{КЕЗгр}}$ & 30 & & & & & & 5\\
+						\hline
+						Напруга насичення колектор~--- емітер, \si{\volt} & $U_{\text{КЕнас}}$ & & 0{,}5 & & & 10 & 2 & \\
+						\hline
+						Напруга насичення база~--- емітер, \si{\volt} & $U_{\text{БЕнас}}$ & & 1& & & 10 & 2 & \\
+						\hline
+						Вхідний опір транзистора в режимі малого сигналу, \si{\ohm} & $h_{11\text{б}}$ & 120 & & 30 & & & & 1 \\
+						\hline
+						Коефіцієнт передачі струму в режимі малого сигналу у схемі з ЗЕ & $h_{21\text{е}}$ & 9 & 36 & 5 & & & & 1 \\
+						при $T_{\text{С}} = \SI{+100}{\celsius}$ & & 9 & 80 & 5 & & & & 1 \\
+						при $T_{\text{С}} = \SI{-060}{\celsius}$ & & 6 & 36 & 5 & & & & 1 \\
+						\hline
+						Гранична частота коефіцієнта передачі струму, \si{\mega\hertz} & $fh_{21\text{б}}$ & 5 &  & 5 & & & & 1 \\
+						\hline
+						Ємність колекторного переходу (при $f = \SI{465}{\kilo\hertz}$), \si{\pico\farad} & $C_{\text{К}}$& & 50 & 5 & & & & \\
+						\hline
+						Ємність емітерного переходу (при $f = \SI{465}{\kilo\hertz}$), \si{\pico\farad} & $C_{\text{Е}}$& & 10 & & 0{,}5& & & \\
+						\hline
+						Стала часу ланцюгу зворотного зв'язку на високій частоті (при $f = \SI{3}{\mega\hertz}$), \si{\nano\second} & $\tau_{\text{К}}$& & 3 & 5 & & & & 1\\
+					\hline
+				\end{longtable}
+				\end{center}
+				% \end{tabular}
+			% \end{table}
+			
+		\subsection{Максимально допустимі параметри}
+			Максимально допустимі параметри для транзистора КТ140А наведені у таблиці \ref{tab:ktmaxparams}.
+			
+			\begin{center}
+			\begin{longtable}{|x{0.5\textwidth}|c|r|}
+				\caption{Максимально допустимі параметри для транзистора КТ104А}
+				\label{tab:ktmaxparams}\\
+				\hline
+					Найменування & Позначення & Значення \\
+				\hline
+				\endhead
+					Постійний струм колектора, \si{\milli\ampere} & $I_{\text{К max}}$ & 50 \\
+					\hline
+					Постійна напруга колектора, \si{\volt} & $U_{\text{КБ max}}$ & 30 \\
+					\hline
+					Постійна напруга колектор~--- емітер (при запираючій напрузі $U_{\text{ЕБ}} = \SI{0,5}{\volt}$ або при $R_{\text{Б}} \leqslant \SI{10}{\kilo\ohm}$), \si{\volt} & $U_{\text{КЕ max}}$ & 30 \\
+					\hline
+					Постійна напруга емітер~--- база, \si{\volt} & $U_{\text{ЕБ max}}$ & 10 \\
+					\hline
+					Постійна розсіювана потужність колектора, \si{\milli\watt} & $P_{\text{К max}}$ & 150 \\
+					\hline
+					Тепловий опір перехід~--- середовище, \si[per-mode = symbol, bracket-unit-denominator = false]{\celsius\per\milli\watt} & $R_{\text{т, п—с}}$ & 0{,}4 \\
+					\hline
+					Допустима температура навколишнього середовища, \si{\celsius} & & \num{-60} \ldots \num{+100} \\
+				\hline
+			\end{longtable}
+			\end{center}
+			
+	\section{Вольт-амперні характеристики транзистора}
+	
+	\section{Побудова прямої навантаження}
+	
+	\section{Графічне визначення $K_U$, $K_I$, $K_P$}
+	
+	\section{Визначення параметрів $h_{11}$, $h_{12}$, $h_{21}$, $h_{22}$.}
+	
+	% Bibliography here
+	% \printbibliography
+	
+	\tableofcontents
+	
+\end{document}
