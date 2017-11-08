@@ -10,7 +10,7 @@ def main(args):
 	print('Done.')
 	
 def insert(f, surn, name, tel):
-	s = surn + name + tel + '\n'
+	s = surn + '\t' + name + '\t' + tel + '\n'
 	with open(f, 'a') as address_book:
 		address_book.write(s)
 
@@ -20,6 +20,7 @@ def printall(f):
 			with open(f, 'r') as address_book:
 				for line in address_book:
 					print(line)
+			break
 		except Exception as err:
 			print("OS error: {0}".format(err))
 			return
