@@ -23,6 +23,7 @@ def printall(f):
 			break
 		except Exception as err:
 			print("OS error: {0}".format(err))
+			print("You probably didn't add records to the address book. Try adding some.")
 			return
 			
 if __name__ == '__main__':
@@ -42,3 +43,4 @@ if __name__ == '__main__':
 	args = parser.parse_args()
 	
 	main(args)
+	
