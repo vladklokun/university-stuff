@@ -1,0 +1,163 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{PT Serif}
+\setsansfont{PT Sans}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+%Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{v}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+\renewcommand{\arraystretch}{1.4}
+
+\newcommand\testplanid{\texttt{MFS-TST-MASTER-A47E40}}
+\newcommand\projname{\texttt{MFS}}
+
+\newcommand{\program}[1]{\texttt{#1}}
+\newcommand{\rawdata}[1]{\texttt{#1}}
+
+\usepackage{unicode-math}
+\setmathfont{PT Serif}
+
+
+\begin{document}
+	\begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №3\\
+	з дисципліни «Якість програмного забезпечення та тестування»\\
+	на тему «Написання тестових випадків (test case) згідно плану тестування»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+				Виконав:\\
+				студент ННІКІТ СП-225\\
+				Клокун Владислав\\
+				Перевірила:\\
+				Апенько Н. В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	\noindent\testplanid. Версія 28~вересня 2017~року. Усі питання за змістом документа надсилати за адресою: \texttt{john@example.com}.
+	
+    \section{Введення}
+		\testplanid --- мастер-план тестування, розроблений для визначення деталей проведення тестових робіт для проекту під назвою \projname. Даний план складений за принципами, що викладені у вищих проектних документах (табл. \ref{tab:referencedoc}).
+	
+		\begin{table}[h]
+			\label{tab:referencedoc}
+			\centering
+			\begin{tabular}{v{0.3\textwidth}v{0.4\textwidth}}
+				\toprule
+				Тип документу & Ідентифікатор \\
+				\midrule
+				Технічне завдання & \texttt{MFS-PRD-CA5B62}\\
+				План проекту & \texttt{MFS-GENPLAN-C0C6DB}\\
+				Внутрішні стандарти розробки проектів & \texttt{INT-PROJGUIDE-642F1D}\\
+				\bottomrule
+			\end{tabular}
+			\caption{Документи, на які спирається \testplanid}
+		\end{table}
+		
+	\section{Вимоги, що тестуються}
+		Під час проведення тестування цільового програмного забезпечення тестується виключно коректність роботи програми на можливих введених даних.
+		
+	\section{Вимоги, що не тестуються}
+		Під час проведення тестування цільового програмного забезпечення не тестуються такі вимоги:
+		\begin{enumerate}
+			\item Розповсюдження.
+			\item Встановлення.
+			\item Швидкодія.
+		\end{enumerate}
+		
+	\section{Методи тестування}
+		Для проведення тестування використовуються засоби автоматичного тестування, що включені у використану мову програмування.
+		Тестування виконується за допомогою спеціально сформованих тест-кейсів.
+		
+	\section{Вимоги до середовища тестування}
+		\label{sec:testing-environment}
+		
+		Середовище тестування повинно мати налагоджене середовище збірки проектів, написаних мовою програмування Rust, зокрема \program{cargo} та \program{rustc}.
+		
+		
+	\section{Необхідні ресурси}
+		Для проведення тестування необхідно робоче середовище тестування (див. розділ~\ref{sec:testing-environment}) та одна особа на роль тестувальника.
+		
+	\section{Етапи тестування}
+		Графік проведення тестування наведений у табл.~\ref{tab:testing-schedule}.
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{v{0.3\textwidth}n{0.4\textwidth}}
+				\toprule
+					Етап тестування & Тривалість\\
+				\midrule
+					Налаштування середовища тестування &
+					2017-03-02~—~2017-03-09\\
+					Тестування роботи програми &
+					2017-03-26~—~2017-04-14\\
+					Оформлення результатів тестування &
+					2017-04-15~—~2017-04-29\\
+					Завершення тестування &
+					2017-04-30~—~2017-05-10\\
+				\bottomrule
+			\end{tabular}
+		\caption{Графік проведення тестування}
+		\label{tab:testing-schedule}
+		\end{table}
+		
+	\section{Критерії тестування}
+		Тестування завершується, коли розроблений продукт успішно проходить написані тест-кейси.
+		
+	\appendix
+	\section{Тест кейси}
+		Опис тест-кейсів наведений у табл.~\ref{tab:test-cases-description}.
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{v{0.6\textwidth}v{0.15\textwidth}n{0.15\textwidth}}
+				\toprule
+					Дія & Очікуваний результат & Результат тесту\\
+				\midrule
+					Пошук найчастішого знаку у наборі \linebreak $[]$ &
+					\rawdata{'0'} &
+					Passed.
+					\\
+					Пошук найчастішого знаку у наборі \linebreak $\left[1,2,3,4,5 \right]$ &
+					\rawdata{'+'} &
+					Passed.
+					\\
+					Пошук найчастішого знаку у наборі $[-5, -4, -3, -2, -1]$ &
+					\rawdata{'-'} &
+					Passed.
+					\\
+					Пошук найчастішого знаку у наборі $[-1, 1, -2, 2, -3, 3]$ &
+					\rawdata{'-'} &
+					Passed.
+					\\
+				\bottomrule
+			\end{tabular}
+		\caption{Опис тест-кейсів}
+		\label{tab:test-cases-description}
+		\end{table}
+		
+\end{document}
