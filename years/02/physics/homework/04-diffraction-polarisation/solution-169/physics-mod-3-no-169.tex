@@ -1,0 +1,71 @@
+\documentclass[a4paper,oneside,DIV=10,12pt]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+%\setsansfont{Roboto}
+\newfontfamily{\cyrillicfontsf}{Roboto}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{booktabs}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+exponent-product = {\cdot}}
+
+\begin{document}
+	\section*{№169}
+		Кут між площинами пропускання поляроїдів дорівнює \SI{50}{\degree}. Природне світло, проходячи через таку систему, послаблюється у 8 разів. Нехтуючи втратою світла при відбиванні, визначити коефіцієнт поглинання світла в поляроїдах.
+		
+		\subsection*{Дано}
+		\noindent${I_a} / {I_0} = {1} / {8}$; \\
+		$\varphi = \SI{50}{\degree}$.
+			
+		\subsection*{Знайти}
+			$k$ — ?
+			
+		\subsection*{Розв'язання}
+			Запишемо закон Малюса:
+			\begin{equation}
+			\label{eq:malus}
+				I_a = (1 - k) \cos^2 \varphi I_p.
+			\end{equation}
+			Виразимо $I_p$ через $I_0$:
+			\[
+				I_p = \frac{(1 - k)}{2} I_0.
+			\]
+			Підставивши в~\eqref{eq:malus} отримаємо:
+			\[
+				I_a = \frac{(1 - k) (1 - k) \cos^2 \varphi}{2} I_0.
+			\]
+			Поділимо обидві частини на $I_0$:
+			\[
+				\frac{I_a}{I_0} = \frac{(1 - k)^2 \cos^2 \varphi}{2}.
+			\]
+			З умови маємо:
+			\[
+				\frac{(1 - k)^2 \cos^2 \varphi}{2} = \frac{1}{8}.
+			\]
+			Тобто:
+			\[
+				(1 - k)^2 = \frac{
+					2
+				}{
+					8 \cos^2 \varphi
+				}
+			\]
+			Звідси:
+			\[
+				k = 1 - \sqrt{\frac{2}{8 \cdot \cos^2(\SI{50}{\degree})}} = 0{,}22.
+			\]
+\end{document}

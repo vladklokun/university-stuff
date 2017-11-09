@@ -1,0 +1,74 @@
+\documentclass[a4paper,oneside,DIV=10,12pt]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage{float}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+%\setsansfont{Roboto}
+\newfontfamily{\cyrillicfontsf}{Roboto}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{booktabs}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+exponent-product = {\cdot}}
+
+\begin{document}
+	\section*{№185}
+		Визначити кут між головними площинами поляризатора і аналізатора, якщо інтенсивність природного світла, яке пройшло через поляризатор і аналізатор зменшилась у 16 разів. Втрати інтенсивності світла становлять $20\%$.
+		
+		\subsection*{Дано}
+		\noindent${I_a} / {I_0} = {1} / {16}$; \\
+		$k = 0{,}2$.
+			
+		\subsection*{Знайти}
+			$\varphi$ — ?
+			
+		\subsection*{Розв'язання}
+			Запишемо закон Малюса:
+			\begin{equation}
+			\label{eq:malus}
+				I_a = (1 - k) \cos^2 \varphi I_p.
+			\end{equation}
+			Виразимо $I_p$ через $I_0$:
+			\[
+				I_p = \frac{(1 - k)}{2} I_0.
+			\]
+			Підставивши в~\eqref{eq:malus} отримаємо:
+			\[
+				I_a = \frac{(1 - k) (1 - k) \cos^2 \varphi}{2} I_0.
+			\]
+			Поділимо обидві частини на $I_0$:
+			\[
+				\frac{I_a}{I_0} = \frac{(1 - k) (1 - k) \cos^2 \varphi}{2}.
+			\]
+			З умови маємо:
+			\[
+				\frac{(1 - k) (1 - k) \cos^2 \varphi}{2} = \frac{1}{16}.
+			\]
+			Тобто:
+			\[
+				\cos \varphi = \sqrt{
+					\frac{2}{16 (1 - k)^2}
+				}.
+			\]
+			Звідси:
+			\[
+				\varphi = \arccos \left(
+					\sqrt{
+						\frac{2}{16 \cdot (1 - 0{,}2)^2}
+					}
+				\right)
+				= \SI{63,8}{\degree}.
+			\]
+\end{document}
