@@ -1,0 +1,732 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with matplotlib (http://matplotlib.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="320.48883pt"
+   version="1.1"
+   viewBox="0 0 434.04947 320.48883"
+   width="434.04947pt"
+   id="svg169"
+   sodipodi:docname="03-jkc-edited.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <metadata
+     id="metadata173">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1027"
+     id="namedview171"
+     showgrid="false"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:zoom="1.3196872"
+     inkscape:cx="256.72494"
+     inkscape:cy="193.30081"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="patch_1" />
+  <defs
+     id="defs4"
+     style="stroke-linecap:butt;stroke-linejoin:round">
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1620"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:isstock="true">
+      <path
+         id="path1618"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       id="marker1556"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         id="path1554"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1522"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1520"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       id="marker1418"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         id="path1416"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="marker1372"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1370"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       id="marker1332"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend"
+       inkscape:collect="always">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         id="path1330"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:isstock="true"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       id="marker1304"
+       refX="0"
+       refY="0"
+       orient="auto"
+       inkscape:stockid="Arrow2Mend">
+      <path
+         transform="scale(-0.6)"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         id="path1302"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <marker
+       inkscape:stockid="Arrow2Mend"
+       orient="auto"
+       refY="0"
+       refX="0"
+       id="Arrow2Mend"
+       style="overflow:visible;stroke-linecap:butt;stroke-linejoin:round"
+       inkscape:isstock="true"
+       inkscape:collect="always">
+      <path
+         id="path1007"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.625;stroke-linecap:butt;stroke-linejoin:round;stroke-opacity:1"
+         d="M 8.7185878,4.0337352 -2.2072895,0.01601326 8.7185884,-4.0017078 c -1.7454984,2.3720609 -1.7354408,5.6174519 -6e-7,8.035443 z"
+         transform="scale(-0.6)"
+         inkscape:connector-curvature="0" />
+    </marker>
+    <style
+       type="text/css"
+       id="style2">
+*{stroke-linecap:butt;stroke-linejoin:round;}
+  </style>
+  </defs>
+  <g
+     id="figure_1"
+     style="stroke-linecap:butt;stroke-linejoin:round"
+     transform="translate(-14.64,-12.110529)">
+    <g
+       id="patch_1"
+       style="stroke-linecap:butt;stroke-linejoin:round" />
+    <g
+       id="axes_1"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <g
+         id="patch_2"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,53.6 H 447.48 V 13.32 H 29.415 Z"
+           style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
+           id="path9"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="matplotlib.axis_1"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_1"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- t -->
+          <defs
+             id="defs13">
+            <path
+               d="m 29.296875,9 c -2.5,-2.796875 -3.796875,-4.09375 -7,-4.09375 -3.890625,0 -4.796875,2.390625 -4.796875,9.5 v 28.6875 h 11.296875 v 4.203125 H 17.5 L 17.59375,61 H 15 C 11.40625,52.5 8.40625,48.296875 3.703125,45.40625 v -2.3125 h 5.5 v -31.5 c 0,-9 2.890625,-12.59375 9.59375,-12.59375 6.40625,0 8.5,3 12.40625,8.40625 z"
+               id="STIXTwoMath-74"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </defs>
+          <g
+             transform="matrix(0.1,0,0,-0.1,236.8725,64.659375)"
+             id="g17"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               xlink:href="#STIXTwoMath-74"
+               id="use15"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_2"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_2"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- $J$ -->
+          <defs
+             id="defs22">
+            <path
+               d="m 49.09375,65.296875 v -1.59375 Q 44.796875,63.09375 43.5,61.9375 42.203125,60.796875 40.90625,56.296875 L 30.59375,19.59375 Q 27.703125,9.203125 23.5,3.703125 q -4.203125,-5.5 -12.40625,-5.5 -5.296875,0 -8.5,2.390625 Q -0.59375,3 -0.59375,7 q 0,2.40625 1.25,4 1.25,1.59375 3.25,1.59375 2,0 3.546875,-1.34375 Q 9,9.90625 9,8 9,7.40625 8.84375,6.546875 q -0.140625,-0.84375 -0.140625,-1.25 0,-3.890625 3.5,-3.890625 3.5,0 5.296875,6.390625 l 12.703125,45.40625 q 1.203125,4.390625 1.203125,6.390625 0,2 -1.5,2.84375 -1.5,0.859375 -6.203125,1.265625 v 1.59375 z"
+               id="STIXGeneral-Italic-4a"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </defs>
+          <g
+             transform="matrix(0,-0.1,-0.1,0,23.215,35.71)"
+             id="g26"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               transform="translate(0,0.703125)"
+               xlink:href="#STIXGeneral-Italic-4a"
+               id="use24"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_1"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           clip-path="url(#p61d345de9c)"
+           d="m 29.415,15.238095 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 V 53.6 H 257.54366 V 15.238095 H 371.18079 V 53.6 h 56.39135 v 0"
+           style="fill:none;stroke:#1f77b4;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round"
+           id="path30"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_3"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,53.6 V 13.32"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1522)"
+           id="path33"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_4"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,53.6 H 447.48"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1556)"
+           id="path36"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       id="axes_2"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <g
+         id="patch_5"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,120.56 H 447.48 V 80.28 H 29.415 Z"
+           style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
+           id="path40"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="matplotlib.axis_3"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_3"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- t -->
+          <g
+             transform="matrix(0.1,0,0,-0.1,236.8725,131.61937)"
+             id="g45"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               xlink:href="#STIXTwoMath-74"
+               id="use43"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_4"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_4"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- $K$ -->
+          <defs
+             id="defs50">
+            <path
+               d="m 72.203125,65.296875 v -1.59375 Q 69.40625,63.703125 64.5,60 L 34.703125,37.5 51.5,8.203125 q 2.296875,-4 4,-5.0625 Q 57.203125,2.09375 61.90625,1.59375 V 0 h -27.5 v 1.59375 l 2.890625,0.3125 q 4.609375,0.390625 4.609375,3.1875 0,0.609375 -0.15625,1.296875 -0.15625,0.703125 -0.65625,1.65625 -0.5,0.953125 -0.796875,1.5 Q 40,10.09375 39.203125,11.5 q -0.796875,1.40625 -1,1.796875 l -12.296875,21.5 -6.5,-23.703125 Q 18.296875,7.296875 18.296875,6 18.296875,3.703125 19.75,2.84375 21.203125,2 25.40625,1.59375 V 0 H 0.703125 V 1.59375 Q 5,2.09375 6.296875,3.296875 7.59375,4.5 8.796875,8.703125 l 12.40625,44.5 q 1.390625,5 1.390625,6.203125 0,2.09375 -1.703125,3.09375 -1.6875,1 -6.1875,1.203125 v 1.59375 h 27 v -1.59375 Q 37.5,63.40625 35.203125,61.84375 32.90625,60.296875 31.796875,56.296875 L 26.5,36.90625 41.796875,47.796875 Q 56.09375,57.90625 56.09375,61.5 q 0,1.5 -3.59375,1.90625 l -2.40625,0.296875 v 1.59375 z"
+               id="STIXGeneral-Italic-4b"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </defs>
+          <g
+             transform="matrix(0,-0.1,-0.1,0,23.215,103.77)"
+             id="g54"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               transform="translate(0,0.703125)"
+               xlink:href="#STIXGeneral-Italic-4b"
+               id="use52"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_2"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           clip-path="url(#p04a77c5896)"
+           d="m 29.415,120.56 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 H 94.3505 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854413 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 V 82.198095 h 56.39135 V 120.56 h 57.24577 V 82.198095 H 371.18079 V 120.56 h 56.39135 v 0"
+           style="fill:none;stroke:#1f77b4;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round"
+           id="path58"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_6"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,120.56 V 80.28"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1418)"
+           id="path61"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_7"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,120.56 H 447.48"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1418)"
+           id="path64"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       id="axes_3"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <g
+         id="patch_8"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,187.52 H 447.48 V 147.24 H 29.415 Z"
+           style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
+           id="path68"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="matplotlib.axis_5"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_5"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- t -->
+          <g
+             transform="matrix(0.1,0,0,-0.1,236.8725,198.57937)"
+             id="g73"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               xlink:href="#STIXTwoMath-74"
+               id="use71"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_6"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_6"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- $C$ -->
+          <defs
+             id="defs78">
+            <path
+               d="m 68.90625,66.40625 -3.703125,-20 -1.796875,0.296875 Q 61.59375,63 48.5,63 37.59375,63 28.59375,53.296875 q -5.296875,-5.59375 -8.046875,-13.59375 -2.75,-8 -2.75,-16.5 0,-20.5 17.5,-20.5 6.203125,0 11.34375,2.59375 5.15625,2.609375 11.5625,9.296875 L 60,13.09375 Q 53.296875,5.203125 46.84375,1.703125 q -6.4375,-3.5 -14.140625,-3.5 -11.703125,0 -18.90625,6.9375 -7.203125,6.953125 -7.203125,19.15625 0,10.296875 5.09375,19.640625 5.109375,9.359375 13.609375,15.359375 10.203125,7.296875 21.90625,7.296875 6.890625,0 11.703125,-1.6875 2,-0.703125 4.09375,-0.703125 2.703125,0 3.796875,2.203125 z"
+               id="STIXGeneral-Italic-43"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </defs>
+          <g
+             transform="matrix(0,-0.1,-0.1,0,23.215,170.73)"
+             id="g82"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               transform="translate(0,0.40625)"
+               xlink:href="#STIXGeneral-Italic-43"
+               id="use80"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_3"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           clip-path="url(#p92ad8135f1)"
+           d="m 29.415,149.15809 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 V 187.52 H 86.660769 V 149.15809 H 114.85645 V 187.52 h 29.05009 v -38.36191 h 28.19568 V 187.52 h 28.19567 v -38.36191 h 29.0501 V 187.52 h 28.19567 v -38.36191 h 28.19568 V 187.52 h 29.05009 v -38.36191 h 28.19568 V 187.52 h 28.19568 v -38.36191 h 29.05009 V 187.52 h 27.34126 v 0"
+           style="fill:none;stroke:#1f77b4;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round"
+           id="path86"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_9"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,187.52 V 147.24"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1372)"
+           id="path89"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_10"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,187.52 H 447.48"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1332)"
+           id="path92"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       id="axes_4"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <g
+         id="patch_11"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,254.48 H 447.48 V 214.2 H 29.415 Z"
+           style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
+           id="path96"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="matplotlib.axis_7"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_7"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- t -->
+          <g
+             transform="matrix(0.1,0,0,-0.1,236.8725,265.53937)"
+             id="g101"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               xlink:href="#STIXTwoMath-74"
+               id="use99"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_8"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_8"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- $Q$ -->
+          <defs
+             id="defs106">
+            <path
+               d="m 6.90625,-16.90625 -1,1.609375 q 5.796875,4.09375 8.34375,6.09375 2.546875,2 9.34375,8 Q 15.09375,0.5 10.546875,6.640625 6,12.796875 6,22.5 q 0,9.296875 4.59375,18.5 4.609375,9.203125 12.703125,16.203125 11.109375,9.390625 24.109375,9.390625 10.09375,0 16.296875,-6.703125 6.203125,-6.6875 6.203125,-16.984375 0,-11.703125 -7.109375,-22.953125 -7.09375,-11.25 -18.5,-17.25 Q 37.5,-1 27.90625,-1.59375 L 22.5,-7.296875 H 25 q 3.5,0 12.296875,-2 8.609375,-2.109375 11.109375,-2.109375 5.390625,0 8.984375,1.65625 3.609375,1.65625 7.8125,6.046875 l 1.59375,-1.09375 q -2.390625,-3.40625 -5.203125,-5.90625 -8.296875,-7.5 -19.09375,-7.5 -6.59375,0 -14.796875,2.609375 -5.5,1.796875 -9.296875,1.796875 -5.90625,0 -11.5,-3.109375 z M 59.40625,48 q 0,7.09375 -3.453125,11.1875 Q 52.5,63.296875 46.5,63.296875 q -11,0 -19.40625,-12.5 -4.5,-6.703125 -7.546875,-15.953125 Q 16.5,25.59375 16.5,18.296875 q 0,-7.5 3.390625,-12.046875 3.40625,-4.546875 9.015625,-4.546875 11.390625,0 19.796875,12.390625 4.59375,7 7.640625,16.59375 3.0625,9.609375 3.0625,17.3125 z"
+               id="STIXGeneral-Italic-51"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </defs>
+          <g
+             transform="matrix(0,-0.1,-0.1,0,23.215,237.99)"
+             id="g110"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               transform="translate(0,0.40625)"
+               xlink:href="#STIXGeneral-Italic-51"
+               id="use108"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_4"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           clip-path="url(#pc6db991584)"
+           d="m 29.415,252.64909 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 V 216.03091 H 172.10222 v 36.61818 h 114.49153 v -36.61818 h 56.39136 v 36.61818 h 84.58703 v 0"
+           style="fill:none;stroke:#1f77b4;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round"
+           id="path114"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_12"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,254.48 V 214.2"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1304)"
+           id="path117"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_13"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,254.48 H 447.48"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#marker1620)"
+           id="path120"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+    <g
+       id="axes_5"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <g
+         id="patch_14"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,321.44 H 447.48 V 281.16 H 29.415 Z"
+           style="fill:#ffffff;stroke-linecap:butt;stroke-linejoin:round"
+           id="path124"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="matplotlib.axis_9"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_9"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- t -->
+          <g
+             transform="matrix(0.1,0,0,-0.1,236.8725,332.49937)"
+             id="g129"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               xlink:href="#STIXTwoMath-74"
+               id="use127"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="matplotlib.axis_10"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <g
+           id="text_10"
+           style="stroke-linecap:butt;stroke-linejoin:round">
+          <!-- $\overline{Q}$ -->
+          <g
+             transform="matrix(0,-0.1,-0.1,0,23.215,304.95)"
+             id="g137"
+             style="stroke-linecap:butt;stroke-linejoin:round">
+            <use
+               transform="translate(0,1.15625)"
+               xlink:href="#STIXGeneral-Italic-51"
+               id="use133"
+               style="stroke-linecap:butt;stroke-linejoin:round"
+               x="0"
+               y="0"
+               width="100%"
+               height="100%" />
+            <path
+               d="m 0,79.5 v 6.25 H 72.199982 V 79.5 Z"
+               id="path135"
+               inkscape:connector-curvature="0"
+               style="stroke-linecap:butt;stroke-linejoin:round" />
+          </g>
+        </g>
+      </g>
+      <g
+         id="line2d_5"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           clip-path="url(#p5838745019)"
+           d="m 29.415,319.60909 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 H 94.3505 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854414 v 0 0 h 0.854415 v 0 0 h 0.854413 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v 0 0 h 0.85441 v 0 0 h 0.85442 v -36.61818 h 114.49153 v 36.61818 h 56.39136 v -36.61818 h 84.58703 v 0"
+           style="fill:none;stroke:#1f77b4;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:round"
+           id="path141"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_15"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,321.44 V 281.16"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#Arrow2Mend)"
+           id="path144"
+           inkscape:connector-curvature="0" />
+      </g>
+      <g
+         id="patch_16"
+         style="stroke-linecap:butt;stroke-linejoin:round">
+        <path
+           d="M 29.415,321.44 H 447.48"
+           style="fill:none;stroke:#000000;stroke-width:0.80000001;stroke-linecap:square;stroke-linejoin:miter;marker-end:url(#Arrow2Mend)"
+           id="path147"
+           inkscape:connector-curvature="0" />
+      </g>
+    </g>
+  </g>
+  <defs
+     id="defs167">
+    <clipPath
+       id="p61d345de9c"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <rect
+         height="40.279999"
+         width="418.065"
+         x="29.415001"
+         y="13.32"
+         id="rect152"
+         style="stroke-linecap:butt;stroke-linejoin:round" />
+    </clipPath>
+    <clipPath
+       id="p04a77c5896"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <rect
+         height="40.279999"
+         width="418.065"
+         x="29.415001"
+         y="80.279999"
+         id="rect155"
+         style="stroke-linecap:butt;stroke-linejoin:round" />
+    </clipPath>
+    <clipPath
+       id="p92ad8135f1"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <rect
+         height="40.279999"
+         width="418.065"
+         x="29.415001"
+         y="147.24001"
+         id="rect158"
+         style="stroke-linecap:butt;stroke-linejoin:round" />
+    </clipPath>
+    <clipPath
+       id="pc6db991584"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <rect
+         height="40.279999"
+         width="418.065"
+         x="29.415001"
+         y="214.2"
+         id="rect161"
+         style="stroke-linecap:butt;stroke-linejoin:round" />
+    </clipPath>
+    <clipPath
+       id="p5838745019"
+       style="stroke-linecap:butt;stroke-linejoin:round">
+      <rect
+         height="40.279999"
+         width="418.065"
+         x="29.415001"
+         y="281.16"
+         id="rect164"
+         style="stroke-linecap:butt;stroke-linejoin:round" />
+    </clipPath>
+  </defs>
+</svg>
