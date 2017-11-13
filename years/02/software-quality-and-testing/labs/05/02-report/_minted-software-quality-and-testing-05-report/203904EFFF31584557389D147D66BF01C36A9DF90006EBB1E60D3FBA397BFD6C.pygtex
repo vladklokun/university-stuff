@@ -1,0 +1,30 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{k+kn}{import} \PYG{n+nn}{unittest}
+\PYG{k+kn}{import} \PYG{n+nn}{address\PYGZus{}book}
+
+\PYG{k}{class} \PYG{n+nc}{TestRecordMethods}\PYG{p}{(}\PYG{n}{unittest}\PYG{o}{.}\PYG{n}{TestCase}\PYG{p}{):}
+	\PYG{l+s+sd}{\PYGZdq{}\PYGZdq{}\PYGZdq{}Test Record class methods\PYGZdq{}\PYGZdq{}\PYGZdq{}}
+	
+	\PYG{k}{def} \PYG{n+nf}{test\PYGZus{}name\PYGZus{}setter}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n}{a} \PYG{o}{=} \PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{Record}\PYG{p}{()}
+		\PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}name}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Vasya\PYGZsq{}}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{assertEqual}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Vasya\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{k}{def} \PYG{n+nf}{test\PYGZus{}name\PYGZus{}getter}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n}{a} \PYG{o}{=} \PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{Record}\PYG{p}{()}
+		\PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}name}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Vasya\PYGZsq{}}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{assertEqual}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{get\PYGZus{}name}\PYG{p}{(),} \PYG{l+s+s1}{\PYGZsq{}Vasya\PYGZsq{}}\PYG{p}{)}
+		
+	\PYG{k}{def} \PYG{n+nf}{test\PYGZus{}surname\PYGZus{}setter}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n}{a} \PYG{o}{=} \PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{Record}\PYG{p}{()}
+		\PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}surname}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Pupkin\PYGZsq{}}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{assertEqual}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{surname}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}Pupkin\PYGZsq{}}\PYG{p}{)}
+		
+	\PYG{k}{def} \PYG{n+nf}{test\PYGZus{}surname\PYGZus{}getter}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n}{a} \PYG{o}{=} \PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{Record}\PYG{p}{()}
+		\PYG{n}{a}\PYG{o}{.}\PYG{n}{set\PYGZus{}surname}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Pupkin\PYGZsq{}}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{assertEqual}\PYG{p}{(}\PYG{n}{a}\PYG{o}{.}\PYG{n}{get\PYGZus{}surname}\PYG{p}{(),} \PYG{l+s+s1}{\PYGZsq{}Pupkin\PYGZsq{}}\PYG{p}{)}
+		
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+	\PYG{n}{unittest}\PYG{o}{.}\PYG{n}{main}\PYG{p}{()}
+\end{Verbatim}

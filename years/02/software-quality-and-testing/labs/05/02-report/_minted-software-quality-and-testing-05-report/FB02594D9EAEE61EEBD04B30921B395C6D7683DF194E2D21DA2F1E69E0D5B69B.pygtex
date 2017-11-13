@@ -1,0 +1,110 @@
+\begin{Verbatim}[commandchars=\\\{\},codes={\catcode`\$=3\catcode`\^=7\catcode`\_=8}]
+\PYG{n}{ADDRESS\PYGZus{}BOOK\PYGZus{}FILE} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}address\PYGZhy{}book\PYGZsq{}}
+
+\PYG{k+kn}{import} \PYG{n+nn}{argparse}
+
+\PYG{k}{class} \PYG{n+nc}{Record}\PYG{p}{:}	
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{name}    \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{surname} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tel}     \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+		
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}surname}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{surname}
+		
+	\PYG{k}{def} \PYG{n+nf}{set\PYGZus{}surname}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{surname}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{surname} \PYG{o}{=} \PYG{n}{surname}
+		
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}name}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{name}
+		
+	\PYG{k}{def} \PYG{n+nf}{set\PYGZus{}name}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{name}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{name} \PYG{o}{=} \PYG{n}{name}
+		
+	\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}tel}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tel}
+		
+	\PYG{k}{def} \PYG{n+nf}{set\PYGZus{}tel}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{tel}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{tel} \PYG{o}{=} \PYG{n}{tel}
+		
+	\PYG{k}{def} \PYG{n+nf}{set\PYGZus{}record}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{surname}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{tel}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{set\PYGZus{}surname}\PYG{p}{(}\PYG{n}{surname}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{set\PYGZus{}name}\PYG{p}{(}\PYG{n}{name}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{set\PYGZus{}tel}\PYG{p}{(}\PYG{n}{tel}\PYG{p}{)}
+		
+	\PYG{k}{def} \PYG{n+nf}{as\PYGZus{}string}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{return} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}surname}\PYG{p}{()} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}name}\PYG{p}{()} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}t}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o}{+} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{get\PYGZus{}tel}\PYG{p}{()} \PYG{o}{+} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+se}{\PYGZbs{}n}\PYG{l+s+s1}{\PYGZsq{}}
+		
+\PYG{k}{class} \PYG{n+nc}{AddressBook}\PYG{p}{:}
+	\PYG{k}{def} \PYG{n+nf+fm}{\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{records} \PYG{o}{=} \PYG{p}{[]}
+		
+	\PYG{k}{def} \PYG{n+nf}{add\PYGZus{}record}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{surname}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{tel}\PYG{p}{):}
+		\PYG{n}{record} \PYG{o}{=} \PYG{n}{Record}\PYG{p}{()}
+		\PYG{n}{record}\PYG{o}{.}\PYG{n}{set\PYGZus{}record}\PYG{p}{(}\PYG{n}{surname}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{tel}\PYG{p}{)}
+		\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{records}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{record}\PYG{p}{)}
+	
+	\PYG{k}{def} \PYG{n+nf}{print\PYGZus{}all}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{for} \PYG{n}{record} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{records}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{n}{record}\PYG{o}{.}\PYG{n}{as\PYGZus{}string}\PYG{p}{())}
+			
+			
+	\PYG{k}{def} \PYG{n+nf}{read\PYGZus{}from\PYGZus{}file}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{):}
+		\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{ADDRESS\PYGZus{}BOOK\PYGZus{}FILE}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}r\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{address\PYGZus{}book}\PYG{p}{:}
+			\PYG{k}{for} \PYG{n}{line} \PYG{o+ow}{in} \PYG{n}{address\PYGZus{}book}\PYG{p}{:}
+				\PYG{n}{surname}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{tel} \PYG{o}{=} \PYG{n}{line}\PYG{o}{.}\PYG{n}{split}\PYG{p}{(}\PYG{n}{maxsplit} \PYG{o}{=} \PYG{l+m+mi}{3}\PYG{p}{)}
+				\PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{add\PYGZus{}record}\PYG{p}{(}\PYG{n}{surname}\PYG{p}{,} \PYG{n}{name}\PYG{p}{,} \PYG{n}{tel}\PYG{p}{)}
+				
+	\PYG{k}{def} \PYG{n+nf}{find\PYGZus{}person}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{s}\PYG{p}{):}
+		\PYG{n}{matches} \PYG{o}{=} \PYG{p}{[]}
+		\PYG{k}{for} \PYG{n}{record} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{records}\PYG{p}{:}
+			\PYG{k}{if} \PYG{n}{s} \PYG{o+ow}{in} \PYG{n}{record}\PYG{o}{.}\PYG{n}{as\PYGZus{}string}\PYG{p}{():}
+				\PYG{n}{matches}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{record}\PYG{o}{.}\PYG{n}{as\PYGZus{}string}\PYG{p}{())}
+		
+		\PYG{k}{return} \PYG{n}{matches}
+		
+	\PYG{k}{def} \PYG{n+nf}{write\PYGZus{}to\PYGZus{}file}\PYG{p}{(}\PYG{n+nb+bp}{self}\PYG{p}{,} \PYG{n}{f}\PYG{p}{):}
+		\PYG{k}{with} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{f}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}w\PYGZsq{}}\PYG{p}{)} \PYG{k}{as} \PYG{n}{f}\PYG{p}{:}
+			\PYG{k}{for} \PYG{n}{record} \PYG{o+ow}{in} \PYG{n+nb+bp}{self}\PYG{o}{.}\PYG{n}{records}\PYG{p}{:}
+				\PYG{n}{f}\PYG{o}{.}\PYG{n}{write}\PYG{p}{(}\PYG{n}{record}\PYG{o}{.}\PYG{n}{as\PYGZus{}string}\PYG{p}{())}
+		
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{(}\PYG{n}{args}\PYG{p}{):}
+	\PYG{n}{address\PYGZus{}book} \PYG{o}{=} \PYG{n}{AddressBook}\PYG{p}{()}
+	\PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{read\PYGZus{}from\PYGZus{}file}\PYG{p}{()}
+	\PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{printall}\PYG{p}{:}
+		\PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{print\PYGZus{}all}\PYG{p}{()}
+		
+	\PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{find}\PYG{p}{:}
+		\PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{surname}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{find\PYGZus{}person}\PYG{p}{(}\PYG{n}{args}\PYG{o}{.}\PYG{n}{surname}\PYG{p}{))}
+		\PYG{k}{else}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Surname not specified. Ignoring.\PYGZsq{}}\PYG{p}{)}
+		
+	\PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{insert}\PYG{p}{:}
+		\PYG{k}{if} \PYG{n}{args}\PYG{o}{.}\PYG{n}{surname} \PYG{o+ow}{and} \PYG{n}{args}\PYG{o}{.}\PYG{n}{name} \PYG{o+ow}{and} \PYG{n}{args}\PYG{o}{.}\PYG{n}{telephone}\PYG{p}{:}
+			\PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{add\PYGZus{}record}\PYG{p}{(}\PYG{n}{args}\PYG{o}{.}\PYG{n}{surname}\PYG{p}{,} \PYG{n}{args}\PYG{o}{.}\PYG{n}{name}\PYG{p}{,} \PYG{n}{args}\PYG{o}{.}\PYG{n}{telephone}\PYG{p}{)}
+			\PYG{n}{address\PYGZus{}book}\PYG{o}{.}\PYG{n}{write\PYGZus{}to\PYGZus{}file}\PYG{p}{(}\PYG{n}{ADDRESS\PYGZus{}BOOK\PYGZus{}FILE}\PYG{p}{)}
+		\PYG{k}{else}\PYG{p}{:}
+			\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Params not specified. Ignoring.\PYGZsq{}}\PYG{p}{)}
+		
+	\PYG{k}{print}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}Done.\PYGZsq{}}\PYG{p}{)}
+
+\PYG{k}{if} \PYG{n+nv+vm}{\PYGZus{}\PYGZus{}name\PYGZus{}\PYGZus{}} \PYG{o}{==} \PYG{l+s+s1}{\PYGZsq{}\PYGZus{}\PYGZus{}main\PYGZus{}\PYGZus{}\PYGZsq{}}\PYG{p}{:}
+	\PYG{n}{parser} \PYG{o}{=} \PYG{n}{argparse}\PYG{o}{.}\PYG{n}{ArgumentParser}\PYG{p}{()}
+	
+	\PYG{c+c1}{\PYGZsh{} Parse modes}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}insert\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}i\PYGZsq{}}\PYG{p}{,} \PYG{n}{action}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}store\PYGZus{}true\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}printall\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}p\PYGZsq{}}\PYG{p}{,} \PYG{n}{action}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}store\PYGZus{}true\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}delete\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}d\PYGZsq{}}\PYG{p}{,} \PYG{n}{action}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}store\PYGZus{}true\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}edit\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}e\PYGZsq{}}\PYG{p}{,} \PYG{n}{action}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}store\PYGZus{}true\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}find\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}f\PYGZsq{}}\PYG{p}{,} \PYG{n}{action}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}store\PYGZus{}true\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{c+c1}{\PYGZsh{} Parse address book record fields}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}name\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}n\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}surname\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}s\PYGZsq{}}\PYG{p}{)}
+	\PYG{n}{parser}\PYG{o}{.}\PYG{n}{add\PYGZus{}argument}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}\PYGZhy{}telephone\PYGZsq{}}\PYG{p}{,} \PYG{l+s+s1}{\PYGZsq{}\PYGZhy{}t\PYGZsq{}}\PYG{p}{)}
+	
+	\PYG{n}{args} \PYG{o}{=} \PYG{n}{parser}\PYG{o}{.}\PYG{n}{parse\PYGZus{}args}\PYG{p}{()}
+	
+	\PYG{n}{main}\PYG{p}{(}\PYG{n}{args}\PYG{p}{)}
+\end{Verbatim}

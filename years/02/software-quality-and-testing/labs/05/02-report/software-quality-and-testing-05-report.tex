@@ -1,0 +1,122 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+
+\usepackage{fontspec}
+\setmainfont{PT Serif}
+\setsansfont{PT Sans}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{enumitem,calc}
+\DeclareDocumentEnvironment{steps}%
+{O{}}% If no argument is given the label defaults to 'Step'
+{\begin{enumerate}[leftmargin = *]}% Tune labelindent to set hanging step number
+{\end{enumerate}}
+
+\usepackage{minted}
+
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+
+\newcommand\testplanid{\texttt{INAP-TST-MASTER-A47E40}}
+\newcommand\projname{\texttt{INAP}}
+\newcommand\filename[1]{\texttt{#1}}
+\newcommand\error[1]{\texttt{#1}}
+
+\begin{document}
+    \begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №5\\
+	з дисципліни «Якість програмного забезпечення та тестування»\\
+	на тему «Автоматизація процесу тестування»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+				Виконав:\\
+				студент ННІКІТ СП-225\\
+				Клокун Владислав\\
+				Перевірила:\\
+				Апенько Н. В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	%\section{Звіт про помилки}
+	\part{Програма та тести}
+	\section{Код програми}
+		%\begin{mdframed}
+			\inputminted[
+				mathescape,
+				tabsize=4,
+				linenos,
+				breaklines,
+				breakbytokenanywhere,
+				breaksymbol={},
+				style=bw,
+				fontsize=\small
+				]{python}{../01-solution/address_book.py}
+		%\end{mdframed}
+		
+	\section{Код тестів}
+		%\begin{mdframed}
+			\inputminted[
+				mathescape,
+				tabsize=4,
+				linenos,
+				breaklines,
+				breakbytokenanywhere,
+				breaksymbol={},
+				style=bw,
+				fontsize=\small
+				]{python}{../01-solution/test_address_book.py}
+		%\end{mdframed}
+		
+	\newpage
+	\part{Звіт про помилки}
+	\section{Повідомлення про помилку під час спроби перегляду адресної книги, якщо вона не існує}
+		
+		\subsection{Короткий опис}
+				Якщо видалити файл адресної книги спробувати запустити програму для виведення змісту адресної книги, програма повідомляє про помилку.
+				
+		\subsection{Детальний опис}
+				Якщо в директорії відсутній файл адресної книги \filename{address-book}, то при запуску програми командою \verb+address-book.py -p+ виводиться така помилка: «\error{OS error: [Errno 2] No such file or directory: 'address-book'}».
+				
+		\subsection{Кроки для відтворення}
+			\begin{steps}
+				\item Видалити, перемістити або перейменувати файл \filename{address-book} у папці, що містить програму.
+				
+				\item Запустити програму для перегляду адресної книги (\verb+address-book.py -p+).
+				
+				\item Спостерігати результат.
+			\end{steps}
+			
+		\subsection{Відтворюваність}
+			Проблема спостерігається завжди.
+			
+		\subsection{Важливість}
+			S4 — Незначна.
+			
+		\subsection{Статус}
+			Вирішений.
+			
+		\subsection{Резолюція}
+			Не буде виправлений (WONTFIX): очікувана поведінка. У разі відсутності файла адресної книги користувачу виводиться повідомлення про помилку і програма нормально завершує роботу.
+			
+			Перед тим, як переглядати адресну книгу, користувач повинен занести туди хоча б один запис.
+\end{document}
