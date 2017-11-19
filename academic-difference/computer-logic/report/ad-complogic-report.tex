@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,DIV=10,12pt]{scrartcl}
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
 
 \usepackage{graphicx}
 \usepackage{float}
@@ -17,6 +17,10 @@
 \usepackage{unicode-math}
 \setmathfont{STIX Two Math}
 
+\usepackage{IEEEtrantools}
+
+\usepackage{karnaugh-map}
+
 \usepackage{booktabs}
 
 \usepackage{tikz}
@@ -28,6 +32,7 @@ exponent-product = {\cdot}}
 
 % Problem-solution typesetting
 \usepackage{xsim}
+\loadxsimstyle{runin}
 \DeclareExerciseTranslations{exercise}{
 	Ukrainian	=	завдання ,
 }
@@ -38,11 +43,14 @@ exponent-product = {\cdot}}
 
 \xsimsetup{
 	solution/print = true,
+	exercise/template = runin,
+	solution/template = runin,
 }
 
 \renewcommand{\implies}{\rightarrow}
 
 \newcommand\barneg[1]{\overline{#1}}
+\newcommand{\logicequiv}{\leftrightarrow}
 
 \begin{document}
 	\begin{titlepage}
@@ -73,30 +81,125 @@ exponent-product = {\cdot}}
 		Опишіть логічні (булеві) функції від двох змінних.
 	\end{exercise}
 	
-	\begin{solution}	
-		Булева функція від двох змінних --- це відображення $B^2 \mapsto B$, де $B = \{0, 1\}$. Для двох аргументів всього існує $2^{2^2} = 16$ можливих булевих функцій. 
+	\begin{solution}
+		Булева функція від двох змінних --- це відображення $B^2 \mapsto B$, де $B = \{0, 1\}$. Для двох аргументів існує $2^{2^2} = 16$ можливих булевих функцій. Однак, найчастіше використовуються лише декілька. Розглянемо їх за допомогою таблиці істинності.
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{cccccc}
+				\toprule
+					    % &     & НЕ           & І & АБО \\
+					$x$ & $y$ & $\neg{x}$ & $x \land y$ & $x \lor y$ & $x \implies y$ \\
+				\midrule
+					0   & 0   & 1            & 0           & 0          & 1 \\
+					0   & 1   & 1            & 0           & 1          & 1 \\
+					1   & 0   & 0            & 0           & 1          & 0 \\
+					1   & 1   & 0            & 1           & 1          & 1 \\
+				\bottomrule
+			\end{tabular}
+		\caption{Таблиця істинності основних булевих функцій}
+		\label{fig:bool-functioins-truth-table}
+		\end{table}
 	\end{solution}
 	
 	\begin{exercise}
-		Побудувати таблицю істинності для функції
+		Побудувати таблицю істинності для функції $F$:
 		\[
-			F(x, y, z) = \left( \barneg{xy} \implies z\right) \left( x \barneg{z} \implies y \right).
+			F(x, y, z) = \left( \neg{(xy)} \implies z\right) \logicequiv \left( x \neg{z} \implies y \right).
 		\]
 	\end{exercise}
+	
+	\begin{solution}
+		Таблиця істинності заданої функції наведена у табл.~\ref{tab:ex2-truth-table}.
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{cccc}
+				\toprule
+					$x$ & $y$ & $z$ & $F(x, y, z)$\\
+				\midrule
+					0   & 0   & 0   & 0\\
+					0   & 0   & 1   & 1\\
+					0   & 1   & 0   & 1\\
+					0   & 1   & 1   & 1\\
+					1   & 0   & 0   & 0\\
+					1   & 0   & 1   & 1\\
+					1   & 1   & 0   & 1\\
+					1   & 1   & 1   & 1\\
+				\bottomrule
+			\end{tabular}
+		\caption{Таблиця істинності заданої функції}
+		\label{tab:ex2-truth-table}
+		\end{table}
+	\end{solution}
 	
 	\begin{exercise}
 		Виконайте спрощення логічного виразу
 		\[
-			L = X_3X_2 \lor X_3 \barneg{X_2} \lor \barneg{\barneg{X_1} \lor \barneg{X_1 \lor X_2} }.
+			L = x_3x_2 \lor x_3 \barneg{x_2} \lor \barneg{\barneg{x_1} \lor \barneg{x_1 \lor x_2} }.
 		\]
 		Виконайте мінімізацію логічного виразу
 		\[
-			F = 0 \lor 4 \lor 7 \lor 8 \lor 11 \lor\ 12 \lor 13 \lor 15.
+			F = 0 \lor 4 \lor 7 \lor 8 \lor 11 \lor 12 \lor 13 \lor 15.
 		\]
 	\end{exercise}
 	
+	\begin{solution}
+		Спростимо логічний вираз $L$, використовуючи закони Де~Моргана, подвійного заперечення, ідемпотенції та дистрибутивності.
+		\begin{IEEEeqnarray*}{rCl}
+			%L &=& x_3x_2 \lor x_3 \barneg{x_2} \lor \barneg{\barneg{x_1} \lor \barneg{x_1 \lor x_2} }\\
+			%  &=& x_3 x_2 \lor x_3 \barneg{x_2} \lor \barneg{\barneg{x_1}} \barneg{\barneg{(x_1 \lor x_2)}}\\
+			%  &=& x_3 x_2 \lor x_3 \barneg{x_2} \lor x_1 x_1 \lor x_2\\
+			%  &=& x_3 x_2 \lor x_3 \barneg{x_2} \lor x_1 x_1 \lor x_1 x_2\\
+			%  &=& x_3 (x_2 \lor \barneg{x_2}) \lor x_1 \lor x_1 x_2\\
+			%  &=& x_3 \lor x_2 \lor x_1(1 + x_2)\\
+			%  &=& x_3 \lor x_1.
+			%  
+			L &=& x_3 \land x_2 \lor x_3 \land \neg x_2 \lor \neg (\neg x_1 \lor \neg(x_1 \lor x_2)\\
+			  &=& x_3 \land x_2 \lor x_3 \land \neg x_2 \lor \neg (\neg x_1) \land \neg(\neg (x_1 \lor x_2))\\
+			  &=& x_3 \land x_2 \lor x_3 \land \neg x_2 \lor x_1 \land (x_1 \lor x_2)\\
+			  &=& x_3 \land x_2 \lor x_3 \land \neg x_2 \lor x_1 \land x_1 \lor x_1 \land x_2\\
+			  &=& x_3 \land (x_2 \lor \neg x_2) \lor x_1 \lor x_1 \land x_2\\
+			  &=& x_3 \lor x_1 \lor x_1 \land x_2\\
+			  &=& x_3 \lor x_1 \land (1 \lor x_2)\\
+			  &=& x_3 \lor x_1.
+		\end{IEEEeqnarray*}
+		
+		Мінімізуємо логічний вираз $F$. Для цього представимо його у двійковому вигляді:
+		\begin{IEEEeqnarray*}{rCl}
+			F &=& 0 \lor 4 \lor 7 \lor 8 \lor 11 \lor 12 \lor 13 \lor 15\\
+			  &=& 0000 \lor 0100 \lor 0111 \lor 1000 \lor 1011 \lor 1100 \lor 1101 \lor 1111\\
+			  &=& \neg{A} \neg{B} \neg{C} \neg{D}
+			      \lor \neg{A}      B \neg{C} \neg{D}
+			      \lor \neg{A}      B  \neg{C} \neg{D}
+			      \lor \neg{A}      B       C       D \\
+			  &&  \lor      A  \neg{B} \neg{C} \neg{D}
+			      \lor      A  \neg{B}      C       D
+			      \lor      A       B  \neg{C}      D
+			      \lor      A       B       C       D
+		\end{IEEEeqnarray*}
+		
+		Побудуємо карту Карно (рис.~\ref{fig:task2-karnaugh-map}).
+		\begin{figure}
+		\centering
+			\begin{karnaugh-map}*[4][4][1][$CD$][$AB$]
+				\minterms{0,4,7,8,11,12,13,15}
+				\implicant{0}{8}
+				\implicant{12}{15}
+				\implicant{ 7}{15}
+				\implicant{15}{11}
+			\end{karnaugh-map}
+		\caption{Карта Карно логічного виразу $F$}
+		\label{fig:task2-karnaugh-map}
+		\end{figure}
+		Звідси маємо:
+		\[
+			F = \neg{C} \neg{D} \lor ABD \lor BCD \lor ACD.
+		\]
+	\end{solution}
+	
 	\begin{exercise}
-		Отримати МДНФ перемикальних функцій, що задані діаграмами Вейча.
+		Отримати МДНФ перемикальної функції, що задана діаграмою Вейча (рис.~\ref{fig:task3-veitch-diagram}). Для мінімізації застосувати метод Квайна~--- МакКласкі. Перемикальну функцію реалізувати в елементному базисі АБО---НЕ.
 		
 		\begin{figure}[!htbp]
 		\centering
@@ -127,9 +230,10 @@ exponent-product = {\cdot}}
 				\draw (1,-0.3) --node[midway, below]{$x_1$} (3,-0.3);
 				\draw (4.3,1) --node[midway, right]{$x_2$} (4.3,3);
 			\end{tikzpicture}
+		\caption{Діаграма Вейча заданої перемикальної функції}
+		\label{fig:task3-veitch-diagram}
 		\end{figure}
 		
-		Для мінімізації застосувати метод Квайна~--- МакКласкі. Перемикальну функцію реалізувати в елементному базисі АБО---НЕ.
 	\end{exercise}
 	
 	\begin{exercise}
