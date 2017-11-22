@@ -410,16 +410,16 @@ exponent-product = {\cdot}}
 		
 		\begin{figure}[!htbp]
 		\centering
-			\begin{tikzpicture}[shorten >=1pt,node distance=4cm,on grid,auto]
+			\begin{tikzpicture}[shorten >=1pt,node distance=3cm,on grid,auto]
 				
 				\node[state]	(a_1)		{$a_1$};
 				\node[state]	(a_2) [below right=of a_1]	{$a_2$};
 				\node[state]	(a_3) [below left=of a_1]	{$a_3$};
 				
-				\path[->]	(a_1)	edge [bend left=40]	node {$— / y_2$}	(a_2)
-							(a_2)	edge [bend left=40]	node {$\barneg{x} / —$}				(a_3)
-							(a_3)	edge [bend left=40]	node {$x / —$}		(a_1)
-									edge [bend left=40]	node {$— / y_1$}	(a_2);
+				\path[->]	(a_1)	edge []	node {$— / y_2$}	(a_2)
+							(a_2)	edge [bend left=15]	node {$\barneg{x} / —$}				(a_3)
+							(a_3)	edge []	node {$x / —$}		(a_1)
+									edge [bend left=15]	node {$— / y_1$}	(a_2);
 				
 			\end{tikzpicture}
 		\caption{Граф даного автомата Мілі}
@@ -427,4 +427,50 @@ exponent-product = {\cdot}}
 		\end{figure}
 		
 	\end{exercise}
+	
+	\begin{solution}
+		Побудуємо таблицю, що описує заданий автомат~(табл.~\ref{tab:task-5-automata-table}). Для цього пронумеруємо стани за принципом кодування Грея: $a_1$~— $00$, $a_2$~— $01$, $a_3$~— $11$. Оскільки для побудови функціональної схеми необхідно використати T-тригери, також наведемо таблицю їх переходів~(табл.~\ref{tab:task-5-t-flipflop-excitation-table}).
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{ccc}
+				\toprule
+					$Q_t$ & $Q_{t+1}$ & T\\
+				\midrule
+					0     & 0         & 0\\
+					1     & 1         & 0\\
+					0     & 1         & 1\\
+					1     & 0         & 1\\
+				\bottomrule
+			\end{tabular}
+		\caption{Таблиця переходів T-тригера}
+		\label{tab:task-5-t-flipflop-excitation-table}
+		\end{table}
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{cccccc}
+				\toprule
+					% Make the header 2-row with multicolumns T and T + 1
+					$(A_1 A_2)_t$ & $(A_1 A_2)_{t+1}$ & $x_1$ & $y_1 y_2$ & $T_1$ & $T_2$\\
+				\midrule
+					$00$  & $01$      & —     & $01$      & 0     & 1\\
+					$01$  & $11$      & 0     & $00$      & 1     & 0\\
+					$11$  & $00$      & 1     & $00$      & 1     & 1\\
+					$11$  & $10$      & 0     & $10$      & 0     & 1\\
+				\bottomrule
+			\end{tabular}
+		\caption{Таблиця заданого автомата}
+		\label{tab:task-5-automata-table}
+		\end{table}
+		
+		Складемо та мінімізуємо функції, що описують залежності станів:
+		\begin{IEEEeqnarray*}{rCl}
+			T_1 (A_1, A_2, x) &=& \neg{A_1} \land A_2 \lor A_2 \land x,\\
+			T_2 (A_1, A_2, x) &=& \neg{A_1} \land \neg{A_2} \lor A_1 \land A_2.\\
+			y(A_1, A_2, x) &=& A_1 \land \neg{x},\\
+			y(A_1, A_2, x) &=& \neg{A_2}.\\
+		\end{IEEEeqnarray*}
+		
+	\end{solution}
 \end{document}
