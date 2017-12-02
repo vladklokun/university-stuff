@@ -1,3 +1,25 @@
-[Misc unneccessary TeX files]
+# TeX
+
+## Core files
 *.aux
+*.lof
 *.log
+*.lot
+*.fls
+*.out
+*.toc
+*.fmt
+*.fot
+*.cb
+*.cb2
+
+## package minted
+_minted*
+*.pyg
+
+# Python
+
+## Byte-compiled/optimized/DLL files
+__pycache__/
+*.py[cod]
+*$py.class
