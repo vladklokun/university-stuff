@@ -25,9 +25,11 @@
 
 %%% Table typesetting
 \usepackage{booktabs}
+\usepackage{float} % [H]ere specifier
 %%%
 
 %%% Math typesetting
+\usepackage{ieeetrantools}
 %%%
 
 %%% Problem-solution typesetting
@@ -55,6 +57,11 @@
 
 %%%
 \newcommand{\sheetno}[1]{{\centering\scshape\bfseries Білет~№{#1}\par}}
+%%%
+
+%%% Bitshift operations
+\newcommand{\ShiftLeft}{\ll}
+\newcommand{\ShiftRight}{\gg}
 %%%
 
 \begin{document}
@@ -127,7 +134,7 @@
 		
 		Суму часткових добутків у~$i$-му циклі ($i \in \left\{ 1, \dots, n \right\}$) можна одержати за формулою
 		\[
-			Z_i = 2 Z_{i - 1} + Y 2^{-n} x_i,
+			Z_i = 2 \cdot Z_{i - 1} + Y \cdot 2^{-n} \cdot x_i,
 		\]
 		де початкові значення $i = 1$, $Z_0 = 0$.
 		
@@ -159,11 +166,103 @@
 		Результат множення чисел $A$ і $B$ надати у прямому коді. 
 	\end{exercise}
 	
+	\begin{solution}
+		Для початку запишемо дії, які необхідно виконати:
+		\[
+			A + B = C,
+		\quad
+			A \cdot B = D.
+		\]
+	
+		Тепер представимо числа $A$ і~$B$ у такому вигляді:
+		\begin{IEEEeqnarray*}{rClClCl}
+			A &=& \frac{-37}{16} &=& -37 \cdot \frac{1}{2^4} &=& -37 \cdot 2^{-4},\\[2\jot]
+			B &=& \frac{259}{128} &=& 259 \cdot \frac{1}{2^7} &=& 259 \cdot 2^{-7}.
+		\end{IEEEeqnarray*}
+		
+		Переведемо мантиси та порядки чисел в двійкову систему:
+		\begin{IEEEeqnarray*}{rClClC.rClCr}
+			M_A &=& -37 &=& 1&&100101, \quad P_A &=& -4 &=& 1~100,\\
+			% P_A &=& -4 &=& 1~100, \quad M_A &=& -37 &=& 1&&100101,\\
+			% P_B &=& -7 &=& 1~111, \quad M_B &=& 259 &=& 0&&100000011.
+			M_B &=& 259 &=& 0&&100000011, \quad P_B &=& -7 &=& 1~111. 
+		\end{IEEEeqnarray*}
+		
+		В якості загального порядка обираємо більший за модулем порядок $P_B$:
+		\[
+			P_C = P_B = 1~111.
+		\]
+		
+		Щоб привести число~$A$ до загального порядку, встановлюємо порядок~$P_A = 1~111$ і~виконуємо зсув $M_A$ вліво на три розряди:
+		\[
+			M_A = 100101 \ShiftLeft 3 = 100101000.
+		\]
+		
+		Умова завдання вимагає додавати мантиси у модифікованому доповнювальному коді. Мантиса числа~$A$ від'ємна, тому перетворення відбувається таким чином:
+		\begin{table}[H]
+		\centering
+			\begin{tabular}{
+				l      % Number description
+				c@{\,} % Operator
+				r      % The number itself
+			}
+				$\left[ M_A\right]_{\text{ПК}}$  &     & 11{~}100101000\\
+				$\left[ M_A\right]_{\text{ЗК}}$  &     & 11{~}011010111\\
+												 & $+$ &              1\\
+				\cmidrule(r){3-3}
+				$\left[ M_A\right]_{\text{МДК}}$ &     & 11{~}011011000\\
+			\end{tabular}
+		\end{table}
+		
+		Додаємо мантиси:
+		\begin{table}[H]
+		\centering
+			\begin{tabular}{
+				l            % Number description
+				r@{\,}       % Operator
+				r            % The number
+				}
+				$\left[ M_A\right]_{\text{МДК}}$  &     & 11{~}011011000\\
+				$\left[ M_B \right]_{\text{МДК}}$ & $+$ & 00{~}100000011\\
+				\cmidrule(r){3-3}
+				$\left[ M_C \right]_{\text{МДК}}$ &     & 11{~}111011011\\
+			\end{tabular}
+		\end{table}
+		
+		Нормалізуємо отриманий результат. Для цього виконуємо зсув до першого~$0$~— на три розряди вправо:
+		\[
+			M_C = 11~111011011 \ShiftLeft 3 = 11~011011.
+		\]
+		
+		Бачимо, що мантиса і порядок знаходяться у межах розрядної сітки, тому округлення не потрібне.
+		
+		Перетворимо мантису числа~$C$ в прямий код:
+		\begin{table}[H]
+		\centering
+			\begin{tabular}{
+				l            % Number description
+				r@{\,}       % Operator
+				r            % Number itself
+				}
+				$\left[ M_C\right]_{\text{МДК}}$  &     & 11{~}011011\\
+				                                  & $-$ &           1\\
+				\cmidrule(r){3-3}
+				$\left[ M_C \right]_{\text{ЗК}}$  &     & 11{~}011010\\
+				$\left[ M_C \right]_{\text{ПК}}$  &     & 11{~}100101\\
+			\end{tabular}
+		\end{table}
+		
+		Отримали:
+		\[
+			A + B = C = 1~111~1~100101 = -37 \cdot 2^{-7}.
+		\]
+	\end{solution}
+	
 	\begin{exercise}
 		Побудувати функціональну схему пристрою з розподіленою логікою для обчислювальної функції~$D$.
 		\[
 			D = (-1 / 4) \cdot C - 8A \cdot (B - 1).
 		\]
-		Надати пояснення та обгрунтування функціонування пристрою. Кількість розрядів для кожного з операндів $A$, $B$, $C$ дорівнює $n$ без урахування розрядів знака. Операцію множення виконувати четвертим способом.
+		Надати пояснення та обґрунтування функціонування пристрою. Кількість розрядів для кожного з операндів $A$, $B$, $C$ дорівнює $n$ без урахування розрядів знака. Операцію множення виконувати четвертим способом.
 	\end{exercise}
 \end{document}
