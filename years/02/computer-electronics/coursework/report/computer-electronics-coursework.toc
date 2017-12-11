@@ -1,11 +1,10 @@
 \select@language {ukrainian}
 \select@language {ukrainian}
 \contentsline {section}{Вступ}{2}
-\contentsline {section}{\numberline {1}Довідкові дані транзистора}{3}
-\contentsline {subsection}{\numberline {1.1}Загальні відомості}{3}
-\contentsline {subsection}{\numberline {1.2}Електричні параметри}{3}
-\contentsline {subsection}{\numberline {1.3}Максимально допустимі параметри}{5}
-\contentsline {section}{\numberline {2}Вольт-амперні характеристики транзистора}{7}
-\contentsline {section}{\numberline {3}Побудова прямої навантаження}{8}
-\contentsline {section}{\numberline {4}Графічне визначення $K_U$, $K_I$, $K_P$}{9}
-\contentsline {section}{\numberline {5}Визначення параметрів $h_{11}$, $h_{12}$, $h_{21}$, $h_{22}$.}{10}
+\contentsline {section}{Довідкові дані транзистора}{3}
+\contentsline {section}{Вольт-амперні характеристики транзистора}{6}
+\contentsline {section}{Побудова прямої навантаження}{8}
+\contentsline {section}{Графічне визначення $K_U$, $K_I$, $K_P$}{10}
+\contentsline {section}{Визначення параметрів $h_{11}$, $h_{12}$, $h_{21}$, $h_{22}$}{11}
+\contentsline {section}{Визначення $I_{\textnormal {КЗ}}$ при заданій температурі}{13}
+\contentsline {section}{Література}{14}
