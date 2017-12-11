@@ -17,6 +17,10 @@
 _minted*
 *.pyg
 
+## package xsim
+*-exercise-[0-9]-exercise-body.tex
+*-exercise-[0-9]-solution-body.tex
+
 # Python
 
 ## Byte-compiled/optimized/DLL files
