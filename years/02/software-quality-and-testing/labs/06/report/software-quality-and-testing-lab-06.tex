@@ -1,0 +1,142 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{graphicx}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{PT Sans}
+\setmonofont{PT Mono}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+%%%
+\usepackage{booktabs}
+\usepackage{longtable}
+%%%
+
+%%%
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,}}
+%%%
+
+\renewcommand{\arraystretch}{1.2}
+
+\begin{document}
+	\begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №6\\
+	з дисципліни «Якість програмного забезпечення та тестування»\\
+	на тему «Програмний код і його метрики»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+		Виконав:\\
+		студент ННІКІТ СП-225\\
+		Клокун Владислав\\
+		Перевірила:\\
+		Апенько Н. В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	\section{Хід роботи}
+		\subsection{Кількісні метрики коду}
+			Кількісні метрики розробленої програми наведені у табл.~\ref{tab:quantitative-metrics}.
+			
+			\begin{longtable}[c]{lr}
+				\toprule
+					Метрика & Значення\\
+				\midrule
+				\endhead
+				\bottomrule
+				\caption{Кількісні метрики розробленої програми}
+				\endfoot
+				\label{tab:quantitative-metrics}
+				
+					Кількість рядків                 & $188$\\
+					Кількість порожніх рядків        & $47$\\
+					Кількість коментарів             & $36$\\
+					Відсоток коментарів              & $26$\\
+					Середнє число рядків для функцій & $7$\\
+			\end{longtable}
+		
+		\subsection{Метрики Халстеда}
+			Були обчислені метрики за Халстедом~(табл.~\ref{tab:software-metrics-halstead}). Нехай $\eta_1$~— кількість унікальних операторів, $\eta_2$~— кількість унікальних операндів, $N_1$~— загальна кількість операторів та $N_2$~— загальна кількість операндів, тоді за виміряними значеннями обчислимо інші метрики за формулами. Словник програми~$\eta$:
+			\[
+				\eta = \eta_1 + \eta_2 = 21 + 18 = 39.
+			\]
+			
+			Довжина програми~$N$:
+			\[
+				N = N_1 + N_2 = 76 + 93 = 169.
+			\]
+			
+			Обчислена довжина програми~$\hat{N}$:
+			\[
+				\hat{N} = \eta_1 \log_2 \eta_1 + \eta_2 \log_2 \eta_2
+						= 21 \log_2 21 + 18 \log_2 18
+						= \num{167,30}.
+			\]
+			
+			Об'єм програми~$V$:
+			\[
+				V = N \cdot \log_2 \eta
+				  = 169 \cdot \log_2 39
+				  = \num{893,20}.
+			\]
+			
+			Складність програми~$D$:
+			\[
+				D = \frac{\eta_1}{2} \cdot \frac{N_2}{\eta_2}
+				  = \frac{21}{2} \cdot \frac{93}{18}
+				  = \frac{217}{4}
+				  = \num{54,25}.
+			\]
+			
+			Зусилля~$E$:
+			\[
+				E = D \cdot V
+				  = \num{54,25} \cdot \num{893,2}
+				  = \num{48456,10}.
+			\]
+			
+			\begin{longtable}[c]{llr}
+					\toprule
+						Метрика & Позначення & Значення\\
+					\midrule
+					\endhead
+					\bottomrule
+					\caption{Метрики розробленої програми за Халстедом}
+					\endfoot
+					\label{tab:software-metrics-halstead}
+					
+						Кількість унікальних операторів & $\eta_1$  & $21{,}00$\\
+						Кількість унікальних операндів  & $\eta_2$  & $18{,}00$\\
+						Загальна кількість операторів   & $N_1$     & $76{,}00$\\
+						Загальна кількість операндів    & $N_2$     & $93{,}00$\\
+						Словник програми                & $\eta$    & $39{,}00$\\
+						Довжина програми                & $N$       & $169{,}00$\\
+						Обчислена довжина програми      & $\hat{N}$ & $167{,}30$ \\
+						Об'єм                           & $V$       & $893{,}20$ \\
+						Складність                      & $D$       & $54{,}25$ \\
+						Зусилля                         & $E$       & $48456{,}10$ \\
+			\end{longtable}
+		
+\end{document}
