@@ -12,7 +12,7 @@ def get_kernel_modules():
             print('OS returned invalid Unicode string.')
             output = None
             
-    elif 'mac' in current_platform.lower():
+    elif 'darwin' in current_platform.lower():
         output = subprocess.check_output(args = ['kextstat'],
                                          universal_newlines = True)
                                          
