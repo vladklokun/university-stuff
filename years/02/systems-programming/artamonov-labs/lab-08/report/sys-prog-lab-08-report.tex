@@ -1,0 +1,75 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{Roboto}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+%%% Source code listing
+\usepackage{listings}
+\lstset{%
+	basicstyle = \small\ttfamily,%
+	breaklines = true,%
+	captionpos = b,%
+	language = python,%
+}
+
+\renewcommand{\lstlistingname}{Лістинг}
+%%%
+
+%%% Caption setup (workaround for wrong caption style for listing)
+\usepackage{caption}
+\captionsetup[lstlisting]{font={rm}}
+%%%
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace{\fill}
+
+		Лабораторна робота №8\\
+		з дисципліни «Системне програмування»\\
+		на тему «Керування відеоадаптером»
+
+		\vspace{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент ННІКІТ СП-225\\
+			Клокун Владислав\\
+			Перевірив:\\
+			Артамонов Є.~Б.
+		\end{flushright}
+
+		Київ 2017
+    \end{titlepage}
+	
+	\section{Мета роботи}
+		Вивчення особливостей функціонування відеосистеми в текстовому режимі й одержання практичних навичок роботи з відеомонітором у цьому режимі.
+		
+	\section{Постановка задачі}
+		Одержати на екрані оригінальний, бажано динамічний відеоефект. 
+		
+	\section{Розв'язання}
+		Під час виконання лабораторної роботи була розроблена програма, яка показує коло, що відбивається від границь вікна, в якому вона знаходиться. Початковий код розробленої програми наведений у~лістингу~\ref{lst:lab-08-listing}.
+		
+		\lstinputlisting[
+			caption = {Початковий код розробленої програми},%
+			label = {lst:lab-08-listing},%
+		]
+		{../solution/lab-08.py}
+	
+\end{document}
