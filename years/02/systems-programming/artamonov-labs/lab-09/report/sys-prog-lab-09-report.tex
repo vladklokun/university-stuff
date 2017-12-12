@@ -1,0 +1,76 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{Roboto}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+%%% Source code listing
+\usepackage{listings}
+\lstset{%
+	basicstyle       = \small\ttfamily,%
+	breaklines       = true,%
+	captionpos       = b,%
+	showstringspaces = false,%
+	language         = python,%
+}
+
+\renewcommand{\lstlistingname}{Лістинг}
+%%%
+
+%%% Caption setup (workaround for wrong caption style for listing)
+\usepackage{caption}
+\captionsetup[lstlisting]{font={rm}}
+%%%
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace{\fill}
+
+		Лабораторна робота №9\\
+		з дисципліни «Системне програмування»\\
+		на тему «Драйвери DOS»
+
+		\vspace{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент ННІКІТ СП-225\\
+			Клокун Владислав\\
+			Перевірив:\\
+			Артамонов Є.~Б.
+		\end{flushright}
+
+		Київ 2017
+    \end{titlepage}
+	
+	\section{Мета роботи}
+		Переглянути список драйверів, які завантажені у даний момент завантажені в конкретному ПК.
+		
+	\section{Постановка задачі}
+		Визначити драйвери, що знаходяться в пам'яті ПК на своєму робочому місці. 
+		
+	\section{Розв'язання}
+		Під час виконання лабораторної роботи була розроблена програма, що виводить на~екран список драйверів, які завантажені на даний момент. Початковий код розробленої програми наведений у~лістингу~\ref{lst:lab-09-listing}.
+		
+		\lstinputlisting[
+			caption = {Початковий код розробленої програми},%
+			label = {lst:lab-09-listing},%
+		]
+		{../solution/lab-09.py}
+	
+\end{document}
