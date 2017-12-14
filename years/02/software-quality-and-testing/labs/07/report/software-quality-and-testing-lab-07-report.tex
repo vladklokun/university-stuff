@@ -1,0 +1,223 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{graphicx}
+
+%%% Load fonts
+\usepackage{fontspec}
+\setromanfont[
+	SmallCapsFeatures = {LetterSpace = 5}
+]{STIX Two Text}
+\setsansfont{Roboto}
+\setmonofont{PT Mono}
+
+\usepackage{amsmath,unicode-math}
+\setmathfont{STIX Two Math}
+%%%
+
+%%% Language-specific setup
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% Microtypographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{v}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{multirow}
+% \renewcommand{\arraystretch}{1.4}
+
+\usepackage{cellspace}
+\setlength\cellspacetoplimit{3pt}
+\setlength\cellspacebottomlimit{3pt}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+%%%
+
+%%% Math typesetting
+\usepackage{ieeetrantools}
+%%%
+
+\begin{document}
+	\begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №7\\
+	з дисципліни «Якість програмного забезпечення та тестування»\\
+	на тему «Експертні методи прогнозування»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+		Виконав:\\
+		студент ННІКІТ СП-225\\
+		Клокун Владислав\\
+		Перевірила:\\
+		Апенько Н. В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	\section{Експертні оцінки}
+		Припустимо, що чотири експерти оцінили п'ять напрямків. Дані оцінки наведені у табл.~\ref{tab:direction-marks}.
+		
+		\begin{longtable}[c]{lrrrr}
+			\toprule
+				\multirow{2}{*}[-2pt]{Напрямок} & \multicolumn{4}{c}{Експерт} \\
+				\cmidrule(lr){2-5}
+				 & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Таблиця балів оцінки напрямів розвитку}
+			\endfoot
+			\label{tab:direction-marks}
+			
+				1 & 100 & 100 & 100 & 100\\
+				2 & 90  & 90  & 90  & 90\\
+				3 & 80  & 80  & 80  & 80\\
+				4 & 70  & 70  & 70  & 70\\
+				5 & 60  & 60  & 60  & 60\\
+		\end{longtable}
+		
+		За отриманими оцінками складаємо матрицю рангів~(табл.~\ref{tab:direction-ranks}).
+		
+		\begin{longtable}[c]{lrrrr}
+			\toprule
+				\multirow{2}{*}[-2pt]{Напрямок} & \multicolumn{4}{c}{Експерт} \\
+				\cmidrule(lr){2-5}
+				 & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Таблиця рангів оцінки напрямів розвитку}
+			\endfoot
+			\label{tab:direction-ranks}
+			
+				1 & 1 & 1 & 1 & 1\\
+				2 & 2 & 2 & 2 & 2\\
+				3 & 3 & 3 & 3 & 3\\
+				4 & 4 & 4 & 4 & 4\\
+				5 & 5 & 5 & 5 & 5\\
+		\end{longtable}
+		
+		Оскільки значення оцінок і рангів однакові, то середні значення рангів~$S_j$ і середні значення балів~$M_j$ будуть рівні самим значенням рангів та оцінок відповідно.
+		
+		Максимальна оцінка була виставлена лише напрямку~1, тому лише вона має ненульовий показник частоти максимально можливих оцінок:
+		\[
+			K_{100_{1}} = \frac{4}{4} = 1.
+		\]
+		
+		Середня вага кожного напрямку (нормована оцінка) розраховується за формулою:
+		\[
+			w_{ij} = \frac{C_{ij}}{\displaystyle\sum^m_{j = 1}{C_{ij}}}.
+		\]
+		
+		Розраховуємо значення для кожного напрямку і заносимо їх в таблицю~\ref{tab:direction-relative-value}.
+		\begin{IEEEeqnarray*}{rCl}
+			W_{11} = W_{12} = W_{13} = W_{14} &=& \frac{100}{100 + 90 + 80 + 70 + 60} = \frac{100}{400} = 0{,}25
+		\end{IEEEeqnarray*}
+		\begin{IEEEeqnarray*}{rCl}
+			W_{21} = W_{22} = W_{23} = W_{24} &=& \frac{90}{100 + 90 + 80 + 70 + 60} = \frac{90}{400} = 0{,}225\\[2\jot]
+			W_{31} = W_{32} = W_{33} = W_{34} &=& \frac{80}{100 + 90 + 80 + 70 + 60} = \frac{80}{400} = 0{,}2\\[2\jot]
+			W_{41} = W_{42} = W_{43} = W_{44} &=& \frac{70}{100 + 90 + 80 + 70 + 60} = \frac{70}{400} = 0{,}175\\[2\jot]
+			W_{51} = W_{52} = W_{53} = W_{54} &=& \frac{60}{100 + 90 + 80 + 70 + 60} = \frac{60}{400} = 0{,}15.\\[2\jot]
+		\end{IEEEeqnarray*}
+		
+		\begin{longtable}[c]{lrrrr}
+			\toprule
+				\multirow{2}{*}[-2pt]{Напрямок} & \multicolumn{4}{c}{Експерт} \\
+				\cmidrule(lr){2-5}
+				 & \multicolumn{1}{c}{1} & \multicolumn{1}{c}{2} & \multicolumn{1}{c}{3} & \multicolumn{1}{c}{4} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Таблиця відносних значень напрямів розвитку}
+			\endfoot
+			\label{tab:direction-relative-value}
+			
+				1 & 0{,}250 & 0{,}250 & 0{,}250 & 0{,}250\\
+				2 & 0{,}225 & 0{,}225 & 0{,}225 & 0{,}225\\
+				3 & 0{,}200 & 0{,}200 & 0{,}200 & 0{,}200\\
+				4 & 0{,}175 & 0{,}175 & 0{,}175 & 0{,}175\\
+				5 & 0{,}150 & 0{,}150 & 0{,}150 & 0{,}150\\
+		\end{longtable}
+		
+		Оскільки значення для кожного експерта однакові, то і середні значення будуть рівні значенням для кожного напрямку.
+		
+		Будуємо матрицю переваг~(табл.~\ref{tab:advantage-matrix}).
+		\begin{longtable}[c]{lScScScScScScScScScSc}
+			\toprule
+				Напрямок & 1 & 2 & 3 & 4 & 5 \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Матриця переваг}
+			\endfoot
+			\label{tab:advantage-matrix}
+			
+				1 & $1$             & $\dfrac{10}{ 9}$ & $\dfrac{10}{ 8}$ & $\dfrac{10}{ 7}$ & $\dfrac{10}{ 6}$ \\
+				2 & $\dfrac{9}{10}$ & $1$              & $\dfrac{ 9}{ 8}$ & $\dfrac{ 9}{ 7}$ & $\dfrac{ 9}{ 6}$ \\
+				3 & $\dfrac{8}{10}$ & $\dfrac{ 8}{ 9}$ & $1$              & $\dfrac{ 8}{ 7}$ & $\dfrac{ 8}{ 6}$ \\
+				4 & $\dfrac{7}{10}$ & $\dfrac{ 7}{ 9}$ & $\dfrac{ 7}{ 8}$ & $1$              & $\dfrac{ 7}{ 6}$ \\
+				5 & $\dfrac{6}{10}$ & $\dfrac{ 6}{ 9}$ & $\dfrac{ 6}{ 8}$ & $\dfrac{ 6}{ 7}$ & $1$ \\
+		\end{longtable}
+		
+		За отриманими даними складаємо таблицю показників порівняльної важливості напрямків~(табл.~\ref{tab:direction-importance}).
+		
+		\begin{longtable}[c]{lSlSrSrSrSrSr}
+			\toprule
+				Найменування & Позначення & \multicolumn{5}{c}{Напрямок}\\
+				\cmidrule(lr){3-7}
+				             &            & 1 & 2 & 3 & 4 & 5 \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Таблиця показників порівняльної важливості напрямків}
+			\endfoot
+			\label{tab:direction-importance}
+			
+				Сума рангів                          & $S_j$              & $4$      & $8$       & $12$    & $16$      & $20$\\
+				Середній ранг                        & $\overline{S}_j$   & $1$      & $2$       & $3$     & $4$       & $5$\\
+				Середнє значення в~балах             & $\overline{\mu}_k$ & $100$    & $90$      & $80$    & $70$      & $60$\\
+				Частота макс. можливих оцінок  & $K_{100_j}$        & $1$      & $0$       & $0$     & $0$       & $0$\\
+				Середня вага                         & $W_j$              & $0{,}25$ & $0{,}225$ & $0{,}2$ & $0{,}175$ & $0{,}15$\\
+				Розмах                               & $L_j$              & $0$      & $0$       & $0$     & $0$       & $0$\\
+				Коефіцієнт активності~експертів      & $K_{\text{act}_j}$ & $1$      & $1$       & $1$     & $1$       & $1$\\
+		\end{longtable}
+		
+		Також, оскільки оцінки експертів однакові, коефіцієнт конкордації дорівнює~$1$.
+		
+	\section{Моделі якості ПЗ}
+		\subsection{Модель МакКола}
+			Модель МакКола в основному призначена для визначення повної характеристики якості програмного продукту його різними характеристиками. Модель якості МакКола має три головних напрями для визначення якості програмного забезпечення:
+			\begin{enumerate}
+				\item Функціональність.
+				\item Модифікованість.
+				\item Переносність.
+			\end{enumerate}
+			
+		\subsection{Модель Боема}
+			Модель якості Боема має недоліки сучасних моделей, які автоматично і якісно оцінюють якість програмного забезпечення. Модель Боема намагається якісно визначити якість програмного забезпечення заданим набором показників і метрик. Ця модель представляє характеристики програмного забезпечення у більш крупному масштабі, порівняно з моделлю МакКола. Модель Боема схода на модель якості МакКола тим, що вона також є ієрархічною, структурованою навколо високорівневих, проміжних і примітивних характеристик, кожна з яких вносить свій вклад в рівень якості програмного забезпечення.
+			
+		\subsection{Модель якості Дромі}
+			Модель якості Дромі заснована на критеріях оцінки. Модель Дромі намагається оцінити якість системи, тоді як кожний програмний продукт має якість, що відрізняється від інших. Модель Дромі допомагає передбачати дефекти ПЗ і вказує на ті властивості ПЗ, недбалість до яких може призвести до появи дефектів. Ця модель заснована на відношеннях між характеристиками якості і підхарактеристиками, між властивостями програмного забезпечення і характеристиками якості ПЗ.
+\end{document}
