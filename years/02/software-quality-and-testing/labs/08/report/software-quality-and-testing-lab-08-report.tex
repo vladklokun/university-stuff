@@ -1,0 +1,205 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{graphicx}
+
+%%% Load fonts
+\usepackage{fontspec}
+\setromanfont[
+	SmallCapsFeatures = {LetterSpace = 5}
+]{STIX Two Text}
+\setsansfont{Roboto}
+\setmonofont{PT Mono}
+
+\usepackage{amsmath,unicode-math}
+\setmathfont{STIX Two Math}
+%%%
+
+%%% Language-specific setup
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% Microtypographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\newcolumntype{v}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{multirow}
+% \renewcommand{\arraystretch}{1.4}
+
+\usepackage{cellspace}
+% \setlength\cellspacetoplimit{3pt}
+% \setlength\cellspacebottomlimit{3pt}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+%%%
+
+%%% Math typesetting
+\usepackage{ieeetrantools}
+%%%
+
+%%%
+\makeatletter
+\@addtoreset{section}{part}
+\makeatother
+%%%
+
+\newcommand{\progname}{\texttt{addrbook}}
+\newcommand{\theprogcode}{ADRB}
+
+\newcommand{\thetestplan}{TSTPLN}
+\newcommand{\thetestplanhash}{c900c0}
+
+\newcommand{\theqaplan}{SQAPLN}
+\newcommand{\theqaplanhash}{69632c}
+
+\newcommand{\thegenplan}{GENPLN}
+\newcommand{\thegenplanhash}{ccb263}
+
+\newcommand{\theprd}{PRD}
+\newcommand{\theprdhash}{06809b}
+
+\newcommand{\printtestplan}{\texttt{\theprogcode-\thetestplan-\thetestplanhash}}
+\newcommand{\printqaplan}{\texttt{\theprogcode-\theqaplan-\theqaplanhash}}
+\newcommand{\printgenplan}{\texttt{\theprogcode-\thegenplan-\thegenplanhash}}
+\newcommand{\printprd}{\texttt{\theprogcode-\theprd-\theprdhash}}
+
+\begin{document}
+	\begin{titlepage}
+    \begin{center}
+	Міністерство освіти і науки України\\
+	Національний авіаційний університет\\
+	Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+	Кафедра комп'ютеризованих систем управління
+
+	\vspace{\fill}
+
+	Лабораторна робота №8\\
+	з дисципліни «Якість програмного забезпечення та тестування»\\
+	на тему «Техніки управління якістю ПЗ»
+
+	\vspace{\fill}
+	
+	\begin{flushright}
+		Виконав:\\
+		студент ННІКІТ СП-225\\
+		Клокун Владислав\\
+		Перевірила:\\
+		Апенько Н. В.
+	\end{flushright}
+
+	Київ 2017
+
+    \end{center}
+    \end{titlepage}
+	
+	\part{План якості програмного продукту}
+		\section{Мета}
+			Цей документ створений для управління якістю програмного продукту~\progname \ у~процесі життєвого циклу.
+			
+		\section{Довідкові документи}
+			У даному розділі наведений повний список документів, на які спирається даний документ.
+			
+			\begin{longtable}[c]{ll}
+				\toprule
+				Тип документу & Ідентифікатор \\
+				\midrule
+				\endhead
+				\bottomrule
+				\caption{Документи, на які спирається \printqaplan}
+				\endfoot
+				\label{tab:reference-docs}
+				
+				Технічне завдання & \printprd \\
+				План проекту & \printgenplan \\
+				% Внутрішні стандарти розробки проектів & \texttt{INT-PROJGUIDE-642F1D}\\
+			
+			\end{longtable}
+		
+		\section{Управління}
+			\subsection{Організація}
+				У забезпеченні якості програмного продукту~\progname \ приймають участь такі структурні підрозділи:
+				\begin{enumerate}
+					\item Відділ розробки.
+					\item Відділ тестування.
+					\item Відділ документації.
+				\end{enumerate}
+				
+			\subsection{Завдання}
+				Завдання організації якості програмного забезпечення такі:
+				\begin{enumerate}
+					\item Розробка якісного ПЗ.
+					\item Тестування якості розробленого ПЗ.
+					\item Розробка якісної документації до розробленого ПЗ.
+				\end{enumerate}
+				
+			\subsection{Обов'язки}
+				Обов'язки кожного структурного підрозділу розподілені таким чином:
+				\begin{enumerate}
+					\item Відділ розробки~— розробка та супровід програмного продукту.
+					\item Відділ тестування~— тестування програмного продукту.
+					\item Відділ тестування~— оформлення документації до програмного продукту.
+				\end{enumerate}
+				
+		\section{Документація}
+			\subsection{Ціль}
+				Ціль розробки документації у процесі забезпечення якості програмного продукту є збереження та організація у зручному вигляді відомостей про процеси життєвого циклу програмного продукту.
+				
+			\subsection{Мінімальні вимоги до документації}
+				\subsubsection{Software Requirements Specification}
+					Software Requirements Specification (SRS) повинна точно і ясно описувати кожну з основних вимог до програмного продукту і зовнішніх інтерфейсів. Кожна вимога повинна бути визначена так, що відповідність їй може бути об'єктивно підтверджена та валідована описаним методом.
+					
+				\subsubsection{Software Design Description}
+					Software Design Description (SDD) повинен описувати, як буде структурований програмний продукт задля відповідності вимогам, описаним в~SRS. SDD описує компоненти та підкомпоненти проекту програмного продукту, включаючи бази даних та внутрішні інтерфейси.
+					
+				\subsubsection{Software Verification and Validation Plan}
+					Software Verification and Validation Plan~(SVVP) повинен описувати методи, що використовуються для:
+					\begin{enumerate}
+						\item Підтвердження, що:
+							\begin{enumerate}
+								\item Вимоги, що описані в~SRS, затверджені відповідною структурою.
+								\item Вимоги, що описані в~SRS, розроблені відповідно до дизайну, що описаний в~SDD.
+								\item Дизайн, що описаний в~SDD, розроблений у вигляді коду.
+							\end{enumerate}
+						\item Валідації, що код, що виконується, відповідає вимогам, описаним в~SRS.
+					\end{enumerate}
+					
+				\subsubsection{Software Configuration and Management Plan}
+					Software Configuration and Management Plan описує результати виконання дій, описаних в~SVVP.
+					
+			\section{Стандарти, практики та метрики}
+				Під час процесів життєвого циклу програмного продукту повинні збиратись такі метрики:
+				\begin{enumerate}
+					\item Кількість рядків початкового коду.
+					\item Кількість дефектів.
+					\item Кількість дефектів на рядок коду.
+					\item Кількість дефектів на версію програми.
+					\item Відсоток покриття коду тестами.
+				\end{enumerate}
+				
+			\section{Аудит і перевірка}
+				\subsection{Software Requirements Review (SRR)}
+					SRR або перевірка вимог до програмного забезпечення проводиться для переконання в адекватності вимог, описаних в~SRS.
+					
+				\subsection{Preliminary Design Review (PDR)}
+					PDR або попередня перевірка дизайну проводиться з метою оцінювання технічної адекватності поверхневого дизайну.
+					
+				\subsection{Critical Design Review (CDR)}
+					CRD або детальна перевірка дизайну проводиться для більш детальної оцінки технічної якості дизайну.
+					
+			\section{Повідомлення про проблеми та виправні дії}
+				Для забезпечення повідомлення, відстеження та вирішення проблем використовується інструменти платформи GitLab, що розгортається на обладнанні організації розробника.
+					
+	\part{Статичний аналіз якості ПЗ}
+		\section{Результати}
+			За результатами виконання статичного аналізу проекту~\progname , а саме детального дослідження проектної документації, програмного забезпечення та іншої інформації про програмний продукт, не прибігаючи до його виконання, недоліки не були виявлені.
+\end{document}
