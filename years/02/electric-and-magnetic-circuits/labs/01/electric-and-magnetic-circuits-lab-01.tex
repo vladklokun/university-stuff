@@ -23,6 +23,8 @@
 \sisetup{output-decimal-marker = {,},
 exponent-product = {\cdot}}
 
+\usepackage{subcaption}
+
 \begin{document}
 	\begin{titlepage}
 		\begin{center}
@@ -131,28 +133,115 @@ exponent-product = {\cdot}}
 		\end{enumerate}
 		При цьому потужність в обох дослідах однакова. Обчислити значення ККД в цих дослідах і порівняти їх.
 		
+		% \begin{table}[!htbp]
+			% \centering
+			% \begin{tabular}{ccccccccc}
+			% \toprule
+				% \multicolumn{3}{c}{Дослідні дані} & \multicolumn{6}{c}{Розрахункові дані} \\
+				% $U_{\text{Г}}, \si{\volt}$ & $U_{\text{Н}}, \si{\volt}$ & $I, \si{\ampere}$ & $\Delta U, \si{\volt}$ & $P_{\text{Г}}, \si{\watt}$ & $P_{\text{Н}}, \si{\watt}$ & $\Delta P, \si{\watt}$ & $\eta, \%$ & $R_{\text{Н}}, \si{\ohm}$\\
+			% \midrule
+				% \num{10,0} & \num{0} & \num{40e-3} & \num{10} & \num{0,4} & \num{0} & \num{0,4} & 0 & \num{0} \\
+				% \num{10,1} & \num{1,6} & \num{34e-3} & \num{8,5} & \num{0,34} & \num{0,054} & \num{0,289} & \num{0,15} & \num{40} \\
+				% \num{10,1} & \num{2,7} & \num{30e-3} & \num{7,4} & \num{0,3} & \num{0,081} & \num{0,222} & \num{0,27} & \num{80} \\
+				% \num{10,0} & \num{3,5} & \num{27e-3} & \num{6,5} & \num{0,27}  & \num{0,095} & \num{0,1755} & \num{0,35} & \num{120} \\
+				% \num{10,0} & \num{4,2} & \num{24e-3} & \num{5,8} & \num{0,24} & \num{0,1} & \num{0,1392} & \num{0,41} & \num{160} \\
+				% \num{10,1} & \num{4,9} & \num{21e-3} & \num{5,1} & \num{0,21} & \num{0,102} & \num{0,1071} & \num{0,48} & \num{200} \\
+				% \num{10,1} & \num{5,3} & \num{19e-3} & \num{4,8} & \num{0,19} & \num{0,1007} & \num{0,0912} & \num{0,53} & \num{240} \\
+				% \num{10,1} & \num{5,7} & \num{17e-3} & \num{4,4} & \num{0,17} & \num{0,09} & \num{0,0748} & \num{0,52} & \num{280} \\
+				% \num{10,1} & \num{6,1} & \num{16e-3} & \num{4} &\num{0,16} & \num{0,0976} & \num{0,064} & \num{0,61} & \num{320} \\
+				% \num{10,1} & \num{6,4} & \num{15e-3} & \num{3,7} & \num{0,15} & \num{0,096} & \num{0,0555} & \num{0,64} & \num{360} \\
+			% \bottomrule
+			% \end{tabular}
+			% \caption{Вимірювання}
+			% \label{tab:measurements}
+		% \end{table}
+		
 		\begin{table}[!htbp]
 			\centering
-			\begin{tabular}{ccccccccc}
+			\begin{tabular}{
+				S[table-format=1.1]
+				S[table-format=1.1]
+				S[table-format=2e2]
+				S[table-format=2.1]
+				S[table-format=1.2]
+				S[table-format=1.4]
+				S[table-format=1.4]
+				S[table-format=2]
+				S[table-format=3.0]%, table-number-alignment=right]
+			}
 			\toprule
 				\multicolumn{3}{c}{Дослідні дані} & \multicolumn{6}{c}{Розрахункові дані} \\
-				$U_{\text{Г}}, \si{\volt}$ & $U_{\text{Н}}, \si{\volt}$ & $I, \si{\ampere}$ & $\Delta U, \si{\volt}$ & $P_{\text{Г}}, \si{\watt}$ & $P_{\text{Н}}, \si{\watt}$ & $\Delta P, \si{\watt}$ & $\eta, \%$ & $R_{\text{Н}}, \si{\ohm}$\\
+				\cmidrule(lr){1-3} \cmidrule(lr){4-9}
+				{$U_{\text{Г}}, \si{\volt}$} & {$U_{\text{Н}}, \si{\volt}$} & {$I, \si{\ampere}$} & {$\Delta U, \si{\volt}$} & {$P_{\text{Г}}, \si{\watt}$} & {$P_{\text{Н}}, \si{\watt}$} & {$\Delta P, \si{\watt}$} & {$\eta, \%$} & {$R_{\text{Н}}, \si{\ohm}$}\\
+				
 			\midrule
-				\num{10,0} & \num{0} & \num{40e-3} & & & & & & \num{0} \\
-				\num{10,1} & \num{1,6} & \num{40e-3} & & & & & & \num{40} \\
-				\num{10,1} & \num{2,7} & \num{40e-3} & & & & & & \num{80} \\
-				\num{10,0} & \num{3,5} & \num{40e-3} & & & & & & \num{120} \\
-				\num{10,0} & \num{4,2} & \num{40e-3} & & & & & & \num{160} \\
-				\num{10,1} & \num{4,9} & \num{40e-3} & & & & & & \num{200} \\
-				\num{10,1} & \num{5,3} & \num{40e-3} & & & & & & \num{240} \\
-				\num{10,1} & \num{5,7} & \num{40e-3} & & & & & & \num{280} \\
-				\num{10,1} & \num{6,1} & \num{40e-3} & & & & & & \num{320} \\
-				\num{10,1} & \num{6,4} & \num{40e-3} & & & & & & \num{360} \\
+				10,0 & 0 & 40e-3 & 10 & 0,4 & 0 & 0,4 & 0 & 0 \\
+				10,1 & 1,6 & 34e-3 & 8,5 & 0,34 & 0,054 & 0,289 & 15 & 40 \\
+				10,1 & 2,7 & 30e-3 & 7,4 & 0,3 & 0,081 & 0,222 & 27 & 80 \\
+				10,0 & 3,5 & 27e-3 & 6,5 & 0,27  & 0,095 & 0,1755 & 35 & 120 \\
+				10,0 & 4,2 & 24e-3 & 5,8 & 0,24 & 0,1 & 0,1392 & 41 & 160 \\
+				10,1 & 4,9 & 21e-3 & 5,1 & 0,21 & 0,102 & 0,1071 & 48 & 200 \\
+				10,1 & 5,3 & 19e-3 & 4,8 & 0,19 & 0,1007 & 0,0912 & 53 & 240 \\
+				10,1 & 5,7 & 17e-3 & 4,4 & 0,17 & 0,09 & 0,0748 & 52 & 280 \\
+				10,1 & 6,1 & 16e-3 & 4 &0,16 & 0,0976 & 0,064 & 61 & 320 \\
+				10,1 & 6,4 & 15e-3 & 3,7 & 0,15 & 0,096 & 0,0555 & 64 & 360 \\
 			\bottomrule
 			\end{tabular}
 			\caption{Вимірювання}
 			\label{tab:measurements}
 		\end{table}
 		
+		За отриманими дослідними і розрахунковими даними (табл.~\ref{tab:measurements}) будуємо графіки шуканих залежностей (рис.~\ref{fig:plots}).
+		
+		\begin{figure}
+		\centering
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{01-i-edited.pdf}
+				\caption{$I = f(R_{\text{Н}})$}
+			\end{subfigure}
+			~
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{02-u-nag-edited.pdf}
+				\caption{$U_{\text{Н}} = f(R_{\text{Н}})$}
+			\end{subfigure}
+			
+			\vspace*{\floatsep}
+			
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{03-delta-u-edited.pdf}
+				\caption{$\Delta U = f(R_{\text{Н}})$}
+			\end{subfigure}
+			~
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{04-p-gen-edited.pdf}
+				\caption{$P_{\text{Г}} = f(R_{\text{Н}})$}
+			\end{subfigure}
+			
+			\vspace*{\floatsep}
+			
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{05-p-nag-edited.pdf}
+				\caption{$P_{\text{Н}} = f(R_{\text{Н}})$}
+			\end{subfigure}
+			~
+			\begin{subfigure}[b]{0.49\textwidth}
+				\includegraphics[width=\textwidth]{06-delta-p-edited.pdf}
+				\caption{$\Delta P = f(R_{\text{Н}})$}
+			\end{subfigure}
+		\caption{Графіки залежностей різних величин від $R_{\text{Н}}$}
+		\end{figure}
+		
+		\begin{figure}
+		\centering
+		\ContinuedFloat
+			\begin{subfigure}{\textwidth}
+				\includegraphics[width=\textwidth]{07-eta-edited.pdf}
+				\caption{$\eta = f(R_{\text{Н}})$}
+			\end{subfigure}
+		\caption{Графіки залежностей різних величин від $R_{\text{Н}}$}
+		\label{fig:plots}
+		\end{figure}
+		
 	\section{Висновки}
+		Виконуючи дану лабораторну роботу, ми провели дослідження залежності струму $I$, напруги навантаження $U_{\text{Н}}$, втрати напруги на лінії $U$, потужності генератора $P_{\text{Г}}$, потужності навантаження $P_{\text{Н}}$, втрати потужності на лінії $P$, ККД лінії в залежності від значення опору навантаження при незмінній величині постійної напруги на початку лінії. Дослідили режим, при якому потужність споживача навантаженням досягає свого максимуму. За результатами досліджень виконали необхідні розрахунки та намалювали графічні залежності.
 \end{document}
