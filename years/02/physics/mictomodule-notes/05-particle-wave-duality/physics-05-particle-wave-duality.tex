@@ -1,0 +1,223 @@
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+
+\usepackage{fontspec}
+\setmainfont{STIX Two Text}
+\setsansfont{Roboto}
+\setmonofont{PT Mono}
+
+\usepackage{microtype}
+
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{siunitx}
+\sisetup{output-decimal-marker = {,},
+exponent-product = {\cdot}}
+
+% Problem-solution typesetting
+\usepackage{xsim}
+\loadxsimstyle{runin}
+\DeclareExerciseTranslations{exercise}{
+	Ukrainian	=	завдання ,
+}
+
+\DeclareExerciseTranslations{solution}{
+	Ukrainian	=	розв'язання ,
+}
+
+\xsimsetup{
+	solution/print = true,
+	exercise/template = runin,
+	solution/template = runin,
+}
+
+\begin{document}
+	\begin{exercise}
+		Ефект Комптона полягає:
+	\end{exercise}
+	\begin{solution}
+		У розсіюванні атомами речовини випромінювання і збільшенні довжини хвилі розсіяного випромінювання.
+	\end{solution}
+	
+	\begin{exercise}
+		Зміна довжини хвилі при ефекті Комптона визначається так:
+	\end{exercise}
+	\begin{solution}
+		\[
+			\Delta \lambda = \lambda' - \lambda = 2 \lambda_{\text{к}} \sin^2 \frac{\theta}{2}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Максимальна зміна довжини хвилі фотона при розсіюванні рентгенівських променів на електронах речовини визначається так:
+	\end{exercise}
+	\begin{solution}
+		Коли $\theta = \pi$, і $m_e$~— маса електрона, тоді
+		\[
+			\Delta \lambda_{\text{max}}
+			= 2 \lambda_{\text{к}}
+			= 2 \frac{h}{m_e c}
+			= \SI{4,86e-12}{\metre}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Дописати закони збереження, які виконуються при ефекті Комптона.
+	\end{exercise}
+	\begin{solution}
+		\[
+			h \nu + m_0 c^2 = h \nu' + mc^2.
+		\]
+		\[
+			\vec{p}_{\text{ф}} = \vec{p}_{\text{ф}}' + \vec{p}_{\text{е}}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Комптонівська довжина хвилі електрона визначається так:
+	\end{exercise}
+	\begin{solution}
+		\[
+			\lambda_{\text{к}}
+			= \frac{h}{m_e c}
+			= \SI{2,42621e-12}{\metre}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Максимальна зміна довжини хвилі фотона при розсіюванні рентгенівських променів на протонах визначається так:
+	\end{exercise}
+	\begin{solution}
+		Коли $\theta = \pi$, і $m_p$~— маса протона, тоді
+		\[
+			\Delta \lambda_{\text{max}}
+			= 2 \lambda_{\text{к}}
+			= 2 \frac{h}{m_p c}
+			= \SI{4,86e-12}{\metre}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Комптонівська довжина хвилі протона визначається так:
+	\end{exercise}
+	\begin{solution}
+		\[
+			\lambda_{\text{к}}
+			= \frac{h}{m_p c}
+			= \SI{2,42621e-12}{\metre}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		На рис. 4 подано квантову схему ефекту Комптона. Показати: частинку, на якій відбувається ефект; напрям руху падаючого фотона.
+	\end{exercise}
+	\begin{solution}
+		Частинка, на якій відбувається ефект — 2. Напрям руху падаючого фотона — 1.
+	\end{solution}
+	
+	\begin{exercise}
+		На рис. 4 подано квантову схему ефекту Комптона. Показати: кут розсіювання фотона; напрям руху розсіяного фотона.
+	\end{exercise}
+	\begin{solution}
+		Кут розсіювання фотона~— 4. Напрям руху розсіяного фотона~— 3.
+	\end{solution}
+	
+	\begin{exercise}
+		На рис. 4 подано квантову схему ефекту Комптона. Показати: кут, під яким рухається електрон віддачі; кут розсіяння фотона; напрям руху електрона віддачі.
+	\end{exercise}
+	\begin{solution}
+		Кут, під яким рухається електрон віддачі~— 6. Кут розсіювання фотона~— 4. Напрям руху електрона віддачі~— 5.
+	\end{solution}
+	
+	\begin{exercise}
+		На рис. 4 подано квантову схему ефекту Комптона. Показати: кут розсіювання фотона; напрям руху розсіяного фотона.
+	\end{exercise}
+	\begin{solution}
+		Кут розсіювання фотона~— 4. Напрям руху розсіяного фотона~— 3.
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формули, які визначають енергію розсіяного фотона.
+	\end{exercise}
+	\begin{solution}
+		\[
+			h \nu' = \frac{hc}{\lambda'}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формули, які визначають кінетичну енергію електрона віддачі.
+	\end{exercise}
+	\begin{solution}
+		???
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формули, які визначають імпульс фотона, що падає на електрон речовини.
+	\end{exercise}
+	\begin{solution}
+		\[
+			p_\text{ф} = \frac{h \nu}{c} = \frac{h}{\lambda}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формули, які визначають імпульс розсіяного фотона.
+	\end{exercise}
+	\begin{solution}
+		\[
+			p_\text{ф}' = \frac{h \nu'}{c} = \frac{h}{\lambda'}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формули, які визначають імпульс електрона віддачі.
+	\end{exercise}
+	\begin{solution}
+		\[
+			p_\text{е} = \vec{p}_{\text{ф}} - \vec{p}_{\text{ф}}'.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Тиск світла полягає…
+	\end{exercise}
+	\begin{solution}
+		У тому, що під час зіткнення з поверхнею тіла, фотон передає їй свій імпульс.
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формулу, як визначає тиск світла на дзеркальну поверхню.
+	\end{exercise}
+	\begin{solution}
+		\[
+			p = \frac{n h \nu}{c} (1 + \rho), \, \rho = 1 \implies p = 2 \frac{n h \nu}{c}.
+		\]
+		\[
+			p = 2 \frac{n h \nu}{c} = 2 \frac{h \nu}{c}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Показати формулу, як визначає тиск світла на чорну поверхню.
+	\end{exercise}
+	\begin{solution}
+		\[
+			p = \frac{n h \nu}{c} (1 + \rho), \, \rho = 0 \implies p = \frac{n h \nu}{c}.
+		\]
+	\end{solution}
+	
+	\begin{exercise}
+		Зазначити властивості випромінювання, які спричиняють тиск світла.
+	\end{exercise}
+	\begin{solution}
+		\begin{enumerate}
+			\item Світло — це потік фотонів.
+			\item Світло — це потік фотонів, маса спокою яких дорівнює нулю. ???
+		\end{enumerate}
+	\end{solution}
+\end{document}
