@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+	\begin{axis}[
+		grid = major,
+		xlabel = {Ємність конденсатора~$C$, $\si{\micro\farad}$},
+		legend entries = {
+			$I = f(C)$,
+			$U_K = f(C)$,
+			$U_C = f(C)$,
+			$\varphi = f(C)$,
+		},
+	]
+		\addplot table {assets/05-01-ifc.txt};
+		\addplot table {assets/05-02-ukfc.txt};
+		\addplot table {assets/05-03-ucfc.txt};
+		\addplot table {assets/05-04-phifc.txt};
+	\end{axis}
+\end{tikzpicture}

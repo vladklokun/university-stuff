@@ -1,0 +1,27 @@
+\begin{tikzpicture}
+	%%% Axes
+	\coordinate [label = {left:$0$}]  (O) at (0,0);
+	\coordinate [label = {right:$+1$}] (X) at (15,0);
+	\coordinate [label = {left:$-j$}]  (MINY) at (0,-3);
+	\coordinate [label = {left:$+j$}]  (MAXY) at (0,3);
+	
+	\draw[-Stealth, thick] (O) -- (X);
+	\draw[-Stealth, thick] (MINY) -- (MAXY);
+	%%%
+	
+	%%% Coordinates
+	\coordinate (U) at (xyz polar cs: angle = -9, radius = 10.8);
+	\coordinate (UR) at (9.5, 0);
+	\coordinate (URUK) at (xyz polar cs: angle = 9, radius = 5.3);
+	% \coordinate (URUK) at (xyz polar cs: angle = 9, radius = 14.7);
+	%%%
+	
+	%%% Lines
+	% U
+	\draw[-Stealth] (O) -- node [below] {$U$} (U);
+	% U_R
+	\draw[-Stealth] (O) -- node [above] {$U_R$} (UR);
+	% U_R + U_K
+	\draw[-Stealth] (O) -- node [above] {$U_R + U_K$} (URUK);
+	%%%
+\end{tikzpicture}

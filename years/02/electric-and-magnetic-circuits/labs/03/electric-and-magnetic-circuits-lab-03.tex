@@ -13,23 +13,42 @@
 \usepackage{polyglossia}
 \setmainlanguage{ukrainian}
 
+%%% Math typesetiing
 \usepackage{amsmath}
 \usepackage{unicode-math}
 \setmathfont{STIX Two Math}
 \usepackage[retainorgcmds]{IEEEtrantools}
+\DeclareMathOperator{\tg}{tg}
+%%%
 
 \usepackage{booktabs}
 \usepackage{longtable}
 
+%%% SI units typesetiing
 \usepackage{siunitx}
 \sisetup{output-decimal-marker = {,},
 exponent-product = {\cdot}}
+\DeclareSIUnit \voltampere { ВА }
+\DeclareSIUnit \var        { вар }
+%%%
 
 %%% Tikz
 \usepackage{tikz}
+\usepackage{tikzscale}
 \usetikzlibrary{calc}
+\usetikzlibrary{arrows.meta}
 \usetikzlibrary{angles}
 \usetikzlibrary{quotes}
+\usetikzlibrary{datavisualization}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+%%%
+
+%%% Captions, subcaptions and subfloats
+\usepackage{caption}
+\usepackage{subcaption}
+\captionsetup[subfigure]{labelformat=simple, labelformat=brace}
 %%%
 
 \newcommand\schel[1]{\textit{#1}}
@@ -102,8 +121,10 @@ exponent-product = {\cdot}}
 		Зібрати вимірювальну частину схеми (рис.~\ref{fig:schematic}), використовуючи амперметр, фазометр, мультиметр і, підключаючи по черзі (лабораторний блок №8) резистор, котушку індуктивності і конденсатор, зробити необхідні вимірювання і занести їх в табл.~\ref{tab:measurements1}. 
 		
 		\begin{figure}[!htbp]
-			\caption{Вимірювальна частина схеми}
-			\label{fig:schematic}
+		\centering
+			\includegraphics[height = 6\baselineskip]{assets/schematic.png}
+		\caption{Вимірювальна частина схеми}
+		\label{fig:schematic}
 		\end{figure}
 		
 		\begin{longtable}[c]{
@@ -209,44 +230,168 @@ exponent-product = {\cdot}}
 			
 			\begin{figure}[!htbp]
 			\centering
-				\begin{tikzpicture}[scale=0.5]
-					%%% Plot axes and starting point
-					\coordinate [label = {below left:$0$}] (O) at (0,0) ;
-					\coordinate [label = {below:$+1$}]     (X) at (11,0) ;
-					\coordinate [label = {left:$+j$}]      (Y) at (0,8) ;
-					\draw[<->, thick] (X) -- (O) -- (Y);
-					%%%
-					
-					%%% Diagram points
-					% Total voltage
-					\coordinate (UR)  at (7.7,0);
-					\coordinate (U)   at (xyz polar cs: angle = 33, radius = 10.9);
-					\coordinate (URK) at ($(O)!(U)!(X)$);
-					%%%
-					
-					%%%
-					\draw[->] (O)   -- node [below] {$U_R$} (UR);
-					\draw[->] (0,0) -- node [above] {$U$} (U);
-					\pic ["$\varphi$", draw, angle eccentricity = 1.5] {angle = X--O--U};
-					\draw[->] (UR)  -- node [left] {$U_K$} (U);
-					\draw[<-] (U)   -- node [right] {$U_{X_{K}}$} (URK);
-					\draw[->] (UR)  -- node [below] {$U_{R_K}$} (URK);
-					
-					\pic ["$\varphi_x$", draw, angle radius = 0.25cm, angle eccentricity = 2.25] {angle = X--UR--U};
-					%%%
-				\end{tikzpicture}
+				\includegraphics[height = 12\baselineskip]{assets/01-rl-vector-diagram.tikz}
 			\caption{Векторна діаграма напруг для кола~\schel{RL}}
 			\label{fig:rl-vector-diagram}
 			\end{figure}
 			
-			Оскільки $\angle \varphi > 0$, трикутники будуть називатись активно-індуктивними.
-		
-		\subsection{Коло \schel{RC}}
-			Оскільки $\angle \varphi < 0$, трикутники будуть називатись активно-ємнісними.
+			Оскільки $\angle \varphi > 0$, трикутники будуть називатись активно-індуктивними. Знайдемо сторони трикутника напруг:
+			\begin{IEEEeqnarray*}{rCcCcCl}
+				U_P &=& U \sin{\varphi}
+				    &=& \SI{10.9}{\volt} \cdot \sin{\SI{33}{\degree}}
+					&=& \SI{5.93}{\volt},\\
+				U_A &=& U \cos{\varphi}
+				    &=& \SI{10.9}{\volt} \cdot \cos{\SI{33}{\degree}}
+					&=& \SI{9.14}{\volt}.
+			\end{IEEEeqnarray*}
+			
+			Також обчислимо сторони трикутника опорів:
+			\begin{IEEEeqnarray*}{rCcCcCl}
+				Z   &=& \frac{U}{I}
+				    &=& \frac{\SI{10.9}{\volt}}{\SI{39e-3}{\ampere}}
+				    &=& \SI{279.6}{\ohm},\\[2\jot]			
+				X_P &=& \frac{U_P}{I}
+				    &=& \frac{\SI{5.93}{\volt}}{\SI{39e-3}{\ampere}}
+					&=& \SI{152.1}{\ohm},\\[2\jot]
+				R   &=& \frac{U_A}{I}
+				    &=& \frac{\SI{9.14}{\volt}}{\SI{39e-3}{\ampere}}
+				    &=& \SI{234.4}{\ohm}.
+			\end{IEEEeqnarray*}
+			
+			Для трикутника потужностей:
+			\begin{IEEEeqnarray*}{rCl}
+				P &=& I^2 R
+				  = UI
+				  = \SI{10.9}{\volt} \cdot \SI{39e-3}{\ampere}
+				  = \SI{0.43}{\watt},\\
+				Q &=& \tg{\varphi} \cdot P
+				  = \num{0.649} \cdot \SI{0.43}{\watt}
+				  = \SI{0.279}{\var},\\[1.2\jot]
+				S &=& \frac{Q}{\sin{\varphi}}
+				  = \frac{\SI{0.279}{\var}}{\num{0.545}}
+				  = \SI{0.512}{\voltampere}.
+			\end{IEEEeqnarray*}
+			
+			Отримані в результаті розрахунків значення дозволяють побудувати відповідні характеристичні трикутники для кола~\schel{RL}~(рис.~\ref{fig:rl-characteristic-triangles}).
 			
 			\begin{figure}[!htbp]
+			\centering
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/02-01-rl-characteristic-triangle-voltage.tikz}
+				\caption{}
+				\label{subfig:rl-characteristic-triangle-voltage}
+				\end{subfigure}
+				~
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/02-02-rl-characteristic-triangle-resistance.tikz}
+				\caption{}
+				\label{subfig:rl-characteristic-triangle-resistance}
+				\end{subfigure}
+				~
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/02-03-rl-characteristic-triangle-power.tikz}
+				\caption{}
+				\label{subfig:rl-characteristic-triangle-power}
+				\end{subfigure}
+			\caption{Трикутники кола~\schel{RL}: \subref{subfig:rl-characteristic-triangle-voltage}~— напруг, \subref{subfig:rl-characteristic-triangle-resistance}~— опорів, \subref{subfig:rl-characteristic-triangle-power}~— потужностей}
+			\label{fig:rl-characteristic-triangles}
+			\end{figure}
+		
+		\subsection{Коло \schel{RC}}
+			За виміряними даними будуємо векторну діаграму напруг для кола~\schel{RC}~(рис.~\ref{fig:rc-vector-diagram}).
+			
+			\begin{figure}[!htbp]
+			\centering
+				\includegraphics[height = 12\baselineskip]{assets/03-rc-vector-diagram.tikz}
 			\caption{Векторна діаграма напруг для кола~\schel{RC}}
 			\label{fig:rc-vector-diagram}
+			\end{figure}
+			
+			Оскільки $\angle \varphi < 0$, трикутники будуть називатись активно-ємнісними. Знайдемо сторони трикутника напруг:
+			\begin{IEEEeqnarray*}{rCcCcCl}
+				U_P &=& U \sin{\varphi}
+				    &=& \SI{10.9}{\volt} \cdot \sin{\SI{-34}{\degree}}
+					&=& \SI{-6.10}{\volt},\\
+				U_A &=& U \cos{\varphi}
+				    &=& \SI{10.9}{\volt} \cdot \cos{\SI{-34}{\degree}}
+					&=& \SI{-9.04}{\volt}.
+			\end{IEEEeqnarray*}
+			
+			Також обчислимо сторони трикутника опорів:
+			\begin{IEEEeqnarray*}{rCcCcCl}
+				Z   &=& \frac{U}{I}
+				    &=& \frac{\SI{10.9}{\volt}}{\SI{28e-3}{\ampere}}
+				    &=& \SI{389.3}{\ohm},\\[2\jot]			
+				X_C &=& \frac{U_P}{I}
+				    &=& \frac{\SI{6.10}{\volt}}{\SI{39e-3}{\ampere}}
+					&=& \SI{217.9}{\ohm},\\[2\jot]
+				R   &=& \frac{U_A}{I}
+				    &=& \frac{\SI{9.04}{\volt}}{\SI{39e-3}{\ampere}}
+				    &=& \SI{322.9}{\ohm}.
+			\end{IEEEeqnarray*}
+			
+			Для трикутника потужностей:
+			\begin{IEEEeqnarray*}{rCl}
+				P &=& I^2 R
+				  = UI
+				  = \SI{10.9}{\volt} \cdot \SI{28e-3}{\ampere}
+				  = \SI{0.31}{\watt},\\
+				Q &=& \tg{\varphi} \cdot P
+				  = \num{0.675} \cdot \SI{0.31}{\watt}
+				  = \SI{0.209}{\var},\\[1.2\jot]
+				S &=& \frac{Q}{\sin{\varphi}}
+				  = \frac{\SI{0.209}{\var}}{\num{0.559}}
+				  = \SI{0.374}{\voltampere}.
+			\end{IEEEeqnarray*}
+			
+			Отримані в результаті розрахунків значення дозволяють побудувати відповідні характеристичні трикутники для кола~\schel{RС}~(рис.~\ref{fig:rc-characteristic-triangles}).
+			
+			\begin{figure}[!htbp]
+			\centering
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/03-01-rc-characteristic-triangle-voltage.tikz}
+				\caption{}
+				\label{subfig:rc-characteristic-triangle-voltage}
+				\end{subfigure}
+				~
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/03-02-rc-characteristic-triangle-resistance.tikz}
+				\caption{}
+				\label{subfig:rc-characteristic-triangle-resistance}
+				\end{subfigure}
+				~
+				\begin{subfigure}[t]{0.3\textwidth}
+				\centering
+					\includegraphics[width=\columnwidth]{assets/03-03-rc-characteristic-triangle-power.tikz}
+				\caption{}
+				\label{subfig:rc-characteristic-triangle-power}
+				\end{subfigure}
+			\caption{Трикутники кола~\schel{RC}: \subref{subfig:rc-characteristic-triangle-voltage}~— напруг, \subref{subfig:rc-characteristic-triangle-resistance}~— опорів, \subref{subfig:rc-characteristic-triangle-power}~— потужностей}
+			\label{fig:rc-characteristic-triangles}
+			\end{figure}
+			
+		% \section{Коло~\schel{RLC}}
+			% За виміряними даними будуємо векторну діаграму напруг для кола~\schel{RLC}~(рис.~\ref{fig:rlc-vector-diagram}).
+			
+			% \begin{figure}[!htbp]
+			% \centering
+				% \includegraphics[height = 12\baselineskip]{assets/04-rlc-vector-diagram.tikz}
+			% \caption{Векторна діаграма напруг для кола~\schel{RLC}}
+			% \label{fig:rlc-vector-diagram}
+			% \end{figure}
+			
+		\section{Характеристики контура}
+			За отриманими експериментальними даними були побудовані характеристики контура~(рис.~\ref{fig:05-contour-characteristics}): $I = f(C)$, $U_K = f(C)$, $U_C = f(C)$, $\varphi = f(C)$.
+			\begin{figure}[!htbp]
+			\centering
+				\includegraphics[height = 26\baselineskip]{assets/05-contour-characteristics.tikz}
+			\caption{Характеристики контура}
+			\label{fig:05-contour-characteristics}
 			\end{figure}
 			
 	\section{Висновки}

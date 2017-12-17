@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+	%%% Plot axes and starting point
+	\coordinate [label = {below left:$0$}] (O) at (0,0) ;
+	\coordinate [label = {below:$+1$}]     (X) at (11,0) ;
+	\coordinate [label = {left:$+j$}]      (Y) at (0,7) ;
+	\draw[Stealth-Stealth, thick] (X) -- (O) -- (Y);
+	%%%
+	
+	%%% Diagram points
+	% Total voltage
+	\coordinate (UR)  at (7.7,0);
+	\coordinate (U)   at (xyz polar cs: angle = 33, radius = 10.9);
+	\coordinate (URK) at ($(O)!(U)!(X)$);
+	%%%
+	
+	%%%
+	\draw[-Stealth] (O)   -- node [below] {$U_R$} (UR);
+	\draw[-Stealth] (0,0) -- node [above] {$U$} (U);
+	\pic ["$\varphi$", draw, angle eccentricity = 1.5] {angle = X--O--U};
+	\draw[-Stealth] (UR)  -- node [left] {$U_K$} (U);
+	\draw[Stealth-] (U)   -- node [right] {$U_{X_{K}}$} (URK);
+	\draw[-Stealth] (UR)  -- node [below] {$U_{R_K}$} (URK);
+	
+	\pic ["$\varphi_x$", draw, angle radius = 0.25cm, angle eccentricity = 2.25] {angle = X--UR--U};
+	%%%
+\end{tikzpicture}

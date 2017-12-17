@@ -1,0 +1,11 @@
+\begin{tikzpicture}
+	\coordinate (A) at (0,0);
+	\coordinate (B) at (xyz polar cs: angle = 33, radius = 10.9);
+	\coordinate (C) at (9.14,0);
+	
+	\draw[-Stealth] (A) -- node [above] {$U$} (B);
+	\draw[-Stealth] (A) -- node [below] {$U_A$} (C);
+	\draw[-Stealth] (C) -- node [right] {$U_P$} (B);
+	
+	\pic ["$\varphi$", draw, angle eccentricity = 1.5] {angle = C--A--B};
+\end{tikzpicture}

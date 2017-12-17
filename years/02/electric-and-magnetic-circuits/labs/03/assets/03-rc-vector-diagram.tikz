@@ -1,0 +1,33 @@
+\begin{tikzpicture}
+	%%% Axes
+	\coordinate [label = {left:$0$}]  (O) at (0,0);
+	\coordinate [label = {right:$+1$}] (X) at (11,0);
+	\coordinate [label = {left:$-j$}]  (Y) at (0,-7);
+	
+	\draw[Stealth-Stealth, thick] (X) -- (O) -- (Y);
+	%%%
+	
+	%%% Coordinates
+	\coordinate (C) at (xyz polar cs: angle = -34, radius = 10.9);
+	\coordinate (UR) at (8.8, 0);
+	\coordinate (UXC) at ($(O)!(C)!(X)$);
+	%%%
+	
+	%%% Lines
+	% U
+	\draw[-Stealth] (O)  -- node [below] {$C$} (C);
+	% U_C
+	\draw[-Stealth] (UR) -- node [left] {$U_C$} (C);
+	% U_{X_C}
+	\draw[-Stealth] (UXC) -- node [right] {$U_{X_C}$} (C);
+	% U_R
+	\draw[-Stealth] (O) -- node [above] {$U_R$} (UR);
+	% U_{R_C}
+	\draw[-Stealth] (UR) -- node [above] {$U_{R_C}$} (UXC);
+	%%%
+	
+	%%% Angles
+	\pic ["$\varphi$", draw, angle eccentricity = 1.5] {angle = C--O--UR};
+	\pic ["$\varphi_C$", draw, angle eccentricity = 1.5] {angle = C--UR--UXC};
+	%%%
+\end{tikzpicture}
