@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+	%%% Axes
+		\coordinate [label = {left:$0$}  ] (O) at (0,0);
+		\coordinate [label = {below:$+1$}] (X) at (10,0);
+		\coordinate [label = {left:$+j$} ] (Y) at (0,10);
+		
+		\draw[Stealth-Stealth] (X) -- (O) -- (Y);
+	%%%
+	
+	%%% Coordinates
+		\coordinate (I1) at (xyz polar cs: angle = 30 , radius = 5);
+		\coordinate (I2) at (xyz polar cs: angle = 120, radius = 2);
+		\coordinate (I3) at (xyz polar cs: angle = 55 , radius = 5);
+	%%%
+	
+	%%% Lines Major
+		\draw [-Stealth] (O) -- node [below] {$I_1$} (I1);
+		\draw [-Stealth] (O) -- node [left ] {$I_2$} (I2);
+		\draw [-Stealth] (O) -- node [left ] {$I_3$} (I3);
+	%%%
+	
+	%%% Lines dashed
+		\draw[dashed] (I3) -- (I2);
+		\draw[dashed] (I3) -- (I1);
+	%%%
+\end{tikzpicture}
