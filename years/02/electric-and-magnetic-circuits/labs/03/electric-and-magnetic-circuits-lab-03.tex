@@ -1,4 +1,4 @@
-\documentclass[a4paper,oneside,DIV=10,12pt]{scrartcl}
+\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
 
 \usepackage{graphicx}
 \usepackage{float}
@@ -19,10 +19,18 @@
 \usepackage[retainorgcmds]{IEEEtrantools}
 
 \usepackage{booktabs}
+\usepackage{longtable}
 
 \usepackage{siunitx}
 \sisetup{output-decimal-marker = {,},
 exponent-product = {\cdot}}
+
+%%% Tikz
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{angles}
+\usetikzlibrary{quotes}
+%%%
 
 \newcommand\schel[1]{\textit{#1}}
 
@@ -37,8 +45,9 @@ exponent-product = {\cdot}}
 			\vspace{\fill}
 				Лабораторна робота №3\\
 				з дисципліни «Теорія електричних та магнітних кіл»\\
-				на тему: «Дослідження нерозгалуженого електричного~кола синусоїдного~струму»\\
-				Варіант №
+				на тему: «Дослідження нерозгалуженого \\
+				електричного~кола синусоїдного~струму»\\
+				% Варіант №
 				
 			\vspace{\fill}
 			
@@ -90,102 +99,103 @@ exponent-product = {\cdot}}
 		$f$ --- циклічна частота (\si{\hertz}).
 		
 	\section{Порядок виконання роботи}
-		Зібрати вимірювальну частину схеми (рис.~\ref{fig:schematic}), використовуючи амперметр, фазометр, мультиметр і, підключаючи по черзі (лабораторний блок №8) резистор, котушку індуктивності і конденсатор, зробити необхідні вимірювання і занести їх в табл~\ref{tab:measurements1}. 
+		Зібрати вимірювальну частину схеми (рис.~\ref{fig:schematic}), використовуючи амперметр, фазометр, мультиметр і, підключаючи по черзі (лабораторний блок №8) резистор, котушку індуктивності і конденсатор, зробити необхідні вимірювання і занести їх в табл.~\ref{tab:measurements1}. 
 		
 		\begin{figure}[!htbp]
 			\caption{Вимірювальна частина схеми}
 			\label{fig:schematic}
 		\end{figure}
 		
-		\begin{table}[!htbp]
-		\centering
-			\begin{tabular}{
-				l
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-			}
+		\begin{longtable}[c]{
+			l
+			S[table-format=2.1]
+			S[table-format=3e1]
+			S[table-format=2]
+			S[table-format=2.1]
+			S[table-format=2.1]
+			S[table-format=2.1]
+			S[table-format=1.2]
+			S[table-format=1.2]
+			S[table-format=1.2]
+			S[table-format=1.2]
+			S[table-format=2.2]
+		}
 			\toprule
 				{Коло} & \multicolumn{6}{c}{Виміряти} & \multicolumn{5}{c}{Обчислити опір, \si{\ohm}} \\
 				\cmidrule(lr){2-7} \cmidrule(lr){8-12}
-				& {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$I, \si{\degree}$} & {$U_R, \si{\volt}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$R$} & {$R_{K}$} & {$R_C$} & {$X_K$} & {$X_C$} \\
+				& {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$\varphi, \si{\degree}$} & {$U_R, \si{\volt}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$R$} & {$R_{K}$} & {$R_C$} & {$X_K$} & {$X_C$} \\
 			\midrule
-				
+			\endhead
 			\bottomrule
-			\end{tabular}
-		\caption{Вимірювання 1}
-		\label{tab:measurements1}
-		\end{table}
+			\caption{Вимірювання 1}
+			\endfoot
+			\label{tab:measurements1}
+			
+				R & 10.1 & 157e-3 & 0  & 10.1 & {—}  & {—}  & 0.06 & {—}  & {—}  & {—} & {—} \\
+				L & 11.0 &  76e-3 & 77 & {—}  & 11.1 & {—}  & {—}  & 0.14 & {—}  & {*} & {—} \\
+				C & 11.3 &  62e-3 & 90 & {—}  & {—}  & 11.3 & {—}  & {—}  & 0.18 & {—} & {—} \\
+		\end{longtable}
 		
 		Використовуючи виміряні величини, обчислити значення активного опору резистора, активного і реактивного опорів котушки індуктивності і конденсатора. Отримані значення занести в табл.~\ref{tab:measurements1}.
 		
 		Підключаючи послідовно до вимірювальної частини схеми комбінації елементів \schel{RL}, \schel{RC}, \schel{RLC}, зробити необхідні вимірювання та занести їх в табл.~\ref{tab:measurements2}.
 		
-		\begin{table}[!htbp]
-		\centering
-			\begin{tabular}{
-				l
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-				S
-			}
-				\toprule
-					{Коло} & {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$\varphi, \si{\degree}$} & {$U_R, \si{\volt}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$U_R + U_K, \si{\volt}$} & {$U_R + U_C, \si{\volt}$} \\
-				\midrule
-					\schel{RL} & & & & & & {—} & {—} & {—} \\
-					\schel{RC} & & & & & {—} & & {—} & {—} \\
-					\schel{RLC} & & & & & & & & \\
-				\bottomrule
-			\end{tabular}
-		\caption{Вимірювання 2}
-		\label{tab:measurements2}
-		\end{table}
+		\begin{longtable}[c]{
+			l
+			S[table-format=2.1]
+			S[table-format=2e1]
+			S[table-format=+2, retain-explicit-plus]  % FIXME: show plus sign too
+			S[table-format=1.1]
+			S[table-format=1.1]
+			S[table-format=1.1]
+			S[table-format=1.1]
+			S[table-format=2.1]
+		}
+			\toprule
+				{Коло} & {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$\varphi, \si{\degree}$} & {$U_R, \si{\volt}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$U_R + U_K, \si{\volt}$} & {$U_R + U_C, \si{\volt}$} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Вимірювання 2}
+			\endfoot
+			\label{tab:measurements2}
+			
+				\schel{RL}  & 10.9 & 39e-3 & +33 & 7.7 & 6.2 & {—} & {—} & {—} \\
+				\schel{RC}  & 10.9 & 28e-3 & -34 & 8.8 & {—} & 6.4 & {—} & {—} \\
+				\schel{RLC} & 10.8 & 31e-3 & -9  & 9.5 & 5.2 & 6.9 & 5.3 & 11.8\\
+		\end{longtable}
 		
 		Підключити до вимірювальної частини схеми тільки котушку індуктивності (лабораторний блок №8) і конденсатор (магазин ємності). Знаючи величину реактивного опору котушки, визначити значення резонансної ємності, встановити на вході схеми напругу \SIrange[range-phrase = --]{5}{7}{\volt} і, змінюючи ємність конденсатора у діапазоні \SIrange[range-phrase = --]{0}{99,5}{\micro\farad}, виміряти величини, вказані в табл.~\ref{tab:measurements3}.
 		
-		\begin{table}[!htbp]
-		\centering
-			\begin{tabular}{
-				l
-				S
-				S
-				S
-				S
-				S
-				S
-			}
-				\toprule
-					№ & {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$\varphi, \si{\degree}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$C, \si{\micro\farad}$} \\
-				\midrule
-					1 & & & & & & 0\\
-					2 & & & & & & \\
-					3 & & & & & & \\
-					4 & & & & & & \\
-					5 & & & & & & {$C = C_0$}\\
-					6 & & & & & & \\
-					7 & & & & & & \\
-					8 & & & & & & \\
-					9 & & & & & & \\
-					10 & & & & & & 99,5\\
-				\bottomrule
-			\end{tabular}
-		\caption{Вимірювання 3}
-		\label{tab:measurements3}
-		\end{table}
+		\begin{longtable}[c]{
+			l
+			S[table-format = 2.1]
+			S[table-format = 3.1e1]
+			S[table-format = +2.1, retain-explicit-plus]
+			S[table-format = 2.1]
+			S[table-format = 2.1]
+			S[table-format = 2.1]
+		}
+			\toprule
+				№ & {$U, \si{\volt}$} & {$I, \si{\ampere}$} & {$\varphi, \si{\degree}$} & {$U_K, \si{\volt}$} & {$U_C, \si{\volt}$} & {$C, \si{\micro\farad}$} \\
+			\midrule
+			\endhead
+			\bottomrule
+			\caption{Вимірювання 3}
+			\endfoot
+			\label{tab:measurements3}
+			
+				1  & 10.0 & 80.9e-3 & +29 & 10.0 & 0    & 0\\
+				2  & 10.0 & 19.6e-3 & -31 & 2.3  & 12.7 & 5\\
+				3  & 10.0 & 44.9e-3 & -31 & 5.4  & 15.7 & 9\\
+				4  & 10.0 & 72.1e-3 & -32 & 9.0  & 19.1 & 12\\
+				5  & 10.0 & 361e-3  & -16 & 47.7 & 53.6 & 22.6\\
+				6  & 10.0 & 485e-3  & -2  & 59.9 & 59.5 & 27.9\\
+				7  & 10.0 & 202e-3  & +28 & 28.2 & 18.6 & 37.9\\
+				8  & 10.0 & 141e-3  & +34 & 20.5 & 10.4 & 47.9\\
+				9  & 10.0 & 119e-3  & +36 & 17.3 & 7.4  & 57.9\\
+				10 & 10.0 & 87e-3   & +39 & 13.2 & 3.1  & 99.5\\
+		\end{longtable}
 		
 		Кількість змін значення ємності дорівнює десяти, причому п'яте значення ємності змінного конденсатора має дорівнювати значенню резонансної ємності.
 		
@@ -193,6 +203,52 @@ exponent-product = {\cdot}}
 		
 		Побудувати в масштабі характеристики $I = f(C)$, $U_K = f(C)$, $U_C = f(C)$, $\varphi = f(C)$ в одній координатній сітці.
 		
+	\section{Графічний матеріал}
+		\subsection{Коло \schel{RL}}
+			За виміряними даними будуємо векторну діаграму напруг для кола~\schel{RL}~(рис.~\ref{fig:rl-vector-diagram}).
+			
+			\begin{figure}[!htbp]
+			\centering
+				\begin{tikzpicture}[scale=0.5]
+					%%% Plot axes and starting point
+					\coordinate [label = {below left:$0$}] (O) at (0,0) ;
+					\coordinate [label = {below:$+1$}]     (X) at (11,0) ;
+					\coordinate [label = {left:$+j$}]      (Y) at (0,8) ;
+					\draw[<->, thick] (X) -- (O) -- (Y);
+					%%%
+					
+					%%% Diagram points
+					% Total voltage
+					\coordinate (UR)  at (7.7,0);
+					\coordinate (U)   at (xyz polar cs: angle = 33, radius = 10.9);
+					\coordinate (URK) at ($(O)!(U)!(X)$);
+					%%%
+					
+					%%%
+					\draw[->] (O)   -- node [below] {$U_R$} (UR);
+					\draw[->] (0,0) -- node [above] {$U$} (U);
+					\pic ["$\varphi$", draw, angle eccentricity = 1.5] {angle = X--O--U};
+					\draw[->] (UR)  -- node [left] {$U_K$} (U);
+					\draw[<-] (U)   -- node [right] {$U_{X_{K}}$} (URK);
+					\draw[->] (UR)  -- node [below] {$U_{R_K}$} (URK);
+					
+					\pic ["$\varphi_x$", draw, angle radius = 0.25cm, angle eccentricity = 2.25] {angle = X--UR--U};
+					%%%
+				\end{tikzpicture}
+			\caption{Векторна діаграма напруг для кола~\schel{RL}}
+			\label{fig:rl-vector-diagram}
+			\end{figure}
+			
+			Оскільки $\angle \varphi > 0$, трикутники будуть називатись активно-індуктивними.
+		
+		\subsection{Коло \schel{RC}}
+			Оскільки $\angle \varphi < 0$, трикутники будуть називатись активно-ємнісними.
+			
+			\begin{figure}[!htbp]
+			\caption{Векторна діаграма напруг для кола~\schel{RC}}
+			\label{fig:rc-vector-diagram}
+			\end{figure}
+			
 	\section{Висновки}
 		Під час виконання даної лабораторної роботи ми набули навички визначення параметрів ланцюга змінного струму за допомогою вимірювальних приладів, а саме: активного опору резистора, активного і реактивного опорів реальної котушки індуктивності і реального конденсатора; дослідили різні комбінації послідовного включення в ланцюг активного резистора, котушки індуктивності і конденсатора; дослідили резонанс у послідовному контурі.
 \end{document}
