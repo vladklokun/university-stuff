@@ -1,13 +1,13 @@
 \begin{tikzpicture}[node distance = 2.5cm, on grid, auto, >=Stealth]
 	%%% Nodes
-	\node [state] (Z_1) {$Z_1$};
-	\node [state] (Z_2) [right = of Z_1] {$Z_2$};
-	\node [state] (Z_3) [right = of Z_2] {$Z_3$};
-	\node [state] (Z_4) [below = of Z_3] {$Z_4$};
-	\node [state] (Z_5) [below = of Z_4] {$Z_5$};
-	\node [state] (Z_6) [left  = of Z_5] {$Z_6$};
-	\node [state] (Z_7) [left  = of Z_6] {$Z_7$};
-	\node [state] (Z_8) [above = of Z_7] {$Z_8$};
+	\node [state] (Z_1) {$z_1$};
+	\node [state] (Z_2) [right = of Z_1] {$z_2$};
+	\node [state] (Z_3) [right = of Z_2] {$z_3$};
+	\node [state] (Z_4) [below = of Z_3] {$z_4$};
+	\node [state] (Z_5) [below = of Z_4] {$z_5$};
+	\node [state] (Z_6) [left  = of Z_5] {$z_6$};
+	\node [state] (Z_7) [left  = of Z_6] {$z_7$};
+	\node [state] (Z_8) [above = of Z_7] {$z_8$};
 	% \node [state] (Z_9) [left  = of Z_8] {$Z_9$};
 	
 	%%% Transitions

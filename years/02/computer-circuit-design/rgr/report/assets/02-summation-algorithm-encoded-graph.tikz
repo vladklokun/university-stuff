@@ -39,7 +39,7 @@
 	
 	%%% Nodes
 	\node [terminal] (start) {Початок};
-	\node [decision, aspect = 2, below of = start] (k1check) {$\beta_2$};
+	\node [decision, aspect = 2, below of = start] (k1check) {$\beta_1$};
 	\node [block, below of = k1check] (y1) {$y_1$};
 	\node [block, below of = y1]      (y2) {$y_2$};
 	\node [block, below of = y2]      (y3) {$y_3$};
@@ -67,7 +67,7 @@
 	\path [line] (phi3) -- node [above] {$1$}(y9);
 	\path [line] (y7) -- (y8);
 	\path [line] (y8) |-| (end);
-	\path [line] (y9) |-| (end);
+	\path [line, hvvh/ratio=0.755] (y9) |-| (end);
 	
 	%%% State circles
 	\node (statestart) [statenode] at (k1check.north) {$z_1$};
