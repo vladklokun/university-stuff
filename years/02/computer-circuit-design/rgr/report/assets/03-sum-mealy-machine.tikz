@@ -1,0 +1,35 @@
+\begin{tikzpicture}[node distance = 2.5cm, on grid, auto, >=Stealth]
+	%%% Nodes
+	\node [state] (Z_1) {$z_1$};
+	\node [state] (Z_2) [right = of Z_1] {$z_2$};
+	\node [state] (Z_3) [right = of Z_2] {$z_3$};
+	\node [state] (Z_4) [below = of Z_3] {$z_4$};
+	\node [state] (Z_5) [below = of Z_4] {$z_5$};
+	\node [state] (Z_6) [left  = of Z_5] {$z_6$};
+	\node [state] (Z_7) [left  = of Z_6] {$z_7$};
+	\node [state] (Z_8) [above = of Z_7] {$z_8$};
+	% \node [state] (Z_9) [left  = of Z_8] {$Z_9$};
+	
+	%%% Transitions
+	\path[-Stealth] (Z_1) edge node {$1 / y_1$} (Z_2)
+	                      edge [loop above] node {$\overline{\beta_1}$} ()
+	                (Z_2) edge node {$1 / y_2$} (Z_3)
+	                (Z_3) edge node {$1 / y_3$} (Z_4)
+	                (Z_4) edge node {$1 / y_4$} (Z_5)
+	                (Z_5) edge node [above] {$1 / y_5$} (Z_6)
+	                (Z_6) edge node [above] {$1 / y_6$} (Z_7)
+	                (Z_7) edge node [right] {$\overline{x_1} / y_7$} (Z_8)
+	                (Z_8) edge node [right] {$1 / y_8$} (Z_1)
+	                % (Z_9) edge node [right] {$1 / y_9$} (Z_1)
+	                (Z_7) edge [bend left = 30] node [left] {$x_1 / y_9$} (Z_1);
+					
+	%%% Vertex numbers
+	\node (numZ_1) [above left  = 1cm of Z_1] {$000$};
+	\node (numZ_2) [above = 1cm of Z_2]       {$001$};
+	\node (numZ_3) [above right = 1cm of Z_3] {$011$};
+	\node (numZ_4) [right = 1cm of Z_4]       {$010$};
+	\node (numZ_5) [below right = 1cm of Z_5] {$110$};
+	\node (numZ_6) [below = 1cm of Z_6]       {$111$};
+	\node (numZ_7) [below left = 1cm of Z_7]  {$101$};
+	\node (numZ_8) [right = 1cm of Z_8]       {$100$};
+\end{tikzpicture}
