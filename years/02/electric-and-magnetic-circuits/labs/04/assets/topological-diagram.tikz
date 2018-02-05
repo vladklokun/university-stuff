@@ -11,12 +11,17 @@
 		\coordinate (I1) at (xyz polar cs: angle = 30 , radius = 5);
 		\coordinate (I2) at (xyz polar cs: angle = 120, radius = 2);
 		\coordinate (I3) at (xyz polar cs: angle = 55 , radius = 5);
+		\coordinate (U_ab) at (xyz polar cs: angle = 30, radius = 7);
+		\coordinate (U_ac) at (xyz polar cs: angle = 45, radius = 7);
 	%%%
 	
 	%%% Lines Major
 		\draw [-Stealth] (O) -- node [below] {$I_1$} (I1);
 		\draw [-Stealth] (O) -- node [left ] {$I_2$} (I2);
 		\draw [-Stealth] (O) -- node [left ] {$I_3$} (I3);
+		\draw [-Stealth] (I1) -- node [below] {$U_{ab}$} (U_ab);
+		\draw [-Stealth] (O) -- node [right] {$U_{ac}$} (U_ac);
+		\draw [-Stealth] (U_ab) -- node [left] {$U_{bc}$} (U_ac);
 	%%%
 	
 	%%% Lines dashed
