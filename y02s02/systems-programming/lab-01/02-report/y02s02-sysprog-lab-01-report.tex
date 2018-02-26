@@ -30,7 +30,14 @@
 ]
 
 \setmonofont{Source Code Pro}[
+	% Scale = 1.05,
 ]
+
+% Used for suppressing polyglossia errors regarding missing cyrillic script
+% \newfontfamily\cyrillicfonttt[
+	% Script = Cyrillic,
+	% Scale  = MatchUppercase,
+% ]{Inconsolata}
 
 \usepackage{unicode-math}
 \setmathfont{STIX Two Math}
@@ -63,20 +70,7 @@
 %%%
 
 %%% Code listings
-% \usepackage{minted}
-
-% \newmintedfile[inputasm]{asm}{
-	% style = bw,
-	% linenos,
-	% stepnumber = 2,
-	% frame = lines,
-	% framerule = 1pt,
-	% tabsize = 4,
-	% labelposition = bottomline,
-	% breakbytokenanywhere,
-% }
-
-% \renewcommand\listingscaption{Лістинг} % Localize listing name
+\usepackage{minted}
 
 %%%
 
@@ -87,12 +81,13 @@
 \tcbuselibrary{skins}
 
 \newtcbinputlisting[auto counter, list inside, number within = section]{\inputasm}[4][]{%
-	minted language = asm,
+	minted language = nasm,
 	minted style    = bw,
 	minted options  = {
 		linenos,
 		tabsize = 4,
-		breakbytoken,
+		breakbytokenanywhere,
+		fontsize = \small,
 	},
 	%
 	% empty,
@@ -112,13 +107,18 @@
 	borderline south = {1pt}{0pt}{black},
 	before skip      = \intextsep,
 	after  skip      = \intextsep,
-	title            = {Лістинг \thetcbcounter: #3 \label{#4}},
+	title            = {Лістинг \thetcbcounter: #3},
 	list entry       = {\protect\numberline{\thetcbcounter}#3},
 	left = 0em,
 	right = 0em,
 	%
 	listing file={#2},
-	listing only,breakable,#1
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
 }
 
 % Customize minted line numbers
@@ -159,30 +159,20 @@
 		Ознайомитись з синтаксисом та структурою програми на мові асемблера. Навчитися використовувати функції операційної системи для введення та виведення тексту. Дослідити різницю між файлами .COM та~.EXE.
 		
 	\section{Хід роботи}
-		\subsection{Основне завдання}
-			\subsubsection{Постановка задач}
-				До задач основної розробленої програми входять:
-				\begin{enumerate}
-					\item Введення рядка з клавіатури.
-					\item Вивід тексту на екран.
-				\end{enumerate}
-			
-			\subsubsection{Розробка програми}
-				В результаті виконання роботи була розроблена програма (ліст.~\ref{lst:01}).
+		Основним завданням роботи є розробка програми, до задач якої входять:
+		\begin{enumerate}
+			\item Введення рядка з клавіатури.
+			\item Вивід тексту на екран.
+		\end{enumerate}
+		В результаті виконання роботи була розроблена програма (ліст.~\ref{lst:01}).
 				
-				\inputasm{../01-solution/01.s}{Основна програма}{lst:01}
-				% \captionof{listing}{\label{lst:01}Програма, що виконує основне завдання}
+		\inputasm{../01-solution/01.asm}{Основна програма}{lst:01}
+		% \captionof{listing}{\label{lst:01}Програма, що виконує основне завдання}
 				
-		\subsection{Додаткове завдання}
-			\subsubsection{Постановка задач}
-				До задач додаткової розробленої програми:
-				\begin{enumerate}
-					\item Написати програму, яка виведе з введеного рядку на екран тільки парні за порядком літери.
-				\end{enumerate}
+		Додатковим завданням роботи було написання програми, яка виведе з введеного рядку на екран тільки парні за порядком літери. В результаті виконання роботи була розроблена відповідна програма (ліст.~\ref{lst:02}).
 				
-			\subsubsection{Розробка програми}
-				\inputasm{../01-solution/02.s}{Додаткова програма}{lst:02}
-				% \captionof{listing}{\label{lst:02}Програма, що виконує основне завдання}
+		\inputasm{../01-solution/02.s}{Додаткова програма}{lst:02}
+		% \captionof{listing}{\label{lst:02}Програма, що виконує основне завдання}
 		
 	\section{Висновок}
 		Під час виконання даної лабораторної роботи ми ознайомились з синтаксисом та структурою програми на мові асемблера; навчились використовувати функції операційної системи для введення та виведення тексту, а також дослідили різницю між файлами .COM та .EXE.
