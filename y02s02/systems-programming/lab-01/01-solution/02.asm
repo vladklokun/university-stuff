@@ -13,10 +13,6 @@ _main:
 	lea     rsi, [rel instr]
 	call    _scanf
 
-	lea     rdi, [rel fmtoutstr]
-	lea     rsi, [rel instr]
-	call    _printf
-
 	lea     r8, [rel instr + 1] ; load second string element
 
 .loop:
