@@ -58,6 +58,7 @@
 
 \DeclareCaptionLabelFormat{closing}{#2)}
 \captionsetup[subtable]{labelformat = closing}
+\captionsetup[subfigure]{labelformat = closing, position = auto}
 %%%
 
 %%% Tables
@@ -119,7 +120,7 @@
 		Закріплення теоретичних знань по синтезу керуючих автоматів із жорсткою логікою.
 		
 	\section{Хід роботи}
-		Згідно з номером варіанта був заданий граф мікропрограми (табл.~\ref{subfig:01-01-mp-graph}). Дані с заданого графа були підготовані для обробки (табл.~\ref{subfig:01-02-array-m}, табл.~\ref{tab:ristpic-conditional-vertices}) та введені у програму \allcaps{РІСТПІК}. Після обробки даних програмою отримали результати: матрицю переходів (рис.~\ref{fig:ristpic-jump-matrix}), структурну таблицю переходів (рис.~\ref{fig:ristpic-structured-jump-table}), вектор розмітки (рис.~\ref{fig:markup-vector}) та кодування станів (рис.~\ref{fig:coding-result}).
+		Згідно з номером варіанта був заданий граф мікропрограми (табл.~\ref{subfig:01-01-mp-graph}). Дані с заданого графа були підготовані для обробки (табл.~\ref{subfig:01-02-array-m}, табл.~\ref{tab:ristpic-conditional-vertices}) та введені у програму \allcaps{РІСТПІК}. Після обробки даних програмою отримали результати: матрицю переходів (рис.~\ref{subfig:ristpic-jump-matrix-00}, \ref{subfig:ristpic-jump-matrix-01}), структурну таблицю переходів (рис.~\ref{subfig:ristpic-structured-jump-table-00}, ~\ref{subfig:ristpic-structured-jump-table-01}), вектор розмітки (рис.~\ref{subfig:markup-vector}) та кодування станів (рис.~\ref{subfig:coding-result}).
 		
 		\begin{table}[!htbp]
 		\centering
@@ -155,7 +156,7 @@
 						21 &  0 &  6 & $y_{11}, y_{14}$ \\
 					\bottomrule
 				\end{tabular}
-				\subcaption{}
+				\caption{}
 				\label{subfig:01-01-mp-graph}
 			\end{subtable}
 			\quad
@@ -191,7 +192,7 @@
 						21 &  0 &  6\\
 					\bottomrule
 				\end{tabular}
-				\subcaption{}
+				\caption{}
 				\label{subfig:01-02-array-m}
 			\end{subtable}
 		\caption{Мікропрограма: \subref{subfig:01-01-mp-graph}~— заданий граф, \subref{subfig:01-02-array-m}~— масив~$M$ для програми \allcaps{РІСТПІК}}
@@ -203,46 +204,46 @@
 			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/00-ris-rus_000-bw.png}
+			\caption{}
+			\label{subfig:ristpic-jump-matrix-00}
 			\end{subfigure}
 			\quad
 			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/01-ris-rus_001-bw.png}
-			\end{subfigure}
-		\caption{Матриця переходів, згенерована \allcaps{РІСТПІК}}
-		\label{fig:ristpic-jump-matrix}
-		\end{figure}
-		
-		\begin{figure}
-		\centering
+			\caption{}
+			\label{subfig:ristpic-jump-matrix-01}
+			\end{subfigure}\vspace*{\floatsep}
+			
 			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/02-ris-rus_002-bw.png}
+			\caption{}
+			\label{subfig:ristpic-structured-jump-table-00}
 			\end{subfigure}
 			\quad
 			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/03-ris-rus_003-bw.png}
-			\end{subfigure}
-		\caption{Структурна таблиця переходів, згенерована \allcaps{РІСТПІК}}
-		\label{fig:ristpic-structured-jump-table}
-		\end{figure}
-		
-		\begin{figure}
-		\centering
-			\begin{minipage}{0.5\linewidth-0.8em}
+			\caption{}
+			\label{subfig:ristpic-structured-jump-table-01}
+			\end{subfigure}\vspace*{\floatsep}
+			
+			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/04-ris-rus_004-bw.png}
-				\captionof{figure}{Вектор розмітки}
-				\label{fig:markup-vector}
-			\end{minipage}%
+			\caption{}
+			\label{subfig:markup-vector}
+			\end{subfigure}
 			\quad
-			\begin{minipage}{0.5\linewidth-0.8em}
+			\begin{subfigure}[t]{0.5\linewidth-0.8em}
 			\centering
 				\includegraphics[width = \linewidth]{./assets/05-ris-rus_005-bw.png}
-				\captionof{figure}{Результат кодування автомата}
-				\label{fig:coding-result}
-			\end{minipage}
+			\caption{}
+			\label{subfig:coding-result}
+			\end{subfigure}
+		\caption{Матриця переходів, згенерована \allcaps{РІСТПІК}: \subref{subfig:ristpic-jump-matrix-00}, \subref{subfig:ristpic-jump-matrix-01}~— матриця переходів, \subref{subfig:ristpic-structured-jump-table-00}, \subref{subfig:ristpic-structured-jump-table-01}~— структурна таблиця переходів, \subref{subfig:markup-vector}~— вектор розмітки автомата, \subref{subfig:coding-result}~— результат кодування автомата}
+		\label{fig:ristpic-jump-matrix}
 		\end{figure}
 		
 		\begin{longtable}{lrn{4em}}
