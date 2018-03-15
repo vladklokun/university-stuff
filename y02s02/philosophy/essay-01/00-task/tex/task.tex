@@ -1,0 +1,93 @@
+\documentclass[a5paper,oneside,DIV=12,fontsize=12pt,headings=normal]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{EB Garamond}[
+]
+
+% \setsansfont{Source Sans Pro}[]
+
+% \setmonofont{Source Code Pro}[]
+
+\newfontfamily{\headingfont}{Cormorant}[
+	Numbers = {Lining},
+	FontFace = {md}{n}{* Medium},
+]
+
+%%%
+
+%%% Create weight selection commands for titling font
+%% Medium
+\DeclareRobustCommand{\mdseries}{\fontseries{md}\selectfont}
+\DeclareTextFontCommand{\textmd}{\mdseries}
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\headingfont\bfseries}
+
+\setkomafont{author}{\headingfont\mdseries\Large}
+\setkomafont{date}{\headingfont\mdseries\Large}
+\setkomafont{title}{\headingfont\mdseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Signed quotation environment
+\def\signed #1{{\leavevmode\unskip\nobreak\hfil\penalty50\hskip2em
+  \hbox{}\nobreak\hfil(#1)%
+  \parfillskip=0pt \finalhyphendemerits=0 \endgraf}}
+
+\newsavebox\mybox
+\newenvironment{aquotation}[1]
+  {\savebox\mybox{#1}\begin{quotation}}
+  {\signed{\usebox\mybox}\end{quotation}}
+%%%
+
+%%% Remove page numbering
+\pagenumbering{gobble}
+%%%
+
+\title{Творче завдання з філософії}
+\author{Клокун В.\,Д.}
+
+\begin{document}
+	\maketitle
+
+	\begin{aquotation}{Діоген Лаєртій}
+		«Деталі його (Геракліта) вчення такі. Вогонь — першоелемент і всі речі обмінний еквівалент вогню — виникають з нього шляхом розрідження і згущення… Все виникає через протилежності і все тече подібно річці. Всесвіт скінченний і космос єдиний. Народжується він з вогню і знову згоряє дотла через певні періоди часу, а відбувається це згідно з долею (логосом). Одна із протилежностей, яка призводить до виникнення (космосу) називається війною та незгодою, а інші, що приводять до згоряння — згодою і миром, зміна-шляхом вгору-вниз, на якому і виникає космос.
+
+		…Цей космос, той же самий для всіх, не створив ніхто ні з богів, ні з людей, але він завжди був, є і буде вічно живим вогнем, що мірами спалахує та мірами згасає».
+	\end{aquotation}
+	
+	Яким чином у вченні Геракліта пов'язані уявлення про першооснову з діалектичним розумінням буття як безперервного руху? Як впливають протилежності на процесування, виникнення і згоряння космосу? Згадайте, як називається таке бачення буття, що подає його як рухомий процес, спричинений боротьбою протилежностей? Як ви вважаєте, Геракліт був прихильником осмислення космосу як природного процесу, чи як реалізації якогось задуму? Яку пізнавальну перспективу відкривало науці вчення Геракліта? Обґрунтуйте відповідь спираючись на зміст тексту.
+
+\end{document}
