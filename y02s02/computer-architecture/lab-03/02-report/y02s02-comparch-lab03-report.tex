@@ -26,7 +26,7 @@
 \setmonofont{Source Code Pro}[
 ]
 
-\usepackage{unicode-math}
+\usepackage{amsmath,unicode-math}
 \setmathfont{STIX Two Math}
 
 %%%
@@ -117,7 +117,48 @@
     \end{titlepage}
 	
 	\section{Мета роботи}
-		Вивчення схемотехніки та системи мікрооперацій процесорного елементу К1804ВС1, побудова блоку обробки даних на його основі та розробка мікропрограм обчислення функцій.
+		Вивчення схемотехніки та системи мікрооперацій процесорного елементу~К1804ВС1, побудова блоку обробки даних на його основі та розробка мікропрограм обчислення функцій.
 		
 	\section{Хід роботи}
+		Розроблюємо алгоритм для блоку обробки даних та записуємо його у вигляді блок-схеми~(рис.~\ref{fig:algorithm}).
+		\begin{figure}[!htbp]
+		\centering
+			\includegraphics[height = 30\baselineskip]{./assets/00.png}
+		\caption{Алгоритм для блоку обробки даних}
+		\label{fig:algorithm}
+		\end{figure}
+		
+		На основі розробленого алгоритму будуємо арифметично-логічний пристрій і~зображуємо його у вигляді принципової схеми~(рис.~\ref{fig:alu}).
+		\begin{figure}[!htbp]
+		\centering
+			\includegraphics[height = 15\baselineskip]{./assets/01.png}
+		\caption{Схема арифметично-логічного пристрою}
+		\label{fig:alu}
+		\end{figure}
+		
+		Моделюємо роботу розробленого алгоритму та отримуємо результати~(табл.~\ref{tab:results}).
+		
+		\begin{table}[!htbp]
+		\centering
+			\begin{tabular}{lb{2.5em}b{2.5em}b{2.5em}b{2.5em}ll}
+				\toprule
+					№~стану & \multicolumn{4}{c}{Набір керуючих сигналів} & $M = 1$ & $M = 0$ \\
+					\cmidrule(lr){2-5}
+					 & $S_3$ & $S_2$ & $S_1$ & $S_0$ & & \\
+				\midrule
+					0 & 0 & 0 & 0 & 0 & $\neg A_i$ & $A + C_0$ \\
+					1 & 0 & 0 & 0 & 1 & $\neg (A_i \lor B_i)$ & $(A \lor B) + C_0$ \\
+					2 & 0 & 0 & 1 & 0 & $\neg A_i \cdot B_i$ & $(A \lor \neg B) + C_0$ \\
+					3 & 0 & 0 & 1 & 1 & $0$ & $2^4 - 1 + C_0, 0 \text{ при } C_0 = 1$ \\
+					4 & 0 & 1 & 0 & 0 & $\neg (A_i \cdot B_i)$ & $A + (A \land \neg B) + C_0$ \\
+					5 & 0 & 1 & 0 & 1 & $\neg B_i$ & $(A \lor B) + (A \land \neg B) + C_0$ \\
+					6 & 0 & 1 & 1 & 0 & $A_i + B_i$ & $A - B - 1 + C_0$ \\
+				\bottomrule
+			\end{tabular}
+		\caption{Результати моделювання}
+		\label{tab:results}
+		\end{table}
+		
+	\section{Висновок}
+		Виконуючи дану лабораторну роботу, ми ознайомились зі схемотехнікою та системою мікрооперацій процесорного елементу~К1804ВС1; побудували блок обробки даних на його основі та розробили мікропрограму обчислення функції.
 \end{document}
