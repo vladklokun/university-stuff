@@ -1,0 +1,128 @@
+\documentclass[a4paper,oneside,DIV = 12, 12pt, headings = normal]{scrartcl}
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{PT Serif}[
+	SmallCapsFeatures = {LetterSpace = 5},
+]
+
+% \setsansfont{Source Sans Pro}[
+% ]
+
+% \setmonofont{Source Code Pro}[
+% ]
+
+% \usepackage{amsmath,unicode-math}
+% \setmathfont{STIX Two Math}
+
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+% \addtokomafont{section}{\rmfamily\xbseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	leftmargin = *,
+}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+\DeclareCaptionLabelFormat{closing}{#2)}
+\captionsetup[subtable]{labelformat = closing}
+\captionsetup[subfigure]{labelformat = closing, position = auto}
+%%%
+
+\usepackage[
+	style    = gost-numeric,
+	language = auto,
+	autolang = other,
+	sorting  = none,
+]{biblatex}
+\addbibresource{y02s02-philosophy-bibliography.bib}
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+
+% Suppress section number
+\makeatletter
+\renewcommand\@seccntformat[1]{}
+\makeatother
+
+%%%
+
+
+%%% All caps
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 3}#1}}
+%%%
+
+% \linespread{1.07143}
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace*{\fill}
+
+		Творче завдання №2\\
+		з дисципліни «Філософія»\\
+		% Варіант №4
+
+		\vspace*{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент ННІКІТ СП-225\\
+			Клокун В.\,Д.\\
+			Перевірила:\\
+			Матюхіна О.\,А.
+		\end{flushright}
+
+		Київ 2018
+    \end{titlepage}
+	
+	\section{Питання}
+		Чому соціальний простір і соціальний час є формами буття людей у культурі?
+	
+	\section{Відповідь}
+		Для відповіді на питання наведемо визначення необхідних термінів та встановимо зв'язки між ними. За Дротянко \emph{форми буття} виділяються самими людьми і є проявами людського буття~— процесу становлення й самоствердження людини, реалізації її сутнісних сил~\cite[244--245]{drotyanko-textbook}. За Причепієм \emph{культура}~— це увесь, за винятком природи, мовно та символічно відтворений світ, що охоплює різноманітність видів, засобів і результатів активної творчої діяльності людини, спрямованої на освоєння, пізнання і зміну навколишньої реальності та самої себе~\cite[373]{prichepiy-textbook}. Результати творчої діяльності людини є проявами її самоствердження та сутнісних сил. Вони також спрямовані на освоєння, пізнання та зміну навколишньої реальності, а тому є формою буття людей у культурі.
+		
+		\emph{Соціальний простір} визначається як простір, що був освоєний людством у процесі його існування~\cite[251]{drotyanko-textbook}. Під час цього процесу люди неминуче створюють знаряддя праці, різноманітні предмети побуту та пам'ятки, що знаменують людське існування, з метою дослідження та адаптації наявного фізичного простору до своїх потреб. Ці предмети є творіннями людей — результатами їх творчої діяльності, а отже й формою буття людей у культурі. Оскільки продукти та прояви соціального простору є складовими соціального простору як єдиного цілого, то й сам соціальний простір є формою буття людей у культурі.
+		
+		\emph{Соціальний час}~— це тривалість існування людства, його історія~\cite[252]{drotyanko-textbook}. З~плином часу (розгортанням історичного процесу) прояви людської діяльності змінюються: науковий прогрес дозволяє покращувати знаряддя праці, збільшуючи їх ефективність; з появою нових досягнень та ідей переосмислюються предмети побуту для підвищення повсякденного комфорту людей; зводяться монументи для відзначення здобутих досягнень. Тобто кожен момент або епоху існування людини можна розглядати як окремий прояв людського буття~— соціальний простір, тому весь соціальний час є множиною соціальних просторів та~їх~зв'язків. Оскільки соціальний простір є формою буття людей у культурі, як було доведено вище, то й їх множина як більш глобальна сутність також є формою буття людей у культурі.
+	
+	\printbibliography
+	
+\end{document}
