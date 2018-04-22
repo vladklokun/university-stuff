@@ -1,0 +1,345 @@
+\documentclass[a4paper,oneside,DIV=12,12pt,headings=normal]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Graphics inclusion
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 5},
+]
+
+\setsansfont{Source Sans Pro}[
+]
+
+\setmonofont{Source Code Pro}[
+]
+%%%
+
+%%% Math settings
+\usepackage{amsmath,unicode-math}
+\setmathfont{STIX Two Math}
+
+% \usepackage{IEEEtrantools}
+\usepackage{mleftright}
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+ \setlist[enumerate]{
+	 noitemsep,
+% 	leftmargin = *,
+ }
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+\DeclareCaptionLabelFormat{closing}{#2)}
+\captionsetup[subtable]{labelformat = closing}
+\captionsetup[subfigure]{labelformat = closing, position = auto}
+%%%
+
+%%% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
+
+\usepackage{kbordermatrix} % labeling array indices
+%%%
+
+%%% Floats on a single row
+\usepackage{floatrow}
+\newfloatcommand{capbtabbox}{table}[][\FBwidth]
+%%%
+
+%%% Physical units
+\usepackage{siunitx}
+%%%
+
+%%% Set counters withing subsections
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
+%%%
+
+%%%
+\usepackage{pdflscape}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% All caps
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 3}#1}}
+%%%
+
+%%% Ceiling function typesetting
+\newcommand{\ceil}[1]{\mleft\lceil#1\mright\rceil}
+%%%
+
+%%% Typesetting schematic elements
+\newcommand{\schel}[1]{\textit{#1}}
+%%%
+
+%%% Shift operators
+\DeclareMathOperator{\L1}{L1}
+\DeclareMathOperator{\R1}{R1}
+%%%
+
+%%% Address intervals
+\newcommand{\addrinterval}[2]{(#1{:}#2)}
+%%%
+
+\setlength{\emergencystretch}{1em}
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace*{\fill}
+
+		Лабораторна робота №7\\
+		з дисципліни «Архітектура комп'ютерів»\\
+		на тему «Блок мікропрограмованого керування»\\
+		% Варіант №4
+
+		\vspace*{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент ННІКІТ СП-225\\
+			Клокун В.\,Д.\\
+			Перевірив:\\
+			Зіньков Ю.\,Г.
+		\end{flushright}
+
+		Київ 2018
+    \end{titlepage}
+
+		\section{Мета роботи}
+			Вивчення схемотехніки та системи інструкцій (команд) схеми керування послідовністю мікрокоманд~К1894ВУ4, побудова блоку мікропрограмованого керування на її основі та розробка мікропрограм.
+
+		\section{Завдання}
+			При виконанні роботи ставиться завдання розробити мікропрограму для блоку мікропрограмованого керування на основі заданих даних~(табл.~\ref{tab:task}).
+			\begin{table}[!htbp]
+				\centering
+				\begin{tabular}{llv{4.5em}v{4.5em}v{16.9em}}
+					\toprule
+						№ & МП i & Вершин циклу & Кількість циклів & Взаємозв'язок МП та~МПП\\
+					\midrule
+						4 & МП3(0010) & 3–7 & 2 & МП3№3(50)~$\rightarrow$ МПП4(100)№3(200)~$\rightarrow$ МПП1(300) \\
+					\bottomrule
+				\end{tabular}
+				\caption{Завдання}
+				\label{tab:task}
+			\end{table}
+
+		\section{Хід роботи}
+			Для виконання роботи надані такі початкові умови:
+			\begin{enumerate}
+				\item Основна мікропрограма та її початкова адреса: МП3(0010).
+				\item Номери вершин, які складають циклічну ділянку мікропрограми: 3–7.
+				\item Число повторень в циклі: 2.
+				\item Взаємозв'язки основної МП та МПП: МП3№3(50)~$\rightarrow$ МПП4(100)№3(200)~$\rightarrow$ МПП1(300).
+			\end{enumerate}
+			Звідси маємо дані про номери та адреси місць звернення для кожної програми~(табл.~\ref{tab:mp-details}). Складаємо закодовану мікропрограму для блока мікпропрограмованого керування~(табл.~\ref{tab:coded-microprogram}).
+			\begin{table}[!htbp]
+				\begin{tabular}{ll}
+					\toprule
+						Символ & Значення \\
+					\midrule
+						МП3       & Ім'я основної мікропрограми\\
+						№3(50)    & Номер та адреса місця звернення в МП3 до МПП4\\
+						МПП4(100) & Ім'я та початкова адреса МПП4\\
+						№3(200)   & Номер та адреса місця звернення в МПП4 до МПП1\\
+						МПП1(300) & Ім'я та початкова адреса МПП1\\
+					\bottomrule
+				\end{tabular}
+				\caption{Дані про мікропрограми}
+				\label{tab:mp-details}
+			\end{table}
+
+			\begin{landscape}
+				\begin{table}[p]
+				\centering
+					\begin{tabular}{rrl*{12}{r}}
+						\toprule
+							 &  &  & \multicolumn{7}{c}{Мікрокоманда} & \multicolumn{4}{c}{Вхідні дані} &  \\
+							 \cmidrule(lr){4-10} \cmidrule(lr){11-14}
+							 № & Адреса & Мнемоніка & $I$ & $P$ & $MS$ & $\overline{CC}$ & $COM$ & $\overline{RLD}$ & $CI$ & $M$ & $V$ & $LSI$ & $\overline{EN}$ & $DO$ \\
+						\midrule
+							1  & 0204 & LDCT & 14 & 0002 & x & x & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 0205 \\
+							2  & 0205 & CONT & 16 & xxxx & x & x & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 020 \\
+							3  & 0206 & CJP  & 03 & 4777 & 1 & 0 & 1 & 1 & 1 & xxxx & xxxx & 0xxx & 0 & 4777 \\
+							4  & 4777 & CJS  & 01 & 3401 & x & 1 & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 3401 \\
+							5  & 5000 & CJP  & 03 & 0207 & x & 1 & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 0207 \\
+							6  & 0207 & RPCT & 11 & 0205 & x & x & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 0207 \\
+							7  & 3401 & CONT & 16 & xxxx & x & x & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 3402 \\
+							8  & 3402 & CJV  & 06 & xxxx & 2 & 0 & 1 & 1 & 1 & xxxx & 7020 & x0xx & 0 & 7020 \\
+							9  & 3403 & SJP  & 02 & 7080 & x & x & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 7020 \\
+							10 & 7020 & CRTN & 12 & xxxx & x & 1 & x & 1 & 1 & xxxx & xxxx & xxxx & 0 & 5000 \\
+						\bottomrule
+					\end{tabular}
+				\caption{Закодована мікропрограма для блоку мікропрограмного керування}
+				\label{tab:coded-microprogram}
+				\end{table}
+			\end{landscape}
+
+			Перевіряємо правильність мікропрограми за допомогою програмного продукту «Емулятор К1894ВУ4». Результати виконання мікропрограми для трьох значень логічних сигналів~$LS(x_1)$ та~$LS(x_2)$.
+			\begin{table}[!htbp]
+				\centering
+				\begin{subtable}[t]{0.31\linewidth}
+					\vspace{0em}
+					\centering
+					\begin{tabular}{*{3}{n{3em}}}
+						\toprule
+							Число виконаних МК & Номер МК в~МП & Адреса наступної МК\\
+						\midrule
+							1  & 1  & 0205 \\
+							2  & 2  & 0206 \\
+							3  & 3  & 4777 \\
+							4  & 4  & 3401 \\
+							5  & 7  & 3402 \\
+							6  & 8  & 7020 \\
+							7  & 10 & 5000 \\
+							8  & 5  & 0207 \\
+							9  & 6  & 0205 \\
+							10 & 2  & 0206 \\
+							11 & 3  & 4777 \\
+							12 & 4  & 3401 \\
+							13 & 7  & 3402 \\
+							14 & 8  & 7020 \\
+							15 & 10 & 5000 \\
+							16 & 5  & 0207 \\
+							17 & 6  & 0207 \\
+							18 & 2  & 0206 \\
+							19 & 3  & 4777 \\
+							20 & 4  & 3401 \\
+							21 & 7  & 3402 \\
+							22 & 8  & 7020 \\
+							23 & 10 & 5000 \\
+							24 & 51 & 0207 \\
+							25 & 8  & 0210 \\
+						\bottomrule
+					\end{tabular}
+					\caption{}
+					\label{subtab:mp-res-ls00}
+				\end{subtable}
+				~
+				\begin{subtable}[t]{0.31\linewidth}
+					\vspace{0em}
+					\centering
+					\begin{tabular}{*{3}{n{3em}}}
+						\toprule
+							Число виконаних МК & Номер МК в~МП & Адреса наступної МК\\
+						\midrule
+							1  & 1  & 0205 \\
+							2  & 2  & 0206 \\
+							3  & 3  & 4777 \\
+							4  & 4  & 3401 \\
+							5  & 7  & 3402 \\
+							6  & 8  & 3403 \\
+							7  & 9 & 7020 \\
+							8  & 10 & 5000 \\
+							9  & 5  & 0207 \\
+							10 & 6  & 0205 \\
+							11 & 2  & 0206 \\
+							12 & 3  & 4777 \\
+							13 & 4  & 3401 \\
+							14 & 7  & 3402 \\
+							15 & 8  & 3403 \\
+							16 & 9  & 7020 \\
+							17 & 10 & 5000 \\
+							18 & 5  & 0207 \\
+							19 & 6  & 0205 \\
+							20 & 2  & 0206 \\
+							21 & 3  & 4777 \\
+							22 & 4  & 3401 \\
+							23 & 7  & 3402 \\
+							24 & 8  & 3403 \\
+							25 & 9  & 7020 \\
+							26 & 10 & 5000 \\
+							27 & 6  & 0207 \\
+							28 & 6  & 0210 \\
+						\bottomrule
+					\end{tabular}
+					\caption{}
+					\label{subtab:mp-res-ls01}
+				\end{subtable}
+				~
+				\begin{subtable}[t]{0.31\linewidth}
+					\vspace{0em}
+					\centering
+					\begin{tabular}{*{3}{n{3em}}}
+						\toprule
+							Число виконаних МК & Номер МК в~МП & Адреса наступної МК\\
+						\midrule
+							1  & 1  & 0205 \\
+							2  & 2  & 0206 \\
+							3  & 3  & 0207 \\
+							4  & 6  & 0205 \\
+							5  & 2  & 0206 \\
+							6  & 3  & 0207 \\
+							7  & 6  & 0205 \\
+							8  & 2  & 0206 \\
+							9  & 3  & 0207 \\
+							10 & 8  & 0210 \\
+						\bottomrule
+					\end{tabular}
+					\caption{}
+					\label{subtab:mp-res-ls10}
+				\end{subtable}
+				\caption{Результат виконання мікропрограми: \subref{subtab:mp-res-ls00}~— при $LS(x_1) = 0$, $LS(x_2) = 0$, \subref{subtab:mp-res-ls01}~— при $LS(x_1) = 0$, $LS(x_2) = 1$, \subref{subtab:mp-res-ls10}~— при $LS(x_1) = 1$, $LS(x_2) = 0$}
+			\end{table}
+
+		\section{Висновок}
+			Під час виконання даної лабораторної роботи ми вивчили схемотехніку та систему інструкцій (команд) схеми керування послідовністю мікрокоманд~К1894ВУ4, побудували блок мікропрограмованого керування на її основі та розробили мікропрограму.
+
+
+\end{document}
+
