@@ -6,6 +6,10 @@
 	headings = normal,
 ]{scrartcl}
 
+%%% Length calculations
+\usepackage{calc}
+%%%
+
 %%% Support for color
 \usepackage{xcolor}
 \definecolor{lightblue}{HTML}{03A9F4}
@@ -92,6 +96,28 @@ exponent-product = {\cdot}}
 \usepackage{tikzscale}
 %%%
 
+%%% Algorithms typesetting
+\usepackage[
+	ruled,
+	linesnumbered,
+	onelanguage,
+]{algorithm2e}
+
+% Change comments font to roman
+\newcommand{\mycommfont}[1]{\rmfamily{#1}}
+\SetCommentSty{mycommfont}
+
+% Translate keywords into Ukrainian
+\makeatletter
+\renewcommand{\listalgorithmcfname}{Список алгоритмів}%
+\renewcommand{\algorithmcfname}{Алгоритм}%
+\renewcommand{\algocf@languagechoosen}{ukrainian}%
+
+\SetKwBlock{Begin}{початок}{кінець}%
+\SetKwIF{If}{ElseIf}{Else}{якщо}{то}{інакше якщо}{інакше}{кінець якщо}%
+\makeatother
+%%%
+
 %%% Links and hyperreferences
 \usepackage{hyperref}
 \hypersetup{
@@ -107,6 +133,8 @@ exponent-product = {\cdot}}
 
 \newcommand{\barneg}[1]{\overline{#1}}
 %%%
+
+\setlength{\emergencystretch}{1em}
 
 \begin{document}
 	\begin{titlepage}
@@ -128,38 +156,37 @@ exponent-product = {\cdot}}
 				групи СП-225\\
 				Клокун Владислав\\
 				Перевірив:\\
-				Іскренко Ю. Ю.
+				Іскренко Ю.\,Ю.
 			\end{flushright}
 
-			Київ 2017
+			Київ 2018
 		\end{center}
 	\end{titlepage}
 
 	\section{Завдання}
 		Завданням розрахунково-графічної роботи є розробка алгоритму виконання вказаної в завданні операції та синтезу функціональної схеми керуючого автомата.
 
-		\begin{longtable}[c]{lr}
-			\toprule
-				Параметр & Значення\\
-			\midrule
-			\endhead
-			\bottomrule
+		\begin{table}[!htbp]
+			\centering
 			\caption{Завдання на розрахунково-графічну роботу}
-			\endfoot
 			\label{tab:rgr-task}
-
-			№                        & 16\\
-			Тип операції             & Додавання\\
-			Початковий код операндів & ДК\\
-			Розрядність операндів    & 16\\
-			КВМСМ                    & МДК\\
-			Структура ОБ             & ЗМО\\
-			Тип автомата             & Мілі\\
-			Пам'ять автомата         & $D$\\
-			ОР                       & $P$\\
-			ЛО                       & \textit{NAND}\\
-		\end{longtable}
-
+			\begin{tabular}{lr}
+				\toprule
+					Параметр & Значення \\
+				\midrule
+					№                        & 16\\
+					Тип операції             & Додавання\\
+					Початковий код операндів & ДК\\
+					Розрядність операндів    & 16\\
+					КВМСМ                    & МДК\\
+					Структура ОБ             & ЗМО\\
+					Тип автомата             & Мілі\\
+					Пам'ять автомата         & $D$\\
+					ОР                       & $P$\\
+					ЛО                       & \textit{NAND}\\
+				\bottomrule
+			\end{tabular}
+		\end{table}
 		З завдання на розрахунково-графічну роботу (табл.~\ref{tab:rgr-task}) видні такі характеристики цільового арифметико-логічного пристрою:
 		\begin{enumerate}
 			\item Тип арифметичної операції — додавання двійкових чисел.
@@ -181,16 +208,64 @@ exponent-product = {\cdot}}
 				\item Якщо розрядна сітка переповнилась, результат не фіксується, і в ЦПК подається сигнал переповнення «ПП».
 			\end{enumerate}
 
-		\subsection{Побудова граф-схем}
-			У процесі виконання розрахунково-графічної роботи за алгоритмом була розроблена мікропрограма додавання~(її змістовний граф на рис.~\ref{fig:summation-algorithm-meaningful-graph}).
+		\subsection{Розробка функціональної схеми для виконання додавання}
+			Розроблюємо функціональну схему для виконання додавання двох двійкових чисел~(рис.~\ref{fig:01-operational-part-functional-schematic}), яка містить:
+			\begin{enumerate}
+				\item Регістри \schel{RGA}, \schel{RGB} для приймання і подальшого зберігання першого і другого операндів із вхідної шини \schel{Ш1}.
+				\item Паралельний комбінаційний суматор з додатковим старшим розрядом знака~\schel{П} для створення модифікованого доповняльного коду.
+				\item Регістр результату~\schel{RGC}, дані з якого пересилаються в оперативну пам'ять по вихідній шині~\schel{Ш2}.
+				\item Схеми електронних ключів~\schel{SW1} і~\schel{SW2}.
+				\item Схему вироблення ознак переповнення~\schel{OP}.
+				\item Схему диз'юнкторів~\schel{OR} для виконання операцій порозрядного логічного додавання кодів операндів~$A$ і~$B$.
+			\end{enumerate}
+
+			\begin{figure}[!htbp]
+				\centering
+				\includegraphics[height = 16\baselineskip]{./assets/01-operational-part-functional-schematic-16bit.png}
+				\caption{Функціональна схема для додавання чисел}
+				\label{fig:01-operational-part-functional-schematic}
+			\end{figure}
+
+			Після закінчення операції керуючий автомат аналізує ознаки результату і встановлює значення відповідних тригерів ознак. Ознаки результату обчислюються за допомогою булевих виразів:
+			\begin{IEEEeqnarray*}{rCl}
+				\varphi_1 &=& \mathit{П} \land \barneg{\schel{SM}}[n]~\text{— додатний результат (знаки~$00$),}\\
+				\varphi_2 &=& \mathit{П} \land \schel{SM}[n]~\text{— від'ємний результат (знаки~$11$),}\\
+				\varphi_3 &=& \barneg{\mathit{П}} \land \schel{SM} \lor \mathit{П} \land \barneg{\schel{SM}}[n]~\text{— переповнення розрядної сітки~(знаки~$01$ чи~$10$),}\\
+				\varphi_4 &=& \bigwedge\limits_{i = 1}^{n + 1} \barneg{\schel{SM}}[i]~\text{— нульовий результат}.
+			\end{IEEEeqnarray*}
+
+			Ознака переповнення перевіряється до закінчення операції і за її наявності виконання програми переривається. Перевірка ознаки~\textit{OR} реалізується за допомогою восьми логічних 2-входових елементів~«АБО» за співвідношенням:
+			\begin{IEEEeqnarray*}{rCl}
+				F_i = A_i \lor B_i, \quad i = \{1, \dots, 8\},
+			\end{IEEEeqnarray*}
+			де $F_i$~— $i$-й вихід вузла логічного додавання. Ця операція виконується автоматично незалежно від коду команди.
+
+		\subsection{Розробка мікропрограми додавання}
+			За словесним алгоритмом додавання двійкових чисел у доповняльних кодах запишемо мікропрограму~(алг.~\ref{alg:01-addition}). Отримана мікропрограма дозволяє скласти змістовний граф мікропрограми~(рис.~\ref{fig:summation-algorithm-meaningful-graph}). В свою чергу отриманий змістовний граф мікропрограми кодується та розмічуюється. В результаті отримуємо закодований граф мікропрограми~(рис.~\ref{fig:summation-algorithm-encoded-graph}).
+			\begin{algorithm}
+				\caption{Додавання двійкових чисел}
+				\label{alg:01-addition}
+				\eIf(\tcc*[f]{$K[1]$~— однорозрядний код команди додавання}){$K[1]$}{
+					$\schel{RGA} \coloneqq A$\tcc*{Приймання першого операнда}
+					$\schel{RGB} \coloneqq B$\tcc*{Приймання другого операнда}
+					$\schel{SM} \coloneqq A + B$\tcc*{Додавання}
+					\eIf{$\varphi_3$}{
+						$T_{\text{П}} \coloneqq \text{ПП}$\tcc*{Тригеру переповнення $T_{\text{П}}$ присвоюється ознака~ПП}
+					}{
+						$\schel{RGC} \coloneqq \schel{SM}$\tcc*{Присвоєння результату}
+						$\schel{Ш2} \coloneqq \schel{RGC}$\tcc*{Пересилання в пам'ять}
+					}
+					}{
+						Чекати\;
+				}
+			\end{algorithm}
+
 			\begin{figure}[!htbp]
 			\centering
 				\includegraphics{assets/01-summation-algorithm-meaningful-graph.tikz}
 			\caption{Змістовний граф мікропрограми додавання}
 			\label{fig:summation-algorithm-meaningful-graph}
 			\end{figure}
-
-			Далі отриманий на попередньому етапі змістовний граф мікропрограми був закодований і розмічений~(рис.~\ref{fig:summation-algorithm-encoded-graph}).
 
 			\begin{figure}[!htbp]
 			\centering
@@ -199,9 +274,40 @@ exponent-product = {\cdot}}
 			\label{fig:summation-algorithm-encoded-graph}
 			\end{figure}
 
-		\subsection{Синтез}
-			За результатом кодування графа згідно відповідно до завдання був синтезований автомат Мілі~(рис.~\ref{fig:mealy-machine}).
+		\subsection{Розробка схеми модуля операційного блока}
+			Отримані дані дозволили розробити модуль операційного блока~(рис.~\ref{fig:02-summation-principal-schematic}).
+			\begin{figure}[!htbp]
+				\centering
+				\includegraphics[height = 38\baselineskip]{./assets/02-summation-principal-schematic.png}
+				\caption{Схема модуля операційного блока}
+				\label{fig:02-summation-principal-schematic}
+			\end{figure}
 
+			Розроблений модуль операційного блока складається з таких елементів:
+			\begin{enumerate}
+				\item Регістри для зберігання операндів.
+				\item Мікросхеми логічного АБО для реалізації порозрядної диз'юнкції над кодами операндів~$A$ і~$B$.
+				\item Мікросхеми логічного І для підключення виходів регістрів до входів суматора.
+				\item Мікросхеми логічного виключного АБО для створення старшого знакового розряду суматора і логічної ознаки~$\varphi_3 = x_1$ та~$\barneg{x_1}$.
+				\item Вихідний регістр для приймання результату додавання та його передачі на вихідну шину.
+				\item Суматори для виконання операції додавання.
+			\end{enumerate}
+
+		\subsection{Проектування керуючого блоку}
+			% Закодований граф мікропрограми дозволяє побачити, що максимальна кількість станів автомата~$L = 8$. Для реалізації такої кількості станів необхідно і~достатньо використати $n = \ceil*{\log_2{8}} = 3$~$D$-тригери. Закодуємо стани автомата Мілі значеннями виходів $D$-тригерів за принципом кодування Грея та зобразимо це відповідним чином на рисунку.
+			Із закодованого графа мікропрограми видно, що максимальна кількість станів автомата~$L = 8$, тому для реалізації необхідно $n = \ceil*{\log_2{8}} = 3$~$D$-тригери. Закодуємо стани автомата значеннями виходів $D$-тригерів за принципом кодування Грея:
+			\begin{IEEEeqnarray*}{rClrClrClrCl}
+				z_1 &=& \barneg{Q_1} \barneg{Q_2} \barneg{Q_3}, \quad &
+				z_2 &=& \barneg{Q_1} \barneg{Q_2}         Q_3, \quad &
+				z_3 &=& \barneg{Q_1}         Q_2          Q_3, &
+				z_4 &=& \barneg{Q_1}         Q_2  \barneg{Q_1}, \quad \\
+				z_5 &=&         Q_3          Q_2  \barneg{Q_1}, \quad &
+				z_6 &=&         Q_3          Q_2          Q_1, &
+				z_7 &=&         Q_3  \barneg{Q_2}         Q_1, \quad &
+				z_8 &=&         Q_3  \barneg{Q_2} \barneg{Q_1}.
+			\end{IEEEeqnarray*}
+			% На основі отриманих даних складаємо граф автомата Мілі для мікропрограми додавання~(рис.~\ref{fig:mealy-machine}), який інтерпретує складену мікропрограму додавання двох двійкових чисел у доповняльних кодах.
+			На основі отриманих даних складаємо граф автомата Мілі~(рис.~\ref{fig:mealy-machine}).
 			\begin{figure}[!htbp]
 			\centering
 				\includegraphics{assets/03-sum-mealy-machine.tikz}
@@ -209,77 +315,37 @@ exponent-product = {\cdot}}
 			\label{fig:mealy-machine}
 			\end{figure}
 
-			З синтезованого автомата Мілі видно, що максимальна кількість станів автомата~$L = 8$. Для реалізації такої кількості станів необхідно використати $n = \ceil*{\log_2{8}} = 3$~$D$-тригери.
-
-			Закодуємо стани автомата Мілі значеннями виходів $D$-тригерів за принципом кодування Грея та зобразимо це відповідним чином на рисунку.
-			\begin{IEEEeqnarray*}{rClrClrCl}
-				z_1 &=& \barneg{Q_1} \barneg{Q_2} \barneg{Q_3}, \quad &
-				z_2 &=& \barneg{Q_1} \barneg{Q_2}         Q_3, \quad &
-				z_3 &=& \barneg{Q_1}         Q_2          Q_3,\\
-				z_4 &=& \barneg{Q_1}         Q_2  \barneg{Q_1}, \quad &
-				z_5 &=&         Q_3          Q_2  \barneg{Q_1}, \quad &
-				z_6 &=&         Q_3          Q_2          Q_1,\\
-				z_7 &=&         Q_3  \barneg{Q_2}         Q_1, \quad &
-				z_8 &=&         Q_3  \barneg{Q_2} \barneg{Q_1}.
-			\end{IEEEeqnarray*}
-
-			% Будуємо таблицю переходів автомату Мілі~(табл.~\ref{tab:transfer-table}).
-
-			% \begin{longtable}[c]{cccccccccccccccccccc}
-				% \toprule
-					% \multicolumn{4}{c}{$t$} & \multicolumn{15}{c}{$t+1$}\\
-					% \cmidrule(lr){1-3} \cmidrule(lr){4-20}
-					% $Q_1Q_2Q_3$ & $\beta_1$ & $x_1$ & $Q_1Q_2Q_3$ & $y_1$ & $y_2$ & $y_3$ & $y_4$ & $y_5$ & $y_6$ & $y_7$ & $y_8$ & $y_9$ & $D_1D_2D_3$\\
-				% \midrule
-				% \endhead
-				% \bottomrule
-				% \caption{Таблиця переходів автомата}
-				% \endfoot
-				% \label{tab:transfer-table}
-
-					% $000$ & $1$ & $—$ & $000$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $000$\\
-					% $000$ & $—$ & $—$ & $001$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $001$\\
-					% $001$ & $—$ & $—$ & $011$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $011$\\
-					% $011$ & $—$ & $—$ & $010$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $010$\\
-					% $010$ & $—$ & $—$ & $110$ & $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $0$ & $110$\\
-					% $110$ & $—$ & $—$ & $111$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $0$ & $111$\\
-					% $111$ & $—$ & $—$ & $101$ & $0$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $0$ & $101$\\
-					% $101$ & $—$ & $1$ & $000$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $1$ & $000$\\
-					% $101$ & $—$ & $0$ & $100$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $0$ & $100$\\
-					% $100$ & $—$ & $—$ & $000$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $0$ & $1$ & $0$ & $000$\\
-			% \end{longtable}
-
-			Для наочності складемо структурну таблицю переходів автомату Мілі~(табл.~\ref{tab:structured-transfer-table}).
-			\begin{longtable}[c]{ccccccccc}
-				\toprule
-					$z_i$ & $k(z_i)$ & $z_j$ & $k(z_j)$ & $\left\{ x_i \right\}$ & $\left\{ y_i \right\}$ & $D_1$ & $D_2$ & $D_3$\\
-				\midrule
-				\endhead
-				\bottomrule
+			Отриманий граф автомата Мілі для мікропрограми додавання двох двійкових чисел у доповняльних кодах дозволяє скласти структурну таблицю переходів автомату Мілі~(табл.~\ref{tab:structured-transfer-table}), яка знадобиться для подальших обчислень і є більш наочною.
+			\begin{table}[!htbp]
+				\centering
 				\caption{Структурна таблиця переходів автомата Мілі}
-				\endfoot
 				\label{tab:structured-transfer-table}
+				\begin{tabular}{*{9}{c}}
+					\toprule
+						$z_i$ & $k(z_i)$ & $z_j$ & $k(z_j)$ & $\left\{ x_i \right\}$ & $\left\{ y_i \right\}$ & $D_1$ & $D_2$ & $D_3$\\
+					\midrule
+						$z_1$ & $000$ & $z_1$ & $000$ & $\barneg{\beta_1}$ & $—$   & $0$ & $0$ & $0$\\
+						$z_1$ & $000$ & $z_2$ & $001$ & $1$                & $y_1$ & $0$ & $0$ & $1$\\
+						$z_2$ & $001$ & $z_3$ & $011$ & $1$                & $y_2$ & $0$ & $1$ & $1$\\
+						$z_3$ & $011$ & $z_4$ & $010$ & $1$                & $y_3$ & $0$ & $1$ & $0$\\
+						$z_4$ & $010$ & $z_5$ & $110$ & $1$                & $y_4$ & $1$ & $1$ & $0$\\
+						$z_5$ & $110$ & $z_6$ & $111$ & $1$                & $y_5$ & $1$ & $1$ & $1$\\
+						$z_6$ & $111$ & $z_7$ & $101$ & $1$                & $y_6$ & $1$ & $0$ & $1$\\
+						$z_7$ & $101$ & $z_1$ & $000$ & $x_1$              & $y_9$ & $0$ & $0$ & $0$\\
+						$z_7$ & $101$ & $z_8$ & $100$ & $\barneg{x_1}$     & $y_7$ & $1$ & $0$ & $0$\\
+						$z_8$ & $100$ & $z_1$ & $000$ & $1$                & $y_8$ & $0$ & $0$ & $0$\\
+						\bottomrule
+				\end{tabular}
+			\end{table}
 
-					$z_1$ & $000$ & $z_1$ & $000$ & $\barneg{\beta_1}$ & $—$   & $0$ & $0$ & $0$\\
-					$z_1$ & $000$ & $z_2$ & $001$ & $1$                & $y_1$ & $0$ & $0$ & $1$\\
-					$z_2$ & $001$ & $z_3$ & $011$ & $1$                & $y_2$ & $0$ & $1$ & $1$\\
-					$z_3$ & $011$ & $z_4$ & $010$ & $1$                & $y_3$ & $0$ & $1$ & $0$\\
-					$z_4$ & $010$ & $z_5$ & $110$ & $1$                & $y_4$ & $1$ & $1$ & $0$\\
-					$z_5$ & $110$ & $z_6$ & $111$ & $1$                & $y_5$ & $1$ & $1$ & $1$\\
-					$z_6$ & $111$ & $z_7$ & $101$ & $1$                & $y_6$ & $1$ & $0$ & $1$\\
-					$z_7$ & $101$ & $z_1$ & $000$ & $x_1$              & $y_9$ & $0$ & $0$ & $0$\\
-					$z_7$ & $101$ & $z_8$ & $100$ & $\barneg{x_1}$     & $y_7$ & $1$ & $0$ & $0$\\
-					$z_8$ & $100$ & $z_1$ & $000$ & $1$                & $y_8$ & $0$ & $0$ & $0$\\
-			\end{longtable}
-
-			На підставі даних структурної таблиці переходів автомату Мілі записуємо системи логічних рівнянь. Для функцій збудження входів:
+			На підставі даних структурної таблиці переходів автомату Мілі для мікропрограми додавання записуємо системи логічних рівнянь. Для функцій збудження входів~$D$-тригерів:
 			\begin{IEEEeqnarray*}{rCl}
-				D_1 &=& z_4 \lor z_5 \lor z_6 \lor z_7 \barneg{x_2},\\
-				D_2 &=& z_2 \lor z_3 \lor z_4 \lor z_5,\\
-				D_3 &=& z_1 \lor z_2 \lor z_5 \lor z_6.
+				D_1 = z_4 \lor z_5 \lor z_6 \lor z_7 \barneg{x_2}, \quad
+				D_2 = z_2 \lor z_3 \lor z_4 \lor z_5, \quad
+				D_3 = z_1 \lor z_2 \lor z_5 \lor z_6.
 			\end{IEEEeqnarray*}
-
-			Перетворимо отримані функції до заданого у завданні елементного базису NAND («І—НЕ», тут і далі позначається символом~$\lnand$):
+			Перетворимо отримані функції до заданого елементного базису «І—НЕ»:
+			% Перетворимо отримані функції до заданого у завданні елементного базису NAND («І—НЕ», тут і далі позначається символом~$\lnand$):
 			\begin{IEEEeqnarray*}{rCl}
 				D_1 &=& z_4 \lor z_5 \lor z_6 \lor z_7 \barneg{x_2}
 				    = \barneg{z_4} \lnand \barneg{z_5} \lnand \barneg{z_6} \lnand \left( z_7 \lnand x_2 \right),\\
@@ -288,8 +354,7 @@ exponent-product = {\cdot}}
 				D_3 &=& z_1 \lor z_2 \lor z_5 \lor z_6
 				    = \barneg{z_1} \lnand \barneg{z_2} \lnand \barneg{z_5} \lnand \barneg{z_6}.
 			\end{IEEEeqnarray*}
-
-			Для вихідних сигналів:
+			Рівняння для вихідних сигналів:
 			\begin{IEEEeqnarray*}{rClrClrCl}
 				y_1 &=& z_1, \quad &
 				y_2 &=& z_2, \quad &
@@ -301,12 +366,10 @@ exponent-product = {\cdot}}
 				y_8 &=& z_8, \quad &
 				y_9 &=& z_7 x_1.
 			\end{IEEEeqnarray*}
-
 			В результаті розробили функціональну схему керуючого автомату~(рис.~\ref{fig:control-automata-schematic}).
-
 			\begin{figure}[!htbp]
 			\centering
-				\includegraphics[height = 16\baselineskip]{assets/control-schematic.png}
+				\includegraphics[width = \textwidth]{assets/control-schematic.png}
 			\caption{Функціональна схема керуючого автомата}
 			\label{fig:control-automata-schematic}
 			\end{figure}
