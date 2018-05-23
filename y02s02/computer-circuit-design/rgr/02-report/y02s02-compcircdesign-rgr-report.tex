@@ -1,21 +1,41 @@
-\documentclass[a4paper,oneside,DIV=12,12pt]{scrartcl}
+\documentclass[
+	a4paper,
+	oneside,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
 
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
 \usepackage{graphicx}
+%%%
 
+%%% Font selection
 \usepackage{fontspec}
-\setmainfont{STIX Two Text}
-\setsansfont{Roboto}
 
-\usepackage{microtype}
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 5},
+]
 
-\usepackage{polyglossia}
-\setmainlanguage{ukrainian}
+\setsansfont{Source Sans Pro}[
+]
+
+\setmonofont{Source Code Pro}[
+]
+%%%
 
 %%% Math typesetting
 \usepackage{amsmath}
 \usepackage{mathtools}
 \usepackage{unicode-math}
 \setmathfont{STIX Two Math}
+
 \usepackage[retainorgcmds]{IEEEtrantools}
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
@@ -23,14 +43,39 @@
 \newcommand*\lnand{\mathbin{\barwedge}}
 %%%
 
-%%% Table typesetting
-\usepackage{booktabs}
-\usepackage{longtable}
+%%% Font settings for different KOMAScript elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
 %%%
 
 %%% Captions
 \usepackage{caption}
 \usepackage{subcaption}
+
+\DeclareCaptionLabelFormat{closing}{#2)}
+\captionsetup[subtable]{labelformat = closing}
+\captionsetup[subfigure]{labelformat = closing}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\raggedright\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\raggedleft\arraybackslash\hspace{0pt}}p{#1}}
 %%%
 
 %%% SI units typesetting
@@ -47,9 +92,21 @@ exponent-product = {\cdot}}
 \usepackage{tikzscale}
 %%%
 
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Custom commands
 \newcommand\schel[1]{\textit{#1}}
 
 \newcommand{\barneg}[1]{\overline{#1}}
+%%%
 
 \begin{document}
 	\begin{titlepage}
