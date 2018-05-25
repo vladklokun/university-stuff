@@ -1,0 +1,65 @@
+\begin{tikzpicture}
+	%%% Style definitions
+	\tikzstyle{terminal} = [
+		rectangle,
+		rounded corners = 0.5cm,
+		draw,
+		text centered,
+		node distance = 4em,
+		minimum width = 4cm,
+		minimum height = 1cm,
+	]
+	\tikzstyle{decision} = [
+		diamond,
+		draw,
+		minimum width = 4cm,
+		minimum height = 1.25cm,
+		text badly centered,
+		% inner sep = 1pt,
+		node distance = 4em,
+	]
+	\tikzstyle{block} = [
+		rectangle,
+		draw,
+		text centered,
+		node distance = 4em,
+		minimum width = 4cm,
+		minimum height = 1cm,
+	]
+	\tikzstyle{line} = [
+		draw,
+		-Stealth,
+	]
+	%%% Nodes
+	\node [terminal] (start) {Початок};
+	\node [decision, aspect = 2, below of = start] (k1check) {$K\left[1\right]$};
+	\node [block, below of = k1check] (y1) {$y_1\colon \schel{RGA1} \coloneqq A1$};
+	\node [block, below of = y1]      (y2) {$y_2\colon \schel{RGA2} \coloneqq A2$};
+	\node [block, below of = y2]      (y3) {$y_3\colon \schel{RGB1} \coloneqq B1$};
+	\node [block, below of = y3]      (y4) {$y_4\colon \schel{RGB2} \coloneqq B2$};
+	\node [block, below of = y4]      (y5) {$y_5\colon \schel{SM1}  \coloneqq A1 + B1$};
+	\node [block, below of = y5]      (y6) {$y_6\colon \schel{SM2}  \coloneqq A2 + B2$};
+	\node [decision, aspect = 2, below of = y6]   (phi3) {$\varphi_3$};
+	\node [block, right = 1.5cm of phi3] (y9) {$y_9\colon T_{\text{П}} \coloneqq \text{ПП}$};
+	\node [block, left  = 1.5cm of phi3]      (y7) {$y_7\colon \schel{RGC1}  \coloneqq \schel{SM1}$};
+	\node [block, below of = y7]      (y8) {$y_8\colon \schel{RGC2}  \coloneqq \schel{SM2}$};
+	% \node [block, below of = y8]      (y9) {$y_9\colon \schel{SM1}  \coloneqq A2 + B2$};
+	\node [terminal, below = (1.5cm + 4em) of phi3] (end) {Кінець};
+	
+	%%% Edges
+	\path [line] (start) -- (k1check);
+	\path [line] (k1check) edge[rl] node [left] {$0$} ($(k1check.north) + (0,0.25)$);
+	\path [line] (k1check) -- node [right] {$1$} (y1);
+	\path [line] (y1) -- (y2);
+	\path [line] (y2) -- (y3);
+	\path [line] (y3) -- (y4);
+	\path [line] (y4) -- (y5);
+	\path [line] (y5) -- (y6);
+	\path [line] (y6) -- (phi3);
+	\path [line] (phi3) -- node [above] {$0$} (y7);
+	\path [line] (phi3) -- node [above] {$1$} (y9);
+	\path [line] (y7) -- (y8);
+	\path [line] (y8) |-| (end);
+	\path [line, hvvh/ratio=0.755] (y9) |-| (end);
+	% \path [line, hvvh/distance=1.5cm + 2em] (y9) |-| (end);
+\end{tikzpicture}

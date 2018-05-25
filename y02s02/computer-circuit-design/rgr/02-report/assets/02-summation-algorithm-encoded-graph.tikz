@@ -1,0 +1,83 @@
+\begin{tikzpicture}
+	%%% Style definitions
+	\tikzstyle{terminal} = [
+		rectangle,
+		rounded corners = 0.5cm,
+		draw,
+		text centered,
+		node distance = 4em,
+		minimum width = 2cm,
+		minimum height = 1cm,
+	]
+	\tikzstyle{decision} = [
+		diamond,
+		draw,
+		minimum width = 3cm,
+		minimum height = 1.25cm,
+		text badly centered,
+		% inner sep = 1pt,
+		node distance = 4em,
+	]
+	\tikzstyle{block} = [
+		rectangle,
+		draw,
+		text centered,
+		node distance = 4em,
+		minimum width = 2cm,
+		minimum height = 1cm,
+	]
+	\tikzstyle{line} = [
+		draw,
+		-Stealth,
+	]
+	\tikzstyle{statenode} = [
+		draw,
+		circle,
+		inner sep = 1pt,
+		above = 3cm, left = 1.25cm,
+	]
+	
+	%%% Nodes
+	\node [terminal] (start) {Початок};
+	\node [decision, aspect = 2, below of = start] (k1check) {$\beta_1$};
+	\node [block, below of = k1check] (y1) {$y_1$};
+	\node [block, below of = y1]      (y2) {$y_2$};
+	\node [block, below of = y2]      (y3) {$y_3$};
+	\node [block, below of = y3]      (y4) {$y_4$};
+	\node [block, below of = y4]      (y5) {$y_5$};
+	\node [block, below of = y5]      (y6) {$y_6$};
+	\node [decision, aspect = 2, below of = y6]   (phi3) {$x_1$};
+	\node [block, right = 1.5cm of phi3] (y9) {$y_{9}$};
+	\node [block, left  = 1.5cm of phi3]      (y7) {$y_7$};
+	\node [block, below of = y7]      (y8) {$y_8$};
+	% \node [block, below of = y8]      (y9) {$y_9$};
+	\node [terminal, below = (1.5cm + 4em) of phi3] (end) {Кінець};
+	
+	%%% Edges
+	\path [line] (start) -- (k1check);
+	\path [line] (k1check) edge[rl] node [left] {$0$} ($(k1check.north) + (0,0.25)$);
+	\path [line] (k1check) -- node [right] {$1$} (y1);
+	\path [line] (y1) -- (y2);
+	\path [line] (y2) -- (y3);
+	\path [line] (y3) -- (y4);
+	\path [line] (y4) -- (y5);
+	\path [line] (y5) -- (y6);
+	\path [line] (y6) -- (phi3);
+	\path [line] (phi3) -- node [above] {$0$} (y7);
+	\path [line] (phi3) -- node [above] {$1$}(y9);
+	\path [line] (y7) -- (y8);
+	\path [line] (y8) |-| (end);
+	\path [line, hvvh/ratio=0.755] (y9) |-| (end);
+	
+	%%% State circles
+	\node (statestart) [statenode] at (k1check.north) {$z_1$};
+	\node (z2)         [statenode] at (y2.north) {$z_2$};
+	\node (z3)         [statenode] at (y3.north) {$z_3$};
+	\node (z4)         [statenode] at (y4.north) {$z_4$};
+	\node (z5)         [statenode] at (y5.north) {$z_5$};
+	\node (z6)         [statenode] at (y6.north) {$z_6$};
+	\node (z7)         [statenode] at (phi3.north) {$z_7$};
+	\node (z8)         [statenode] at (y8.north) {$z_8$};
+	% \node (z9)         [statenode] at (y9.north) {$z_9$};
+	\node (stateend)   [statenode] at (end.north) {$z_1$};
+\end{tikzpicture}
