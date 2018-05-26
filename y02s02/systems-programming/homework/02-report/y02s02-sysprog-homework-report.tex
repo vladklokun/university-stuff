@@ -1,0 +1,207 @@
+\documentclass[a4paper,oneside,BCOR=1cm,DIV=12,12pt,headings=normal]{scrartcl}
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Graphics inclusion
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+]
+
+\setsansfont{Source Sans Pro}[
+]
+
+\setmonofont{Source Code Pro}[
+	% Scale = 1.05,
+]
+
+% Used for suppressing polyglossia errors regarding missing cyrillic script
+% \newfontfamily\cyrillicfonttt[
+	% Script = Cyrillic,
+	% Scale  = MatchUppercase,
+% ]{Inconsolata}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	leftmargin = *,
+}
+%%%
+
+%%% Captions
+\usepackage{caption}
+%%%
+
+%%% Code listings
+\usepackage{minted}
+
+%%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newtcbinputlisting[auto counter, list inside, number within = section]{\inputasm}[4][]{%
+	minted language = nasm,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breakbytokenanywhere,
+		fontsize = \small,
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 0pt,
+	bottomrule       = 0pt,
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	left = 0em,
+	right = 0em,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
+}
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Count figures within sections
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+%%%
+
+%%% Custom commands
+% Print filenames
+\newcommand{\filename}[1]{\texttt{#1}}
+
+% Print command names
+\newcommand{\progname}[1]{\texttt{#1}}
+
+% Print function names
+\newcommand{\funcname}[1]{\texttt{#1}}
+
+% Typeset all caps
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 3}#1}}
+
+%%%
+
+\setlength{\emergencystretch}{1em}
+
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace*{\fill}
+
+		Домашня робота\\
+		з дисципліни «Системне програмування»\\
+		Варіант №24
+
+		\vspace*{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент \allcaps{ННІКІТ} \allcaps{СП}-225\\
+			Клокун В.\,Д.\\
+			Перевірив:\\
+			Артамонов Є.\,Б.
+		\end{flushright}
+
+		Київ 2018
+    \end{titlepage}
+
+	\section{Завдання}
+		Робота складається з 2~завдань, які повинні знаходитись в одному виконуваному файлі, створеного за допомогою мови асемблера. Вибір завдань виконується за допомогою діалогового меню. Для виконання домашньої роботи згідно з номером варіанта були поставлені такі завдання:
+		\begin{enumerate}
+			\item Дані числа~$a$, $b$ $(0 < a < b)$ і набір з 10~елементів. Знайти мінімальний і~максимальний з елементів, що містяться в інтервалі~$(a, b)$. Якщо необхідні елементи відсутні, то вивести~$-1$.
+			\item Відображення вмісту директорії~(аналог \progname{DIR}). Можливість виводу структури каталогів у вигляді дерева.
+		\end{enumerate}
+
+	\section{Хід роботи}
+		Початковий код необхідної програми був розроблений для платформи macOS з~64-бітною розрядністю на діалекті мови асемблера \allcaps{NASM} з використанням засобів інфраструктури~\allcaps{LLVM}.
+
+		Початковий код необхідного виконуваного файлу був розділений на 4 файли: \filename{arrload.asm}, \filename{main.asm}, \filename{p01findminmax.asm} та~\filename{p02dirtree.asm}.
+		Файл \filename{arrload.asm}~(ліст.~\ref{lst:01-arrload}) містить початковий код функції, яка завантажує, обробляє та виводить початковий набір даних із заданого файлу в масив.
+
+		\inputasm{../01-solution/arrload.asm}{Завантаження початкових даних для виконання завдання~1}{lst:01-arrload}
+
+		Файл \filename{main.asm}~(ліст.~\ref{lst:02-main}) містить початковий код основної функції програми, яка відповідає за взаємодію з користувачем, виклик функцій для виконання завдань, підготовку та вивід даних, а також завершення роботи програми.
+		\inputasm{../01-solution/main.asm}{Основна частина програми}{lst:02-main}
+
+		Файл \filename{p01findminmax.asm}~(ліст.~\ref{lst:03-p01findminmax}) містить початковий код, що описує роботу функцій \funcname{findmin()} та~\funcname{findmax()}. Ці функції відповідають за пошук у~початковому наборі даних мінімального та максимального елементів, які містяться у заданому інтервалі.
+		\inputasm{../01-solution/p01findminmax.asm}{Функції для пошуку мінімального та максимального елементів, що містяться в інтервалі~$(a, b)$}{lst:03-p01findminmax}
+
+		Файл \filename{p02dirtree.asm}~(ліст.~\ref{lst:04-p02dirtree}) містить початковий код функцій \funcname{dir()} та~\funcname{tree()}, які відповідають за вивід вмісту директорії та структури каталогу у вигляді дерева.
+		\inputasm{../01-solution/p02dirtree.asm}{Функції для виводу змісту директорії та структури каталогів у вигляді дерева}{lst:04-p02dirtree}
+
+	\section{Висновок}
+		Під час виконання домашньої роботи ми закріпили розуміння написання простих програм на мові асемблера та застосування простих і складних алгоритмів, а також використання спеціальних команд управління.
+
+\end{document}
+
