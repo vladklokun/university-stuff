@@ -1,0 +1,200 @@
+\documentclass[a4paper,oneside,BCOR=1cm,DIV=12,12pt,headings=normal]{scrartcl}
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Graphics inclusion
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+]
+
+\setsansfont{Source Sans Pro}[
+]
+
+\setmonofont{Source Code Pro}[
+	% Scale = 1.05,
+]
+
+% Used for suppressing polyglossia errors regarding missing cyrillic script
+% \newfontfamily\cyrillicfonttt[
+	% Script = Cyrillic,
+	% Scale  = MatchUppercase,
+% ]{Inconsolata}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	leftmargin = *,
+}
+%%%
+
+%%% Captions
+\usepackage{caption}
+%%%
+
+%%% Code listings
+\usepackage{minted}
+
+%%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newtcbinputlisting[auto counter, list inside, number within = section]{\inputcpp}[4][]{%
+	minted language = cpp,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakbytoken,
+		breaksymbol = {},
+		fontsize = \small,
+	},
+	%
+	enhanced,
+	sharp corners,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	bottom           = 0pt,
+	top              = 0pt,
+	left             = 0pt,
+	right            = 0pt,
+	middle           = 0pt,
+	colframe         = black!0,
+	colback          = black!0,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	colframe         = black,
+	titlerule        = 0.5pt,
+	leftrule         = 0pt,
+	rightrule        = 0pt,
+	toptitle         = 2pt,
+	bottomtitle      = 1pt,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
+}
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Count figures within sections
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+%%%
+
+%%% Custom commands
+% Print filenames
+\newcommand{\filename}[1]{\texttt{#1}}
+
+% Print command names
+\newcommand{\progname}[1]{\texttt{#1}}
+
+% Print function names
+\newcommand{\funcname}[1]{\texttt{#1}}
+
+% Typeset all caps
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 3}#1}}
+
+%%%
+
+\setlength{\emergencystretch}{1em}
+
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace*{\fill}
+
+		Завдання №1{.}1\\
+		для проходження практики\\
+		з дисципліни «Якість програмного забезпечення та тестування»\\
+		на тему «Дослідження основних критеріїв вибору тестів»
+
+		\vspace*{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент \allcaps{ННІКІТ} \allcaps{СП}-225\\
+			Клокун В.\,Д.\\
+			Перевірив:\\
+			Сябрук І.\,М.
+		\end{flushright}
+
+		Київ 2018
+    \end{titlepage}
+
+	\section{Мета роботи}
+		Ознайомитись з видами тестів та~оволодіти навичками вибору тестів.
+
+	\section{Хід роботи}
+		\subsection{Визначення типу трикутника}
+			Створюємо власну версію програми для~перевірки типу трикутника~(ліст.~\ref{lst:01-trianglecheck}). При складанні враховуємо всі тести, що наведені у~тексті завдання. Розроблена програма успішно працює з~усіма наданим тестовими наборами.
+
+			\inputcpp{../01-solution/y02s02-qatesting-practice-assignment-01-p01.cpp}{Програма для перевірки типу трикутника}{lst:01-trianglecheck}
+			
+		\subsection{Виведення кожної цифри заданого числа}
+			Створюємо власну версію програми для почергового виведення кожної цифри заданого числа~(ліст.~\ref{lst:02-numbydigit}). При складанні враховуємо всі тести, що наведені у~тексті завдання. Розроблена програма була успішно протестована.
+
+			\inputcpp{../01-solution/y02s02-qatesting-practice-assignment-01-p02.cpp}{Програма для почергового виведення кожної цифри заданого числа}{lst:02-numbydigit}
+
+	\section{Висновок}
+		Під час виконання даного завдання ми ознайомились з видами тестів та оволоділи навичками вибору тестів. Для першої програми було використано функціональне тестування, яке дозволило перевірити правильність роботи з різними можливими значеннями довжин сторін. Для другої було використано мутаційне тестування, яке дозволило перевірити правильність роботи програми з~числами не~лише заданого, але й довільного~(в межах обраного типу) розміру.
+
+\end{document}
+
