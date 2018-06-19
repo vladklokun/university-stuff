@@ -1,0 +1,276 @@
+\documentclass[a4paper,oneside,BCOR=1cm,DIV=12,12pt,headings=normal]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks        = false,
+	linkbordercolor   = red,
+	urlbordercolor    = lightblue,
+	pdfborderstyle    = {/S/U/W 1.5},
+}
+%%%
+
+%%% Graphics inclusion
+\usepackage{graphicx}
+%%%
+
+%%% Support for hyphenated rags
+\usepackage{ragged2e}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+]
+
+\setsansfont{Source Sans Pro}[
+]
+
+\setmonofont{Source Code Pro}[
+	% Scale = 1.05,
+]
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+%%%
+
+%%% Font settings for different KOMA Script elements
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	leftmargin = *,
+	label*     = {\arabic*.},
+}
+%%%
+
+%%% Captions
+\usepackage{caption}
+%%%
+
+%%% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{cellspace}
+% \setlength\cellspacetoplimit{0\baselineskip}
+% \setlength\cellspacebottomlimit{0.5\baselineskip}
+% \renewcommand{\arraystretch}{1.5}
+\addparagraphcolumntypes{v}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+
+% \usepackage{kbordermatrix} % labeling array indices
+%%%
+
+%%%
+
+%%% Count figures within sections
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+%%%
+
+%%% Custom commands
+% Print filenames
+\newcommand{\filename}[1]{\texttt{#1}}
+
+% Print command names
+\newcommand{\progname}[1]{\texttt{#1}}
+
+% Print function names
+\newcommand{\funcname}[1]{\texttt{#1}}
+
+% Typeset all caps
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 3}#1}}
+
+%%%
+
+%%% Lengths
+\setlength{\emergencystretch}{1em}
+
+\newlength{\modulewidth}
+\setlength{\modulewidth}{\textwidth / 6}
+
+% Save baselineskip
+\newlength{\oldbaselineskip}
+%%%
+
+
+\begin{document}
+	\begin{titlepage}
+	\centering
+		Міністерство освіти і науки України\\
+		Національний авіаційний університет\\
+		Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+		Кафедра комп'ютеризованих систем управління
+
+		\vspace*{\fill}
+
+		Завдання №1{.}3\\
+		для проходження практики\\
+		з дисципліни «Якість програмного забезпечення та тестування»\\
+		на тему «Створення тестових наборів програми»
+
+		\vspace*{\fill}
+		
+		\begin{flushright}
+			Виконав:\\
+			студент \allcaps{ННІКІТ} \allcaps{СП}-225\\
+			Клокун В.\,Д.\\
+			Перевірив:\\
+			Сябрук І.\,М.
+		\end{flushright}
+
+		Київ 2018
+	\end{titlepage}
+
+	\section{Мета роботи}
+		Оволодіти навичками створення тестових наборів програми.
+
+	\section{Хід роботи}
+		Процес виконання роботи передбачає створення тестових наборів для тестування програми TopStyle~— редактору початкового коду на мовах~\allcaps{CSS}, \allcaps{HTML}, \allcaps{XHTML}. В результаті виконання роботи були розроблені необхідні тестові набори~(табл.~\ref{tab:test-cases}).
+
+		\setlength{\oldbaselineskip}{\baselineskip}
+		\begin{longtable}{
+				S{v{2\modulewidth - 2\tabcolsep}}
+				S{v{3\modulewidth - 2\tabcolsep}}
+				S{v{1\modulewidth - 2\tabcolsep}}
+		}
+			\caption{Тестові набори для тестування програми TopStyle\label{tab:test-cases}}\\
+			\toprule
+				Перевірочна дія & Очікуваний результат & Фактичний рез.\\
+			\midrule
+			\endfirsthead
+			\caption{Тестові набори для тестування програми TopStyle~(продовження)}\\
+			\toprule
+				Перевірочна дія & Очікуваний результат & Фактичний рез.\\
+			\midrule
+			\endhead
+			\bottomrule
+			\endfoot
+			%
+			Відкрити існуючий файл, формат якого підтримується &
+			Файл відкривається і~на~екран виводиться його вміст &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Відкрити існуючий файл, формат якого не~підтримується &
+			На~екран виводиться повідомлення, що~перегляд файлів, формат яких не~підтримується, не~рекомендується. На~екран виводиться зміст файлу. &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Зберегти наразі відкритий файл &
+			Файл зберігається &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Внести зміни у~відкритий файл та~зберегти його &
+			Внесені зміни збережені &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Змінити файл та~повернутись до~попереднього стану зміни за~допомогою клавіш Ctrl+Z &
+			Файл повертається до~попереднього стану &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Змінити файл, повернутись до~попереднього стану зміни~(Ctrl+Z) та~відмінити повернення до~попереднього стану~(Ctrl+Shift+Z) &
+			Файл повертається до~попереднього стану, а~потім відміняє повернення до~попереднього стану &
+			Виконано \\
+			% \addlinespace[\oldbaselineskip]
+			%
+			У~полі редагування файлу ввести існуючу CSS-властивість~(property) &
+			Одразу з'являється вікно підказки для~вибору властивості &
+			Помилка\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Перейти до~наступного правила~\allcaps{CSS}~(Next \allcaps{CSS} Rule) &
+			У~вікні редагування файлу виконується перехід до~наступного правила~\allcaps{CSS} &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Перейти до~попереднього правила~\allcaps{CSS}~(Previous \allcaps{CSS} Rule) &
+			У~вікні редагування файлу виконується перехід до~попереднього правила~\allcaps{CSS} &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Додати коментар &
+			До~файлу у~поточній позиції курсору додаються символи, які~позначають коментар &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Виконати перевірку стилю~(F6) файлу~\texttt{sample2.css} з~комплекту поставки &
+			У~відповідному вікні з'являється результат перевірки: 0~помилок, 0~попереджень &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Додати невірне правило~\allcaps{CSS}, виконати перевірку стилю~(F6) файлу &
+			У~відповідному вікні з'являється результат перевірки: наявні помилки &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Виконати перевірку стилю усіх відкритих файлів~(Ctrl+Shift+F6) &
+			У~відповідному вікні з'являється результат перевірки &
+			Виконано \\
+			\addlinespace[\oldbaselineskip]
+			%
+			Розділити вікно редактора на~дві вертикальні частини &
+			Вікно редактора розділяється на~дві вертикальні частини &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Створити нову робочу область~(New Workspace...)~«Testing» &
+			Створюється та~відкривається нова робоча область~«Testing» &
+			Виконано \\
+			% \addlinespace[\oldbaselineskip]
+			%
+			Відкрити робочу область~(Open Workspace)~«Testing» &
+			Після вибору відкривається робоча область~«Testing» &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Закрити поточну робочу область~(Close Workspace) &
+			Поточна робоча область закривається &
+			Виконано\\
+			\addlinespace[\oldbaselineskip]
+			%
+			Закрити існуючий файл, формат якого підтримується &
+			Файл закривається, його зміст зникає з~екрану &
+			Виконано \\
+		\end{longtable}
+
+	\section{Висновок}
+		Під час виконання даного завдання ми оволоділи навичками створення тестових наборів для тестування~програмного забезпечення.
+
+\end{document}
+
