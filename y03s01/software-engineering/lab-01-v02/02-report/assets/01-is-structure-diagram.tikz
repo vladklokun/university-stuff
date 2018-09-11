@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+		every node/.style = {
+			font = \strut, % align text inside nodes to baseline
+			% anchor = base,
+			draw,
+			rectangle,
+			fill = white,
+			minimum height = 4\baselineskip,
+			minimum width  = 3\gridunitwidth,
+			text width = {3\gridunitwidth - \pgfkeysvalueof{/pgf/inner xsep}},
+			align = center,
+		},
+	]
+	\node (status) at (0,0) [] {Модуль\\«Керування»};
+	\node (status-operator) [below = 1\baselineskip of status] {Оператор модуля «Керування»};
+	\node (logistics) [above = 1\baselineskip of status] {Модуль\\«Логістика»};
+	\node (logistics-operator) [above = 1\baselineskip of logistics] {Оператор модуля «Логістика»};
+	\node (atc) [left = 1\gridunitwidth of logistics] {Модуль «ATC»};
+	\node (atc-operator) [above = 1\baselineskip of atc] {Оператор модуля «ATC»};
+	\node (navigation) [right = 1\gridunitwidth of logistics] {Модуль «Навігація»};
+
+	\draw [Stealth-Stealth] (status)       -- (status-operator);
+	\draw [Stealth-Stealth] (logistics)    -- (logistics-operator);
+	\draw [Stealth-Stealth] (atc)          -- (atc-operator);
+
+	\draw [Stealth-Stealth] (status.north) -- (logistics.south);
+	\draw [Stealth-Stealth] (status.north) -- (atc.south);
+	\draw [Stealth-Stealth] (status.north) -- (navigation.south);
+	\draw [Stealth-Stealth] (atc)          -- (logistics);
+	\draw [Stealth-Stealth] (logistics)    -- (navigation);
+\end{tikzpicture}
