@@ -15,9 +15,9 @@
 	\node (status-operator) [below = 1\baselineskip of status] {Оператор модуля «Керування»};
 	\node (logistics) [above = 1\baselineskip of status] {Модуль\\«Логістика»};
 	\node (logistics-operator) [above = 1\baselineskip of logistics] {Оператор модуля «Логістика»};
-	\node (atc) [left = 1\gridunitwidth of logistics] {Модуль «ATC»};
-	\node (atc-operator) [above = 1\baselineskip of atc] {Оператор модуля «ATC»};
-	\node (navigation) [right = 1\gridunitwidth of logistics] {Модуль «Навігація»};
+	\node (atc) [left = 1\gridunitwidth of logistics] {Модуль\\«Повітряний рух»};
+	\node (atc-operator) [above = 1\baselineskip of atc] {Оператор модуля «Повітряний рух»};
+	\node (navigation) [right = 1\gridunitwidth of logistics] {Модуль\\«Навігація»};
 
 	\draw [Stealth-Stealth] (status)       -- (status-operator);
 	\draw [Stealth-Stealth] (logistics)    -- (logistics-operator);
