@@ -1,0 +1,329 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	label*      = {\arabic*.},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+}
+
+\setlist[itemize]{
+	label*      = {—},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+}
+
+\setlist[description]{
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+	labelformat = simple,
+	labelformat = brace,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+%%%
+
+\begin{document}
+
+\begin{titlepage}
+		\begin{center}
+			Міністерство освіти і науки України\\
+			Національний авіаційний університет\\
+			Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+			Кафедра комп'ютеризованих систем управління
+
+			\vspace{\fill}
+				Лабораторна робота №1\\
+				з дисципліни «Телекомунікаційні~технології комп'ютерних~мереж»\\
+				на тему «Канали передачі даних»\\
+
+			\vspace{\fill}
+
+			\begin{flushright}
+				Виконав:\\
+				студент \allcaps{ННІКІТ}\\
+				групи СП-325\\
+				Клокун В.\,Д.\\
+				Перевірив:\\
+				Пушкін Ю.\,О.
+			\end{flushright}
+
+			Київ 2018
+		\end{center}
+	\end{titlepage}
+
+	\section{Мета роботи}
+		Ознайомлення з видами і характеристиками різноманітних каналів передачі даних.
+
+	\section{Контрольні запитання}
+		\subsection{Класифікація кабелів в залежності від області застосування (кручена пара)}
+			В~залежності від~основної області застосування і~відповідно конструкції, кабельні вироби для~структурованих комп'ютерних мереж на~основі кручених пар поділяються на~4 основні види:
+			\begin{enumerate}[noitemsep]
+				\item Горизонтальний кабель.
+				\item Магістральний кабель.
+				\item Кабель для шнурів.
+				\item Провід для перемичок.
+			\end{enumerate}
+
+		\subsection{Які бувають види скруток кручених пар?}
+			За~видами скрутки провідників горизонтального кабеля розрізняють парну і~четвірочну скрутки.
+
+		\subsection{Для чого застосовується екранування?}
+			Екранування застосовують для~підвищення перехідного загасання, зниження рівня електромагнітної інтерференції і~для~підвищення перешкодозахищеності.
+
+		\subsection{Які бувають конструкції горизонтальних кабелів?}
+			Бувають такі конструкції горизонтальних кабелів типу «кручена пара»:
+			\begin{enumerate}[noitemsep]
+				\item \allcaps{UTP}~— неекранована кручена пара.
+				\item \allcaps{STP}~— екранована кручена пара, екран індивідуальний.
+				\item \allcaps{S/UTP}~— екранована кручена пара, екран загальний.
+				\item \allcaps{S/STP}~— екранована кручена пара, екран індивідуальний та~загальний.
+			\end{enumerate}
+
+		\subsection{Які бувають типи оптоволоконних кабелів?}
+			За призначенням волоконно-оптичні кабелі можна розділити на:
+			\begin{enumerate}
+				\item Монтажні (сполучні). Використовуються для механічної комутації і~підключення апаратури.
+				\item Об'єктові. Використовуються для~високошвидкісних з'єднань усередині будівель. Як~правило, у~них використовується покриття, що~погано поширює горіння, виділяє малу кількість диму і~не~містить галогенів (\textenglish{\allcaps{LSF/0H}~— low smoke and fume, zero halogen}).
+				\item Міські, зонові. З'єднують будинки, райони, міста, області. Зазвичай мережі, побудовані з~їх~використанням, мають довжину від~1 до~100~км.
+				\item Магістральні. Призначені для~передачі інформаційних потоків на~великі відстані, для~цього використовуються кабелі з~дуже якісними оптичними волокнами.
+			\end{enumerate}
+			За місцем прокладки:
+			\begin{enumerate}[noitemsep]
+				\item По~підземних комунікаціях телефонних та~інших служб.
+				\item Призначені для~прокладки в~грунті. Посилена броня, захист від~гризунів.
+				\item Підвісні (на~стовпах освітлення, трубостійках, контактних опорах залізниць, опорах ліній електропередач тощо).
+				\item Підводні.
+			\end{enumerate}
+
+		\subsection{Конструкція оптичного волокна}
+			Типова конструкція кабельного сердечника модульного типу складається з:
+			\begin{enumerate}[noitemsep]
+				\item Оптичного волокна в буфері або службової жили з м'якого мідного дроту.
+				\item Гідрофобного заповнювача.
+				\item Оболонки оптичного модуля.
+				\item Скріплюючого елементу.
+				\item Центрального силового елементу.
+				\item Проміжної оболонки кабелю.
+				\item Силового елементу.
+				\item Захисної оболонки.
+			\end{enumerate}
+
+		\subsection{Що таке зварювання оптичного волокна?}
+			Зварювання оптичного волокна~— це~один з~основних способів створення не\-роз'\-єм\-них з'єд\-нань оптичних волокон. Суть зварювання оптичного волокна полягає у~нагріві кінців волокон електричної дугою. Перевагами такого способу є~надійність, довговічність і~крихітний рівень загасання.
+
+		\subsection{Чим відрізняються одномодові і багатомодові кабелі?}
+			В~одномодовому кабелі використовується центральний провідник малого діаметру, що~близько до~довжини хвилі світла,~— від~\SI{5}{\micro\metre} до~\SI{10}{\micro\metre}. При цьому практично всі промені світла розповсюджуються вздовж оптичної осі світлодіода, не~відбиваючись від~зовнішнього провідника. Такий кабель має дуже низький коефіцієнт затухання.
+			
+			У~багатомодових кабелях використовуються більш широкі центральні провідники~— зазвичай від~\SI{50}{\micro\metre} до~\SI{100}{\micro\metre}, в~яких одночасно розповсюджуються декілька світлових променів під~різними кутами.
+
+			Таким чином, багатомодові кабелі використовують в~основному для~передачі даних на~швидкостях не~більше~10~Гбіт/с на~невеликі відстані~(300–\SI{2000}{\metre}), а~одномодові~— для передачі даних на~надвисоких швидкостях на~відстані до~декількох сотень кілометрів.
+
+		\subsection{Що таке мода?}
+			Поняття «мода» описує режим розповсюдження світлових променів у~серцевині кабеля. Мода~— це~кут відбивання променя світла, його шлях.
+
+		\subsection{Які ви знаєте параметри оптичних кабелів?}
+			Оптичні кабелі характеризуються такими параметрами:
+			\begin{enumerate}[noitemsep]
+				\item Центральний силовий елемент.
+				\item Кількість оптичних волокон в модулі~(шт.).
+				\item Діаметр модуля~(\si{\milli\meter}).
+				\item Максимальний зовнішній діаметр кабеля~(\si{\milli\meter}).
+				\item Мінімальний радіус кривизни~($\diameter$).
+				\item Допустима розтягуюча сила~(\si{\newton}).
+				\item Температура експлуатації~(\si{\degreeCelsius}).
+				\item Допустима роздавлююча сила~(\si{\newton\per\centi\meter}).
+			\end{enumerate}
+			В свою чергу оптичні волокна характеризуються такими параметрами:
+			\begin{enumerate}
+				\item Затухання. Потужність сигналу зменшується через поглинання світла матеріалом волокна та~домішками, розсіювання світла через неоднорідність густини волокна, а~також через кабельні спотворення, обумовлені деформацією кабеля під час монтажу. Вимірюється в~\si{\decibel\per\kilo\meter}.
+				\item Хроматична дисперсія. Сигнал спотворюється через те, що~хвилі різної довжини розповсюджуються вздовж волокна з~різною швидкістю. Оскільки прямокутний імпульс має спектр ненульової ширини, хвилі, що~його складають, досягають виходу волокна з~різними затримками через хроматичну дисперсію, і~фронт імпульсу стає «розмитим». Хроматична дисперсія оцінюється відношенням різниці часу розповсюдження двох хвиль в~пікосекундах у~волокні певної довжини, зазвичай~\SI{1}{\kilo\metre} до~різниці довжин хвиль в~наносекундах, і~тому вимірюється в~\si{\pico\second\per\nano\metre\kilo\metre}.
+				\item Поляризаційна модова дисперсія. Світлова мода має дві взаємно перпендикулярні поляризаційні складові. У~хвилі з~ідеальним поперечним перерізом, тобто колом, ці складові розповсюджуються з~однаковою швидкістю. Оскільки реальні хвилі завжди мають певну «овальність», то~й~швидкості складових відрізняються, що~призводить до~поляризаційної дисперсії. Цей вид дисперсії зростає пропорційно кореню квадратному від довжини кабеля, тому вимірюється в~\si{\nano\second\per\sqrt{\kilo\meter}}.
+			\end{enumerate}
+
+		\subsection{Які бувають типи коаксіальних кабелів?}
+			За~техніко-експлуатаційними характеристиками розрізняють широко- та~вузькосмугові коаксіальні кабелі. Широкосмугові кабелі використовуються для~аналогового широкосмугового передавання. Вузькосмугові кабелі застосовують для~цифрового передавання.
+
+			Також відрізняють «товстий» і~«тонкий» коаксіальні кабелі. «Товстий» коаксіальний кабель був розроблений для мереж \textenglish{Ethernet 10Base-5}. Цей кабель має зовнішній діаметр приблизно~\SI{12}{\milli\meter}, діаметр внутрішнього провідника~\SI{2.17}{\milli\meter}, хвильовий опір~\SI{50}{\ohm}, і~затухання на~частоті~\SI{10}{\mega\hertz} не~гірше~\SI{18}{\deci\bel\per\kilo\meter}, однак, погано гнеться, що~робить його незручним для монтажу.
+
+			«Тонкий» коаксіальний кабель призначений для мереж \textenglish{Ethernet 10Base-2}. Його зовнішній діаметр складає близько~\SI{50}{\milli\meter}, діаметр внутрішнього провідника~— \SI{0.89}{\milli\meter} та~хвильовий опір~\SI{50}{\ohm}. Його механічні та~електричні характеристики гірші за~характеристики «товстого» кабеля.
+
+		\subsection{Як можна зовні відрізнити товстий і тонкий коаксіал?}
+			За~діаметром. Крім цього, «товстий» коаксіальний кабель зазвичай вироблявся яскраво-жовтого кольору, а~тонкий~— чорного або~сірого.
+
+	\section{Висновок}
+		Виконуючи дану лабораторну роботу ми~ознайомились з~видами і~характеристиками різноманітних каналів передачі даних.
+
+\end{document}
