@@ -1,0 +1,276 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	label*      = {\arabic*.},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+}
+
+\setlist[itemize]{
+	label*      = {—},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+}
+
+\setlist[description]{
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+	labelformat = simple,
+	labelformat = brace,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+%%% Date and time typesetting
+\usepackage[
+	ukrainian,
+	useregional,
+	showdow,
+]{datetime2}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+\newlength{\gridunitheight}
+\setlength{\gridunitheight}{\textheight / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+\newcommand{\allsmallcaps}[1]{{\addfontfeatures{Letters = UppercaseSmallCaps, LetterSpace = 8, Kerning = Off}#1}}
+%%%
+
+\begin{document}
+	\begin{titlepage}
+		\vspace*{4\gridunitheight}
+		% \begin{center}
+			\noindent\textsc{Конспект}\\[\baselineskip]
+			{\setlength{\tabcolsep}{0em}
+			\begin{tabular}{
+					v{3\gridunitwidth - 2\tabcolsep}
+					v{6\gridunitwidth - 2\tabcolsep}
+			}
+				з дисципліни: & «Технології мультимедіа»\\
+				викладач:     & Апенько Наталія Вікторівна\\
+			\end{tabular}
+			}
+		% \end{center}
+		\vspace*{\fill}
+	\end{titlepage}
+
+	\tableofcontents
+	\newpage
+
+	\section{\DTMDate{2018-09-04}}
+		\subsection{Основні поняття мультимедіа}
+			Мультимедіа~— це комплекс апаратних і~програмних засобів, що~дозволяють працювати з~різними форматами даних у~рамках єдиного інформаційного середовища. Мультимедіа~— це~новий тип зберігання інформації в~єдиній цифровій формі. Є~3~основні принципи мультимедіа:
+			\begin{enumerate}[noitemsep]
+				\item Представлення інформації за~допомогою безлічі комбінацій.
+				\item Наявність кількох сюжетних ліній в~змісті продукту.
+				\item Художній дизайн інтерфейсів і~засобів навігації.
+			\end{enumerate}
+
+			Особливістю технології є~такі можливості мультимедіа, які~активно використовуються в~поданій інформації:
+			\begin{itemize}[noitemsep]
+				\item можливість зберігання великого обсягу самої різної інформації на~одному носії;
+				\item можливість збільшення деталізації на~екрані зображення або~його найцікавіших фрагментів при~збереженні якості зображення (це~особливо важливо для~презентації творів мистецтва і~унікальних історичних документів);
+				\item можливість порівняння зображені і~обробки його різноманітними програмними засобами з~наукового-дослідними або~пізнавальними цілями;
+				\item можливість виділення в~текстовому або~іншому візуальному матеріалі;
+				\item можливість здійснення безперервного музичного або~будь-якого іншого аудіосупроводу відповідного статичному чи~динамічному візуальному ряду;
+				\item можливість використання відеофрагментів, відеозаписів і~так далі, функції стоп-кадру, покадрового гортання відеозапису;
+				\item можливість включення баз даних, методик обробки образів, анімації;
+				\item можливість підключення до глобальної мережі;
+				\item можливість роботи з~різними додатками;
+				\item можливість створення власних галерей з~представленої в~продукті інформації;
+				\item можливість запам'ятовування пройденої інформації і~створення закладок;
+				\item можливість автоматичного перегляду всього змісту продукту, включення до~складу продукту ігрових компонентів з~інформаційним середовищем;
+				\item можливість вільної навігації і~виходу в~основне меню з~будь-якої точки продукту.
+			\end{itemize}
+
+		\subsection{Класифікація мультимедійних додатків}
+			Мультимедіа можна класифікувати з~різних точок зору, а~саме:
+			\begin{enumerate}[noitemsep]
+				\item На~основі підтримки взаємодії.
+				\item На~основі використання різних мультимедійних, телекомунікаційних технологій.
+			\end{enumerate}
+			Області застосування мультимедійних додатків:
+			\begin{itemize}[noitemsep]
+				\item навчання з~використанням комп'ютерних технологій;
+				\item відеоенциклопедії;
+				\item інтерактивні путівники;
+				\item тренажери;
+				\item інформаційна і~рекламна служба;
+				\item розважальні сфери;
+				\item презентаційна сфера;
+				\item творча сфера;
+				\item військові технології.
+			\end{itemize}
+
+\end{document}
