@@ -1,0 +1,76 @@
+\documentclass[
+	a4paper,
+	oneside,
+	DIV = 9,
+	12pt,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+\setromanfont{STIX Two Text}[
+	Numbers           = {Lining},
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Length adjustments
+% Baselineskip
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+\newlength{\gridunitheight}
+\setlength{\gridunitheight}{\textheight / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+\newcommand{\allsmallcaps}[1]{{\addfontfeatures{Letters = UppercaseSmallCaps, LetterSpace = 8, Kerning = Off}#1}}
+%%%
+
+\begin{document}
+	\newlength{\miniboxwidth}
+	\settowidth{\miniboxwidth}{Владислава Денисовича}
+
+	\hspace{\fill}
+	\begin{minipage}{\miniboxwidth}
+		\begin{flushleft}
+			Дирекотору \allsmallcaps{ННІКІТ}\\
+			Козловському В.\,В.\\
+			студента групи \allsmallcaps{СП}-325\\
+			Клокуна\\
+			Владислава Денисовича\par
+		\end{flushleft}
+	\end{minipage}
+
+	\vspace*{\baselineskip}
+
+	{\centering \allsmallcaps{ЗАЯВА}\par}
+
+	\vspace*{\baselineskip}
+
+	Прошу Вас перезарахувати мені дисципліну «Іноземна мова~(за~проф. спрямуванням)» в~кількості 216~годин з~оцінкою~«5» у~семестрі~5, яку я~вивчав у~Коледжі інформаційних технологій та~землевпорядкування Національного авіаційного університету.
+
+	\vspace*{\baselineskip}
+
+	\noindent Дата \hspace{\fill} Підпис
+
+\end{document}
