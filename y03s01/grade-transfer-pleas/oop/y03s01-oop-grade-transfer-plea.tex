@@ -12,7 +12,6 @@
 %%% Font selection
 \usepackage{fontspec}
 \setromanfont{STIX Two Text}[
-	Numbers           = {Lining},
 	SmallCapsFeatures = {LetterSpace = 8},
 ]
 %%%
@@ -47,13 +46,15 @@
 %%%
 
 \begin{document}
+	\thispagestyle{empty}
+
 	\newlength{\miniboxwidth}
 	\settowidth{\miniboxwidth}{Владислава Денисовича}
 
 	\hspace{\fill}
 	\begin{minipage}{\miniboxwidth}
 		\begin{flushleft}
-			Дирекотору \allsmallcaps{ННІКІТ}\\
+			Директору \allsmallcaps{ННІКІТ}\\
 			Козловському В.\,В.\\
 			студента групи \allsmallcaps{СП}-325\\
 			Клокуна\\
