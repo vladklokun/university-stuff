@@ -353,107 +353,191 @@
 
 		Створивши новий жорсткий диск, ініціалізуємо його в~операційній системі. Для цього відкриваємо утиліту «Управління дисками», яка~знаходиться за~шляхом \textenglish{Control Panel \Mytextrightarrow Administrative Tools \Mytextrightarrow Computer Management \Mytextrightarrow Storage \Mytextrightarrow Disk Management}.
 
-		Ініціалізувавши диск в~операційній системі, створюємо файли декількох типів: \textenglish{\allcaps{DLL}, \allcaps{JPG}} та~\textenglish{\allcaps{WMA}}~(рис.~\ref{fig:01-created-files}). Створені файли розміщуємо у~спеціальній директорії на~окремому розділі диску для~зручного використання після видалення та~відновлення запропонованими програмами~(рис.~\ref{fig:01-created-files}).
+		Ініціалізувавши диск в~операційній системі, створюємо тестові файли типів \textenglish{\allcaps{DLL}, \allcaps{JPG}} та~\textenglish{\allcaps{WMA}} і розміщуємо їх у спеціально відведеній директорії~(рис.~\ref{fig:01-created-files}). 
 
 		\begin{figure}
 			\centering
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p01.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p01.png}
 				\caption{}
-				\label{subfig:01-01-created-files}
+				\label{subfig:01-01-root}
 			\end{subfigure}%
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p02.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p02.png}
 				\caption{}
 				\label{subfig:01-02-jpg}
 			\end{subfigure}
 			%
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p03.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p03.png}
 				\caption{}
 				\label{subfig:01-03-dll}
 			\end{subfigure}%
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p04.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p04.png}
 				\caption{}
-				\label{subfig:01-03-wav}
+				\label{subfig:01-04-wav}
 			\end{subfigure}%
-			\caption{Створені файли: \subref{subfig:01-01-created-files}~— властивості директорій зі~створеними файлами, \subref{subfig:01-02-jpg}–\subref{subfig:01-03-wav}~— перелік створених файлів}
+			\caption{Вміст директорій зі створеними файлами: \subref{subfig:01-01-root}~— корінь, \subref{subfig:01-02-jpg}–\subref{subfig:01-04-wav}~— за типами файлів}
 			\label{fig:01-created-files}
 		\end{figure}
 
 		Створивши необхідні файли, монтуємо диск з програмами \textenglish{R-Studio, Zero Assumption Recovery} та~встановлюємо їх. Після встановлення програм переходимо в~тестову директорію, переміщуємо туди створені файли та~видаляємо їх.
 
-		Запускаємо програму \textenglish{R-Studio}, обираємо директорію, зміст якої необхідно відновити, та запускаємо процес. Після закінчення процесу відновлення отримали результат: 452~файли з~1409 початкових були успішно відновлені~(рис.~\ref{fig:03-rstudio-recovery-res}).
+		Запускаємо програму \textenglish{R-Studio}, обираємо директорію, зміст якої необхідно відновити, та запускаємо процес~(рис.~\ref{fig:02-rstudio-recovery}). Після закінчення процесу відновлення отримали результат: 117~файлів з~479 початкових були успішно відновлені~(рис.~\ref{fig:03-rstudio-recovery-res}).
 
-		\begin{figure}[!htbp]
+		 \begin{figure}[!htbp]
+		 	\centering
+		 	\begin{subfigure}{0.5\columnwidth}
+		 		\centering
+		 		\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p05.png}
+		 		\caption{}
+		 		\label{subfig:02-01-rstudio-start}
+		 	\end{subfigure}%
+		 	\begin{subfigure}{0.5\columnwidth}
+		 		\centering
+		 		\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p06.png}
+		 		\caption{}
+		 		\label{subfig:02-02-rstudio-res}
+		 	\end{subfigure}
+		 	\caption{Відновлення змісту тестової директорії програмою \textenglish{R-Studio}}
+		 	\label{fig:02-rstudio-recovery}
+		 \end{figure}
+
+		\begin{figure}
 			\centering
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p05.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p07.png}
 				\caption{}
-				\label{subfig:03-01-rstudio-window}
+				\label{subfig:03-01-root}
 			\end{subfigure}%
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p06.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p08.png}
 				\caption{}
-				\label{subfig:03-02-dir-contents}
+				\label{subfig:03-02-jpg}
 			\end{subfigure}
-			\caption{Результат відновлення змісту тестової директорії програмою \textenglish{R-Studio}}
+			%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p09.png}
+				\caption{}
+				\label{subfig:03-03-dll}
+			\end{subfigure}%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p10.png}
+				\caption{}
+				\label{subfig:03-04-wav}
+			\end{subfigure}%
+			\caption{Директорії з даними, відновленими програмою~\textenglish{R-Studio}: \subref{subfig:03-01-root}~— корінь, \subref{subfig:03-02-jpg}–\subref{subfig:03-04-wav}~— за~типами файлів}
 			\label{fig:03-rstudio-recovery-res}
 		\end{figure}
 
-		Створюємо нову тестову директорію, переміщуємо в~неї необхідні файли і~видаляємо їх. Запускаємо програму \textenglish{Zero Assumption Recovery}, обираємо директорію, зміст якої необхідно відновити, та~запускаємо процес. Після закінчення процесу відновлення отримали результат: програма не~змогла знайти жодного файлу, тому 0~файлів з~1409 початкових були успішно відновлені~(рис.~\ref{fig:04-zar-recovery-res}).
+		Створюємо нову тестову директорію, переміщуємо в~неї необхідні файли і~видаляємо їх. Запускаємо програму \textenglish{Zero Assumption Recovery}, обираємо директорію, зміст якої необхідно відновити, та~запускаємо процес~(рис.~\ref{fig:04-zar-recovery}). Після закінчення процесу відновлення отримали результат: з~479 початкових файлів програма знайшла та відновила 480~(рис.~\ref{fig:05-zar-recovery-res}).
 
 		\begin{figure}[!htbp]
 			\centering
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p07.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p11.png}
 				\caption{}
-				\label{subfig:04-01-zar-window}
+				\label{subfig:04-01-zar}
 			\end{subfigure}%
 			\begin{subfigure}{0.5\columnwidth}
 				\centering
-				\includegraphics[height = 9.5\baselineskip]{./assets/y03s01-pcdiag-lab-03-p08.jpg}
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p12.png}
 				\caption{}
-				\label{subfig:04-02-zar-window-error}
+				\label{subfig:04-02-zar}
 			\end{subfigure}
-			\caption{Результат відновлення змісту тестової директорії програмою \textenglish{Zero Assumption Recovery}}
-			\label{fig:04-zar-recovery-res}
+			%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p13.png}
+				\caption{}
+				\label{subfig:04-03-zar}
+			\end{subfigure}%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p14.png}
+				\caption{}
+				\label{subfig:04-04-zar}
+			\end{subfigure}
+			\caption{Процес відновлення змісту тестової директорії програмою \textenglish{Zero Assumption Recovery}}
+			\label{fig:04-zar-recovery}
+		\end{figure}
+
+		\begin{figure}
+			\centering
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p15.png}
+				\caption{}
+				\label{subfig:05-01-root}
+			\end{subfigure}%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p16.png}
+				\caption{}
+				\label{subfig:05-02-jpg}
+			\end{subfigure}
+			%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p17.png}
+				\caption{}
+				\label{subfig:05-03-dll}
+			\end{subfigure}%
+			\begin{subfigure}{0.5\columnwidth}
+				\centering
+				\includegraphics[height = 9\baselineskip]{./assets/y03s01-pcdiag-lab-03-p18.png}
+				\caption{}
+				\label{subfig:05-04-wav}
+			\end{subfigure}%
+			\caption{Директорії з даними, відновленими програмою~\textenglish{Zero Assumption Recovery}: \subref{subfig:05-01-root}~— корінь, \subref{subfig:05-02-jpg}–\subref{subfig:05-04-wav}~— за~типами файлів}
+			\label{fig:05-zar-recovery-res}
 		\end{figure}
 
 	\section{Висновок}
-		Виконуючи дану лабораторну роботу, ми~ознайомились з~методами відновлення даних на жорстких дисках на~прикладі програм \textenglish{R-Studio, Zero Assumption Recovery}. Програма \textenglish{Zero Assumption Recovery} не змогла відновити жодного файлу, коли \textenglish{R-Studio} вдалось відновити 32\%~початкових файлів~(табл.~\ref{tab:01-recovery-details}).
+		Виконуючи дану лабораторну роботу, ми~ознайомились з~методами відновлення даних на жорстких дисках на~прикладі програм \textenglish{R-Studio, Zero Assumption Recovery}. Програмі \textenglish{R-Studio} вдалось відновити 24\%~початкових файлів, коли \textenglish{Zero Assumption Recovery}~— на~1~файл більше початкового, тобто більше~100\%~(табл.~\ref{tab:01-recovery-details}). Це можна пояснити тим, що в процесі пошуку втрачених даних програма помилково знайшла заголовок вже знайденого файлу та відновила його як новий.
 
 		\begin{table}[!htbp]
 			\centering
-			\caption{Результати відновлення даних}
+			\caption{Результати відновлення даних: кількість файлів}
 			\label{tab:01-recovery-details}
 			\begin{tabular}{
-					v{4\gridunitwidth - 2\tabcolsep}
-					n{4\gridunitwidth - 2\tabcolsep}
-					n{4\gridunitwidth - 2\tabcolsep}
+					v{2\gridunitwidth - 2\tabcolsep}
+					n{2\gridunitwidth - 2\tabcolsep}
+					n{2\gridunitwidth - 2\tabcolsep}
+					n{2\gridunitwidth - 2\tabcolsep}
+					n{2\gridunitwidth - 2\tabcolsep}
+					n{2\gridunitwidth - 2\tabcolsep}
 			}
 				\toprule
-					 & \multicolumn{2}{c}{Кількість відновлених програмою файлів, шт.} \\
-					\cmidrule(lr){2-3}
-					Тип файлу & \textenglish{R-Studio} & \textenglish{Zero Assumption Recovery} \\
+					 % & & \multicolumn{2}{c}{Кількість відновлених програмою файлів, шт.} \\
+					 % & \multicolumn{5}{c}{Кількість файлів, шт.} \\
+					 % \cmidrule(lr){2-6}
+					 % & & \multicolumn{2}{c}{Відновлені програмою файли, шт.} \\
+					 & До відновл. & \multicolumn{4}{r}{Після відновл. програмами} \\
+					\cmidrule(lr){3-6}
+					%Тип файлу & До відновлення, шт. & \textenglish{R-Studio} & \textenglish{ZAR} \\
+					          &  & \multicolumn{2}{r}{\textenglish{R-Studio}} & \multicolumn{2}{r}{\textenglish{ZAR}} \\
+					\cmidrule(lr){3-4} \cmidrule(lr){5-6}
+					Тип файлу & шт. & шт. & \% & шт. & \%\\
 				\midrule
-					\textenglish{\allcaps{DLL}} & 158  & 0 \\
-					\textenglish{\allcaps{JPG}} & 89   & 0 \\
-					\textenglish{\allcaps{WAV}} & 205  & 0 \\
+					\textenglish{\allcaps{DLL}} & 169 &  78 & 46 & 169 & 100\\
+					\textenglish{\allcaps{JPG}} & 152 &  39 & 26 & 153 & >100\\
+					\textenglish{\allcaps{WMA}} & 158 &   0 & 0  & 158 & 100\\
 					% \cmidrule(lr){1-3}
-					Всього                      & 452  & 0 \\
-					З можливих                  & 1409 & 1409 \\
-					Частка відновлених, \%      & 32   & 0\\
+					Всього                      & 479 & 117 & 24 & 480 & >100 \\
+					% З можливих                  & 000 & 1409 & 1409 \\
+					% Відновлено, \%      &     &  24  & 100\\
 				\bottomrule
 			\end{tabular}
 		\end{table}
-
 \end{document}
