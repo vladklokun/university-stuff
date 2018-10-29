@@ -1,0 +1,86 @@
+;
+; y03s01-syssoft-lab-05.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=y03s01-syssoft-lab-05.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+
+[DestinationDirs]
+DefaultDestDir = 12
+y03s01-syssoft-lab-05_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+y03s01-syssoft-lab-05.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%y03s01-syssoft-lab-05.DeviceDesc%=y03s01-syssoft-lab-05_Device, Root\y03s01-syssoft-lab-05 ; TODO: edit hw-id
+
+[y03s01-syssoft-lab-05_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+y03s01-syssoft-lab-05.sys
+
+;-------------- Service installation
+[y03s01-syssoft-lab-05_Device.NT.Services]
+AddService = y03s01-syssoft-lab-05,%SPSVCINST_ASSOCSERVICE%, y03s01-syssoft-lab-05_Service_Inst
+
+; -------------- y03s01-syssoft-lab-05 driver install sections
+[y03s01-syssoft-lab-05_Service_Inst]
+DisplayName    = %y03s01-syssoft-lab-05.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\y03s01-syssoft-lab-05.sys
+
+;
+;--- y03s01-syssoft-lab-05_Device Coinstaller installation ------
+;
+
+[y03s01-syssoft-lab-05_Device.NT.CoInstallers]
+AddReg=y03s01-syssoft-lab-05_Device_CoInstaller_AddReg
+CopyFiles=y03s01-syssoft-lab-05_Device_CoInstaller_CopyFiles
+
+[y03s01-syssoft-lab-05_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[y03s01-syssoft-lab-05_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[y03s01-syssoft-lab-05_Device.NT.Wdf]
+KmdfService =  y03s01-syssoft-lab-05, y03s01-syssoft-lab-05_wdfsect
+[y03s01-syssoft-lab-05_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="Vlad Klokun" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "y03s01-syssoft-lab-05 Installation Disk"
+y03s01-syssoft-lab-05.DeviceDesc = "y03s01-syssoft-lab-05 Device"
+y03s01-syssoft-lab-05.SVCDESC = "y03s01-syssoft-lab-05 Service"
