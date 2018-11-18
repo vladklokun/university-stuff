@@ -1,0 +1,16 @@
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\bin\Debug\LexicalAnalyser.exe
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\bin\Debug\LexicalAnalyser.pdb
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.Form1.resources
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.Properties.Resources.resources
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.csproj.GenerateResource.Cache
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.exe
+C:\Documents and Settings\ALPINE\Мои документы\Visual Studio 2008\Projects\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.pdb
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.exe
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Debug\LexicalAnalyser.exe
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Debug\LexicalAnalyser.pdb
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\ResolveAssemblyReference.cache
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.Form1.resources
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.Properties.Resources.resources
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.csproj.GenerateResource.Cache
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Debug\LexicalAnalyser.pdb
