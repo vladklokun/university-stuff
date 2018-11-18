@@ -1,0 +1,44 @@
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.exe
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.pdb
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\ResolveAssemblyReference.cache
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Form1.resources
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Properties.Resources.resources
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csproj.GenerateResource.Cache
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+D:\Учёба\4 курс\2 семестр\СПО\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.exe
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.pdb
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Form1.resources
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Properties.Resources.resources
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\GenerateResource.read.1.tlog
+C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser\obj\Release\GenerateResource.write.1.tlog
+D:\NAU\C#\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+D:\NAU\C#\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.exe
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.pdb
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csprojResolveAssemblyReference.cache
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Form1.resources
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Properties.Resources.resources
+D:\NAU\C#\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csproj.GenerateResource.Cache
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.exe
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.pdb
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csprojResolveAssemblyReference.cache
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Form1.resources
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Properties.Resources.resources
+C:\Users\Dima\Desktop\СПЗ\SPZ\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csproj.GenerateResource.Cache
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.exe
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\bin\Release\LexicalAnalyser.pdb
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Form1.resources
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.Properties.Resources.resources
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csproj.GenerateResource.cache
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csproj.CoreCompileInputs.cache
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.exe
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.pdb
+C:\Users\win7sp1-vbox\source\repos\LexicalAnalyser\LexicalAnalyser\obj\Release\LexicalAnalyser.csprojAssemblyReference.cache

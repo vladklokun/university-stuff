@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="LexicalAnalyser">
+</Property><Property Name="Файл решения" Value="C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser.sln">
+</Property><Property Name="Файл параметров пользователя" Value="C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\LexicalAnalyser.suo">
+</Property><Property Name="Date" Value="7 марта 2013 г.">
+</Property><Property Name="Time" Value="20:20">
+</Property></Properties><Event ErrorLevel="0" Project="" Source="LexicalAnalyser.sln" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser.sln">
+</Event><Event ErrorLevel="0" Project="" Source="LexicalAnalyser.suo" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser.suo">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\LexicalAnalyser.csproj" Description="Успешно создана резервная копия файла проекта: C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\LexicalAnalyser.csproj">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Form1.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Form1.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Form1.Designer.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Form1.Designer.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Program.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Program.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Properties\AssemblyInfo.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Properties\AssemblyInfo.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Properties\Resources.Designer.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Properties\Resources.Designer.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Properties\Settings.Designer.cs" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Properties\Settings.Designer.cs">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Properties\Settings.settings" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Properties\Settings.settings">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Form1.resx" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Form1.resx">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\Properties\Resources.resx" Description="Успешно создана резервная копия файла C:\Users\Alpine\Desktop\Лабораторная работа №1\LexicalAnalyser\Backup\LexicalAnalyser\Properties\Resources.resx">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\LexicalAnalyser.csproj" Description="Проект успешно преобразован">
+</Event><Event ErrorLevel="3" Project="LexicalAnalyser" Source="LexicalAnalyser\LexicalAnalyser.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="LexicalAnalyser.sln" Description="Преобразование решения успешно завершено">
+</Event><Event ErrorLevel="3" Project="" Source="LexicalAnalyser.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="LexicalAnalyser" Source="LexicalAnalyser\LexicalAnalyser.csproj" Description="Сканирование завершено: обновление для файлов проекта не требуется.">
+</Event></UpgradeLog>
