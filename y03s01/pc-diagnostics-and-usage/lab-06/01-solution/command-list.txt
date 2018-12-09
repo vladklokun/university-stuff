@@ -1,0 +1,9 @@
+date
+echo
+path
+popd
+pushd
+print
+title
+type
+ver
