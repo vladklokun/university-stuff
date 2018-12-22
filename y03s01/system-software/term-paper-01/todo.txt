@@ -1,0 +1,10 @@
+1. Revisit the List of Required Figures
+2. Conclusions have to be unnumbered AND be displayed in TOC.
+3. Bibliography.
+
+LINKS
+http://www.cs.unb.ca/~hzhang/publications/FLAIRS04ZhangH.pdf
+https://www.cs.cmu.edu/~tom/mlbook/NBayesLogReg.pdf
+http://dx.doi.org/10.3923/itj.2012.1166.1174
+https://brilliant.org/wiki/naive-bayes-classifier/
+
