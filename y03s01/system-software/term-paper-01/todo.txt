@@ -1,6 +1,17 @@
-1. Revisit the List of Required Figures
-2. Conclusions have to be unnumbered AND be displayed in TOC.
-3. Bibliography.
+— Revisit the List of Required Figures
+— Conclusions have to be unnumbered AND be displayed in TOC.
+— Bibliography.
+
+Structure:
+Theory.
+Implementation.
+Testing (results).
+Conclusions.
+
+USE:
+Rish paper.
+Murty, Devy “Pattern Recognition”
+Russel, Norvig “Artificial Intelligence: A Modern Approach”.
 
 LINKS
 http://www.cs.unb.ca/~hzhang/publications/FLAIRS04ZhangH.pdf
