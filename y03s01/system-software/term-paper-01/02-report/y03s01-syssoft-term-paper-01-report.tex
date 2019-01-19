@@ -85,6 +85,7 @@
 	topsep      = 1\baselineskip,
 	parsep      = 0\baselineskip,
 	itemsep     = 1\baselineskip,
+	noitemsep,
 }
 
 \setlist[itemize]{
@@ -213,6 +214,8 @@
 \usepackage{tikzscale}
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows.meta} % Stealth arrow tips
+\usetikzlibrary{shapes.multipart}
+\usetikzlibrary{decorations.pathreplacing}
 %%%
 
 %%% SI units typesetting
@@ -228,9 +231,12 @@
 %%% Code highlighting
 \usepackage{minted}
 
-\setmintedinline{
+\newmintinline[pyinline]{python}{
 	style = bw,
 	breaklines,
+	% breakbytokenanywhere,
+	breakafter = { _},
+	breakaftersymbolpre = {\textrm{-}},
 }
 
 \newminted{bash}{
@@ -623,40 +629,179 @@
 				\end{tabular}
 			\end{table}
 
-		\subsection{Опис програми та її роботи}
-			Реалізація класифікатора виконана у~вигляді програми на~мові~\textenglish{Python}, початковий код якої знаходиться у~двох файлах: \filename{nbc.py} і~\filename{nbc\_main.py}. Програма виконує класифікацію неперервних чисельних даних із~набору даних, заданого вхідним файлом у~форматі~\textenglish{\allcaps{CSV}}. Запуск програми виконується за~допомогою командного рядка:
+		\subsection{Опис програми та роботи з~нею}
+			Реалізація класифікатора~(яку далі ми називатимемо програмою) виконана у~вигляді двох модулів на~мові~\textenglish{Python}: \filename{nbc.py} і~\filename{nbc\_main.py}. Модуль~\filename{nbc.py} містить реалізації всіх функцій, необхідних для роботи наївного баєсового класифікатора, а~модуль~\filename{nbc\_main.py} містить інструкції, які~використовують надані функції для~класифікації наборів даних. 
+			
+			Розроблена програма виконує класифікацію неперервних чисельних даних із~набору даних, який знаходиться у~вхідному файлі формату~\textenglish{\allcaps{CSV}}. Вона запускається за~допомогою командного рядка таким чином:
 			\begin{bashcode}
 				python nbc_main.py input.csv
 			\end{bashcode}
 			Після виконання вищезазначеної команди, програма зчитує набір даних, вказаний у~файлі~\filename{input.csv}, оброблює та~класифікує~їх, виводить результати класифікації та~її~обчислену точність. Якщо вхідний файл не~зазначений, програма попереджує про~це користувача, надає інформацію про~правильний формат використання та~завершує роботу.
 
-			Розглянемо процес роботи програми детальніше. Почнемо з вмісту файлу~\filename{nbc\_main.py}~(лістинг~\ref{lst:nbc-main}).
-			\begin{listingpython}{\filename{nbc\_main.py}}{lst:nbc-main}
+		\subsection{Опис процесу роботи програми}
+
+			Модуль~\filename{nbc\_main.py}, який використовується для запуску програми, містить інструкції для~класифікації конкретного набору даних наївним баєсовим класифікатором. Він завантажує необхідні для роботи програми ресурси в~область видимості~(лістинг~\ref{lst:nbc-main}) та~описує загальний процес роботи програми.
+
+			\begin{listingpython}{Модуль~\filename{nbc\_main.py}: завантаження ресурсів, необхідних для~роботи класифікатора}{lst:nbc-main}
 				#!/usr/bin/env python3
 
 				import argparse
 				from nbc import *
-
-				def main(args):
-						dataset = load_training(args.input)
-						dataset_train, dataset_test = split_dataset(dataset, 3) # split dataset 1 / 3
-
-						summaries = summarize_by_class(dataset_test)
-						predictions = predict_dataset(summaries, dataset_test)
-						acc = compute_accuracy(dataset_test, predictions)
-						print('Accuracy: {}'.format(acc))
-
-				if __name__ == '__main__':
-						parser = argparse.ArgumentParser(description = 'An implementation of Gaussian Naive Bayes Classifier in Python using stdlib facilities. Reads a CSV file containing floats.')
-
-						# Parse CSV dataset file
-						parser.add_argument('input', help = 'Path to input file')
-						
-						args = parser.parse_args()
-
-						main(args)
 			\end{listingpython}
-			На початку виконання програми виконується перевірка, як саме запускається модуль: якщо модуль є основною програмою, то інтерпретатор встановлює змінній~\mintinline{python}{__name__} значення~\mintinline{python}{'__main__'}, умова~\mintinline{python}{if __name__ == 'main'} виконується, і починається обробка аргументів програми.
+
+			Перш за~все, у~файлі модуля вказаний шлях до~сумісного інтерпретатора, а~саме \textenglish{Python~3}. Це~надає можливість запускати модуль у~\textenglish{Unix}-подібних операційних системах як~скрипт, не~вказуючи шлях до~потрібного інтерпретатора явно.
+			
+			Інструкція~\pyinline{import argparse} завантажує в~область видимості модуль для~обробки аргументів командного рядка. Інструкція~\pyinline{from nbc import *} завантажує всі функції, описані у~модулі~\filename{nbc\_main.py}, щоб~їх~можна було використовувати у~поточному модулі. 
+
+			Тепер, коли обробник параметрів командного рядка та~всі функції класифікатора завантажені, відбувається перевірка способу запуску модуля~(лістинг~\ref{lst:nbc-main-py-execution-check}). 
+
+			\begin{listingpython}{Модуль~\filename{nbc\_main.py}: перевірка способу запуску модуля}{lst:nbc-main-py-execution-check}
+if __name__ == '__main__':
+parser = argparse.ArgumentParser(description = 'An implementation of Gaussian Naive Bayes Classifier in Python using stdlib facilities. Reads a CSV file containing floats.')
+
+# Parse CSV dataset file
+parser.add_argument('input', help = 'Path to input file')
+
+args = parser.parse_args()
+
+main(args)
+			\end{listingpython}
+
+			Якщо модуль запущений як~скрипт, наприклад, з~командного рядка, як~необхідно для~роботи розробленої реалізації, інтерпретатор встановлює особливе значення змінної~\pyinline{__name__}. Тому перевіряється умова~\pyinline{__name__ == '__main__'}. Якщо вона виконується, ініціалізується обробник параметрів командного рядка~\pyinline{argparse.ArgumentParser} з~коротким описом програми. Далі додається аргумент~\pyinline{'input'} зі~стислим поясненням до нього: він містить шлях до вхідного файлу, тобто файлу з~набором даних, які~необхідно класифікувати.
+
+			Коли у~обробнику описані бажані аргументи, створюється змінна~\pyinline{args}, функція~\pyinline{parser.parse_args()} оброблює параметри та~зберігає~їх значення у~створеній змінній. Тепер, коли параметри оброблені, вони передаються у~функцію~\pyinline{main()}~— починаються основні етапи роботи програми~(лістинг~\ref{lst:nbc-main-py-main}).
+
+			\begin{listingpython}{Модуль~\filename{nbc\_main.py}: функція~\pyinline{main()}, яка описує загальний процес роботи програми}{lst:nbc-main-py-main}
+def main(args):
+	dataset = load_training(args.input)
+	dataset_train, dataset_test = split_dataset(dataset, 1/3) # split dataset 1 / 3
+
+	summaries = summarize_by_class(dataset_test)
+	predictions = predict_dataset(summaries, dataset_test)
+	acc = compute_accuracy(dataset_test, predictions)
+	print('Accuracy: {}'.format(acc))
+				\end{listingpython}
+			
+				Загалом, процес роботи програми можна умовно поділити на~такі етапи:
+				\begin{enumerate}
+					\item Підготовка вхідних даних.
+					\item Класифікація.
+					\item Виведення результату.
+				\end{enumerate}
+
+				Розглянемо кожен етап роботи програми по~порядку.
+
+				\subsubsection{Підготовка вхідних даних}
+
+					Функція~\pyinline{main()}~(лістинг~\ref{lst:nbc-main-py-main}), а~з~нею і~етап підготовки вхідних даних, починається з~інструкції~\pyinline{dataset = load_training(args.input)}, яка~призначена для~завантаження файлу з~набором даних у~змінну~\pyinline{dataset} за~допомогою функції~\pyinline{load_training()}~(лістинг~\ref{lst:nbc-py-load-training}). Розглянемо роботу цієї функції детальніше.
+
+					\begin{listingpython}{Модуль~\filename{nbc.py}: функція~\pyinline{load_training()} для завантаження набору даних у пам'ять}{lst:nbc-py-load-training}
+	def load_training(filename):
+			with open(filename) as file:
+					# ignore all lines which start with '#'
+					reader = csv.reader(row for row in file if not row.startswith('#'))
+					dataset = []
+					for row in reader:
+							# comprehend each line as a list of floats and append it to the dataset
+							dataset.append([float(x) for x in row])
+
+			return dataset
+					\end{listingpython}
+
+					Функція~\pyinline{load_training()} відкриває файл, назва якого передається в аргументі~\pyinline{filename}, ініціалізує~\textenglish{\allcaps{CSV}}-зчитувач~\pyinline{csv.reader} у~змінну~\pyinline{reader}. Зчитувач ініціалізується всіма рядками файлу, які~не~починаються з~символу~«\verb|#|». Далі рядки, записані у~зчитувач, перетворюються у~вектори, які~містять ознаки у~форматі з~плаваючою комою. Перетворені вектори записуються у~змінну~\pyinline{dataset}. Тепер функція повертає змінну~\pyinline{dataset} та~завершує роботу.
+
+					Далі у~процесі виконання програми виконується інструкція~\pyinline{dataset_train, dataset_test = split_dataset(dataset, 1/3)}. Вона ділить завантажений набір даних~\pyinline{dataset} на~тренувальний набір даних~\pyinline{dataset_train} і~тестовий набір даних~\pyinline{dataset_test} за допомогою функції~\pyinline{split_dataset}~(лістинг~\ref{lst:nbc-py-split-dataset}). Розподіл відбувається~таким чином, щоб~тренувальний набір даних \pyinline{dataset_train} містив як~мінімум \pyinline{ratio}~частину загального набору даних. Розбиття загального набору даних необхідне для~тестування точності роботи класифікатора і~є~загальноприйнятою практикою в~аналізі даних. 
+
+				\begin{listingpython}{Модуль~\filename{nbc.py}: функція~\pyinline{split_dataset()} для~розбиття загального набору даних на~тренувальний та~тестовий набори}{lst:nbc-py-split-dataset}
+	def split_dataset(dataset, ratio):
+			dataset_shuffled = dataset
+			random.shuffle(dataset_shuffled)
+			dataset_train = dataset_shuffled[:int(len(dataset_shuffled) * ratio)]
+			dataset_test = dataset_shuffled[int(len(dataset_shuffled) * ratio):]
+
+			return dataset_train, dataset_test
+					\end{listingpython}
+
+					Функція~\pyinline{split_dataset()} копіює отриманий набір даних~\pyinline{dataset} у~змінну~\pyinline{dataset_shuffled}. Далі функція~\pyinline{random.shuffle()} перемішує вміст змінної~\pyinline{dataset_shuffled}, тобто початковий набір даних, випадковим чином, щоб усунути будь-які статистичні похибки (упередження) у~даних. Перемішування відбувається безпосередньо у~змінній, на~місці.
+					
+					Тепер дані діляться на~необхідні частини: зі~списку~\pyinline{dataset_shuffled} копіюється частина від~початку до~елементу з~індексом~\pyinline{int(len(dataset_shuffled) * ratio)} і~присвоюється змінній \pyinline{dataset_train}. Далі з~цього~ж списку копіюється частина від~елементу з~індексом~\pyinline{int(len(dataset_shuffled) * ratio)} до~кінця і~присвоюється змінній~\pyinline{dataset_test}~(рис.~\ref{fig:dataset-shuffled-slicing}).
+
+					\begin{figure}[!htbp]
+						\centering
+						\begin{tikzpicture}[
+								arraynode/.style = {
+									draw,
+									anchor = west,
+									minimum height = {1.5\baselineskip},
+									minimum width = {3\baselineskip},
+									font = {\footnotesize},
+								},
+								arrayindex/.style = {
+									anchor = west,
+									minimum height = {1.5\baselineskip},
+									minimum width = {1.5\baselineskip},
+									font = {\footnotesize},
+								},
+						]
+
+							% Legend
+							\begin{scope}[
+									every node/.style = {
+										% draw,
+										text width = 7\baselineskip,
+										align = flush left,
+										font = {\footnotesize},
+										minimum width = 7\baselineskip,
+										minimum height = 1.5\baselineskip,
+									}
+							]
+								\node [] (c-index) at (0,0) {Індекси};
+								\node [below = 1\baselineskip of c-index] (c-list) {Список \pyinline{dataset_shuffled}};
+								% \node [below = of c-list] (c-res-list) {Результуючі списки};
+							\end{scope}
+
+							% Nodes
+							\node [arraynode, right = of c-list] (n1) {Початок};
+							\node [arraynode] (n2) at (n1.east) {\dots};
+							% \node [arraynode] (n3) at (n2.east) {\phantom{\pyinline{int(len(dataset_shuffled) * ratio)}}};
+							\node [arraynode] (n3) at (n2.east) {};
+							\node [arraynode] (n4) at (n3.east) {\dots};
+							\node [arraynode] (n5) at (n4.east) {Кінець};
+
+							% Indices
+							\node [arrayindex, right = of c-index] (i1) {0};
+							\node [arrayindex] (i2) at (i1.east) {\pyinline{int(len(dataset_shuffled) * ratio)}};
+
+							% Braces
+							\begin{scope}[decoration = {brace, amplitude = {0.5em}}]
+								\draw[decorate, decoration = {mirror}] (n1.south west) -- (n2.south east) node[midway, yshift = -1.25em] {\pyinline{dataset_train}};
+								\draw[decorate, decoration = {mirror}] (n3.south west) -- (n5.south east) node[midway, yshift = -1.25em] {\pyinline{dataset_test}};
+							\end{scope}
+
+							\draw (i1) -- (n1.north);
+							\draw (i2) -- (n3.north);
+						\end{tikzpicture}
+						\caption{Логіка розділення списку~\pyinline{dataset_shuffled}}
+						\label{fig:dataset-shuffled-slicing}
+					\end{figure}
+
+					Після виконання розподілу функція повертає кортеж зі~змінних~\pyinline{dataset_train} та~\pyinline{dataset_test} і~завершує роботу. На цьому підготовка вхідних даних завершена.
+
+				\subsubsection{Класифікація}
+
+					Після розбиття набору даних на~тренувальний та~тестовий, виконується інструкція~\pyinline{summaries = summarize_by_class(dataset_test)}, яка~оцінює статистичні параметри значень ознак для~кожного значення класової змінної за допомогою функції~\pyinline{summarize_by_class()}~(лістинг~\ref{lst:nbc-py-summarize-by-class}).
+
+				\begin{listingpython}{Модуль~\filename{nbc.py}: функція~\pyinline{summarize_by_class()} для~оцінки статистичних параметрів можливих значень кожної ознаки для~усіх класів, до~яких може належати спостереження}{lst:nbc-py-summarize-by-class}
+def summarize_by_class(dataset):
+    separated = separate_by_class(dataset)
+    summaries = {}
+    for class_value, data in separated.items():
+        summaries[class_value] = summarize(data)
+
+    return summaries
+					\end{listingpython}
+
+				\subsubsection{Виведення результату}
 
 	\newpage
 	\addsec{Висновки}
