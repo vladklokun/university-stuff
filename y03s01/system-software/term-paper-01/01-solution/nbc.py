@@ -32,8 +32,8 @@ def load_training(filename):
 def split_dataset(dataset, ratio):
     dataset_shuffled = dataset
     random.shuffle(dataset_shuffled)
-    dataset_train = dataset_shuffled[len(dataset_shuffled) // ratio:]
-    dataset_test = dataset_shuffled[:len(dataset_shuffled) // ratio]
+    dataset_train = dataset_shuffled[:int(len(dataset_shuffled) * ratio)]
+    dataset_test  = dataset_shuffled[int(len(dataset_shuffled) * ratio):]
 
     return dataset_train, dataset_test
 
