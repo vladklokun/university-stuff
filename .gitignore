@@ -1,3 +1,12 @@
+# Y03S01 System Software Term Paper build directories
+## PyInstaller files
+y03s01/system-software/term-paper-01/01-solution/build/
+y03s01/system-software/term-paper-01/01-solution/dist/
+y03s01/system-software/term-paper-01/01-solution/*.spec
+
+## Archive-packaged work
+y03s01/system-software/term-paper-01/01-solution/*.7z
+
 # TeX
 
 ## Core latex/pdflatex auxiliary files:
