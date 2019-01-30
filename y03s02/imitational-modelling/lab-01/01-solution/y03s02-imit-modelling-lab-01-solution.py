@@ -19,8 +19,8 @@ class LCG:
             yield seed
 
     def __init__(self,
-                 m = 0xFFFFFFFE, # modulus M (as per MINSTD)
-                 a = 47801, # multiplier a
+                 m = 0x7FFFFFFF, # modulus M (as per MINSTD), Mersenne 31, prime
+                 a = 48271, # multiplier a, prime number
                  c = 0, # increment c
                  seed = random.SystemRandom().randint(0, 0xFFFFFFFF)):
         self.m, self.a, self.c, self.seed = m, a, c, seed
