@@ -1,0 +1,5 @@
+goal
+	write("Hello, world!"),
+	nl,
+	exit.
+		
