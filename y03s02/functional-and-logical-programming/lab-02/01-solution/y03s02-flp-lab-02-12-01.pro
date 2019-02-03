@@ -1,0 +1,3 @@
+goal
+	write("Hello, world!").
+
