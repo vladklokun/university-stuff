@@ -3,3 +3,7 @@ TODO:
 2. Compare their power consumption. 
 3. Replace xsim with custom sectioning commands? 
 
+LINKS:
+https://www.kompulsa.com/much-power-computers-consume/
+https://outervision.com/power-supply-calculator
+
