@@ -1,0 +1,428 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{IEEEtrantools}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	label*      = {\arabic*.},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[itemize]{
+	label*      = {—},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[description]{
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+	labelformat = simple,
+	labelformat = brace,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newtcblisting[
+	auto counter, 
+	list inside, 
+	number within = section,
+]{listingpython}[3][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breaklines,
+		% breakanywhere,
+		fontsize = \footnotesize,
+		autogobble
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 1pt, % orig = 0pt
+	bottomrule       = 1pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},
+	%
+	#1
+}
+
+\newtcbinputlisting[auto counter, list inside, number within = section]{\inputpython}[4][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakbytokenanywhere,
+		fontsize = \footnotesize,
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 0pt, % orig = 0pt
+	bottomrule       = 0pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	left = 0em,
+	right = 0em,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
+}
+
+% Customize minted
+\usepackage{minted}
+\setmintedinline{
+	style = bw,
+	breaklines,
+}
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\progname}[1]{\texttt{#1}}
+\newcommand{\modulename}[1]{\texttt{#1}}
+
+\newcommand{\schel}[1]{\textit{#1}}
+%%%
+
+%%% Custom math commands
+\newcommand{\longvar}[1]{\mathit{#1}}
+%%%
+
+\begin{document}
+
+\begin{titlepage}
+		\begin{center}
+			Міністерство освіти і науки України\\
+			Національний авіаційний університет\\
+			Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+			Кафедра комп'ютеризованих систем управління
+
+			\vspace{\fill}
+				Лабораторна робота №2\\
+				з~дисципліни «Діагностика та~експлуатація комп'ютера»\\
+				на~тему «Діагностика оперативної пам'яті комп'ютера»\\
+
+			\vspace{\fill}
+
+			\begin{flushright}
+				Виконав:\\
+				студент \allcaps{ННІКІТ}\\
+				групи СП-325\\
+				Клокун В.\,Д.\\
+				Перевірила:\\
+				Голего Н.\,М.
+			\end{flushright}
+
+			Київ 2019
+		\end{center}
+	\end{titlepage}
+
+	\section{Мета роботи}
+		Ознайомлення з~методами виявлення несправностей оперативної пам'\-я\-ті ком\-п'\-ют\-е\-ра. 
+
+	\section{Хід роботи}
+		\subsection{Перевірка пам'яті за допомогою програми~\textenglish{Cache Burst}}
+			Перевіряємо пам'ять за допомогою програми~\textenglish{Cache Burst}. Для цього запускаємо програму і~встановлюємо такі налаштування: 
+			\begin{enumerate}
+				\item \textenglish{Select 32-bit Transfer}.
+					\begin{enumerate}[topsep = 0em]
+						\item \textenglish{Read}.
+						\item \textenglish{Write}.
+					\end{enumerate}
+				\item \textenglish{Select 64-bit Transfer}.
+					\begin{enumerate}[topsep = 0em]
+						\item \textenglish{MMX Read}.
+						\item \textenglish{MMX Write}.
+					\end{enumerate}
+				\item \textenglish{Select 128-bit Transfer}.
+					\begin{enumerate}[topsep = 0em]
+						\item \textenglish{SSE Read}.
+						\item \textenglish{SSE Write}.
+					\end{enumerate}
+			\end{enumerate}
+			Коли налаштування встановлені, натискаємо кнопку~«\textenglish{Start}» і~спостерігаємо за~процесом проходження тесту~(рис.~\ref{fig:cburst-32-test}). 
+
+			\begin{figure}[!htbp]
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/y03s02-pcdiag-lab-02-p01-01.png}
+				\caption{Результат тестування програмою~\textenglish{Cache Burst 32}}
+				\label{fig:cburst-32-test}
+			\end{figure}
+
+			В~результаті проходження тесту отримали графік пропускної здатності пам'яті для~різних видів доступу до~кеш-пам'яті процесора. 
+
+		\subsection{Перевірка пам'яті за~допомогою програми~\textenglish{Memory Benchmark v0.1.4}}
+			Перевіряємо пам'ять за допомогою програми~\textenglish{Memory Benchmark v0.1.4}. Для~цього запускаємо програму, яка автоматично після запуску розпочне тестування пам'яті. Після завершення тестів отримали результати у~вигляді графіків~(рис.~\ref{fig:membench-test}). 
+
+			\begin{figure}[!htbp]
+				\centering
+				\begin{subfigure}[t]{\columnwidth / 3}
+					\centering
+					\includegraphics[width = \columnwidth]{./assets/y03s02-pcdiag-lab-02-p02-01.png}
+					\caption{}
+					\label{subfig:membench-test-01}
+				\end{subfigure}%
+				\begin{subfigure}[t]{\columnwidth / 3}
+					\centering
+					\includegraphics[width = \columnwidth]{./assets/y03s02-pcdiag-lab-02-p02-02.png}
+					\caption{}
+					\label{subfig:membench-test-02}
+				\end{subfigure}%
+				\begin{subfigure}[t]{\columnwidth / 3}
+					\centering
+					\includegraphics[width = \columnwidth]{./assets/y03s02-pcdiag-lab-02-p02-03.png}
+					\caption{}
+					\label{subfig:membench-test-03}
+				\end{subfigure}%
+				\caption{Результат тестування програмою~\textenglish{Cache Burst 32}: \subref{subfig:membench-test-01}~— графік пропускної здатності кеш-пам'\-я\-ті процесора, \subref{subfig:membench-test-02}~— графік швидкості зчитування з~оперативної пам'\-я\-ті, \subref{subfig:membench-test-01}~— графік швидкості запису в~оперативну пам'\-ять}
+				\label{fig:membench-test}
+			\end{figure}
+
+			В~результаті проходження тесту отримали графіки пропускної здатності пам'\-я\-ті для~різних видів доступу до~кеш- і~оперативної пам'\-я\-ті. Як~бачимо, дані незначно відрізняються від~результатів тестування програмою~\textenglish{Cache Burst}, однак загалом графіки ведуть себе однаково. 
+
+		\subsection{Перевірка пам'яті за~допомогою програми~\textenglish{Memtest86+}}
+			
+			Перевіряємо пам'ять за допомогою програми~\textenglish{Memtest86+}. Для~перевірки пам'\-я\-ті програма~\textenglish{Memtest86+} використовує дуже низький рівень абстракції від~обладнання, тому розповсюджується у~вигляді образів завантажувальних носіїв. 
+			
+			Щоб виконати перевірку пам'яті програмою~\textenglish{Memtest86+}, необхідно завантажити тестовий комп'ютер у~її~середовище. Після завантаження через декілька секунд програма~\textenglish{Memtest86+} автоматично розпочне тестування пам'яті. Тестування відбувається у~вигляді проходів. Кожен прохід складається з~декількох тестів на запис певних даних у~пам'ять, їх зчитування з~неї та порівняння результатів. Для виконання завдання даної лабораторної роботи знадобиться 1~прохід. Після завершення першого проходу тесту отримали результати у~вигляді текстового звіту: «\textenglish{Pass complete, no errors, press Esc to exit}»~(рис.~\ref{fig:membench-test}). 
+
+			\begin{figure}[!htbp]
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/y03s02-pcdiag-lab-02-p03-01-bw.png}
+				\caption{Результат тестування програмою~\textenglish{Memtest86+}}
+				\label{fig:memtest86-test}
+			\end{figure}
+
+			Таке повідомлення інформує, що~перший прохід тесту успішно завершився і~помилки оперативної пам'яті не~були виявлені. 
+
+	\section{Висновок}
+		Виконуючи дану лабораторну роботу, ми ознайомились з~методами виявлення несправностей оперативної пам'\-я\-ті ком\-п'\-ю\-те\-ра.
+
+\end{document}
+
