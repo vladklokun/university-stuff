@@ -1,0 +1,55 @@
+1.2. 
+U1 = \SI{304.5}{\volt}
+I1 = \SI{5.169}{\milli\ampere}
+\delta U = \SI{114.2159}{\milli\volt}
+
+1.3. 
+U1 = \SI{305.5}{\volt} 
+I1 = \SI{10.37}{\micro\ampere} 
+\delta U = \SI{114.1965}{\milli\volt} 
+
+1.4. 
+U1 = \SI{618.5}{\volt} 
+I1 = \SI{24.54}{\micro\ampere} 
+\delta U = \SI{228.9152}{\milli\volt} 
+
+2.1
+U1 = \SI{308.5}{\volt} 
+I1 = \SI{98.89}{\ampere} 
+\delta U = \SI{270.0671}{\milli\volt} 
+
+2.2
+U1 = \SI{197.5}{\micro\volt} 
+I1 = \SI{479.1}{\milli\ampere} 
+\delta U = \SI{274.2872}{\micro\volt} 
+
+2.3
+U1 = \SI{0.342}{\micro\volt} 
+I1 = \SI{342.4}{\milli\ampere} 
+\delta U = \SI{616.6961}{\micro\volt} 
+
+2.4
+U1 = \SI{0.0}{\micro\volt} 
+I1 = \SI{0.488}{\milli\ampere} 
+\delta U = \SI{0}{\micro\volt} 
+
+3.1
+U1 = \SI{305.0}{\volt} 
+I1 = \SI{11.58}{\micro\ampere} 
+\delta U = \SI{104.8784}{\micro\volt} 
+
+3.2
+U1 = \SI{205}{\volt} 
+I1 = \SI{2.153}{\micro\ampere} 
+\delta U = \SI{215.9683}{\volt} 
+
+3.3
+U1 = \SI{387.2}{\micro\volt} 
+I1 = \SI{421.8}{\micro\ampere} 
+\delta U = \SI{617.8938}{\micro\volt} 
+
+3.4
+U1 = \SI{197.3}{\volt} 
+I1 = \SI{2.044}{\micro\ampere} 
+\delta U = \SI{275.0694}{\micro\volt} 
+
