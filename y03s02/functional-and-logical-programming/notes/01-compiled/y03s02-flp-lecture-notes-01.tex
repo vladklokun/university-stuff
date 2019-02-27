@@ -1,0 +1,474 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{IEEEtrantools}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	label*      = {\arabic*.},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[itemize]{
+	label*      = {—},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[description]{
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+	labelformat = simple,
+	labelformat = brace,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+\usetikzlibrary{shapes.geometric} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newtcblisting[
+	auto counter, 
+	list inside, 
+	number within = section,
+]{listingpython}[3][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breaklines,
+		% breakanywhere,
+		fontsize = \footnotesize,
+		autogobble
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 1pt, % orig = 0pt
+	bottomrule       = 1pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},
+	%
+	#1
+}
+
+\newtcbinputlisting[auto counter, list inside, number within = section]{\inputpython}[4][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakbytokenanywhere,
+		fontsize = \footnotesize,
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 0pt, % orig = 0pt
+	bottomrule       = 0pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	left = 0em,
+	right = 0em,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
+}
+
+% Customize minted
+\usepackage{minted}
+\setmintedinline{
+	style = bw,
+	breaklines,
+}
+
+\newmintinline[proinline]{prolog}{%
+	style = bw,
+	breaklines,
+}
+
+\newminted[prologcode]{prolog}{%
+	style = bw,
+	breaklines,
+	linenos,
+	autogobble,
+	tabsize = 2,
+}
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Date and time typesetting
+\usepackage[
+	ukrainian,
+	useregional,
+	showdow,
+]{datetime2}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+% \setlength{\RaggedRightParindent}{\parindent}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\progname}[1]{\texttt{#1}}
+\newcommand{\modulename}[1]{\texttt{#1}}
+%%%
+
+%%% Custom math commands
+\newcommand{\longvar}[1]{\mathit{#1}}
+%%%
+
+\begin{document}
+
+% \RaggedRight
+
+\begin{titlepage}
+		\begin{center}
+			Міністерство освіти і~науки України\\
+			Національний авіаційний університет\\
+			Навчально-науковий інститут комп'ютерних інформаційних технологій\\
+			Кафедра комп'ютеризованих систем управління
+
+			\vspace{\fill}
+				Конспект\\
+				з~дисципліни «Функціональне і логічне програмування»\\
+
+			\vspace{\fill}
+
+			\begin{flushright}
+				Виконав:\\
+				студент \allcaps{ННІКІТ}\\
+				групи СП-325\\
+				Клокун В.\,Д.\\
+			\end{flushright}
+
+			Київ 2019
+		\end{center}
+	\end{titlepage}
+
+	\section{\DTMDate{2019-02-08}}
+		В логічній програмі алгоритм розв'язання задачі не~описується. Описується умова задачі, а~саме вказується, які є~об'єкти предметної області, які відношення між ними, а~також описується мета, якої необхідно досягти. Основою опису є~відношення між об'єктами. 
+
+		Логічна програма складається з~двох типів висловлювань:
+		\begin{enumerate}
+			\item Факти, які описують властивості об'єктів. 
+			\item Правила, які описують відношення між об'єктами. 
+		\end{enumerate}
+
+		Використовуючи факти і~правила, наведені в~програмі, можна отримати або~вивести з~наявної інформації нові факти або~правила. Крім цього, в~логічній програмі вказується мета пошуку. Тобто логічна програма є~базою даних про~умову задачі. Розв'язання задачі полягає у~пошуку способу задоволення заданої мети на~основі наявних фактів і~правил. Алгоритм цього пошуку реалізований в~інтерпретаторі або~компіляторі мови програмування. Найбільш поширеною мовою логічного програмування є~Prolog, у~якого є~численні спадкоємці. 
+
+		Функційне програмування. Єдина управляюча конструкція в~мові функційного програмування — це~виклик функції. У функційній мові задана деяка множина базових функцій, а~решта функцій будується з~них за допомогою композиції. Наприклад, ми можемо мати $\max (a, b)$, тоді $\max (a, b, c) = \max (a, \max(b, c) )$. Найбільш відомі мови функційного програмування: \textenglish{Lisp}, \textenglish{Haskell}, \textenglish{Scheme}, \textenglish{Standard~ML}. 
+
+		Концептуальне програмування. Це автоматизований синтез програм на~основі формальних специфікацій задачі. Специфікація задачі — це~її формальний опис: блок-схема, словесний опис, словесний опис і~так далі. 
+
+		Імперативне і~декларативне програмування. 
+
+	\section{\DTMDate{2019-02-11}}
+		\subsection{Мова Prolog. Терм}
+			Терм~— це~об'єкт даних, може бути константою змінною або~структурою (складним термом). Константи в~Пролозі поділяються на~2 види:
+			\begin{enumerate}
+				\item Константи-числа, які позначають числові значення. 
+				\item Константи-атоми, які позначають елементарні об'єкти предметної області. 
+			\end{enumerate}
+
+			Числа бувають цілі і~дійсні (\textenglish{integer}, \textenglish{real}). 
+
+			Атом — будь-яка послідовність символів, взятих у~подвійні лапки — «\proinline{""}». В більшості випадків атом іменує об'єкт предметної області. Наприклад, атом може позначати людину, тварину або~предмет. Якщо за контекстом програми атом можна відрізнити від інших об'єктів, наприклад, від імен змінних, то~лапки можна не~використовувати. Але це~накладає свої обмеження: не~можно ставити пробіли, спеціальні символи. Всі інші типи даних в~Пролозі складаються із сполучень констант і~змінних. 
+
+		\subsection{Змінні}
+			Змінна в~Пролозі може набувати значення константи, тобто атому або~числа. Імена змінних в~програмі починаються з~великої літери або~символу підкреслення. Якщо ім'я об'єкта в~програмі починається з~великої літери, вважається, що~це змінна. \proinline{X} — змінна, \proinline{x} — атом, незмінна величина. 
+
+			В лапки можна включати спеціальні символи за допомогою «\textbackslash». Існує спеціальна змінна, яка~називається анонімною і~позначається символом підкреслення~«\proinline{_}». Вона успішно зіставляється з~будь-яким значенням, але~не пов'язується з~ним, тобто отримати з~неї будь-яке значення неможливо. Її використовують в~програмах для заповнення місця. В тому разі, якщо це~індекси в~програмі допомогає вказати аргумент, але~значення, з~яким пов'язаний аргумент, неважливе для програміста. 
+
+		\subsection{Складні терми (структури)}
+			Запис структур в~програмах на~Пролозі виглядає подібно до записів у~мовах C~або~Pascal. В Пролозі кажуть, що~структура складається з~головного функтора та компонентів. Головним функтором називається ім'я функції (атом), а~компонентами — те, що~стоїть в~дужках. Компоненти структури наводять в~дужках і~через кому: \proinline{dog(rex), father(ivan, anton)}. 
+
+			Арність — кількість компонентів структури. \proinline{dog/1, father/2} або~\proinline{father(i, o)} — позначення арності, де \proinline{i} — input, \proinline{o} — output. 
+
+			В Пролозі використовується 2 види коментарів:
+			\begin{enumerate}
+				\item Блочні — \proinline{/* comment text */}.
+				\item Строчні — \proinline{% comment text}.
+			\end{enumerate}
+
+		\subsection{Розділи програми} 
+			Програма на~Пролозі може включати такі розділи: 
+			\begin{enumerate}
+				\item Domains — оголошуються і~описуються домени — типи, визначені програмістом. Тут треба оголошувати структури.
+					\begin{prologcode}
+					domains
+					\end{prologcode}
+				\item Predicates. 
+					\begin{prologcode}
+					predicates
+						dog(symbol)
+						father(symbol, symbol)
+					\end{prologcode}
+				\item  Clauses. Тут розміщують факти і~правила, що~описують зміст програми. 
+				\item  Goal. Ціль програми. 
+				\item  Database — база знань, динамічні типи даних. 
+			\end{enumerate}
+
+		Програма на~Пролозі — це~сукупність тверджень або~висловлювань (речень, клаузів), які за своєю суттю близькі до алгебри логіки. Сукупність тверджень утворює базу даних (базу знань) програми. Це статична база даних, тобто вона не~змінюється під час роботи програми. Також може використовуватись динамічна база даних, твердження якої можуть доповнюватись або~видалятись з~неї під час роботи програми. 
+
+		Твердження в~розділі clauses бувають 2 типів:
+		\begin{enumerate}
+			\item Факти. 
+			\item Правила. 
+		\end{enumerate}
+
+		Кожне твердження (факт або~правило) закінчується крапкою. В ході виконання (або розгляду) програми інтерпретатор Прологу виконує доведення цілей, які входять у~ці твердження. 
+
+		Факт — це~одиночна ціль, яка~вважається за визначенням істинною. Він є~описом заданих відомостей про~об'єкти предметної області. Наприклад:
+		\begin{prologcode}
+			dog(rex).
+			father(ivan, petro).
+		\end{prologcode}
+		Правила дозволяють вивести з~наявних фактів деякий інший факт. Правила складаються із голови і~хвоста. Наприклад:
+		\begin{prologcode}
+		animal(X) if dog(X).
+
+		animal(X) :- dog(X).
+		\end{prologcode}
+
+		Голова правила істинна, якщо істинні всі цілі, вказані у~хвості. 
+
+		Змінні у~Пролозі не~оголошуються. Відповідно тип змінної в~програмі на~Пролозі ніяк не~вказується. Більш того, одна і~та ж змінна в~різних реченнях може набувати значення різних типів. Але про~тип змінної, використаної в~конкретному випадку, можна дізнатись із розділу \proinline{predicates}, де вказується тип компоненту структури. 
+
+		В Пролозі головними сутностями вважаються не~об'єкти предметної області, а~відношення між ними. Об'єкти, які вступають в~ці відношення, розглядаються як другорядні сутності, порівняно з~самими відношеннями. З цього підходу випливають такі наслідки:
+		\begin{enumerate}
+			\item Типи аргументів приписують не~до змінних, які представляють об'єкти, а~до відношень, в~яких ці об'єкти використовуються. 
+			\item Замість секції оголошення змінних, яка~входить до імперативної програми, в~Пролог-програмі присутня секція оголошень відношень — \proinline{predicates} 
+			\item Областю дії змінної є~одне речення. В рамках одного речення одне і~те ж ім'я змінної означає одну і~ту ж змінну. Однак, в~іншому твердженні змінна з~тим же ім'ям (\proinline{X}) може мати інший сенс і~навіть містити значення іншого типу. 
+		\end{enumerate}
+
+		Написання програми на~Пролозі полягає в~тому, що~програміст описує об'єкти предметної області, описує відношення між ними і~визначає правила, які описують умови, за яких ці відношення дійсні. 
+
+		Співставлення. Це процес, на~вхід якого подаємо 2 терми. Результатом співставлення є~висновок, що~ці 2 терми співставимі, тобто відповідні один одному або~неспівставимі, тобто невідповідні. Якщо виявилось, що~терми співставимі, то~кажуть, що~співставлення завершилось успіхом. Якщо неспівставимі, то~кажуть, що~процес співставлення завершилось невдачею — \proinline{fail}. 
+
+		Правила співставлення: 
+		\begin{enumerate}
+			\item Якщо 2 об'єкти — константи або~конкретизовані змінні, то~вони співставимі, якщо їх значення рівні. 
+			\item Якщо один із об'єктів не~конкретизована змінна, то~співставлення можливе. При цьому якщо другий об'єкт — константа або~конкретизована змінна, то~першу неконкретизовану змінну конкретизує значення другого об'єкта. Якщо другий об'єкт теж неконкретизована змінна, то~2 змінні пов'язуються між собою, тимчасово ототожнюються. Після цього, якщо одна із них буде конкретизована певним значенням, то~таку ж конкретизацію отримає друга пов'язана з~нею змінна. 
+			\item Якщо 2 об'єкти — структури, то~вони співставимі, якщо вони, по-перше, мають однакові головні функтори, і, по-друге, всі їх компоненти співставимі. 
+		\end{enumerate}
+
+\end{document}
+
