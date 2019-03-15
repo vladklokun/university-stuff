@@ -48,7 +48,7 @@
 
 %%% List settings
 \usepackage{enumitem}
-\setlist[enumerate]{
+\setlist[enumerate]{%
 	label*      = {\arabic*.},
 	leftmargin  = *,
 	labelindent = \parindent,
@@ -58,7 +58,7 @@
 	noitemsep, % override itemsep
 }
 
-\setlist[itemize]{
+\setlist[itemize]{%
 	label*      = {—},
 	leftmargin  = *,
 	labelindent = \parindent,
@@ -68,7 +68,7 @@
 	noitemsep, % override itemsep
 }
 
-\setlist[description]{
+\setlist[description]{%
 	font        = {\rmfamily\upshape\bfseries},
 	topsep      = 1\baselineskip,
 	parsep      = 0\baselineskip,
@@ -126,17 +126,17 @@
 
 %\captionsetup[subfigure]{labelformat = closing}
 
-\captionsetup[table]{
+\captionsetup[table]{%
 	aboveskip = 0\baselineskip,
 	belowskip = 0\baselineskip,
 }
 
-\captionsetup[figure]{
+\captionsetup[figure]{%
 	aboveskip = 1\baselineskip,
 	belowskip = 0\baselineskip,
 }
 
-\captionsetup[subfigure]{
+\captionsetup[subfigure]{%
 	labelformat = simple,
 	labelformat = brace,
 }
@@ -168,7 +168,7 @@
 
 %%% SI units typesetting
 \usepackage{siunitx}
-\sisetup{
+\sisetup{%
 	output-decimal-marker = {,},
 	exponent-product      = {\cdot},
 	inter-unit-product    = \ensuremath{{} \cdot {}},
@@ -189,7 +189,7 @@
 ]{listingpython}[3][]{%
 	minted language = python,
 	minted style    = bw,
-	minted options  = {
+	minted options  = {%
 		linenos,
 		tabsize = 4,
 		breaklines,
@@ -231,7 +231,7 @@
 \newtcbinputlisting[auto counter, list inside, number within = section]{\inputpython}[4][]{%
 	minted language = python,
 	minted style    = bw,
-	minted options  = {
+	minted options  = {%
 		linenos,
 		tabsize = 4,
 		breaklines,
@@ -272,7 +272,7 @@
 
 % Customize minted
 \usepackage{minted}
-\setmintedinline{
+\setmintedinline{%
 	style = bw,
 	breaklines,
 }
@@ -282,21 +282,17 @@
 
 %%%
 
-%%% Custom Q & A environments
-\ExplSyntaxOn
-    \NewDocumentEnvironment{question} { o }
-     {
-      \par\noindent
-      \IfNoValueTF{#1} { \textsc{Запитання:~} }{ \textsc{Запитання~#1:~} }
-       \ignorespaces
-     }
-     {}
-\ExplSyntaxOff
+%%% Sideways table
+\usepackage{pdflscape}
+%%%
+
+%%% Wrap text after sideways table
+\usepackage{afterpage}
 %%%
 
 %%% Links and hyperreferences
 \usepackage{hyperref}
-\hypersetup{
+\hypersetup{%
 	bookmarksnumbered = true,
 	colorlinks      = false,
 	linkbordercolor = red,
@@ -359,75 +355,137 @@
 		Вивчення методів оцінки трудомісткості алгоритмів.
 
 	\section{Хід роботи}
-		Вихідними даними для лабораторної роботи є схема алгоритму~(рис.~\ref{fig:flowchart}). 
+		Вихідними даними для лабораторної роботи є схема алгоритму~(рис.~\ref{fig:flowchart}). Для побудови матриці переходів за схемою алгоритму також надані значення параметрів, що перевіряються алгоритмом~(табл.~\ref{tab:Xi-Ki-vals}).
 
 		\begin{figure}[!htbp]
 			\centering
-			\includegraphics[height = 30\baselineskip]{./assets/y03s02-compsys-lab-02-p01.png}
+			\includegraphics[height = 21\baselineskip]{./assets/y03s02-compsys-lab-02-p01.png}
 			\caption{Схема алгоритму}
 			\label{fig:flowchart}
 		\end{figure}
 
+		\begin{table}[!htbp]
+			\newlength{\tmplen}
+			\setlength{\tmplen}{9\gridunitwidth / 5}
+			\centering
+			\caption{Області зміни параметрів~$X_i$, $K_i$, що складають оператор~$V_{\alpha{}i}$}
+			\label{tab:Xi-Ki-vals}
+			\begin{tabular}{%
+				v{3\gridunitwidth - 2\tabcolsep}
+				*{5}{n{\tmplen - 2\tabcolsep}}
+			}
+				\toprule
+					Номер варіанта & \multicolumn{5}{r}{Параметр та його значення} \\
+					\cmidrule(lr){2-6}
+					 & $X_{1}$ & $X_{2}$ & $K_1$ & $K_2$ & $K_3$ \\
+				\midrule
+					3 & $0, +4$ & $-3, 1$ & 10 & 20 & 30 \\
+				\bottomrule
+			\end{tabular}
+		\end{table}
+
 		\subsection{Обчислення середньої кількості операцій за один прогін алгоритму}
-			Нехай~$n_1, \dots, n_{k-1}$~— середня кількість звернень до~операторів~$v_1, \dots, v_{k - 1}$. Тоді середня кількість операцій за один прогін алгоритму~$\theta_{\text{осн}}$ визначається так:
+			Нехай~$n_1, \dots, n_{k-1}$~— середня кількість звернень до~операторів~$V_1, \dots, V_{k - 1}$. Тоді середня кількість операцій за один прогін алгоритму~$\theta_{\text{осн}}$ визначається так:
 			\begin{IEEEeqnarray}{rCl}
 				\label{eq:avg-op-cnt-per-run}
 				\theta_{\text{осн}} = \sum_{} n_i \cdot k_i.
 			\end{IEEEeqnarray}
 			Щоб знайти значення середньої кількості звернень~$n_1, \dots, n_{k-1}$, за~схемою алгоритму визначаємо та~будуємо матрицю ймовірностей переходу, в~якій кожен елемент~$P_{ij}$ визначає ймовірність переходу із стану~$i$ в~стан~$j$~(табл.~\ref{tab:transition-prob}). 
 
-			\begin{table}[!htbp]
-				\centering
-				\caption{Матриця ймовірностей переходу схеми алгоритму}
-				\label{tab:transition-prob}
-				\begin{tabular}{
-					l
-					*{9}{r}
-				}
-					\toprule
-						& $V_{\alpha{}1}$ & $V_{\alpha{}2}$ & $V_{\alpha{}3}$ & $V_{\alpha{}4}$ & $V_{\alpha{}5}$ & $V_{\alpha{}6}$ & $V_{\alpha{}7}$ & $V_{\alpha{}8}$ & $V_{k}$ \\ 
-					\midrule
-						$V_{\alpha{}1}$ & & & \num{0.9} & \num{0.025} & \num{0.075}\\
-						$V_{\alpha{}2}$ & \num{1} \\
-						$V_{\alpha{}3}$ & & \num{0.95} & & & & & \num{0.05} \\
-						$V_{\alpha{}4}$ & & & & & & \num{0.75} & & \num{0.25}\\
-						$V_{\alpha{}5}$ & & & & & & \num{0.75} & & \num{0.25}\\
-						$V_{\alpha{}6}$ & \num{1} \\
-						$V_{\alpha{}7}$ & & & & & & & & \num{1} & \\
-						$V_{\alpha{}8}$ & \num{0.03} & & & & & & & & \num{0.97} \\
-					\bottomrule
-				\end{tabular}
-			\end{table}
+			\afterpage{%
+			\begin{landscape}
+				\begin{table}
+					\centering
+					\caption{Матриця ймовірностей переходу схеми алгоритму}
+					\label{tab:transition-prob}
+					\begin{tabular}{%
+						l
+						*{17}{r}
+					}
+						\toprule
+							& $V_{\alpha{}1}$ & $V^{1}_{\beta{}1}$ & $V_{\alpha{}2}$ & $V^{1}_{\beta{}2}$ & $V_{\alpha{}3}$ & $V^{2}_{\beta{}3}$ & $V_{\alpha{}4}$ & $V^{1}_{\beta{}4}$ & $V_{\alpha{}5}$ & $V^{2}_{\beta{}5}$ & $V_{\alpha{}6}$ & $V^{3}_{\beta{}6}$ & $V_{\alpha{}7}$ & $V^{3}_{\beta{}7}$ & $V_{\alpha{}8}$ & $V^{2}_{\beta{}8}$ & $V_{k}$ \\ 
+						\midrule
+							$V_{\alpha{}1}$ &  & \num{1.0} &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+							$V^{1}_{\beta{}1}$ &  &  &  &  & \num{0.1} &  & \num{0.225} &  & \num{0.675} &  &  &  &  &  &  &  & \\
+							$V_{\alpha{}2}$ & \num{1.0} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+							$V^{1}_{\beta{}2}$ &  &  & \num{1.0} &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+							$V_{\alpha{}3}$ &  &  &  &  &  & \num{1.0} &  &  &  &  &  &  &  &  &  &  & \\
+							$V^{2}_{\beta{}3}$ &  &  &  & \num{0.05} &  &  &  &  &  &  &  &  & \num{0.95} &  &  &  & \\
+							$V_{\alpha{}4}$ &  &  &  &  &  &  &  &  &  & \num{1.0} &  &  &  &  &  &  & \\
+							$V^{1}_{\beta{}4}$ & \num{1.0} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+							$V_{\alpha{}5}$ &  &  &  &  &  &  &  &  &  &  &  & \num{1.0} &  &  &  &  & \\
+							$V^{2}_{\beta{}5}$ &  &  &  &  &  &  &  &  &  &  & \num{0.75} &  &  &  &  & \num{0.25} & \\
+							$V_{\alpha{}6}$ &  &  &  &  &  &  &  & \num{1.0} &  &  &  &  &  &  &  &  & \\
+							$V^{3}_{\beta{}6}$ &  &  &  &  &  &  &  &  &  &  & \num{0.750} &  &  &  &  & \num{0.25} & \\
+							$V_{\alpha{}7}$ &  &  &  &  &  &  &  &  &  &  &  &  &  & \num{1.0} &  &  & \\
+							$V^{3}_{\beta{}7}$ & \num{1.0} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \\
+							$V_{\alpha{}8}$ & \num{0.03} &  &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \num{0.97}\\
+							$V^{2}_{\beta{}8}$ &  &  &  &  &  &  &  &  &  &  &  &  &  &  & \num{1.0} &  & \\
+							%
+							% $V_{\alpha{}1}$ & & & \num{0.9} & \num{0.025} & \num{0.075}\\
+							% $V_{\alpha{}2}$ & \num{1} \\
+							% $V_{\alpha{}3}$ & & \num{0.95} & & & & & \num{0.05} \\
+							% $V_{\alpha{}4}$ & & & & & & \num{0.75} & & \num{0.25}\\
+							% $V_{\alpha{}5}$ & & & & & & \num{0.75} & & \num{0.25}\\
+							% $V_{\alpha{}6}$ & \num{1} \\
+							% $V_{\alpha{}7}$ & & & & & & & & \num{1} & \\
+							% $V_{\alpha{}8}$ & \num{0.03} & & & & & & & & \num{0.97} \\
+						\bottomrule
+					\end{tabular}
+				\end{table}
+			\end{landscape}
+			}
 
 			За матрицею ймовірностей переходу складаємо систему лінійних алгебраїчних рівнянь:
+			% \begin{landscape}
 			\begin{IEEEeqnarray}{c}
+				% \scriptsize
 				\label{eq:sys}
 				\left\{ \,
-				\begin{IEEEeqnarraybox}[][c]{rCrCrCrCrCrCrCrCrCrCl}
+				\begin{IEEEeqnarraybox}[][c]{l}
 					\IEEEstrut
-					-n_1 &+& n_2 &&  &&  &&  &+& n_6 &&  &+& \num{0.03} n_8 &=& -1,\\
-								 && -n_2 &+& \num{0.95}n_3 &&  &&  &&  &&  &&  &=& 0,\\
-					\num{0.9} n_1 && &&  -n_3 &&  &&  &&  &&  &&  &=& 0,\\
-					\num{0.025} n_1 &&    &&  &&  -n_4 &&  &&  &&  &&  &=& 0,\\
-					\num{0.075} n_1 &&    &&  &&  &&  -n_5 &&  &&  &&  &=& 0,\\
-					 &&    &&  && \num{0.75} n_4 &+& \num{0.75} n_5 &&  -n_6 &&  &&  &=& 0,\\
-					 &&    && \num{0.05}n_3 &&  &&  &&  &&  -n_7 &&  &=& 0,\\
-					 &&    &&  && \num{0.25}n_4 &+& \num{0.25}n_5 &&  &+& n_7 && -n_8 &=& 0.
-					% P_{1(k-1)} n_{1} &+& P_{2(k-1)} n_{2}   &+& \dots &+& (P_{(k-1)(k-1)} – 1) n_{k-1} &=& 0.
+						-n_{\alpha{}1} + n_{\alpha{}2} + n_{\beta{}4} + n_{\beta{}7} + \num{+0.030}n_{\alpha{}8} = -1, \\
+						n_{\alpha{}1} -n_{\beta{}1} = 0, \\
+						-n_{\alpha{}2} + n_{\beta{}2} = 0, \\
+						-n_{\beta{}2} + \num{+0.050}n_{\beta{}3} = 0, \\
+						\num{+0.100}n_{\beta{}1} -n_{\alpha{}3} = 0, \\
+						n_{\alpha{}3} -n_{\beta{}3} = 0, \\
+						\num{+0.225}n_{\beta{}1} -n_{\alpha{}4} = 0, \\
+						-n_{\beta{}4} + n_{\alpha{}6} = 0, \\
+						\num{+0.675}n_{\beta{}1} -n_{\alpha{}5} = 0, \\
+						n_{\alpha{}4} -n_{\beta{}5} = 0, \\
+						\num{+0.750}n_{\beta{}5} -n_{\alpha{}6} + \num{+0.750}n_{\beta{}6} = 0, \\
+						n_{\alpha{}5} -n_{\beta{}6} = 0, \\
+						\num{+0.950}n_{\beta{}3} -n_{\alpha{}7} = 0, \\
+						n_{\alpha{}7} -n_{\beta{}7} = 0, \\
+						-n_{\alpha{}8} + n_{\beta{}8} = 0, \\
+						\num{+0.250}n_{\beta{}5} + \num{+0.250}n_{\beta{}6} -n_{\beta{}8} = 0.
 					\IEEEstrut
 				\end{IEEEeqnarraybox}
 				\right.
 			\end{IEEEeqnarray}
-			Знаходимо розв'язок системи лінійних алгебраїчних рівнянь і записуємо його:
+		%\end{landscape}
+			Знаходимо розв'язок системи лінійних алгебраїчних рівнянь і записуємо його. Для операторних вершин:
 			\begin{IEEEeqnarray*}{rCl'rCl'rCl'rCl}
-				n_1 &=& \frac{10000}{679} , &% \approx \num{14.73}
-				n_2 &=& \frac{ 8550}{679} , &% \approx \num{12.59}
-				n_3 &=& \frac{ 9000}{679} , &% \approx \num{13.25}
-				n_4 &=& \frac{  250}{679} , \\[2\jot] % \approx \num{ 0.39}
-				n_5 &=& \frac{  750}{679} , &% \approx \num{ 1.10}
-				n_6 &=& \frac{  750}{679} , &% \approx \num{ 1.10}
-				n_7 &=& \frac{  450}{679} , &% \approx \num{ 0.66}
-				n_8 &=& \frac{  700}{679} .  % \approx \num{ 1.03}
+				n_{\alpha{}1} &=& \num{4.58}, &% \approx \num{14.73}
+				n_{\alpha{}2} &=& \num{0.03}, &% \approx \num{12.59}
+				n_{\alpha{}3} &=& \num{0.46}, &% \approx \num{13.25}
+				n_{\alpha{}4} &=& \num{1.03}, \\[2\jot] % \approx \num{ 0.39}
+				n_{\alpha{}5} &=& \num{3.09}, &% \approx \num{ 1.10}
+				n_{\alpha{}6} &=& \num{3.09}, &% \approx \num{ 1.10}
+				n_{\alpha{}7} &=& \num{0.44}, &% \approx \num{ 0.66}
+				n_{\alpha{}8} &=& \num{1.03}.  % \approx \num{ 1.03}
+			\end{IEEEeqnarray*}
+			Для файлових вершин:
+			\begin{IEEEeqnarray*}{rCl'rCl'rCl'rCl}
+				n_{\beta{}1} &=& \num{4.58}, &% \approx \num{14.73}
+				n_{\beta{}2} &=& \num{0.02}, &% \approx \num{12.59}
+				n_{\beta{}3} &=& \num{0.46}, &% \approx \num{13.25}
+				n_{\beta{}4} &=& \num{3.09}, \\[2\jot] % \approx \num{ 0.39}
+				n_{\beta{}5} &=& \num{1.03}, &% \approx \num{ 1.10}
+				n_{\beta{}6} &=& \num{3.09}, &% \approx \num{ 1.10}
+				n_{\beta{}7} &=& \num{0.44}, &% \approx \num{ 0.66}
+				n_{\beta{}8} &=& \num{1.03}.  % \approx \num{ 1.03}
 			\end{IEEEeqnarray*}
 			Отже, розв'язавши систему рівнянь, отримали середні кількості звернень~$n_{1}, \dots, n_{k-1}$ до~операторів~$V_{1}, \dots, V_{k-1}$. 
 
@@ -437,7 +495,7 @@
 				\centering
 				\caption{Число операцій~$k_i$, що складають оператор~$V_{\alpha{}i}$}
 				\label{tab:ki-vals}
-				\begin{tabular}{
+				\begin{tabular}{%
 					v{4\gridunitwidth - 2\tabcolsep}
 					*{8}{n{1\gridunitwidth - 2\tabcolsep}}
 				}
@@ -453,97 +511,96 @@
 
 			Тепер обчислюємо середню кількість операцій за~один прогін алгоритму. Для цього підставляємо задані значення кількості операцій кожного оператора~(табл.~\ref{tab:ki-vals}) у~формулу~\eqref{eq:avg-op-cnt-per-run}:
 			\begin{IEEEeqnarray*}{rCl}
-				\theta_{\text{осн}} &=& \frac{10000}{679} \cdot 30 + \frac{8550}{679} \cdot 10 + \frac{9000}{679} \cdot 30 + \frac{250}{679} \cdot 20 \\[2\jot] 
-														&& \> + \frac{750}{679} \cdot 20 + \frac{750}{679} \cdot 30 + \frac{450}{679} \cdot 50 + \frac{700}{679} \cdot 100\\[2\jot]
-														&\approx& \num{1164.21}.
+				\theta_{\text{осн}} &=& \sum_{V \in S_o}^{} n_{\alpha{}i} \cdot k_i\\[2\jot]
+				                    &=& \num{4.58} \cdot 30 + \num{0.02} \cdot 10 + \num{0.46} \cdot 30 + \num{1.03} \cdot 20 \\
+														&&  \>{+} \num{3.09} \cdot 20 + \num{3.09} \cdot 30 + \num{0.44} \cdot 50 + \num{1.03} \cdot 100 \\[2\jot]
+														&\approx& \num{451.55}.
 			\end{IEEEeqnarray*}
-			Отже, середня кількість операцій за один прогін заданого алгоритму~$\theta_{\text{осн}} \approx \num{1164.21}$. 
+			Отже, середня кількість операцій за один прогін заданого алгоритму~$\theta_{\text{осн}} \approx \num{451.55}$. 
 
 		\subsection{Обчислення середньої кількості звернень до~кожного з~файлів}
 			Середня кількість звернень до~файлів визначається так:
 			\begin{IEEEeqnarray}{rCl}
 				N_{h} = \sum_{v_i \in S_{h}} n_i,
 			\end{IEEEeqnarray}
-			де~$n_i$~— середня кількість звернення до~оператора~$v_i$.
-
-			На~схемі алгоритму вершини з~операціями звернення до~файлів позначені~$V_{\beta{}i}$. Оскільки всі вершини мають різні індекси, вважаємо, що~в~кожній з~них відбувається звернення до~окремого файлу. Також на~схемі алгоритму оператори звернення до~файлів йдуть одразу~ж після основних операторів, отже середня кількість звернення до~операторів звернення до~файлів буде дорівнювати середній кількості звернення до~відповідного основного оператора. Тоді: 
+			де~$n_i$~— середня кількість звернення до~оператора~$V_i$. На~схемі алгоритму вершини з~операціями звернення до~файлів позначені~$V^{c}_{\beta{}i}$, де~$c \in (1, 2, 3)$. Тоді значення середньої кількості звернень до файлів~$N_1, N_2, N_3$ обчислюються так: 
 			\begin{IEEEeqnarray*}{rClCl'rClCl'rClCl'rClCl}
-				N_{1} &=& n_1 &=& \frac{10000}{679} , &% \approx \num{14.73}
-				N_{2} &=& n_2 &=& \frac{ 8550}{679} , &% \approx \num{12.59}
-				N_{3} &=& n_3 &=& \frac{ 9000}{679} , &% \approx \num{13.25}
-				N_{4} &=& n_4 &=& \frac{  250}{679} , \\[2\jot] % \approx \num{ 0.39}
-				N_{5} &=& n_5 &=& \frac{  750}{679} , &% \approx \num{ 1.10}
-				N_{6} &=& n_6 &=& \frac{  750}{679} , &% \approx \num{ 1.10}
-				N_{7} &=& n_7 &=& \frac{  450}{679} , &% \approx \num{ 0.66}
-				N_{8} &=& n_8 &=& \frac{  700}{679} .  % \approx \num{ 1.03}
+				N_{1} &=& n_{\beta{}1} \cdot n_{\beta{}2} \cdot n_{\beta{}4}
+				          = \num{4.58} + \num{0.02} + \num{3.09}
+									= \num{7.70},\\
+				N_{2} &=& n_{\beta{}3} \cdot n_{\beta{}5} \cdot n_{\beta{}8}
+				          = \num{0.46} + \num{1.03} + \num{1.03}
+									= \num{2.52},\\
+				N_{3} &=& n_{\beta{}6} \cdot n_{\beta{}7}
+				          = \num{3.09} + \num{0.44}
+									= \num{3.53}.
 			\end{IEEEeqnarray*}
 
-			Отже, були знайдені значення середньої кількості звернень до~кожного з~файлів. 
+			Отже, були знайдені значення середньої кількості звернень до~кожного з~файлів: $N_1 = \num{7.70}, N_2 = \num{2.52}, N_2 = \num{3.53}$. 
 
 		\subsection{Обчислення середньої кількості інформації, яка~передається при~одному зверненні до~файлу}
 			Середня кількість інформації, яка передається при одному зверненні до файлу визначається так:
 			\begin{IEEEeqnarray}{rCl}
 			\label{eq:avg-data-amount-per-file}
-				\theta_{h} = \frac{1}{N_{h}} \sum_{v_{i} \in S_{h}} n_i \cdot l_i, 
+				\theta_{h} = \frac{1}{N_{h}} \sum_{v_{i} \in S_{h}} n_{\beta{}i} \cdot l_i, 
 			\end{IEEEeqnarray}
-			де~$N_{h}$~— середня кількість звернення до~файлу~$F_{h}$, $n_i$~— середня кількість звернення до~оператора~$v_i$, $l_i$~— середня кількість інформації, що~передається при виконанні оператора звернення~$v_{i}$~(табл.~\ref{tab:avg-data-amount}). 
+			де~$N_{h}$~— середня кількість звернення до~файлу~$F_{h}$, $n_{\beta{}i}$~— середня кількість звернення до~оператора~$V_{\beta{}i}$, $l_i$~— середня кількість інформації, що~передається при виконанні оператора звернення~$V_{\beta{}i}$~(табл.~\ref{tab:avg-data-amount}). 
 
 			\begin{table}[!htbp]
 				\newlength{\tabtmpgridunit}
 				\setlength{\tabtmpgridunit}{9\gridunitwidth / 8}
 				%
 				\centering
-				\caption{Середня кількість інформації~$l_i$, що~передається при~виконанні оператора звернення~$v_{\beta{}i}$}
+				\caption{Середня кількість інформації~$l_i$, що~передається при~виконанні оператора звернення~$V_{\beta{}i}$}
 				\label{tab:avg-data-amount}
-				\begin{tabular}{
+				\begin{tabular}{%
 					v{3\gridunitwidth - 2\tabcolsep}
 					*{8}{n{1\tabtmpgridunit - 2\tabcolsep}}
 				}
 					\toprule
 						Номер варіанта & \multicolumn{8}{r}{Кількість інформації}\\
 						\cmidrule(lr){2-9}
-						 & $V_{\beta{}_1}$ & $V_{\beta{}_2}$ & $V_{\beta{}_3}$ & $V_{\beta{}_4}$ & $V_{\beta{}_5}$ & $V_{\beta{}_6}$ & $V_{\beta{}_7}$ & $V_{\beta{}_8}$ \\ 
+						 & $V^{1}_{\beta{}_1}$ & $V^{1}_{\beta{}_2}$ & $V^{2}_{\beta{}_3}$ & $V^{1}_{\beta{}_4}$ & $V^{2}_{\beta{}_5}$ & $V^{3}_{\beta{}_6}$ & $V^{3}_{\beta{}_7}$ & $V^{2}_{\beta{}_8}$ \\ 
 					\midrule
 						3 & 250 & 500 & 150 & 1000 & 200 & 100 & 400 & 200\\
 					\bottomrule
 				\end{tabular}
 			\end{table}
 
-			Оскільки звернення до кожного з файлів відбувається лише в одній вершині~$N_{h} = n_{h}$. Підставляємо вихідні дані у формулу~\eqref{eq:avg-data-amount-per-file}:
+			Підставляємо значення середньої кількості звернень до~файлових вершин~$n_{\beta{}i}$ та~середню кількість інформації, що передається при виконанні оператора звернення~$V_{\beta{}i}$ у~формулу~\eqref{eq:avg-data-amount-per-file}:
 			\begin{IEEEeqnarray*}{rCl'rCl}
-				% \theta_{h} &=& \frac{1}{N_{h}} \sum_{v_{i} \in S_{h}} n_i \cdot l_i\\[2\jot]
-				\theta_{1} &=& \frac{679}{10000} \cdot \frac{10000}{679} \cdot 250 = \num{250}, &
-				\theta_{2} &=& \frac{679}{8550} \cdot \frac{8550}{679} \cdot 500 = \num{500}, \\[2\jot]
-				\theta_{3} &=& \frac{679}{9000} \cdot \frac{9000}{679} \cdot 150 = \num{150}, &
-				\theta_{4} &=& \frac{679}{250} \cdot \frac{250}{679} \cdot 1000 = \num{1000}, \\[2\jot] 
-				\theta_{5} &=& \frac{679}{750} \cdot \frac{750}{679} \cdot 200 = \num{200}, &
-				\theta_{6} &=& \frac{679}{750} \cdot \frac{750}{679} \cdot 100 = \num{100}, \\[2\jot]
-				\theta_{7} &=& \frac{679}{450} \cdot \frac{450}{679} \cdot 400 = \num{400}, &
-				\theta_{8} &=& \frac{679}{700} \cdot \frac{700}{679} \cdot 200 = \num{200}. 
-														% &\approx& \num{13136.97}.
+				% \theta_{h} &=& \frac{1}{N_h} \sum_{v_i \in S_h}^{} n_{\beta{}i} \cdot l_i\\
+				\theta_{1} &=& \frac{1}{N_1} \cdot \left(n_{\beta{}1} \cdot l_{1} + n_{\beta{}2} \cdot l_{2} + n_{\beta{}4} \cdot l_{4} \right) =
+									 \frac{1}{\num{7.70}} \cdot (\num{4.58} \cdot 250 + \num{0.02} \cdot 500 + \num{3.09} \cdot 1000) \\[2\jot]
+									 &=& \num{552.08}, \\[2\jot]
+				\theta_{2} &=& \frac{1}{N_2} \cdot \left(n_{\beta{}3} \cdot l_{3} + n_{\beta{}5} \cdot l_{5} + n_{\beta{}8} \cdot l_{8} \right) =
+									 \frac{1}{\num{2.52}} \cdot (\num{0.46} \cdot 150 + \num{1.03} \cdot 200 + \num{1.03} \cdot 200) \\[2\jot]
+									 &=& \num{190.9}, \\[2\jot]
+				\theta_{3} &=& \frac{1}{N_3} \cdot \left(n_{\beta{}6} \cdot l_{6} + n_{\beta{}7} \cdot l_{7} \right) =
+				           \frac{1}{\num{3.53}} \cdot (\num{3.09} \cdot 100 + \num{0.44} \cdot 400) = \num{137.01}.
 			\end{IEEEeqnarray*}
-			Отже, знайшли середню кількість інформації, яка~передається при~одному зверненні до~файлу~$\theta_{h}$ для~кожного з~файлів~$F_{h}$. 
+			Отже, знайшли середні значення кількості інформації, яка~передається при~одному зверненні до~файлів $F_{1}$, $F_{2}$ і~$F_{3}$: $\theta_{1} = \num{552.08}$, $\theta_{2} = \num{190.9}$ і~$\theta_{3} = \num{137.01}$ відповідно. 
 
 		\subsection{Обчислення середньої трудомісткості етапу рахування}
 			Середня трудомісткість етапу рахування~$\theta_{\text{О}}$ визначається так:
 			\begin{IEEEeqnarray}{c}
 			\label{eq:theta-o}
-				\theta_{\text{О}} = \frac{\theta}{N},
+				\theta_{\text{0}} = \frac{\theta_{\text{осн}}}{N},
 			\end{IEEEeqnarray}
 			де~$N$~— сума середнього числа~$N_{i}$ звернень до~основних операторів~$S_{\text{О}}$, тобто:
 			\begin{IEEEeqnarray}{c}
-				N = \sum_{i = 1}^{V_{\text{О}i}} n_i,
+				N = \sum_{i = 1}^{V_{\text{О}i}} n_i.
 			\end{IEEEeqnarray}
 
 			Отже, спочатку обчислюємо суму середнього числа звернень до основних операторів~$N$:
 			\begin{IEEEeqnarray*}{rCl}
-				N = \frac{10000 + 8550 + 9000 + 250 + 750 + 750 + 450 + 700}{679} = \frac{30450}{679} \approx \num{48.85}.
+				N = \sum_{i = 1}^{V_{\text{О}i}} n_i = \num{4.58} + \num{0.03} + \num{0.46} + \num{1.03} + \num{3.09} + \num{3.09} + \num{0.44} + \num{1.03} = \num{13.75}.
 			\end{IEEEeqnarray*}
 			Підставляємо отримане значення у~формулу~\eqref{eq:theta-o} і~знаходимо середню трудоміскістість етапу рахування:
 			\begin{IEEEeqnarray*}{rCl}
-				\theta_{\text{О}} = \frac{790500}{679} \cdot \frac{679}{30450} = \frac{790500}{30450} \approx \num{25.96}.
+				\theta_{0} = \frac{\num{451.55}}{\num{13.75}} = \num{32.85}.
 			\end{IEEEeqnarray*}
-			Отже, знайшли значення середньої трудомісткості етапу рахування~$\theta_{\text{О}} = \num{25.96}$.
+			Отже, знайшли значення середньої трудомісткості етапу рахування~$\theta_{\text{О}} = \num{32.85}$.
 
 	\section{Висновок}
 		Виконуючи дану лабораторну роботу, ми~вивчили методі оцінки трудомісткості алгоритмів. 
