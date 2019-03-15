@@ -7,6 +7,13 @@ y03s01/system-software/term-paper-01/01-solution/*.spec
 ## Archive-packaged work
 y03s01/system-software/term-paper-01/01-solution/*.7z
 
+# Python
+## Virtual envirnonments
+.env
+.venv
+env/
+venv/
+
 # TeX
 
 ## Core latex/pdflatex auxiliary files:
