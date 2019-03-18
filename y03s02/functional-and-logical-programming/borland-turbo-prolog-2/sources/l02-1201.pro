@@ -1,3 +1,0 @@
-goal
-	write("Hello, world!").
-
