@@ -1,0 +1,476 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{IEEEtrantools}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{%
+	label*      = {\arabic*.},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[itemize]{%
+	label*      = {—},
+	leftmargin  = *,
+	labelindent = \parindent,
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[description]{%
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{%
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{%
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{%
+	labelformat = simple,
+	labelformat = brace,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{%
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newtcblisting[
+	auto counter, 
+	list inside, 
+	number within = section,
+]{listingpython}[3][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {%
+		linenos,
+		tabsize = 4,
+		breaklines,
+		% breakanywhere,
+		fontsize = \footnotesize,
+		autogobble
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 1pt, % orig = 0pt
+	bottomrule       = 1pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},
+	%
+	#1
+}
+
+\newtcbinputlisting[auto counter, list inside, number within = section]{\inputpython}[4][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {%
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakbytokenanywhere,
+		fontsize = \footnotesize,
+	},
+	%
+	% empty,
+	sharp corners,
+	colframe         = black,
+	colback          = black!0,
+	leftrule         = 0em,
+	rightrule        = 0em,
+	toprule          = 0pt, % orig = 0pt
+	bottomrule       = 0pt, % orig = 0pt
+	titlerule        = 0.5pt,
+	colbacktitle     = black!0,
+	coltitle         = black,
+	toptitle         = 0.3em,
+	bottomtitle      = 0.1em,
+	borderline north = {1pt}{0pt}{black},
+	borderline south = {1pt}{0pt}{black},
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	left = 0em,
+	right = 0em,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4},
+	%
+	#1
+}
+
+% Customize minted
+\usepackage{minted}
+\setmintedinline{%
+	style = bw,
+	breaklines,
+}
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Sideways table
+\usepackage{pdflscape}
+%%%
+
+%%% Wrap text after sideways table
+\usepackage{afterpage}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{%
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustments
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{{\addfontfeatures{LetterSpace = 8, Kerning = Off}#1}}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\progname}[1]{\texttt{#1}}
+\newcommand{\modulename}[1]{\texttt{#1}}
+%%%
+
+%%% Custom math commands
+\newcommand{\longvar}[1]{\mathit{#1}}
+%%%
+
+\begin{document}
+
+\begin{titlepage}
+		\begin{center}
+			Міністерство освіти і~науки України\\
+			Національний авіаційний університет\\
+			Навчально-науковий інститут комп'\-ютерних інформаційних технологій\\
+			Кафедра комп'\-ютеризованих систем управління
+
+			\vspace{\fill}
+				Лабораторна робота №3\\
+				з~дисципліни «Комп'\-ютерні системи»\\
+				на~тему «Вивчення роботи багатопроцесорних обчислювальних систем»\\
+				Варіант~№3
+
+			\vspace{\fill}
+
+			\begin{flushright}
+				Виконав:\\
+				студент \allcaps{ННІКІТ}\\
+				групи СП-325\\
+				Клокун В.\,Д.\\
+				Перевірив:\\
+				Ковальов М.\,О.
+			\end{flushright}
+
+			Київ 2019
+		\end{center}
+	\end{titlepage}
+
+	\section{Мета роботи}
+		Закріплення теоретичних знань зі~структури багатопроцесорних ОС.
+
+	\section{Загальні теоретичні відомості}
+		Передумовою для створення обчислювальної системи є~мікромініатюризація компонентів схем (інтегральна технологія), підвищення їх~надійності, зниження вартості та~енергоспоживання. Все це~дозволяє об’єднати в~одному апаратурному комплексі більше елементів, ніж у~звичайних ЕОМ, і~одержати збільшення швидкодії не~тільки за~рахунок підвищення швидкостей окремих елементів і~скорочення довжин з’єднань, але й~за рахунок ускладнення структури системи.
+
+		Багатопроцесорні обчислювальні системи можна розділити на~багатопроцесорні обчислювальні системи з~роздільним керуванням (тип М1), з~загальним керуванням (тип М2), та~матричні обчислювальні системи (тип М3).
+
+		На рис. 1 зображена багатопроцесорна обчислювальна система типу М1 із~роздільним керуванням. Система вміщує N процесорів, кожний з~яких має свій пристрій керування, арифметико-логічний пристрій та~пристрій пам’яті. Всі процесори зв’язані між собою через загальну пам’ять і~з~нею ж~зв’язані спільні для всіх процесорів канали зовнішнього обміну. Загальна пам’ять~— це~частина внутрішньої пам’яті системи. Можливо, що~пам’ять в~складі кожного процесора відсутня або являє собою надоперативну пам’ять. Тоді відповідно загальне поле пам’яті містить або всі ступені внутрішньої пам’яті, або головну пам’ять і~велику пам’ять, або тільки велику пам’ять.
+
+		Можливі і~такі побудови обчислювальних систем типу М1, в~яких загальної внутрішньої пам’яті взагалі немає, а~обмін інформації йде через окремі ланцюги. При цьому загальні канали адресуються до~всієї внутрішньої пам’яті системи, указуючи як~адресу звернення, номер процесора та~адресу пам’яті.
+
+		Обчислювальні системи типу М1 називають системами з~множинним потоком команд і~множинним потоком даних (МКМД). Такі системи краще всього пристосовані до~використання паралелізму незалежних гілок. Суть цього виду паралелізму полягає в~тому, що~в~програмі розв’язання великої задачі на~окремих етапах можна виділити незалежні частини гілки, які можуть виконуватися паралельно (одночасно одна з~одною).
+
+		Для системи М1 виконання гілки доручається відповідному процесору і~можливості обчислювальної системи будуть використані найкращим чином, якщо число незалежних гілок задачі (програми) буде точно дорівнювати або буде кратним числу процесорів у~системі.
+
+		Окрім того, важливо, щоб усі гілки програми, які входять до~одного й~того ж~ярусу, були б~по можливості однакової довжини (трудомісткості) та~щоб ця~довжина була б~достатньо великою.
+
+		Кратність ширини ярусів графа кількості процесорів може бути отримана тільки в~разі збігу майже неймовірних обставин.
+
+		На таку ситуацію можна розраховувати або у~спеціалізованій системі, яка побудована для розв’язання певної задачі (класу задач), або як~на результат спеціального перетворення програми розв’язання задачі.
+
+		Тому ОС~типу М1 з~великою кількістю процесорів використовуються для досягнення високої системної продуктивності, тобто продуктивності, яка досягається при розв’язанні сукупності задач користувача.
+
+		Основною позитивною якістю даних ОС~є потенційно дуже велика взаємодія процесорів. Великий недолік полягає у~тому, що~загальна пам’ять може бути потрібна одночасно різним процесорам. У~таких випадках виникають затримки з~доступом до~пам’яті: тривалість подібних затримок, яка називається часом конфліктів пам'\-яті, може зростати зі~збільшенням кількості процесорів.
+
+		На рис. 2 наведено можливий варіант обчислювальної системи типу М2 із~загальним керуванням, яка орієнтована на~паралелізм суміжних операцій.
+
+		Під загальним керуванням зібрано: пристрій управління, N арифметико-логічних процесорів, кожний з~них може мати свою невелику пам'\-ять, але може і~не~мати її. В~основному процесори працюють над загальною пам'\-яттю, пристроєм керування якої вважаються інструкції.
+
+		Є два принципових варіанти організації роботи такої системи. Перший варіант (тип М2.1.) полягає в~тому, що~пристрій керування зчитує з~пам'\-яті інструкції «вперед» зі~швидкістю, яка набагато перевищує швидкість виконання однієї інструкції одним процесором; прочитавши інструкцію, аналізує, чи~є умови для того, щоб почати її~виконання, а~якщо є, то~доручає її~виконання будь-якому вільному процесору (але першому, який вивільниться, якщо всі вони були зайняті) та~аналізує наступну інструкцію і~т. ін.
+
+		Перегляд програми «вперед» та~виконання окремих її~інструкцій може продовжуватись і~у~тому випадку, коли з'\-ясовується, що~виконання чергової інструкції потрібно відкласти. Інструкції, виконання яких відкладено, накопичуються у~буфері пристрою керування.
+
+		В другому варіанті (тип М2.2.) пристрій керування зчитує з~пам'\-яті безпосередньо вектори-інструкції (VLIW-структури ОС), один вектор-інструкція містить N компонентів~— за~числом процесорів у~системі. Кожна з~них вказує, яку операцію повинен виконувати відповідний процесор.
+
+		Для ОС~типу М2.1. аналіз програми і~організація паралельних обчислень проводиться пристроєм керування безпосередньо на~етапі виконання програми (методом інтерпретації), для ОС~типу М2.2.~— на~етапі програмування під час трансляції програми. Зрозуміло, що~оптимізація програми методом трансляції може бути виконана більш ефективно, ніж інтерпретація. Окрім того, при виконанні програми в~ОС типу М2.1. додатковий час буде витрачатись на~аналіз програми.
+
+		Недоліком обчислювальної системи типу М2.2. є~залежність часу виконання будь-якого вектора-інструкції від тривалості виконання самої тривалої операції в~ньому.
+
+		Обчислювальні системи типу М2 орієнтовані на~паралелізм суміжних операцій. Його суть полягає в~наступному. Під час виконання програми зустрічаються ситуації, коли вихідні дані для деякої і-ї операції формуються не~під час виконання попередньої $(i-1)$-ї операції, а~раніше~— під час виконання, наприклад $(i-2)$-ї чи~$(i-3)$-ї операції. Тоді можна сполучити час виконання $i$-ї операції з~виконанням $(i-2)$-ї чи~$(i-3)$-ї операції.
+
+		Кількість процесорів у~системах типу М2 не~робиться більше ніж 2–6, оскільки глибина паралелізму суміжних операцій звичайно невелика.
+
+		Характерною особливістю систем типу М2 є~той факт, що, незважаючи на~наявність загального для усіх N процесорів пристрою керування, усі вони управляються різними інструкціями чи~різними компонентами вектора-інструкції.
+
+		Системи типу М2 висувають певні вимоги до~пам’яті. У~першому варіанті вимагається висока швидкодія пам’яті (щоб читати інструкції швидше, ніж йде їх~виконання), у~другому вимагається широкий формат звернень до~пам’яті (щоб за~одно звернення прочитати один вектор-інструкцію).
+
+		«Висока швидкодія» пам’яті~— це~час звернення до~пам’яті, приблизно в~N разів менше, ніж час виконання операції у~процесорі; «широкий формат» пам’яті~— це~можливість вибірки орієнтовно N слів за~одно звертання.
+
+		Принцип побудови обчислювальних систем типу М3 наведено на~рис 3. Загальний пристрій керування роздає всім N процесорам однакові команди для кожного кроку. Всі процесори виконують одну і~ту~ж~операцію~— кожен над своїми даними. Системи типу М3 називають матричними системами (або з~матричним процесором), а~самі процесори~— процесорними елементами матричного процесора.
+
+		Число процесорних елементів у~матричному процесорі може досягати значної кількості.
+
+		Матричні обчислювальні системи орієнтовані на~розв’язання задач з~природним паралелізмом. Такі задачі зводяться до~операцій над багатомірними векторами, матрицями та~іншими аналогічними об’єктами. Кожен з~цих об’єктів може бути поданий сукупністю чисел: вектора~— своїми компонентами, матриць~— своїми елементами. Більшість операцій при цьому~— сукупності однакових операцій над відповідними парами чисел (елементами) двох аналогічних об’єктів. Наприклад, складання двох векторів полягає в~додаванні відповідних компонент векторів. Очевидно, що~всі ці~операції складання можуть бути виконані паралельно і~незалежно одна від одної.
+
+	\section{Хід роботи}
+		Вихідними даними для лабораторної роботи є~арифметичний вираз. Для варіанту~№3 він виглядає так:
+		\begin{IEEEeqnarray}{rCl}
+			(A + B) \mathbin{/} (C + D \cdot E) + F + (G + H) \mathbin{/} K \cdot L.
+		\end{IEEEeqnarray}
+		За даним виразом складаємо дерево арифметичного виразу~(рис.~\ref{fig:expression-tree}).
+
+		\begin{figure}[!htbp]
+			\centering
+			\begin{tikzpicture}[]
+				\tikzset{main node/.style={circle,draw,minimum size=2em}}
+				\tikzset{every label/.style={label position=left}}
+				\node[main node] (l05-a) {$A$};
+				\node[main node, right = 1em of l05-a] (l05-b) {$B$};
+				\node[main node, right = 1em of l05-b] (l05-c) {$C$};
+				\node[main node, right = 1em of l05-c] (l05-d) {$D$};
+				\node[main node, right = 1em of l05-d] (l05-e) {$E$};
+				\node[main node, right = 1em of l05-e] (l05-f) {$F$};
+				\node[main node, right = 1em of l05-f] (l05-g) {$G$};
+				\node[main node, right = 1em of l05-g] (l05-h) {$H$};
+				\node[main node, right = 1em of l05-h] (l05-k) {$K$};
+				\node[main node, right = 1em of l05-k] (l05-l) {$L$};
+
+				\node[main node, label={$t_3$}, below right = 2em and 0.45em of l05-a]  (l04-plus) {$+$};
+				\node[main node, label={$t_1$}, below right = 2em and 0.45em of l05-d]  (l04-mul) {$\cdot$};
+				\node[main node, label={$t_4$}, below right = 2em and 0.45em of l05-g]  (l04-plus2) {$+$};
+				\node[main node, label={$t_2$}, below right = 2em and 0.45em of l05-k]  (l04-mul2) {$\cdot$};
+
+				\node[main node, label={$t_6$}, below left  = 2em and 0.45em of l04-mul]  (l03-plus) {$+$};
+				\node[main node, label={$t_5$}, below left  = 2em and 0.45em of l04-mul2]  (l03-div) {$/$};
+
+				\node[main node, label={$t_8$}, below left  = 2em and 0.45em of l03-plus] (l02-div) {$/$};
+				\node[main node, label={$t_7$}, below left  = 2em and 0.45em of l03-div] (l02-plus) {$+$};
+
+				\node[main node, label={$S$}, label position=below, below left  = 2em and 7em of l02-plus] (root-plus) {$+$};
+
+				\path[draw]
+				(root-plus) edge node {} (l02-div)
+				            edge node {} (l02-plus)
+				(l02-div)   edge node {} (l03-plus)
+				            edge node {} (l04-plus)
+				(l02-plus)  edge node {} (l03-div)
+				            edge node {} (l05-f)
+				(l03-plus)  edge node {} (l04-mul)
+				            edge node {} (l05-c)
+				(l03-div)   edge node {} (l04-mul2)
+				            edge node {} (l04-plus2)
+				(l04-plus)  edge node {} (l05-a)
+				            edge node {} (l05-b)
+				(l04-mul)   edge node {} (l05-d)
+				            edge node {} (l05-e)
+				(l04-plus2) edge node {} (l05-g)
+				            edge node {} (l05-h)
+				(l04-mul2)  edge node {} (l05-k)
+				            edge node {} (l05-l)
+				;
+
+			\end{tikzpicture}
+			\caption{Дерево арифметичного виразу $(A + B) \mathbin{/} (C + D \cdot E) + F + (G + H) \mathbin{/} K \cdot L$}
+			\label{fig:expression-tree}
+		\end{figure}
+
+	\section{Висновок}
+		Виконуючи дану лабораторну роботу, ми~закріпили теоретичні знання зі~структури багатопроцесорних ОС. 
+
+\end{document}
+
