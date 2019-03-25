@@ -183,8 +183,8 @@
 \tcbuselibrary{skins}
 
 \newtcblisting[
-	auto counter, 
-	list inside, 
+	auto counter,
+	list inside,
 	number within = section,
 ]{listingpython}[3][]{%
 	minted language = python,
@@ -431,9 +431,9 @@
 				\node[main node, right = 1em of l05-k] (l05-l) {$L$};
 
 				\node[main node, label={$t_3$}, below right = 2em and 0.45em of l05-a]  (l04-plus) {$+$};
-				\node[main node, label={$t_1$}, below right = 2em and 0.45em of l05-d]  (l04-mul) {$\cdot$};
+				\node[main node, label={$t_1$}, below right = 2em and 0.45em of l05-d]  (l04-mul) {$\times$};
 				\node[main node, label={$t_4$}, below right = 2em and 0.45em of l05-g]  (l04-plus2) {$+$};
-				\node[main node, label={$t_2$}, below right = 2em and 0.45em of l05-k]  (l04-mul2) {$\cdot$};
+				\node[main node, label={$t_2$}, below right = 2em and 0.45em of l05-k]  (l04-mul2) {$\times$};
 
 				\node[main node, label={$t_6$}, below left  = 2em and 0.45em of l04-mul]  (l03-plus) {$+$};
 				\node[main node, label={$t_5$}, below left  = 2em and 0.45em of l04-mul2]  (l03-div) {$/$};
@@ -441,9 +441,12 @@
 				\node[main node, label={$t_8$}, below left  = 2em and 0.45em of l03-plus] (l02-div) {$/$};
 				\node[main node, label={$t_7$}, below left  = 2em and 0.45em of l03-div] (l02-plus) {$+$};
 
-				\node[main node, label={$S$}, label position=below, below left  = 2em and 7em of l02-plus] (root-plus) {$+$};
+				\node[main node, below left  = 2em and 7em of l02-plus] (root-plus) {$+$};
+
+				\node[main node, below = 2em of root-plus] (root-S) {$S$};
 
 				\path[draw]
+				(root-S)    edge node {} (root-plus)
 				(root-plus) edge node {} (l02-div)
 				            edge node {} (l02-plus)
 				(l02-div)   edge node {} (l03-plus)
@@ -464,13 +467,24 @@
 				            edge node {} (l05-l)
 				;
 
+				%\path[dashed] (current bounding box.west) -- (current bounding box.east);
+				\node [below left = 0em and 2em of l04-plus] (l04) {Ярус 1};
+				\node [below = 2em of l04] (l03) {Ярус 2};
+				\node [below = 2em of l03] (l02) {Ярус 3};
+				\node [below = 2em of l02] (l01) {Ярус 4};
+
+				\draw [dashed] (l04.base east) -- (l04.base east -| l05-l.east);
+				\draw [dashed] (l03.base east) -- (l03.base east -| l05-l.east);
+				\draw [dashed] (l02.base east) -- (l02.base east -| l05-l.east);
+				\draw [dashed] (l01.base east) -- (l01.base east -| l05-l.east);
+
 			\end{tikzpicture}
 			\caption{Дерево арифметичного виразу $(A + B) \mathbin{/} (C + D \cdot E) + F + (G + H) \mathbin{/} K \cdot L$}
 			\label{fig:expression-tree}
 		\end{figure}
 
 	\section{Висновок}
-		Виконуючи дану лабораторну роботу, ми~закріпили теоретичні знання зі~структури багатопроцесорних ОС. 
+		Виконуючи дану лабораторну роботу, ми~закріпили теоретичні знання зі~структури багатопроцесорних ОС.
 
 \end{document}
 
