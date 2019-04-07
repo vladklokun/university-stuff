@@ -1,18 +1,23 @@
+# -*- coding: utf-8 -*-
 import argparse
+import datetime
 
 import numpy as np
+import pandas as pd
+import tabulate
+
 
 class ProbabilityMatrix(object):
     def __init__(self, fp_pm, fp_ck, fp_cl, fp_fmap):
         self.prob_matrix = self.load_pm(fp_pm)
-        self.coeffs_k    = self.load_ck(fp_ck)
-        self.coeffs_l    = self.load_cl(fp_cl)
+        self.coeffs_k = self.load_ck(fp_ck)
+        self.coeffs_l = self.load_cl(fp_cl)
         self.file_vertice_map = self.load_fvmap(fp_fmap)
 
-        self.eq_system   = self.build_eq_system()
-        self.n_vals_all  = self.solve_eq_system()
-        self.n_vals_op   = self.get_n_vals_op()
-        self.n_vals_io   = self.get_n_vals_io()
+        self.eq_system = self.build_eq_system()
+        self.n_vals_all = self.solve_eq_system()
+        self.n_vals_op = self.get_n_vals_op()
+        self.n_vals_io = self.get_n_vals_io()
         self.theta_primary = self.calc_theta_primary()
         self.avg_calls_all_files = self.calc_avg_calls_all_files()
         self.avg_infocount_all_files = self.calc_avg_infocount_all_files()
@@ -47,7 +52,7 @@ class ProbabilityMatrix(object):
         return d
 
     def build_eq_system(self):
-        m = self.prob_matrix # load probability matrix
+        m = self.prob_matrix  # load probability matrix
         if args.p:
             print('m = {}'.format(m))
 
@@ -55,7 +60,7 @@ class ProbabilityMatrix(object):
         if args.p:
             print('m_t = {}'.format(m_t))
 
-        np.fill_diagonal(m_t, -1) # fill diagonal with '-1'
+        np.fill_diagonal(m_t, -1)  # fill diagonal with '-1'
         if args.p:
             print('m_t_filled = {}'.format(m_t))
 
@@ -69,7 +74,7 @@ class ProbabilityMatrix(object):
 
     def solve_eq_system(self):
         matrix, rhs = self.eq_system
-        x = np.linalg.solve(matrix, rhs) # since eq_sys is a tuple, unpack it
+        x = np.linalg.solve(matrix, rhs)  # since eq_sys is a tuple, unpack it
 
         if args.p:
             print('x = {}'.format(x))
@@ -160,16 +165,55 @@ class ProbabilityMatrix(object):
             print('theta_0 = {}'.format(theta_0))
         return theta_0
 
+    def dump_eq_sys_coeffs(self, filename):
+        eq_system_coeffs, eq_system_rhs = self.eq_system
+
+        # Since we need to concatenate RHS to a 2-D matrix,
+        # we create an NP Array from 1-D list and wrap it in another list
+        # to make it a 1-column matrix (vertical vector)
+        eq_system_rhs = np.array([eq_system_rhs])
+        col_names = [
+            'n_{a1}', 'n_{b1}',
+            'n_{a2}', 'n_{b2}',
+            'n_{a3}', 'n_{b3}',
+            'n_{a4}', 'n_{b4}',
+            'n_{a5}', 'n_{b5}',
+            'n_{a6}', 'n_{b6}',
+            'n_{a7}', 'n_{b7}',
+            'n_{a8}', 'n_{b8}',
+            '= x'
+        ]
+        d = np.concatenate((eq_system_coeffs, eq_system_rhs.T), axis=1)
+        df = pd.DataFrame(
+            data=d,
+            columns=col_names
+        )
+        s = tabulate.tabulate(df, headers='keys')
+        with open(filename, 'w') as f:
+            f.write(s)
+
+        print('Equation system saved to file {}.'.format(filename))
+
+        return
+
+
 def main(args):
     with open(args.prob_matrix) as pm, open(args.coeffs_k) as ck,\
-    open(args.coeffs_l) as cl, open(args.filemap) as fmap:
-         pm = ProbabilityMatrix(pm, ck, cl, fmap)
+            open(args.coeffs_l) as cl, open(args.filemap) as fmap:
+        pm = ProbabilityMatrix(pm, ck, cl, fmap)
+
+    # filename = '05-res-eq-sys.txt'
+    time = datetime.datetime.utcnow()
+    time_str = time.strftime('%Y-%m-%dT%H%M%S')
+    filename = '05-res-eq-sys-' + time_str + '.txt'
+    pm.dump_eq_sys_coeffs(filename)
 
     print('n_vals_op = {},\nn_vals_io = {}'.format(pm.n_vals_op, pm.n_vals_io))
     print('theta_primary = {}'.format(pm.calc_theta_primary()))
     print('N_h = {}'.format(pm.calc_avg_calls_all_files()))
     print('theta_h = {}'.format(pm.calc_avg_infocount_all_files()))
     print('theta_0 = {}'.format(pm.calc_theta_0()))
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
