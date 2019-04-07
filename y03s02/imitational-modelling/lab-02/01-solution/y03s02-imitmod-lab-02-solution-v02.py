@@ -171,21 +171,20 @@ class SystemType2(object):
 
 
 def main():
+    runtime = int(input('Скільки часу моделювати? t = '))
+    n_cnt = int(input('Скільки незалежних підсистем моделювати? n_cnt = '))
     # Завдання 1
     print('\n# Завдання №1: система з незалежними підсистемами')
-
-    # Кількість незалежних підсистем в системі
-    INDEP_SUBSYS_CNT = 10
 
     # Створюємо незалежні підсистеми
     subsystems = [
         Subsystem(p_faultless=random.uniform(0.8, 0.9))
-        for _ in range(INDEP_SUBSYS_CNT)
+        for _ in range(n_cnt)
     ]
     # Створюємо систему з незалежних підсистем
     system1 = SystemType1(subsystems)
     # Запускаємо її
-    system1.run(time=10)
+    system1.run(time=runtime)
 
     # Завдання 2
     print('\n# Завдання №2: система із залежними підсистемами')
@@ -203,7 +202,7 @@ def main():
         ),
     )
     # Запускаємо її
-    system2.run(time=10)
+    system2.run(time=runtime)
 
 
 if __name__ == '__main__':
