@@ -1,9 +1,10 @@
-#! /usr/bin/env python3 
+#!/usr/bin/env python3
 
-import random # random.uniform()
+import random  # random.uniform()
 
-class Subsystem:
-    def __init__(self, p_faultless = 0.0, failed = False):
+
+class Subsystem(object):
+    def __init__(self, p_faultless=0.0, failed=False):
         self.p_faultless = p_faultless
         self.failed = failed
 
@@ -14,17 +15,19 @@ class Subsystem:
         self.failed = True
 
     def print_info(self):
-        print('P(faultless) = {}, Failed = {}'.format(self.p_faultless, self.failed))
+        print('P(faultless) = {}, Failed = {}'
+              .format(self.p_faultless, self.failed))
 
     def has_failed(self):
         return self.failed
 
-class System:
-    def __init__(self, subsystems = []):
+
+class System(object):
+    def __init__(self, subsystems=[]):
         self.subsystems = subsystems
 
     def add_subsystem(self, subsystem):
-        subsystems.append(subsystem)
+        self.subsystems.append(subsystem)
 
     def print_state(self):
         state = [s.has_failed() for s in self.subsystems]
@@ -42,12 +45,13 @@ class System:
             self.run_round()
             self.print_state()
 
+
 def main():
     subsystems = [Subsystem(random.uniform(0.9, 1.0)) for x in range(10)]
 
     sys1 = System(subsystems)
     sys1.run_rounds(20)
 
+
 if __name__ == '__main__':
     main()
-
