@@ -333,35 +333,43 @@
 		Ознайомитись з~алгоритмом побудови ряду розподілу дискретних випадкових величин та його графічним зображенням; побудувати імітаційну модель отримання системи дискретних випадкових величин.
 
 	\section{Хід роботи}
-		\paragraph{Завдання} В партії з~$n_1$ деталей є~$n_2$ стандартних деталей. Навмання з усієї партії вибирається 2~деталі. Побудувати ряд розподілу числа~$X$~— числа стандартних деталей серед відібраних. Скористатись гіпергеометричним розподілом.
+		Для виконання роботи поставлені такі завдання:
+		\begin{enumerate}
+			\item Побудувати імітаційну модель отримання системи дискретних випадкових величин (СДВВ). Відповідно до варіанту завдання побудувати ряд розподілу дискретної випадкової величини~$X$.
+			\item На основі СДВВ в створеній програмі побудувати многокутник розподілу та графік функції розподілу~$F(x)$.
+		\end{enumerate}
+
+		\paragraph{Завдання за варіантом} В партії з~$n_1$ деталей є~$n_2$ стандартних деталей. Навмання з усієї партії вибирається 2~деталі. Побудувати ряд розподілу числа~$X$~— числа стандартних деталей серед відібраних. Скористатись гіпергеометричним розподілом.
+
+
 
 		Під час виконання роботи була розроблена імітаційна модель для виконання поставлених завдань і реалізована у вигляді відповідного програмного засобу (ліст.~\ref{lst:full-solution}). Реалізований програмний засіб був запущений на~моделювання і~надавав стабільний і~очікуваний результат~(рис.~\ref{fig:program_scr}).
 
 		\begin{figure}[!htbp]
 			\centering
-			\includegraphics[height = 4\baselineskip]{./assets/y03s02-imitmod-lab-03-p00.png}
+			\includegraphics[height = 6\baselineskip]{./assets/y03s02-imitmod-lab-03-p00.png}
 			\caption{Результат роботи програми: вікно терміналу}
 			\label{fig:program_scr}
 		\end{figure}
 
-		В результаті роботи програма будує ряд розподілу числа~$X$ у~вигляді графіку функції ймовірностей~(рис.~\ref{subfig:pmf}), а~також многокутник розподілу~(рис.~\ref{subfig:dist-polygon}).
+		У результаті роботи програма будує ряд розподілу у вигляді таблиці. Перевіримо його значення:
+		\begin{IEEEeqnarray*}{rCl}
+			\sum_{i=1}^{n} P_i = \num{0.35} + \num{0.50} + \num{0.15} = 1.
+		\end{IEEEeqnarray*}
+		Як бачимо, ймовірності сходяться. Також програма будує графік функції ймовірностей~(рис.~\ref{fig:pmf}), а~також многокутник розподілу~(рис.~\ref{fig:dist-polygon}).
 
 		\begin{figure}[!htbp]
 			\centering
-			\begin{subfigure}[t]{0.5\columnwidth}
-				\centering
-				\includegraphics[width = \columnwidth]{./assets/y03s02-imitmod-lab-03-p01.png}
-				\caption{}
-				\label{subfig:pmf}
-			\end{subfigure}%
-			\begin{subfigure}[t]{0.5\columnwidth}
-				\centering
-				\includegraphics[width = \columnwidth]{./assets/y03s02-imitmod-lab-03-p02.png}
-				\caption{}
-				\label{subfig:dist-polygon}
-			\end{subfigure}
-			\caption{Графіки, створені програмою: \subref{subfig:pmf}~— графік розподіл ймовірностей, \subref{subfig:dist-polygon}~— многокутник розподілу}
-			\label{fig:plots}
+			\includegraphics[height = 14\baselineskip]{./assets/y03s02-imitmod-lab-03-p01.png}
+			\caption{Графік функції ймовірностей}
+			\label{fig:pmf}
+		\end{figure}%
+
+		\begin{figure}[!htbp]
+			\centering
+			\includegraphics[height = 14\baselineskip]{./assets/y03s02-imitmod-lab-03-p02.png}
+			\caption{Многокутник розподілу}
+			\label{fig:dist-polygon}
 		\end{figure}
 
 		\section{Висновок}
