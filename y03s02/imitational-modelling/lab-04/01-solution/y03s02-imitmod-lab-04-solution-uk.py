@@ -145,15 +145,15 @@ def run_lab(parent_func, inverted_func, a, b, rand_count=50):
 
 def main():
     # Оголошуємо параметри, дані у завданні варіанта
-    def parent_func(x): return 2 + 3*x
-    a, b = -0.5, -0.3
+    def parent_func(x): return x**3
+    a, b = 0.5, 0.9
 
     # Завдання 1: визначити обернену функцію
     #
-    # \xi = \sqrt(x)
-    # \xi^2 = x
-    # x = \xi^2
-    def inv_func(x): return (x-2)/3
+    # \xi = x^3
+    # \xi^{1/3} = x
+    # x = \xi^{1/3}
+    def inv_func(x): return x**(1/3)
 
     # Запустити моделювання із заданими у варіанті параметрами та 100
     # випадковими величинами
