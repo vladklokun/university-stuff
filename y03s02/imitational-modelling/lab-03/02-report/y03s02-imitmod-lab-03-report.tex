@@ -192,26 +192,19 @@
 		linenos,
 		tabsize = 4,
 		breaklines,
-		% breakanywhere,
+		breakbytokenanywhere,
 		fontsize = \footnotesize,
-		autogobble
 	},
-	%
-	% empty,
+	empty,
 	sharp corners,
-	colframe         = black,
-	colback          = black!0,
-	leftrule         = 0em,
-	rightrule        = 0em,
-	toprule          = 1pt, % orig = 0pt
-	bottomrule       = 1pt, % orig = 0pt
-	titlerule        = 0.5pt,
-	colbacktitle     = black!0,
-	coltitle         = black,
-	toptitle         = 0.3em,
-	bottomtitle      = 0.1em,
-	borderline north = {1pt}{0pt}{black},
-	borderline south = {1pt}{0pt}{black},
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
 	before skip      = \intextsep,
 	after  skip      = \intextsep,
 	title            = {Лістинг \thetcbcounter: #2},
@@ -237,22 +230,16 @@
 		breakbytokenanywhere,
 		fontsize = \footnotesize,
 	},
-	%
-	% empty,
+	empty,
 	sharp corners,
-	colframe         = black,
-	colback          = black!0,
-	leftrule         = 0em,
-	rightrule        = 0em,
-	toprule          = 0pt, % orig = 0pt
-	bottomrule       = 0pt, % orig = 0pt
-	titlerule        = 0.5pt,
-	colbacktitle     = black!0,
-	coltitle         = black,
-	toptitle         = 0.3em,
-	bottomtitle      = 0.1em,
-	borderline north = {1pt}{0pt}{black},
-	borderline south = {1pt}{0pt}{black},
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
 	before skip      = \intextsep,
 	after  skip      = \intextsep,
 	title            = {Лістинг \thetcbcounter: #3},
@@ -292,7 +279,8 @@
 }
 %%%
 
-%%% Length adjustments
+%%% Length adjustment
+
 % Set baselineskip, default is 14.5 pt
 \linespread{1.068966} % ~15.5 pt
 \setlength{\emergencystretch}{1em}
