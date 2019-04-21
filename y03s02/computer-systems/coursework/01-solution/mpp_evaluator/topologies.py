@@ -169,13 +169,15 @@ class System(object):
 
     def draw(self):
         """ Draws a graph representation of a system """
-        nx.draw(self.graph)
+        nx.draw_circular(self.graph, with_labels=True)
         plt.show()
 
 
 class LineSystem(System):
+    sys_type = 'Line'
     """ A system with Line topology """
-    def connect_cluster(self, cluster, src_node_label=None, dest_node_label=None):
+    def connect_cluster(self, cluster, src_node_label=None,
+                        dest_node_label=None):
         """ Adds and connects a cluster to the existing system """
         self.add_cluster(cluster)
 
@@ -195,6 +197,8 @@ class LineSystem(System):
 
 class RingSystem(System):
     """ A system with Ring topology """
+
+    sys_type = 'Ring'
     def connect_cluster(self, cluster, src_node_label=None,
                         dest_node_label=None):
         """ Adds and connects a cluster to the existing system """
@@ -256,6 +260,8 @@ class RingSystem(System):
 
 
 class StarSystem(System):
+
+    sys_type = 'Star'
     def connect_cluster(self, cluster, src_node_label=None,
                         dest_node_label=None):
         """ Adds and connects a cluster to the existing system """
@@ -274,3 +280,61 @@ class StarSystem(System):
                 src=(0, src_node_label),
                 dest=(cluster_count-1, dest_node_label)
             )
+
+
+class GridSystem(System):
+    """ """
+
+    sys_type = 'Grid'
+    grid_growth_lut = {
+        0: (None, None),
+        1: (0, None),
+        2: (0, 1),
+        3: (2, 1),
+        4: (1, None),
+        5: (3, 4),
+        6: (2, 3),
+        7: (6, 3),
+        8: (7, 5),
+        9: (4, None),
+        10: (5, 9),
+        11: (8, 10),
+        12: (None, 6),
+        13: (12, 7),
+        14: (13, 8),
+        15: (14, 11),
+        16: (9, None),
+        17: (10, 16),
+        18: (11, 17),
+        19: (15, 18),
+        20: (None, 12),
+        21: (20, 13),
+        22: (21, 14),
+        23: (22, 15),
+        24: (23, 19),
+    }
+
+    def connect_cluster(self, cluster, src_node_label=None,
+                        dest_node_label=None):
+        """ Adds and connects a cluster to the existing system """
+        self.add_cluster(cluster)
+
+        # Determine connection points
+        if src_node_label is None and dest_node_label is None:
+            src_node_label, dest_node_label = self.anchor_node, self.anchor_node
+
+        # Connect clusters
+        cluster_count = len(self.clusters)
+        # We can only connect more than 1 cluster
+        if cluster_count > 1:
+            cluster_nos = self._get_connective_cluster_nos()
+            for c_no in cluster_nos:
+                if c_no is not None:
+                    self.connect_nodes(
+                        src=(cluster_count-1, src_node_label),
+                        dest=(c_no, dest_node_label)
+                    )
+
+    def _get_connective_cluster_nos(self):
+        cluster_count = len(self.clusters)
+        return self.grid_growth_lut[cluster_count]
