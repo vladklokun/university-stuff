@@ -41,6 +41,8 @@ class Cluster(object):
             )
 
     def from_adjlist(self, filename, delimiter=None, nodetype=int):
+        """ Loads a Cluster from its adjacency list stored in a file `filename`
+        """
         with open(filename, 'r') as f:
             graph = nx.parse_adjlist(
                 lines=f,

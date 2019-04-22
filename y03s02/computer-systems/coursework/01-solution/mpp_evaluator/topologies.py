@@ -1,5 +1,4 @@
 import copy
-import math
 
 import networkx as nx  # graph operations
 import numpy as np  # compatibility with to_numpy_matrix()
@@ -183,7 +182,8 @@ class LineSystem(System):
 
         # Determine connection points
         if src_node_label is None and dest_node_label is None:
-            src_node_label, dest_node_label = self.anchor_node, self.anchor_node
+            src_node_label = self.anchor_node
+            dest_node_label = self.anchor_node
 
         # Connect clusters
         cluster_count = len(self.clusters)
@@ -199,6 +199,7 @@ class RingSystem(System):
     """ A system with Ring topology """
 
     sys_type = 'Ring'
+
     def connect_cluster(self, cluster, src_node_label=None,
                         dest_node_label=None):
         """ Adds and connects a cluster to the existing system """
@@ -207,7 +208,8 @@ class RingSystem(System):
 
         # Use pre-set anchors as default connection points
         if src_node_label is None and dest_node_label is None:
-            src_node_label, dest_node_label = self.anchor_node, self.anchor_node
+            src_node_label = self.anchor_node
+            dest_node_label = self.anchor_node
 
         # Connect clusters
         cluster_count = len(self.clusters)
@@ -262,6 +264,7 @@ class RingSystem(System):
 class StarSystem(System):
 
     sys_type = 'Star'
+
     def connect_cluster(self, cluster, src_node_label=None,
                         dest_node_label=None):
         """ Adds and connects a cluster to the existing system """
@@ -269,7 +272,8 @@ class StarSystem(System):
 
         # Determine connection points
         if src_node_label is None and dest_node_label is None:
-            src_node_label, dest_node_label = self.anchor_node, self.anchor_node
+            src_node_label = self.anchor_node
+            dest_node_label = self.anchor_node
 
         # Connect clusters
         cluster_count = len(self.clusters)
@@ -321,7 +325,8 @@ class GridSystem(System):
 
         # Determine connection points
         if src_node_label is None and dest_node_label is None:
-            src_node_label, dest_node_label = self.anchor_node, self.anchor_node
+            src_node_label = self.anchor_node
+            dest_node_label = self.anchor_node
 
         # Connect clusters
         cluster_count = len(self.clusters)

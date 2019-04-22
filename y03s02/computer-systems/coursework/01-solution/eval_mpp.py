@@ -1,6 +1,10 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import argparse
 import multiprocessing as mp
-import os, errno
+import os
+import errno
+import itertools as it
 
 import mpp_evaluator.cluster as mppe_c
 import mpp_evaluator.topologies as mppe_t
@@ -35,17 +39,13 @@ def calc_scaling_stats(system, cluster, anchor_node, node_count):
 
 
 def main(args):
-    if args.outdir:
-        outdir = args.outdir
-    else:
-        outdir = 'out'
-
+    outdir = args.outdir
     anchor_node = args.anchor_node
-    node_count = args.cpu_count
+    node_count = args.cpus
 
     c1 = mppe_c.Cluster()
     # c1.from_edgelist(filename=args.edgelist, delimiter='->')
-    c1.from_adjlist(filename=args.edgelist, delimiter=', ', nodetype=int)
+    c1.from_adjlist(filename=args.adjlist, delimiter=', ', nodetype=int)
 
     line_system = mppe_t.LineSystem()
     ring_system = mppe_t.RingSystem()
@@ -57,23 +57,62 @@ def main(args):
 
     print('Starting calculation. Please, wait.')
 
-    with mp.Pool(processes=len(func_params)) as pool:
-        result = pool.starmap_async(calc_scaling_stats, func_params)
-        system_stats = result.get()
+    if not args.single_process:
+        with mp.Pool(processes=len(func_params)) as pool:
+            result = pool.starmap_async(calc_scaling_stats, func_params)
+            system_stats = result.get()
+    else:
+        system_stats = it.starmap(calc_scaling_stats, func_params)
+
+    print('Calculations are done. Printing results.')
 
     for s in system_stats:
-        print('\n{}'.format(s.system_type))
+        print('\n# {} System'.format(s.system_type))
         s.print()
-        s.to_csv('{}.csv'.format(s.system_type))
+        make_sure_path_exists(outdir)
+        s.to_csv(outdir + '{}.csv'.format(s.system_type))
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('edgelist')
-    parser.add_argument('anchor_node', type=int)
-    parser.add_argument('cpu_count', type=int)
+    parser.add_argument(
+        'adjlist',
+        help='path to adjacency list file'
+    )
 
-    parser.add_argument('outdir')
+    parser.add_argument(
+        '-n',
+        '--anchor_node',
+        type=int,
+        default=0,
+        help=(
+            'label of the anchor node -- the node that connects clusters in '
+            'a system. Default: 0 (integer zero)'
+        )
+    )
+    parser.add_argument(
+        '-c',
+        '--cpus',
+        type=int,
+        default=100,
+        help=(
+            'target CPU count. Scale a system until this many CPUs are there. '
+            'Default: 100'
+        )
+    )
+
+    parser.add_argument(
+        '--outdir',
+        default='out/',
+        help='path, where the results should be stored. Default: "out/"'
+    )
+
+    parser.add_argument(
+        '-s',
+        '--single_process',
+        action='store_true',
+        help='run calculations synchronously in a single process.'
+    )
 
     args = parser.parse_args()
     main(args)
