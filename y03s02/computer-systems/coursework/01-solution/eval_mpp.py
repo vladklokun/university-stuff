@@ -19,13 +19,16 @@ def make_sure_path_exists(path):
             raise
 
 
-def calc_scaling_stats(system, cluster, anchor_node, node_count):
+def calc_scaling_stats(system, cluster, anchor_node, node_count,
+                       draw_graphs=False):
     stats = []
 
     system.anchor_node = anchor_node
     step = 1
     while system.node_count < node_count:
         system.connect_cluster(cluster)
+        if draw_graphs:
+            system.draw()
         stats.append(
             {
                 'step': step,
