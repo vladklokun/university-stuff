@@ -290,14 +290,18 @@ class GridSystem(System):
     """ """
 
     sys_type = 'Grid'
+    # Source cluster: connect_to cluster
+    # E.g: for record "7: (6, 3)" connections to be made:
+    # 7 -> 6
+    # 7 -> 3
     grid_growth_lut = {
         0: (None, None),
         1: (0, None),
-        2: (0, 1),
+        2: (None, 0),
         3: (2, 1),
         4: (1, None),
         5: (3, 4),
-        6: (2, 3),
+        6: (None, 2),
         7: (6, 3),
         8: (7, 5),
         9: (4, None),
@@ -341,5 +345,12 @@ class GridSystem(System):
                     )
 
     def _get_connective_cluster_nos(self):
-        cluster_count = len(self.clusters)
-        return self.grid_growth_lut[cluster_count]
+        cluster_index = len(self.clusters)-1
+        try:
+            connective_clusters = self.grid_growth_lut[cluster_index]
+        except KeyError:
+            raise ValueError(
+                'No look-up values for value {} in Grid look-up table'
+            )
+
+        return connective_clusters
