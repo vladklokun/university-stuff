@@ -108,7 +108,29 @@ graph {
 		c4n8 -- {};
 	}
 
+	c5n1 [pos="04.00, -01.00!", label="34"];
+	c5n2 [pos="05.00, -01.00!", label="35"];
+	c5n3 [pos="03.50, -02.00!", label="36"];
+	c5n4 [pos="04.50, -02.00!", label="37"];
+	c5n5 [pos="05.50, -02.00!", label="38"];
+	c5n6 [pos="03.00, -03.00!", label="39"];
+	c5n7 [pos="04.00, -03.00!", label="40"];
+	c5n8 [pos="05.00, -03.00!", label="41"];
+	subgraph 5 {
+		c5n1:sw -- c5n6:nw;
+		c5n1 -- {c5n3 c5n7 c5n4 c5n2};
+		c5n2 -- {c5n4 c5n8 c5n5};
+		c5n2:se -- c5n7:se;
+		c5n3 -- {c5n4 c5n7 c5n6};
+		c5n4 -- {c5n5 c5n8 c5n7 c5n6};
+		c5n5 -- {c5n7 c5n8};
+		c5n6 -- {c5n7};
+		c5n7 -- {c5n8 };
+		c5n8 -- {};
+	}
+
 	c1n4 -- c2n4 [style = dashed];
 	c1n4 -- c3n4 [style = dashed];
 	c1n4 -- c4n4 [style = dashed];
+	c1n4 -- c5n4 [style = dashed];
 }
