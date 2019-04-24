@@ -1,0 +1,92 @@
+/*
+ * Build using:
+ * neato -Tpdf -O cluster_08.dot
+ *
+ */
+graph {
+	graph [
+		overlap=true,
+		splines=true,
+		margin = "0,0",
+		fontname = "STIX Two Math",
+		esep = "0.5"
+	];
+
+	node [
+		shape=circle,
+		fixedsize=true, // don't allow nodes to change sizes dynamically
+		width=0.5, // relative to the underlying coordinate grid?
+		color="black", // node border color (X11 or HTML colors)
+		fillcolor="white", // node fill color (X11 or HTML colors)
+		fontname = "STIX Two Math",
+	];
+
+	edge [
+	];
+
+	c1n1 [pos="01.00, 02.00!", label="1"];
+	c1n2 [pos="02.00, 02.00!", label="2"];
+	c1n3 [pos="00.50, 01.00!", label="3"];
+	c1n4 [pos="01.50, 01.00!", label="4"];
+	c1n5 [pos="02.50, 01.00!", label="5"];
+	c1n6 [pos="00.00, 00.00!", label="6"];
+	c1n7 [pos="01.00, 00.00!", label="7"];
+	c1n8 [pos="02.00, 00.00!", label="8"];
+	subgraph 1 {
+		c1n1:sw -- c1n6:nw;
+		c1n1 -- {c1n3 c1n7 c1n4 c1n2};
+		c1n2 -- {c1n4 c1n8 c1n5};
+		c1n2:se -- c1n7:se;
+		c1n3 -- {c1n4 c1n7 c1n6};
+		c1n4 -- {c1n5 c1n8 c1n7 c1n6};
+		c1n5 -- {c1n7 c1n8};
+		c1n6 -- {c1n7};
+		c1n7 -- {c1n8 };
+		c1n8 -- {};
+	}
+
+	c2n1 [pos="04.00, 02.00!", label="9"];
+	c2n2 [pos="05.00, 02.00!", label="10"];
+	c2n3 [pos="03.50, 01.00!", label="11"];
+	c2n4 [pos="04.50, 01.00!", label="12"];
+	c2n5 [pos="05.50, 01.00!", label="13"];
+	c2n6 [pos="03.00, 00.00!", label="14"];
+	c2n7 [pos="04.00, 00.00!", label="15"];
+	c2n8 [pos="05.00, 00.00!", label="16"];
+	subgraph 2 {
+		c2n1:sw -- c2n6:nw;
+		c2n1 -- {c2n3 c2n7 c2n4 c2n2};
+		c2n2 -- {c2n4 c2n8 c2n5};
+		c2n2:se -- c2n7:se;
+		c2n3 -- {c2n4 c2n7 c2n6};
+		c2n4 -- {c2n5 c2n8 c2n7 c2n6};
+		c2n5 -- {c2n7 c2n8};
+		c2n6 -- {c2n7};
+		c2n7 -- {c2n8 };
+		c2n8 -- {};
+	}
+
+	c3n1 [pos="01.00, -01.00!", label="17"];
+	c3n2 [pos="02.00, -01.00!", label="18"];
+	c3n3 [pos="00.50, -02.00!", label="19"];
+	c3n4 [pos="01.50, -02.00!", label="20"];
+	c3n5 [pos="02.50, -02.00!", label="21"];
+	c3n6 [pos="00.00, -03.00!", label="22"];
+	c3n7 [pos="01.00, -03.00!", label="23"];
+	c3n8 [pos="02.00, -03.00!", label="24"];
+	subgraph 3 {
+		c3n1:sw -- c3n6:nw;
+		c3n1 -- {c3n3 c3n7 c3n4 c3n2};
+		c3n2 -- {c3n4 c3n8 c3n5};
+		c3n2:se -- c3n7:se;
+		c3n3 -- {c3n4 c3n7 c3n6};
+		c3n4 -- {c3n5 c3n8 c3n7 c3n6};
+		c3n5 -- {c3n7 c3n8};
+		c3n6 -- {c3n7};
+		c3n7 -- {c3n8 };
+		c3n8 -- {};
+	}
+
+	c2n4 -- c1n4 [style = dashed];
+	c3n4 -- c1n4 [style = dashed];
+}
