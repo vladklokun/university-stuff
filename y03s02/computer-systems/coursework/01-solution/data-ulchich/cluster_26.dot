@@ -1,27 +1,46 @@
+/*
+ * Build using:
+ * neato -Tpdf -O 26.dot
+ *
+ */
 graph {
-	overlap=false;
-	splines=true;
+	graph [
+		rank=same,
+		overlap=true,
+		splines=true,
+		margin = "0,0",
+		fontname = "STIX Two Math",
+		fontsize = "10",
+		esep = "0.5"
+	];
+
 	node [
 		shape=circle,
-		fixedsize=true, # don't allow nodes to change sizes dynamically
-		width=0.35, # relative to the underlying coordinate grid?
-		color="black", # node border color (X11 or HTML colors)
-		fillcolor="white", # node fill color (X11 or HTML colors)
+		fixedsize=true, // don't allow nodes to change sizes dynamically
+		width=0.5, // relative to the underlying coordinate grid?
+		color="black", // node border color (X11 or HTML colors)
+		fillcolor="white", // node fill color (X11 or HTML colors)
 		style="filled,solid",
-		fontsize=10
-	]
+		fontname = "STIX Two Math",
+		fontsize=12,
+	];
 
-	1.1 [pos="0,2!", label="1"];
-	1.2 [pos="1,2!", label="2"];
-	1.3 [pos="2,2!", label="3"];
-	1.4 [pos="0,1!", label="4"];
-	1.5 [pos="1,1!", label="5"];
-	1.6 [pos="2,1!", label="6"];
-	1.7 [pos="0,0!", label="7"];
-	1.8 [pos="1,0!", label="8"];
-	1.9 [pos="2,0!", label="9"];
-	subgraph cluster1 {
-		1.1 -- { 1.2 1.4 1.7};
+	edge [
+	];
+
+	1.1 [pos="00, 02!", label="1"];
+	1.2 [pos="01, 02!", label="2"];
+	1.3 [pos="02, 02!", label="3"];
+	1.4 [pos="00, 01!", label="4"];
+	1.5 [pos="01, 01!", label="5"];
+	1.6 [pos="02, 01!", label="6"];
+	1.7 [pos="00, 00!", label="7"];
+	1.8 [pos="01, 00!", label="8"];
+	1.9 [pos="02, 00!", label="9"];
+	subgraph 1 {
+		//label="Кластер 1";
+		1.1 -- { 1.2 1.4};
+		1.1:sw -- 1.7:nw;
 		1.2 -- { 1.4 1.3 };
 		1.3 -- { 1.5 1.6 1.9 } ;
 		1.4 -- { 1.7 } ;
@@ -32,17 +51,17 @@ graph {
 		1.9 -- {}
 	}
 
-	2.1 [pos="0,2!", label="1"];
-	2.2 [pos="1,2!", label="2"];
-	2.3 [pos="2,2!", label="3"];
-	2.4 [pos="0,1!", label="4"];
-	2.5 [pos="1,1!", label="5"];
-	2.6 [pos="2,1!", label="6"];
-	2.7 [pos="0,0!", label="7"];
-	2.8 [pos="1,0!", label="8"];
-	2.9 [pos="2,0!", label="9"];
-	subgraph cluster2 {
-		label="Кластер 2";
+	2.1 [pos="3,2!", label="1"];
+	2.2 [pos="4,2!", label="2"];
+	2.3 [pos="5,2!", label="3"];
+	2.4 [pos="3,1!", label="4"];
+	2.5 [pos="4,1!", label="5"];
+	2.6 [pos="5,1!", label="6"];
+	2.7 [pos="3,0!", label="7"];
+	2.8 [pos="4,0!", label="8"];
+	2.9 [pos="5,0!", label="9"];
+	subgraph 2 {
+		//label="Кластер 2";
 		2.1 -- { 2.2 2.4 2.7};
 		2.2 -- { 2.4 2.3 };
 		2.3 -- { 2.5 2.6 2.9 } ;
@@ -54,17 +73,17 @@ graph {
 		2.9 -- {}
 	}
 
-	3.1 [pos="0,2!", label="1"];
-	3.2 [pos="1,2!", label="2"];
-	3.3 [pos="2,2!", label="3"];
-	3.4 [pos="0,1!", label="4"];
-	3.5 [pos="1,1!", label="5"];
-	3.6 [pos="2,1!", label="6"];
-	3.7 [pos="0,0!", label="7"];
-	3.8 [pos="1,0!", label="8"];
-	3.9 [pos="2,0!", label="9"];
-	subgraph cluster3 {
-		label="Кластер 3";
+	3.1 [pos="6,2!", label="1"];
+	3.2 [pos="7,2!", label="2"];
+	3.3 [pos="8,2!", label="3"];
+	3.4 [pos="6,1!", label="4"];
+	3.5 [pos="7,1!", label="5"];
+	3.6 [pos="8,1!", label="6"];
+	3.7 [pos="6,0!", label="7"];
+	3.8 [pos="7,0!", label="8"];
+	3.9 [pos="8,0!", label="9"];
+	subgraph 3 {
+		//label="Кластер 3";
 		3.1 -- { 3.2 3.4 3.7};
 		3.2 -- { 3.4 3.3 };
 		3.3 -- { 3.5 3.6 3.9 } ;
@@ -76,6 +95,29 @@ graph {
 		3.9 -- {}
 	}
 
-	1.3 -- 2.3;
-	2.3 -- 3.3;
+	4.1 [pos="00, -01!", label="1"];
+	4.2 [pos="01, -01!", label="2"];
+	4.3 [pos="02, -01!", label="3"];
+	4.4 [pos="00, -02!", label="4"];
+	4.5 [pos="01, -02!", label="5"];
+	4.6 [pos="02, -02!", label="6"];
+	4.7 [pos="00, -03!", label="7"];
+	4.8 [pos="01, -03!", label="8"];
+	4.9 [pos="02, -03!", label="9"];
+	subgraph 4 {
+		//label="Кластер 3";
+		4.1 -- { 4.2 4.4 4.7};
+		4.2 -- { 4.4 4.3 };
+		4.3 -- { 4.5 4.6 4.9 } ;
+		4.4 -- { 4.7 } ;
+		4.5 -- { 4.7 } ;
+		4.6 -- { 4.8 4.9} ;
+		4.7 -- { 4.8 } ;
+		4.8 -- { 4.9 } ;
+		4.9 -- {}
+	}
+
+	1.3 -- 2.3 [style = dashed];
+	2.3 -- 3.3 [style = dashed];
+	1.3 -- 4.3 [style = dashed];
 }
