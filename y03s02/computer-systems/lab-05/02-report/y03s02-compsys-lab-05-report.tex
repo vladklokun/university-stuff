@@ -319,6 +319,7 @@
 
 %%% Custom math commands
 \newcommand{\longvar}[1]{\mathit{#1}}
+\newcommand{\sdiv}{\mathbin{/}}
 %%%
 
 \begin{document}
@@ -334,7 +335,7 @@
 				Лабораторна робота №5\\
 				з~дисципліни «Комп'\-ютерні системи»\\
 				на~тему «Архітектура конвеєрних обчислювальних систем»\\
-				Варіант~№8
+				Варіант~№3
 
 			\vspace{\fill}
 
@@ -355,77 +356,132 @@
 		Аналіз структур конвеєрних обчислювальних систем.
 
 	\section{Загальні теоретичні відомості}
+		Конвеєр являє собою процесор, розділений на~$P$ частин (шарів, рядків), виконуючих послідовно етапи кожної обчислювальної задачі (операції). В~той час як~$j$-й~шар процесора виконує $j$-й~етап деякої $k$-ї~задачі, $(j-1)$-й~шар може виконувати $(j-1)$-й~етап $(k+1)$-ї~задачі, $(j-2)$-й~шар може виконувати $(j-2)$-й~етап $(k+2)$-ї~задачі і~так далі, тобто 1-й~шар може у~цей же~час виконувати 1-й~етап $(i+j-1)$-ї~задачі, де~$j = 2, \dots, P$. Таким чином, кожна задача або операція виконується за~$P$ етапів при проходженні усіх $P$ шарів конвеєрного процесора.
+
+		В~обчислювальних системах (ОС) з~конвеєрним процесором може виконуватися одночасно декілька ($P$) операцій по~перетворенню даних, що~відповідає визначенню обчислюваної системі. Проте ці~операції в~будь-який момент часу обов’язково знаходяться на~різних етапах виконання й~у~принципі не~можуть починатися всі одночасно.
+
+		Конвеєрні системи з~роздільним керуванням, орієнтовані на~паралелізм незалежних гілок (тип~К1). На~рис.~\ref{fig:mpp-t01} зображена конвеєрна система з~роздільним керуванням. Вона складається з~$P$ пристроїв керування (ПК)~— по~кількості шарів, на~які розділений конвеєрний процесор. Принципово важливим є~наявність $P$ роздільних вузлів формування адреси наступної інструкції. Можливо, що~в~кожного ПК~є~свої індексні та~базові регістри, регістри ключів захисту та~інші індивідуальні ланцюги. Частина ланцюгів може бути загальної для різних ПК~(наприклад, формувач адреси операндів, дешифратор коду операцій), які використовуються усіма ПК~по~черзі. Ці~загальні ланцюги на~рисунку включені до~складу шарів процесора.
+
+		\begin{figure}[!htbp]
+			\centering
+			\includegraphics[height=9\baselineskip]{./assets/y03s02-compsys-lab-05-p01-mpp-t01.jpg}
+			\caption{}
+			\label{fig:mpp-t01}
+		\end{figure}
+
+		Пристрій керування приєднаний до~шарів конвеєрного процесора через кільцевий комутатор. Комутатор улаштований так, що~в~1-му~такті роботи ОС~до~1-го~шару процесора підключено 1-й~ПК, який починає виконувати свої задачі (операції); в~2-му~такті 1-й~ПК~переключається на~2-й~шар процесора, а~до~1-го~шару підключається 2-й~ПК~і~т.д. У~р-му~такті 1-й~ПК~підключено до~$P$-го~шару процесора, де~завершується виконання 1-ї~задачі (операції), до~$(P-1)$-го~шару підключається 2-й~ПК,..., до~1-го~шару підключено $P$-й~ПК. Після закінчення 1-ї~задачі (операції) 1-й~ПК~в~$(p+1)$-му~такті 1-й~пристрій знову підключається до~1-го~шару процесора, де~починається виконання 2-ї~задачі (операції) і~т.д.
+
+		Система, побудована зазначеним чином, аналогічна за~своїми можливостями $P$-процесорній системі типу~М1 (з~роздільним керуванням) і~орієнтована на~використання паралелізму незалежних гілок.
+
+		Розглянутий конвеєрний процесор є~багатофункціональним, тобто дозволяє виконувати одночасно різні операції. Проте при цьому тривалість такту роботи шарів процесора залежить від виконуваних операцій та~буде визначатися часом виконання самої тривалої операції.
+
+		Конвеєрні системи з~загальним керуванням, орієнтовані на~використання паралелізму суміжних операцій. Пристрій керування (рис.~\ref{fig:mpp-t02}) один, але регістрів для збереження інструкцій (РгІ) стільки ж, скільки шарів є~в~процесорі. Інструкція~1 програми зчитується в~РгІ(1), та~в~1-му~шарі процесора починається виконання. В~наступному такті інструкція~1 передається в~РгІ(2), її~виконання продовжує 2-й~шар процесора, а~до~РгІ(1) зчитується інструкція~2 програми та~в~1-му~шарі конвеєрного процесора починається її~виконання і~т.\,д.
+
+		\begin{figure}[!htbp]
+			\centering
+			\includegraphics[height=14\baselineskip]{./assets/y03s02-compsys-lab-05-p01-mpp-t02.jpg}
+			\caption{}
+			\label{fig:mpp-t02}
+		\end{figure}
+
+		Конвеєрна система, побудована зазначеним чином, аналогічна багатопроцесорній системі М2 (із~загальним керуванням). Будемо називати її~ОС~типу~К2.
+
+		Розглянутий конвеєрний процесор системи типу~К2 теж є~багатофункціональним. Будемо розрізняти динамічну та~статичну перебудови процесора для виконання різних операцій.
+
+		Динамічна перебудова конвеєра (тип~К2.1) дозволяє виконувати різні операції одночасно в~різних шарах конвеєра. Але так само, як~і~для систем типу~К1, такт конвеєра в~кожний момент часу буде визначатися часом виконання самої тривалої операції (у~випадку використання конвеєра зі~змінним тактом) або часом виконання самої тривалої з~усіх операцій, на~виконання якої орієнтовано даний багатофункціональний конвеєр (у~випадку використання конвеєра з~постійним тактом).
+
+		У~випадку статичної перебудови конвеєра (тип~К2.2) на~виконання нової операції необхідно дочекатися звільнення конвеєра від попередньої операції та~тільки після цього завантажувати наступну операцію (якщо вона відрізняється від виконуваної).
+
+		У~випадку конвеєра з~постійним тактом його тривалість дорівнює часу виконання найтривалішої операції, яка в~принципі може бути виконана багатофункціональним конвеєром.
 
 	\section{Хід роботи}
-		Вихідними даними для лабораторної роботи є~арифметичний вираз. Для варіанту~№~8 він виглядає так:
+		Вихідними даними для виконання лабораторної роботи за~варіантом №~3 є~арифметичний вираз~\eqref{eq:expr}.
 		\begin{IEEEeqnarray}{rCl}
-			A \div B + (C + D \times E) \times (G + K \div L \times M).
+			\label{eq:expr}
+			(A + B \sdiv C \times G) \times (K + E + L) \sdiv R + D.
 		\end{IEEEeqnarray}
-		За даним виразом складаємо дерево арифметичного виразу~(рис.~\ref{fig:expression-tree}).
+		За~даним виразом складаємо його дерево~— граф потоків обчислень~(рис.~\ref{fig:expression-tree}).
 
 		\begin{figure}[!htbp]
 			\centering
 			\begin{tikzpicture}[]
-				\tikzset{main node/.style={circle,draw,minimum size=2em}}
+				\tikzset{main node/.style={draw,minimum size=2em}}
 				\tikzset{every label/.style={label position=left}}
-				\node[main node] (l05-a) {$A$};
-				\node[main node, right = 1em of l05-a] (l05-b) {$B$};
-				\node[main node, right = 1em of l05-b] (l05-c) {$C$};
-				\node[main node, right = 1em of l05-c] (l05-d) {$D$};
-				\node[main node, right = 1em of l05-d] (l05-e) {$E$};
-				\node[main node, right = 1em of l05-e] (l05-g) {$G$};
-				\node[main node, right = 1em of l05-g] (l05-k) {$K$};
-				\node[main node, right = 1em of l05-k] (l05-l) {$L$};
-				\node[main node, right = 1em of l05-l] (l05-m) {$M$};
+				\begin{scope}
+					\node[main node] (l05-a) {$A$};
+					\node[main node, right = 1em of l05-a] (l05-b) {$B$};
+					\node[main node, right = 1em of l05-b] (l05-c) {$C$};
+					\node[main node, right = 1em of l05-c] (l05-g) {$G$};
+					\node[main node, right = 1em of l05-g] (l05-k) {$K$};
+					\node[main node, right = 1em of l05-k] (l05-e) {$E$};
+					\node[main node, right = 1em of l05-e] (l05-l) {$L$};
+					\node[main node, right = 1em of l05-l] (l05-r) {$R$};
+					\node[main node, right = 1em of l05-r] (l05-d) {$D$};
+				\end{scope}
 
-				\node[main node, label={$t_1$}, below right = 2em and 0.45em of l05-a]  (l04-div-01) {$\div$};
-				\node[main node, label={$t_2$}, below right = 2em and 0.45em of l05-d]  (l04-mul-01) {$\times$};
-				\node[main node, label={$t_3$}, below right = 2em and 0.45em of l05-k]  (l04-div-02) {$\div$};
+				\begin{scope}[every node/.style = {anchor=north west}]
+					% Level 01
+					\node[main node, label={$t_1$}, below right = 1em and 1.50em of l05-b.south west]  (l04-div-01) {$\sdiv$};
+					\node[main node, label={$t_2$}, below right = 1em and 1.50em of l05-k.south west]  (l04-add-01) {$+$};
 
-				\node[main node, label={$t_5$}, below left  = 2em and 0.45em of l04-mul-01]  (l03-plus-01) {$+$};
-				\node[main node, label={$t_4$}, below right = 2em and 0.45em of l04-div-02]  (l03-mul-01) {$\times$};
+					% Level 02
+					\node[main node, label={$t_3$}, below right = 1em and 1.50em of l04-div-01.south west]  (l03-mul-01) {$\times$};
+					\node[main node, label={$t_4$}, below right = 1em and 1.50em of l04-add-01.south west]  (l03-add-01) {$+$};
 
-				\node[main node, label={$t_6$}, below left  = 2em and 0.45em of l03-mul-01] (l02-plus-01) {$+$};
+					% Level 03
+					\node[main node, label={$t_6$}, below left  = 1em and 1.50em of l03-mul-01.south east] (l02-add-01) {$+$};
+					\node[main node, label={$t_5$}, below right = 1em and 1.50em of l03-add-01.south west] (l02-div-01) {$\sdiv$};
 
-				\node[main node, label={$t_7$}, below left  = 2em and 1.80em of l02-plus-01] (l01-mul-01) {$\times$};
+					% Level 04
+					\node[main node, label={$t_7$}, below right = 1em and 6.00em of l02-add-01.south west] (l01-mul-01) {$\times$};
 
-				\node[main node, below left  = 2em and 0.9em of l01-mul-01] (root-plus) {$+$};
+					% Level 05
+					\node[main node, label={$t_8$}, below right = 1em and 1.50em of l01-mul-01.south west] (root-plus) {$+$};
 
-				\node[main node, below = 2em of root-plus] (root-S) {$S$};
+					% Root
+					\node[main node, below = 1em of root-plus] (root-S) {$S$};
+				\end{scope}
 
-				\path[draw]
-				(root-S)     edge node {} (root-plus)
-				(root-plus)  edge node {} (l01-mul-01)
-				             edge node {} (l04-div-01)
-				(l01-mul-01) edge node {} (l02-plus-01)
-				             edge node {} (l03-plus-01)
-				(l02-plus-01) edge node {} (l03-mul-01)
-				              edge node {} (l05-g)
-				(l03-mul-01)  edge node {} (l04-div-02)
-				              edge node {} (l05-m)
-				(l03-plus-01) edge node {} (l04-mul-01)
-				              edge node {} (l05-c)
-				(l04-div-01) edge node {} (l05-a)
-				             edge node {} (l05-b)
-				(l04-mul-01) edge node {} (l05-d)
-				             edge node {} (l05-e)
-				(l04-div-02) edge node {} (l05-k)
-				             edge node {} (l05-l)
-				;
+				\begin{scope}
+					\path[draw]
+					(root-S)     edge node {} (root-plus)
+					% Make intermediate point at horizontal intersection of t_5 and D
+					(root-plus.north east)  -- (l02-div-01.south -| l05-r.south west) -- (l05-d)
+					(root-plus)  edge node {} (l01-mul-01)
+					(l01-mul-01) edge node {} (l02-add-01)
+					             edge node {} (l02-div-01)
+					(l02-add-01) edge node {} (l05-a)
+					             edge node {} (l03-mul-01)
+					(l02-div-01) edge node {} (l03-add-01)
+					             edge node {} (l05-r)
+					(l03-mul-01) edge node {} (l04-div-01)
+					             edge node {} (l05-g)
+					(l03-add-01) edge node {} (l04-add-01)
+					             edge node {} (l05-l)
+					(l04-div-01) edge node {} (l05-b)
+					             edge node {} (l05-c)
+					(l04-add-01) edge node {} (l05-k)
+					             edge node {} (l05-e)
+					;
+				\end{scope}
 
+				\begin{scope}
 				%\path[dashed] (current bounding box.west) -- (current bounding box.east);
-				\node [below left = 0em and 2em of l04-div-01] (l04) {Ярус 1};
-				\node [below = 2em of l04] (l03) {Ярус 2};
-				\node [below = 2em of l03] (l02) {Ярус 3};
-				\node [below = 2em of l02] (l01) {Ярус 4};
+						\node [minimum size = 2em, anchor = north east, below left = 1em and 0em of l05-a.south west] (l05) {Ярус 1};
+						\node [minimum size = 2em, below = 1em of l05.south] (l04) {Ярус 2};
+						\node [minimum size = 2em, below = 1em of l04.south] (l03) {Ярус 3};
+						\node [minimum size = 2em, below = 1em of l03.south] (l02) {Ярус 4};
+						\node [minimum size = 2em, below = 1em of l02.south] (l01) {Ярус 5};
 
-				\draw [dashed] (l04.base east) -- (l04.base east -| l05-m.east);
-				\draw [dashed] (l03.base east) -- (l03.base east -| l05-m.east);
-				\draw [dashed] (l02.base east) -- (l02.base east -| l05-m.east);
-				\draw [dashed] (l01.base east) -- (l01.base east -| l05-m.east);
+						\draw [dashed] (l05.south west) -- (l05.south west -| l05-d.east);
+						\draw [dashed] (l04.south west) -- (l04.south west -| l05-d.east);
+						\draw [dashed] (l03.south west) -- (l03.south west -| l05-d.east);
+						\draw [dashed] (l02.south west) -- (l02.south west -| l05-d.east);
+						\draw [dashed] (l01.south west) -- (l01.south west -| l05-d.east);
+				\end{scope}
 
 			\end{tikzpicture}
-			\caption{Дерево арифметичного виразу $A \div B + (C + D \times E) \times (G + K \div L \times M)$}
+			\caption{Дерево арифметичного виразу $(A + B \sdiv C \times G) \times (K + E + L) \sdiv R + D$}
 			\label{fig:expression-tree}
 		\end{figure}
 
