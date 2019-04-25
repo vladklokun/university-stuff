@@ -1,0 +1,42 @@
+
+\begin{tikzpicture}[>=latex,line join=bevel,]
+%%
+\begin{scope}
+  \pgfsetstrokecolor{black}
+  \definecolor{strokecol}{rgb}{1.0,1.0,1.0};
+  \pgfsetstrokecolor{strokecol}
+  \definecolor{fillcol}{rgb}{1.0,1.0,1.0};
+  \pgfsetfillcolor{fillcol}
+  \filldraw (-112.5bp,-81.0bp) -- (-112.5bp,99.0bp) -- (103.5bp,99.0bp) -- (103.5bp,-81.0bp) -- cycle;
+\end{scope}
+  \node (c1n1) at (-22.5bp,81.0bp) [draw=black,circle] {1};
+  \node (c1n2) at (49.5bp,81.0bp) [draw=black,circle] {2};
+  \node (c1n3) at (-58.5bp,9.0bp) [draw=black,circle] {3};
+  \node (c1n4) at (13.5bp,9.0bp) [draw=black,circle] {4};
+  \node (c1n6) at (-94.5bp,-63.0bp) [draw=black,circle] {6};
+  \node (c1n7) at (-22.5bp,-63.0bp) [draw=black,circle] {7};
+  \node (c1n5) at (85.5bp,9.0bp) [draw=black,circle] {5};
+  \node (c1n8) at (49.5bp,-63.0bp) [draw=black,circle] {8};
+  \draw [] (c1n1) ..controls (6.5bp,81.0bp) and (20.212bp,81.0bp)  .. (c1n2);
+  \draw [] (c1n1) ..controls (-36.561bp,52.879bp) and (-44.479bp,37.042bp)  .. (c1n3);
+  \draw [] (c1n1) ..controls (-8.4394bp,52.879bp) and (-0.52081bp,37.042bp)  .. (c1n4);
+  \draw [] (c1n1.south west) ..controls (-35.5bp,68.0bp) and (-63.03bp,49.33bp)  .. (-77.629bp,28.055bp) .. controls (-98.645bp,-2.5729bp) and (-107.5bp,-50.0bp)  .. (c1n6.north west);
+  \draw [] (c1n1) ..controls (-22.5bp,35.063bp) and (-22.5bp,-17.3bp)  .. (c1n7);
+  \draw [] (c1n2) ..controls (35.439bp,52.879bp) and (27.521bp,37.042bp)  .. (c1n4);
+  \draw [] (c1n2) ..controls (63.561bp,52.879bp) and (71.479bp,37.042bp)  .. (c1n5);
+  \draw [] (c1n2.south east) ..controls (62.5bp,68.0bp) and (43.177bp,-12.374bp)  .. (4.4998bp,-62.905bp) .. controls (-0.65376bp,-69.639bp) and (-9.4056bp,-75.967bp)  .. (c1n7.south east);
+  \draw [] (c1n2) ..controls (49.5bp,35.063bp) and (49.5bp,-17.3bp)  .. (c1n8);
+  \draw [] (c1n3) ..controls (-29.5bp,9.0bp) and (-15.788bp,9.0bp)  .. (c1n4);
+  \draw [] (c1n3) ..controls (-72.561bp,-19.121bp) and (-80.479bp,-34.958bp)  .. (c1n6);
+  \draw [] (c1n3) ..controls (-44.439bp,-19.121bp) and (-36.521bp,-34.958bp)  .. (c1n7);
+  \draw [] (c1n4) ..controls (42.5bp,9.0bp) and (56.212bp,9.0bp)  .. (c1n5);
+  \draw [] (c1n4) ..controls (-22.035bp,-14.69bp) and (-58.63bp,-39.087bp)  .. (c1n6);
+  \draw [] (c1n4) ..controls (-0.56058bp,-19.121bp) and (-8.4792bp,-34.958bp)  .. (c1n7);
+  \draw [] (c1n4) ..controls (27.561bp,-19.121bp) and (35.479bp,-34.958bp)  .. (c1n8);
+  \draw [] (c1n5) ..controls (49.965bp,-14.69bp) and (13.37bp,-39.087bp)  .. (c1n7);
+  \draw [] (c1n5) ..controls (71.439bp,-19.121bp) and (63.521bp,-34.958bp)  .. (c1n8);
+  \draw [] (c1n6) ..controls (-65.5bp,-63.0bp) and (-51.788bp,-63.0bp)  .. (c1n7);
+  \draw [] (c1n7) ..controls (6.5bp,-63.0bp) and (20.212bp,-63.0bp)  .. (c1n8);
+%
+\end{tikzpicture}
+

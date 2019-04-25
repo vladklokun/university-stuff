@@ -1,0 +1,48 @@
+/*
+ * Build using:
+ * neato -Tpdf -O cluster_08.dot
+ *
+ */
+graph {
+	graph [
+		rank=same,
+		overlap=true,
+		splines=true,
+		margin = "0,0",
+		fontname = "STIX Two Math",
+		esep = "0.5"
+	];
+
+	node [
+		shape=circle,
+		fixedsize=true, // don't allow nodes to change sizes dynamically
+		width=0.5, // relative to the underlying coordinate grid?
+		color="black", // node border color (X11 or HTML colors)
+		fillcolor="white", // node fill color (X11 or HTML colors)
+		fontname = "STIX Two Math",
+	];
+
+	edge [
+	];
+
+	c1n1 [pos="01.00, 02.00!", label=""];
+	c1n2 [pos="02.00, 02.00!", label=""];
+	c1n3 [pos="00.50, 01.00!", label=""];
+	c1n4 [pos="01.50, 01.00!", label=""];
+	c1n5 [pos="02.50, 01.00!", label=""];
+	c1n6 [pos="00.00, 00.00!", label=""];
+	c1n7 [pos="01.00, 00.00!", label=""];
+	c1n8 [pos="02.00, 00.00!", label=""];
+	subgraph 1 {
+		c1n1:sw -- c1n6:nw;
+		c1n1 -- {c1n3 c1n7 c1n4 c1n2};
+		c1n2 -- {c1n4 c1n8 c1n5};
+		c1n2:se -- c1n7:se;
+		c1n3 -- {c1n4 c1n7 c1n6};
+		c1n4 -- {c1n5 c1n8 c1n7 c1n6};
+		c1n5 -- {c1n7 c1n8};
+		c1n6 -- {c1n7};
+		c1n7 -- {c1n8 };
+		c1n8 -- {};
+	}
+}
