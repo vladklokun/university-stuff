@@ -1,0 +1,55 @@
+digraph simpsons {  
+  // splines = ortho;
+  graph [
+    margin = "0,0",
+    fontname = "IBM Plex Sans",
+  ]
+
+  node [
+    fontname = "IBM Plex Sans",
+  ]
+  subgraph gen0 {
+    rank = same;
+    node [shape = box];
+    kostia [label = "Костя"];
+    kostiavalia [shape = point];
+    valia  [label = "Валя"];
+
+
+    valia -> kostiavalia [dir = none];
+    kostiavalia -> kostia [dir = none];
+  }
+
+  subgraph gen1 {
+    rank = same;
+    node [shape = box];
+    edge [dir = none];
+
+    vika  [label = "Віка"];
+    igor  [label = "Ігор"];
+    masha [label = "Маша"];
+
+    vikaigor [shape = point];
+
+    vika -> vikaigor [dir = none];
+    vikaigor -> igor [dir = none];
+  }
+
+  kostiavalia  -> vika;
+  kostiavalia -> masha;
+
+  subgraph gen2 {
+    rank = same;
+    node [shape = box];
+    edge [dir = none];
+
+    nastia [label = "Настя"];
+    illya  [label = "Ілля"];
+    misha  [label = "Міша"];
+  }
+
+  vikaigor -> nastia;
+  vikaigor -> illya;
+
+  masha -> misha;
+}
