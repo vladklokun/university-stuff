@@ -1,6 +1,6 @@
 % Solution for SWI Prolog
 % moto(
-%	1. Name,
+%	1. Name --- must be unique;
 %	2. Type,
 %	3. Displacement --- volume of the engine;
 %	4. RPM_max,
@@ -9,7 +9,6 @@
 %	7. Fuel Consumption --- in L/100 km.
 %	8. Price
 % ).
-% moto(Name, Type, Displacement, RPM, FuelType, Price)
 moto(honda, scooter, 700, 12000, auto, black, 6, 10000).
 moto(yamaha, scooter, 600, 12000, manual, black, 8, 10000).
 moto(ducati, scooter, 800, 12000, auto, white, 7, 10000).
@@ -19,11 +18,11 @@ moto(suzuki, bike, 1500, 12000, auto, black, 10, 10000).
 % 	Name, Type, EC_min, EC_max, RPM_min, RPM_max, tran_type, color,
 % 	fuel_cons_min, fuel_cons_max, price
 % )
-client(john, scooter, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
-client(mark, bike, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
-client(kirk, atv, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
+client(jeff, scooter, 400, 900, 6000, 13000, auto, black, 3, 7, 20000).
+client(john, bike, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
 client(kent, scooter, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
-client(jeff, bike, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
+client(kirk, atv, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
+client(mark, bike, 20, 60, 6000, 12000, auto, black, 3, 7, 6000).
 
 wants_type(Client, Type) :-
 % Checks if client Client wants type Type
@@ -85,5 +84,15 @@ sort_moto_by_ec(RL) :-
 
 % Task 3: count how many offers fit a client Client's wishes
 % TODO
-matches_wishes(C) :-
-	!.
+fits_client(MotoID, C) :-
+% True if vehicle with ID `MotoID` fits a client with name `C`
+	client(C, Pref_type, Displ_min, Displ_max, RPM_min, RPM_max,
+	       Pref_trans_type, Pref_color, FuelCons_min, FuelCons_max, Price_max),
+	moto(MotoID, Type, Displ, RPM, Trans_type, Color, FuelCons, Price),
+	Type = Pref_type,
+	Displ @>= Displ_min, Displ @=< Displ_max,
+	RPM @>= RPM_min, RPM @=< RPM_max,
+	Trans_type = Pref_trans_type,
+	Color = Pref_color,
+	FuelCons @>= FuelCons_min, FuelCons @=< FuelCons_max,
+	Price @=< Price_max.
