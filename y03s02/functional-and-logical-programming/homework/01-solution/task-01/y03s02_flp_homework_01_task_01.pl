@@ -6,7 +6,7 @@
 % swipl
 %
 % 2. Load the knowledge base into the SWIPL interpreter (notice no extension):
-% [y03s02-flp-homework-01-task-01].
+% [y03s02_flp_homework_01_task_01].
 %
 % 3. Evaluate your goal.
 %
@@ -67,13 +67,46 @@ sister(X, Y) :-
 	offspring(X, Z), offspring(Y, Z), woman(X), X \= Y, Y \= Z.
 
 cousin(X, Y) :-
-	% Wrong! Matches siblings.
-	offspring(X, Z), offspring(Z, G), offspring(K, G), offspring(Y, K),
-	X \= Y, X \= Z, Z \= G, K \= G, Y \= K.
+% Wrong! Matches full siblings.
+% The reason is the predicate does not check whether parents
+% of `X` and `Y` — persons `K` and `Z` respectively — are different people.
+	% Find `Z` that is a parent of `X`
+	offspring(X, Z),
+	% Find `G` that is a grandparent of `X`
+	offspring(Z, G),
+	% Find `K` that is a child of `X`'s grandparent
+	offspring(K, G),
+	% Find `Y` that is an another grandchild of `X`'s grandparent
+	offspring(Y, K),
+	% `X` and `Y` must be different people. Makes sense.
+	X \= Y,
+	% Check if `X` is its own parent. Why?
+	X \= K,
+	% Check if `Z` is its own parent. ??
+	Z \= G,
+	% Check if `K` is its own parent. ??
+	K \= G,
+	% Check if `Y` is its own parent. ??
+	Y \= K.
+
+cousin2(X, Y) :-
+% Correct implementation of `cousin/2`
+	% Find `Z` that is a parent of `X`
+	offspring(X, Z),
+	% Find `G` that is a grandparent of `X`
+	offspring(Z, G),
+	% Find `K` that is a child of `X`'s grandparent
+	offspring(K, G),
+	% a child should be different from `X`'s parent
+	K \= Z,
+	% Find `Y` that is an another grandchild of `X`'s grandparent
+	offspring(Y, K),
+	X \= Y.
 
 cousin_fixed(X, Y) :-
-	% Now this predicate works properly: it matches only cousins.
-	bring_into_the_world(ParentX, X), bring_into_the_world(ParentY, Y),
+% Now this predicate works properly: it matches only cousins.
+	bring_into_the_world(ParentX, X),
+	bring_into_the_world(ParentY, Y),
 	(
 		sister(ParentX, ParentY)
 	;
