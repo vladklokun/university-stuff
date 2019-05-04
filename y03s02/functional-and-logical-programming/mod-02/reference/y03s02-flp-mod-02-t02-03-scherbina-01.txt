@@ -1,0 +1,29 @@
+﻿%Задание 2
+
+domains
+	...
+	spisok_tovarov = symbol* %добавили тип данных - список товаров
+	...
+predicates
+	...
+	klient(imya,dengi,spisok_tovarov)
+	...
+clauses
+	...
+	klient(artem,540,["Noski","Bruki"]).	%теперь клиент хочет купить несколько		
+	klient(anna,1900,["Platie","Bluza"]).	%товаров, которые поданы списком
+	klient(vasiliy,500,["Jinsy","Rubashka"]).
+	klient(galina,600,["Noski","Bluza"]).
+	klient(igor,920,["Bruki","Rubashka"]).
+	...
+%Задание 3
+	pokupka(Imya):-
+		klient(Imya,Dengi,[Tovar1,Tovar2]),
+		tovar(_,Tovar1,Cena1,Kolvo1),
+		tovar(_,Tovar2,Cena2,Kolvo2),
+		Cena = Cena1 + Cena2,
+		Dengi > Cena, Kolvo1 > 0, Kolvo2 > 0,
+		write(Imya, " kupil(a) ", Tovar1, " i ", Tovar2),nl.
+	pokupka(Imya):-
+		klient(Imya,_,[Tovar1,Tovar2]),
+		write(Imya, " ne mozhet kupit' ", Tovar1, " i ", Tovar2),nl.
