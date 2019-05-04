@@ -1,0 +1,14 @@
+%Задание 6
+	%Так данные поданы в Turbo Prolog	
+	klient(artem,540,["Noski","Bruki"]).
+	klient(anna,1900,["Platie","Bluza"]).
+	klient(vasiliy,500,["Jinsy","Rubashka"]).
+	klient(galina,600,["Noski","Bluza"]).
+	klient(igor,920,["Bruki","Rubashka"]).
+	
+	%Так эти же данные поданы в LISP
+	(quote(artem 540 (Noski Bruki)))
+	(quote(anna 1900 (Platie Bluza)))
+	(quote(vasiliy 500 (Jinsy Rubashka)))
+	(quote(galina 600 (Noski Bluza)))
+	(quote(igor 920 (Bruki Rubashka)))

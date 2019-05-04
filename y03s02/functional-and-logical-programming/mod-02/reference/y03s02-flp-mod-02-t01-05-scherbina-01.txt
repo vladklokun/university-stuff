@@ -1,0 +1,53 @@
+domains
+	index,cooktime,stars,customers_count = integer
+	weight, money, price = real
+	name, address = symbol
+	order = integer*
+database - rest
+	dish(index,name,cooktime,weight,price)
+predicates
+	restaurant(name,stars,customers_count,address)	
+	customer(index,name,money,order)
+	dishes_exp_than(integer,integer)
+	em(integer,integer)
+	cust_money
+	cust_order(Name)
+	add_dish
+clauses
+	restaurant("Hide restaurant",5,6,"85 Piccadilly").
+	dish(1,"Oyster",10,100,43).
+	dish(2,"Bacon",12,80,55).
+	dish(3,"Eggs",11,95,49).
+	dish(4,"Tartare",25,150,99).
+	dish(5,"Soup",30,180,95).
+	dish(6,"Steamed cod",35,200,105).
+	dish(7,"Goose",60,210,180).
+	dish(8,"Chicken",45,190,195).
+	dish(9,"Roast deer",50,200,210).
+	customer(1,bob,200,[1,8,2]).
+	customer(2,tom,250,[1,2,4]).
+	customer(3,alex,350,[3,6,9]).
+	customer(4,ann,410,[3,5,8]).
+	customer(5,liza,315,[2,9,4]).
+	customer(6,abby,450,[2,6,7]).
+	
+	cust_money:- em(6,X),
+		write("Customers money = ",X).
+	em(0,0).
+	em(N,Sum):-
+		N1 = N - 1, em(N1,Sum1),customer(N,_,Money,_),
+		Sum = Sum1 + Money.
+	
+	dishes_exp_than(N,Price):- 
+		dish(N1,Name,_,_,Pr),N1>N,Pr>=Price,write(Name),nl,fail.
+		
+	cust_order(Cust_name):-
+		customer(_,Cust_name,_,[X,Y,Z]),
+		dish(X,X1,_,_,_),dish(Y,Y1,_,_,_),dish(Z,Z1,_,_,_),
+		write(X1),nl,write(Y1),nl,write(Z1),nl.
+	
+	add_dish:-
+		readint(Index),readln(Name),readint(Cooktime),
+		readreal(Weight),readreal(Price),
+		assert(dish(Index,Name,Cooktime,Weight,Price)).
+	

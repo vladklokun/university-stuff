@@ -1,0 +1,57 @@
+
+
+1.2-1.3
+
+man(Illya).
+woman(nastia).
+man(igor).
+woman(vika).
+man(kostia).
+woman(valia).
+woman(masha).
+man(misha).
+
+bring_into_the_world (vika, nastia).
+bring_into_the_world (igor, nastia).
+bring_into_the_world (vika, illya).
+bring_into_the_world (igor, illya).
+bring_into_the_world (kostia, vika).
+bring_into_the_world (valia, vika).
+bring_into_the_worId (kostia, masha).
+bring_into_the_world (valia, masha).
+bring_into_the_world (masha, misha).
+
+ 
+
+offspring(X,Y) :- bring_into_the_world(Y,X), X \= Y.
+
+son(X,Y) :- offspring(X,Y), man(X), X \= Y.
+
+daughter(X,Y) :- offspring(X,Y), woman(X), X \= Y.
+
+father(X,Y) :- offspring(Y,X), man(X), X \= Y.
+
+mother(X,Y) :- offspring(Y,X), woman(X), X \= Y.
+
+grandfather(X,Z) :- offspring(Y,X), offspring(Z,Y), man(X), X \= Y, Y \= Z.
+grandmother(X,Z) :- offspring(Y,X), offspring(Z,Y), woman(X), X \= Y, Y \= Z.
+brother(X,Y) :- offspring(X,Z), offspring(Y,Z), man(X), X \= Y, Y \= Z.
+sister(X,Y) :- offspring(X,Z), offspring(Y,Z), woman(X), X \= Y, Y \= Z.
+cousin(X,Y) :- offspring(X,Z), offspring(Z,G), 
+	offspring(K,G), offspring(Y,K), X \= Y, X \= Z, Z \= G, K \=G, V \= K.
+
+aunt(X,Y) :- offspring(Y,Z), sister(X, Z), X \= Y, Y \= Z.
+uncIe(X,Y) :- offspring(Y,Z), brother(X, Z), X \= Y, Y \= Z.
+
+1.3
+
+[25$|[chair|[black, red, brown, metal, white]]].
+[50$|[tableI[black, red, brown, metal, white]]].
+[120$|[cupboard|[black, red, brown, metal, white]]].
+[200$|[bed | [black, red, brown, metal, white]]].
+
+victor([100$]|[table | [brown]]]).
+kostia([150$] | [bed | [white]]]).
+anton([50%] | [chair | [metal]]]).
+mariana([200%] | [table | [bIack]]]).
+daria([125%] | [cupboard | [small]]]).

@@ -1,0 +1,27 @@
+﻿%Задание 4
+database - tov	%добавляем динамическую бд, где определен предикат tovar
+	tovar(index,tovar,cena,kolichestvo)	
+clauses
+	...
+	tovar(1,"Platie",800,7).
+	tovar(2,"Noski",30,40).
+	tovar(3,"Bruki",850,10).
+	tovar(4,"Rubashka",370,15).
+	tovar(5,"Bluza",400,16).
+	tovar(6,"Jinsy",900,8).
+	...
+%Задание 5
+	pokupka(Imya):-
+		klient(Imya,Dengi,[Tovar1,Tovar2]),
+		tovar(Index1,Tovar1,Cena1,Kolvo1),
+		tovar(Index2,Tovar2,Cena2,Kolvo2),
+		Cena = Cena1 + Cena2,
+		Dengi > Cena, Kolvo1 > 0, Kolvo2 > 0,
+		write(Imya, " mozhet kupit' ", Tovar1, " i ", Tovar2),nl,
+		retract(tovar(_,Tovar1,_,_)),retract(tovar(_,Tovar2,_,_)),	%теперь при успешной покупке, из бд удаляется старый объект.
+		Kolvo11 = Kolvo1 - 1, Kolvo22 = Kolvo2 - 1,
+		assert(tovar(Index1,Tovar1,Cena1,Kolvo11)),			%и добавляется новый, отличный от старого по количеству на еденицу
+		assert(tovar(Index2,Tovar2,Cena2,Kolvo22)).
+	pokupka(Imya):-
+		klient(Imya,_,[Tovar1,Tovar2]),
+		write(Imya, " ne mozhet kupit' ", Tovar1, " i ", Tovar2),nl.
