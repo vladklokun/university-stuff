@@ -118,8 +118,21 @@ task(3, [run_checks, 50]).
 
 Тоді мовою Lisp:
 ```lisp
-(' (0 (send_email 10)))
-(' (1 (cleanup 55)))
-(' (2 (backup_db 100)))
-(' (3 (run_checks 50)))
+'(0 (send_email 10))
+'(1 (cleanup 55))
+'(2 (backup_db 100))
+'(3 (run_checks 50))
+```
+
+Або ж створимо змінні `t0`, `t1`, `t2`, `t3`, які відповідають завданням, описаним на мові Пролог, за допомогою виразу `let`:
+```lisp
+(let ((t0 '(send_email 10))
+      (t1 '(cleanup 55))
+      (t2 '(backup_db 100))
+      (t3 '(run_checks 50)))
+  (print t0)
+  (print t1)
+  (print t2)
+  (print t3)
+)
 ```
