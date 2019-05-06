@@ -17,6 +17,12 @@ def split_list_of_points(lofp):
     return lx, ly
 
 
+def print_distr_series(pos_vals, pmf):
+    print('{:>10} {:>10}'.format('X', 'P'))
+    for pos_val, pmf in zip(pos_vals, pmf):
+        print('{:10.6f} {:10.6f}'.format(pos_val, pmf))
+
+
 def main():
     n_1 = float(input('Введіть кількість деталей в партії n_1: '))
     n_2 = float(input('Введіть кількість стандартних деталей n_2: '))
@@ -29,6 +35,13 @@ def main():
     possible_outcomes = np.arange(num_samples+1)
     # pmf --- probability mass function
     pmf_details = rand_var.pmf(possible_outcomes)
+
+    # Task 1: Build a distribution series
+    print('\n# Task 1: Distribution Series')
+    print_distr_series(possible_outcomes, pmf_details)
+
+    # Task 2: plot the PMF and the distribution polygon
+    print('\n# Task 2: PMF plot and the distribution polygon')
 
     # Probability function
     fig = plt.figure(1)
