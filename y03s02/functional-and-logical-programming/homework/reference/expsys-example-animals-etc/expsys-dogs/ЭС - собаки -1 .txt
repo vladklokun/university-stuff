@@ -1,0 +1,86 @@
+
+
+/* Программа: эксперт по породам собак                                 */
+/* Это продукционная система, базирующаяся на правилах*/
+
+database 
+  xpositive(symbol,symbol)
+  xnegative(symbol,symbol) 
+predicates 
+  do_expert_job
+  do_consulting
+  ask(symbol,symbol)
+  dog_is(symbol)
+  it_is(symbol)
+  positive(symbol,symbol)
+  negative(symbol,symbol)
+  remember(symbol,symbol,symbol)
+  clear_facts 
+goal 
+  do_expert_job .
+
+clauses 
+/* Система пользовательского интерфейса */
+  do_expert_job :– makewindow(1, 7, 7, "ЭКСПЕРТ ПО  ПОРОДАМ СОБАК, 1, 16, 22, 58),
+         nl,write(" * * * * * * * * * * * * * * * * * * * * *  "),
+         nl,write("          ДОБРО ПОЖАЛОВАТЬ!          "),nl,nl,
+         nl,write(" Проводится идентификация породы "),nl,nl,
+         nl,write(" Отвечайте, пожалуйста, 'да' или 'нет' "),
+         nl,write(" а вопросы о собаке, породу которой "),
+         nl,write(" Вы хотите определить "),
+         nl,write(" * * * * * * * * * * * * * * * * * * * * * * "),
+         nl,nl,do_consulting,write("Нажмите любую клавишу"), 
+         nl, readchar(_), removewindow. 
+  do_consulting :– dog_is(X), !, nl, write("Вероятно Ваша собака – ",X,"."), 
+                              nl,clear_facts.
+  do_consulting :– nl, write("Извините, я не смогу помочь Вам!"), 
+                              clear_facts. 
+  ask(X,Y) :– write(" ?:– ",X, "  ",Y, " ?  "), readln(Reply), 
+                     remember(X,Y,Reply). 
+/* Механизм вывода */
+  positive(X,Y) :– xpositive(X,Y),!.
+  positive(X,Y) :– not(negative(X,Y)),!,ask(X,Y). 
+  negative(X,Y) :– xnegative(X,Y),!. 
+  remember(X,Y,yes) :– asserta(xpositive(X,Y)).
+  remember(X,Y,no) :– asserta(xnegative(X,Y)),fail. 
+
+  clear_facts :– retract(xpositive(_,_)), fail.
+  clear_facts :– retract(xnegative(_,_)), fail.  
+/*  Продукционные правила */
+  dog_is("Английский Бульдог") :– it_is("короткошерстная собака"),
+                              positive("ее","высота в холке не более  57 см"),
+                              positive("у нее","низко посаженный хвост"),
+                              positive("у нее","дружелюбный характер"),!. 
+  dog_is("Гончая") :– it_is("короткошерстная собака"),
+                              positive("ее","высота в холке не более  57 см"),
+                              positive("у нее","длинные уши"),
+                              positive("у нее","дружелюбный характер"),!. 
+  dog_is("Немецкий Дог") :– it_is("короткошерстная собака"),
+                              positive("у нее","низко посаженный хвост"),
+                              positive("у нее","дружелюбный характер"),
+                              positive("ее","вес более 45 кг"),!. 
+  dog_is("Американский Фоксхаунд") :– it_is("короткошерстная собака"),
+                              positive("ее","высота в холке не более  77 см"),
+                              positive("у нее","длинные уши"),
+                              positive("у нее","дружелюбный характер"),!. 
+  dog_is("Кокер Спаниель") :– it_is("длинношерстная собака"),
+                              positive("ее","высота в холке не более  57 см"),
+                              positive("у нее","низко посаженный хвост"),
+                              positive("у нее","длинные уши"),
+                              positive("у нее","дружелюбный характер"),!. 
+  dog_is("Ирландский  Сеттер") :– it_is("длинношерстная собака"),
+                              positive("ее","высота в холке не более  77 см"),
+                              positive("у нее","длинные уши"),!.
+  dog_is("Колли") :– it_is("длинношерстная собака"),
+                              positive("ее","высота в холке не более  77 см"),
+                              positive("у нее","низко посаженный хвост"),
+                              positive("у нее","дружелюбный характер"),!. 
+  dog_is("Сенбернар") :– it_is("длинношерстная собака"),
+                              positive("у нее","низко посаженный хвост"),
+                              positive("у нее","дружелюбный характер"),
+                              positive("ее","вес более 45 кг"),!.  
+  it_is("короткошерстная собака ") :– 
+                              positive("это","короткошерстная собака "),!. 
+  it_is("длинношерстная собака ") :– 
+                              positive("это","длинношерстная собака "),!. 
+/* Конец программы */
