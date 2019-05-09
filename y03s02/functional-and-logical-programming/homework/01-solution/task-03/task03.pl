@@ -1,5 +1,11 @@
 % Functional and Logical Programming: Homework 01
 %
+% Task 03: "Moto Vehicles Store"
+% T 03.01: find the most popular vehicle type
+% T 03.02: sort vehicles by their displacement
+% T 03.03: count suitable offers for a given client
+% T 03.04: find the client for whom the store has the most offers
+%
 % Solution for SWI Prolog written by Vlad Klokun. This implementation
 % is (supposedly?) ISO-compatible.
 %

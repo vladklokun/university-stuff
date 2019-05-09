@@ -1,4 +1,5 @@
 % Functional and Logical Programming: Homework 01
+%
 % Task 04: use lists to describe objects of the field
 %
 % Solution for SWI Prolog written by Vlad Klokun. This implementation

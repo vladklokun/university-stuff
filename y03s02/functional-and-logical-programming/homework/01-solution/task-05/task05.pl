@@ -1,5 +1,7 @@
 % Functional and Logical Programming: Homework 01
 %
+% Task 05: use dynamic databases (dyn. predicates in case of SWI Prolog)
+%
 % Solution for SWI Prolog written by Vlad Klokun. This implementation
 % is (supposedly?) ISO-compatible.
 %
@@ -7,7 +9,7 @@
 % (">" indicates terminal prompt,
 %  "?-" — SWI Prolog interactive prompt).
 % > swipl
-% ?- [task03_swipl].
+% ?- [task05].
 % ?- task01(MostPopularType, Count). % (Count can be ommited with "_").
 % ?- task02(Sorted).
 % ?- task03(Client, OfferCount).

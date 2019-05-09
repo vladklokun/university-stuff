@@ -1,5 +1,7 @@
 % Functional and Logical Programming: Homework 01
 %
+% Task 07: build an expert system
+%
 % Solution for SWI Prolog written by Vlad Klokun. This implementation
 % is (supposedly?) ISO-compatible.
 %

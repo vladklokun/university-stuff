@@ -1,5 +1,7 @@
 % Functional and Logical Programming: Homework 01
 %
+% Task 06: add a pseudographical interface
+%
 % Solution for SWI Prolog written by Vlad Klokun. This implementation
 % is (supposedly?) ISO-compatible.
 %
@@ -7,18 +9,15 @@
 % (">" indicates terminal prompt,
 %  "?-" — SWI Prolog interactive prompt).
 % > swipl
-% ?- [task03_swipl].
-% ?- task01(MostPopularType, Count). % (Count can be ommited with "_").
-% ?- task02(Sorted).
-% ?- task03(Client, OfferCount).
-% ?- task04(Client).
+% ?- [task06].
+% ?- run.
+% ...
 % ?- halt.
 % (SWI Prolog exited)
 %
 
 % Include necessary definitions. Use `include/1` to stay ISO-compatible
 :- include('moto_store.pl').
-
 :- include('pseudographics.pl').
 
 % Store facts about objects in a dynamic database.
