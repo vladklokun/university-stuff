@@ -46,6 +46,6 @@ clauses
         % Знайти морозиво IceCrmID в асортименті
         icecrm_in_stock(IceCrmID, Stock),
         % Знайти ціну морозива
-        icecream(IceCrmID, _, _, IceCrmWeight),
+        icecream(IceCrmID, _, IceCrmWeight, _),
         % Істина, якщо вага більше заданої
         IceCrmWeight > Weight.
