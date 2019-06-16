@@ -178,6 +178,9 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary{arrows.meta} % Stealth arrow tips
 
+% Drawing forests and trees
+\usepackage{forest}
+
 \usepackage{tikz-uml}
 %%%
 
@@ -201,9 +204,19 @@
 \newminted[bashterm]{bash}{%
 	autogobble,%
 	style=bw,%
+	breaklines,%
 }
 
 \newmintinline{bash}{%
+}
+
+\newminted[pythoncode]{python}{%
+	autogobble,%
+	style=bw,%
+	breaklines,%
+}
+
+\newmintinline{python}{%
 }
 
 %%% Framing code listings
@@ -456,6 +469,17 @@
 
 %%%
 
+%%% Bibliography
+\usepackage[
+	style    = gost-numeric,
+	language = auto,
+	autolang = other,
+	sorting  = none,
+	maxcitenames = 2,
+]{biblatex}
+\addbibresource{y03s02-practice-01-report-bibliography.bib}
+%%%
+
 %%% Links and hyperreferences
 \usepackage{hyperref}
 \hypersetup{
@@ -669,6 +693,7 @@
 			Щоб зручно розгортати продукти і запускати їх в ізольованому середовищі, яке можна точно відтворити на будь-якій сумісній платформі, використовують систему управління контейнерами~\textenglish{Docker}. %Вона дозволяє створити з компонентів програмного продукту спеціальні об'єкти, які будуть точно відтворюватись і запускатись на усіх платформах~\textenglish{Docker}.
 
 		\subsection{Постановка і аналіз задачі}
+		\label{ssec:problem-description}
 			Для проходження проектно-технологічної практики була поставлена така задача: розробити чат-бота для платформи~«\textenglish{Telegram}», який надсилає казки своїм користувачам. Коли користувач запускає бота, він повинен привітати його і надіслати випадкову казку. Якщо користувач просить надіслати ще, бот надсилає наступну випадкову казку. Також, бот повинен регулярно розсилати казки своїм користувачам: щодня в певний час.
 			
 			Щоб наочно зобразити високорівневу функціональність бота, була розроблена \textenglish{\allcaps{UML}}-діаграма варіантів використання чат-бота~(рис.~\ref{fig:bot-diag-use-case}).
@@ -717,7 +742,7 @@
 					\end{enumerate}
 			\end{enumerate}
 
-		\subsection{Вибір інструментів}
+		\subsection{Вибір інструментів і затвердження специфікації}
 			Як відомо зі знайомства з інфраструктурою компанії, основною мовою програмування для створення продуктів є~\textenglish{Python}, тому для розробки чат-бота буде використана саме вона. 
 
 			Розглянемо діаграму варіантів використання~(рис.~\ref{fig:bot-diag-use-case}), з якої видно, що при взаємодії з системою (Чат-ботом) актор (Користувач) може виконувати такі дії:
@@ -728,20 +753,558 @@
 				\item Оцінити отриману казку, тобто мати змогу виразити, що казка сподобалась користувачу.
 			\end{itemize}
 
-			Основною можливістю є взаємодія з чат-ботом. Він повинен працювати на платформі~\textenglish{Telegram}, тож необхідно використати її програмний інтерфейс~(\transeng{application programming interface, \allcaps{API}}). Програмний інтерфейс~\textenglish{Telegram}, а тому і робота більшості чат-ботів побудована на основі двох дій: отримання і обробки оновлень та постановки запитів до серверів~\textenglish{Telegram \allcaps{API}}.
+			\subsubsection{Взаємодія з платформою~\textenglish{Telegram}}
+				Основною можливістю є взаємодія з чат-ботом. Він повинен працювати на платформі~\textenglish{Telegram}, тож необхідно використати її програмний інтерфейс~(\transeng{application programming interface, \allcaps{API}}). Програмний інтерфейс~\textenglish{Telegram}, а тому і робота більшості чат-ботів побудована на основі двох дій: отримання і обробки оновлень та постановки запитів до серверів~\textenglish{Telegram \allcaps{API}}.
 
-			Отримання оновлень дозволяє зрозуміти, які дії користувачі або інші треті сторони проводять з ботом. Наприклад, які повідомлення надсилають, які кнопки натискають та інше. Запити дозволяють визначити, які дії повинен провести сам чат-бот: яке повідомлення відправити у відповідь, яку інформацію отримати або оновити тощо.
+				Отримання оновлень дозволяє зрозуміти, які дії користувачі або інші треті сторони проводять з ботом. Наприклад, які повідомлення надсилають, які кнопки натискають та інше. Запити дозволяють визначити, які дії повинен провести сам чат-бот: яке повідомлення відправити у відповідь, яку інформацію отримати або оновити тощо.
 
-			Щоб організувати взаємодію з платформою~\textenglish{Telegram}, скористаємось зовнішнім пакетом~«\textenglish{Python Telegram Bot}»~(знаходиться за~адресою \url{https://github.com/python-telegram-bot/python-telegram-bot}), який надає модулям, написаним на мові програмування~\textenglish{Python} зручний доступ до інтерфейсу програмування платформи~\textenglish{Telegram}.
+				Щоб організувати взаємодію з платформою~\textenglish{Telegram}, скористаємось зовнішнім пакетом~«\textenglish{Python Telegram Bot}»~(знаходиться за~адресою \url{https://github.com/python-telegram-bot/python-telegram-bot}), який надає модулям, написаним на мові програмування~\textenglish{Python} зручний доступ до інтерфейсу програмування платформи~\textenglish{Telegram}. Цей модуль дозволяє отримувати оновлення за допомогою двох методів: довгого опитування~(\transeng{long polling}) і веб-перехоплення~(\transeng{webhook}).
+				
+				Метод \emph{довгого опитування}~— це \textenglish{pull}-технологія (тобто спочатку клієнт робить запит, а потім сервер відповідає), при використанні якої клієнт опитує сервер з певним інтервалом. Однак, на відміну від традиційного опитування, клієнт очікує, що сервер може відповісти не одразу. Натомість, якщо сервер не має оновлень для клієнта, він не відсилає пусту відповідь, а чекає, поки з'явиться оновлення або закінчиться період опитування, і лише тоді надсилає відповідь і закінчує цикл «запит—відповідь».
+				
+				Перевагами методу довгого опитування є:
+				\begin{enumerate}
+					\item Можливість працювати на будь-якому пристрої, здатному робити запити до веб-серверів.
+					\item Менша затримка на відповідь (тобто між моментами, коли інформація з'явилась і коли клієнт надіслав запит на її отримання) порівняно зі звичайним опитуванням.
+					\item Простота реалізації.
+				\end{enumerate}
+				Його недоліком є більша потреба в обчислювальних і мережевих ресурсах, а отже менша продуктивність і швидкодія додатків, основаних на ньому.
 
-			Цей модуль дозволяє отримувати оновлення за допомогою двох методів: довгого опитування~(\transeng{long polling}) і веб-гачка~(\transeng{webhook}).
-			% TODO: explain both approaches and why we chose long polling.
+				Отже, техніку довгого опитування можна досить просто реалізувати на більшості пристроїв, підключених до мережі, і вона дозволяє досить швидко отримувати оновлення, однак, під великим навантаженням вона потребуватиме велику кількість обчислювальних і мережевих ресурсів.
 
-			Щоб кожен день розсилати казки користувачам, які звернулись до~бота і підписались на розсилку, необхідно вести їх облік. Хорошою практикою при розробці веб-додатків є принцип відсутності стану: дії, які виконує програма~— веб-додаток, не повинні залежати від її внутрішнього стану. Отже, облікові дані користувачів варто зберігати зовні, за логічними межами програми.
+				Метод \emph{веб-перехоплення}~— це~\textenglish{push}-технологія (тобто сервер розпочинає обмін даними і надсилає повідомлення без попередього запиту), при використанні якої сервер надсилає запит за вказаною адресою, як тільки з'являється оновлення. Метод називається веб-перехопленням, тому що за адресою, куди надсилається запит, знаходиться веб-сервер, який його перехоплює, оброблює і, за потреби, дає відповідь.
+
+				Такий метод має серйозні переваги в області швидкодії, а саме:
+				\begin{enumerate}
+					\item Найменшу затримку на відповідь серед усіх методів.
+					\item Мінімальне навантаження на обчислювальні і мережеві ресурси.
+				\end{enumerate}
+				Однак, висока продуктивність методу потребує компромісу і має суттєвий недолік: метод веб-перехоплення важче реалізувати порівняно з іншими, оскільки для цього потрібні такі складові:
+				\begin{itemize}
+					\item сервер зі статичною \textenglish{\allcaps{IP}}-адресою, який може отримувати запити з мережі Інтернет;
+					\item веб-сервер з підтримкою протоколу~\textenglish{\allcaps{TLS}~1.0} і вище;
+					\item відкриті порти 443, 80, 88 або~8443.
+					\item \textenglish{\allcaps{SSL}}-сертифікат безпеки.
+				\end{itemize}
+				
+				Отже, веб-перехоплення дозволяє отримувати оновлення одразу ж, без потреби так чи інакше опитувати сервер, і економить обчислювальні ресурси. Проте, йому необхідно багато сторонніх ресурсів, що ускладнює реалізацію, тому використовувати метод веб-перехоплення рекомендують виключно тоді, коли в цьому є реальна потреба~\cite{ptb-longpoll-webhooks}.
+
+				У завданні не передбачена вимога високої доступності та можливість витримати високе навантаження, крім того, апаратне забезпечення достатньо швидке, щоб витримати відносно велику кількість користувачів, тому для реалізації чат-бота був обраний метод довгого опитування.
+
+			\subsubsection{Інструменти веб-додатку}
+				Щоб кожен день розсилати казки користувачам, які звернулись до~бота і підписались на розсилку, необхідно вести їх облік. Хорошою практикою при розробці веб-додатків є принцип відсутності стану: дії, які виконує програма~— веб-додаток, не повинні залежати від її внутрішнього стану. Отже, облікові дані користувачів варто зберігати зовні, за логічними межами програми.
+
+				Так як облікові дані користувачів будуть часто змінюватись (будуть з'я\-вля\-тись нові користувачі, оцінки тощо), для збереження цих даних зручно використати базу даних. В організації вже використовують систему керування базами даних~\textenglish{MongoDB}, тому для вирішення поставленої задачі використаємо її.
+
+				Щоб отримати доступ до бази даних з~\textenglish{Python}-модуля, використаємо пакет~\textenglish{PyMongo}, який надає офіційний розробник системи керування базами даних~\textenglish{MongoDB}.
+
+			\subsubsection{Результати}
+				На основі дослідженої інформації та проведених порівнянь для розробки програмного продукту були обрані необхідні інструменти~(табл.~\ref{tab:chosen-tools}).
+
+				\begin{table}[!htbp]
+					\caption{Обрані інструменти}
+					\label{tab:chosen-tools}
+					\centering
+					\begin{tabular}{
+						v{5\gridunitwidth - 2\tabcolsep}
+						v{7\gridunitwidth - 2\tabcolsep}
+					}
+						\toprule
+							Призначення & Обраний інструмент\\
+						\midrule
+							Мова програмування & \textenglish{Python}\\
+							Взаємодія з платформою~\textenglish{Telegram} & Пакет~\textenglish{Python Telegram Bot} з методом довгого опитування\\
+							Керування базами даних & Система керування базами даних~\textenglish{MongoDB}\\
+							Доступ до керування базами даних з програмного продукту & Модуль~\textenglish{PyMongo}\\
+						\bottomrule
+					\end{tabular}
+				\end{table}
+
+				Обравши інструменти, переходимо до затвердження вимог і специфікації, тобто за створеною діаграмою варіантів використання~(рис.~\ref{fig:bot-diag-use-case}), декомпозицією задач~(підрозділ~\ref{ssec:problem-description}) і переліком обраних інструментів~(табл.~\ref{tab:chosen-tools}) вносимо корективи та затверджуємо, які функції має виконувати кінцевий продукт.
+
+		\subsection{Розробка програмного продукту}
+			\subsubsection{Підготовка середовища розробки}
+				Перш за все, створюємо файлову структуру проекту: створюємо директорії, яка буде містити проект, переходимо в неї і створюємо необхідні субдиректорії. Для цього у терміналі~\textenglish{Bash} виконуємо таку команду:
+				\begin{bashterm}
+					mkdir storyteller && cd storyteller && mkdir assets scripts storyteller
+				\end{bashterm}
+
+				Тепер встановимо обрані інструменти і переконаємось, що продукт працюватиме саме з ними та їх зазначеними версіями. Для цього створюємо віртуальне середовище для програмного продукту:
+				\begin{bashterm}
+					python3 -m venv venv
+				\end{bashterm}
+				Створивши віртуальне середовище, активуємо його за допомогою команди:
+				\begin{bashterm}
+					source venv/bin/activate
+				\end{bashterm}
+				Тепер ми знаходимось у віртуальному середовищі, яке місттить власну версію інтерпретатора~\textenglish{Python}, його утиліт та бібліотек, потрібних для його роботи.
+
+				Встановимо обрані інструменти. Система управління базами даних уже встановлена і запущена на сервері, тому залишається встановити~\textenglish{Python}-пакети для розробки програмного продукту. Для цього знадобиться утиліта~\progname{\textenglish{pip}}, яка дозволяє встановлювати пакети з ресурсу~\textenglish{Python Package Index~(PyPI)}. З її допомогою встановлюємо обрані пакети, запустивши таку команду:
+				\begin{bashterm}
+					pip install -U python-telegram-bot pymongo
+				\end{bashterm}
+
+				Очевидно, що для запуску продукту необхідні сторонні бібліотеки, які ми встановили. Щоб зробити використання продукту зручнішим, прийнято наводити версії пакетів у спеціальному файлі~\filename{\textenglish{requirements.txt}}. Отже, треба створити цей файл і записати в нього версії встановлених пакетів. Для цього виконуємо таку команду:
+				\begin{bashterm}
+					pip freeze > requirements.txt
+				\end{bashterm}
+
+				Тепер середовище налаштоване і можна переходити безпосередньо до розробки програмного продукту.
+
+			\subsubsection{Аналіз і підготовка вхідних даних}
+				Вхідними даними для чат-бота є казки. Казки були надані у форматі текстового файлу з розширенням~«\textenglish{.txt}» і складаються з декількох частин: ідентифікатора (порядкового номера), назви (заголовка) і змісту. Так як необхідно вести облік, скільком користувачам сподобалась певна казка, також необхідно зберігати список людей, які оцінили її.
+
+				Ці вхідні дані необхідно додати у базу даних казок~\textenglish{MongoDB}, тому розробимо модуль, який перетворює казки у наданому форматі у формат, який підходить для запису в~\textenglish{MongoDB}~— формат документів~\textenglish{\allcaps{BSON}}~(лістинг~\ref{lst:tale-db-txt-to-json}).
+
+				\begin{listingpython}{Файл~\filename{\textenglish{tale\_db\_txt\_to\_json.py}}: модуль для підготовки вхідних даних}{lst:tale-db-txt-to-json}
+import argparse
+import json
+
+
+def main(args):
+    with open(args.infile, encoding='utf8') as ifile:
+        # Load entire database file into memory
+        data = ifile.read()
+
+    # Tales are separated by two newlines, so split the file by two newlines
+    data = data.split('\n\n')
+
+    # Build an array of tales
+    tales = []
+    for tale in data:
+        # To separate tale header and contents, split by the first newline
+        res = tale.split(sep='\n', maxsplit=1)
+        # Header is in format '1. <Header>', so split by '. ' to get at most
+        # 2 items: Tale ID and Tale Header
+        tale_id, header = res[0].split(sep='. ', maxsplit=1)
+        # Contents are the second element of the first split
+        contents = res[1]
+        tales.append(
+            {
+                'tale_id': tale_id,
+                'liked_by': [],  # initialize like count to 0
+                'header': header,
+                'contents': contents
+            }
+        )
+
+    print(tales)
+    with open(args.outfile, 'w', encoding='utf-8') as outfile:
+        json.dump(
+            tales,
+            fp=outfile,
+            indent=2,
+            ensure_ascii=False
+        )
+
+
+if __name__ == '__main__':
+    p = argparse.ArgumentParser()
+    p.add_argument(
+        '--infile',
+        help='Name of the tale database TXT format'
+    )
+
+    p.add_argument(
+        '--outfile',
+        help='Name of the tale database in JSON format'
+    )
+
+    args = p.parse_args()
+    main(args)
+				\end{listingpython}
+
+				Розробивши модуль, перетворюємо наданий опис казок~(файл~\filename{tale\_db.txt}) у файл транзакцій для~\textenglish{MongoDB}, виконуючи таку команду:
+				\begin{bashterm}
+					python3 tale_db_txt_to_json.py --infile tale_db.txt --outfile tales.json
+				\end{bashterm}
+				В результаті виконання цієї команди буде створений файл~\filename{\textenglish{tales.json}}, в якому буде міститись транзакція для запису в базу даних~\textenglish{MongoDB}.
+
+			\subsubsection{Розробка моделей для записів бази даних}
+				Передбачено, що у базі даних зберігатимуться казки і дані про користувачів, які користуються чат-ботом. Щоб зберігати і зручно керувати цими записами, використаємо шаблон~\textenglish{Model–View–Controller~(\allcaps{MVC})}, який передбачає наявність таких компонентів: модель даних, представлення та модуль керування.
+
+				Перш за все, розробимо моделі даних для казок~(лістинг~\ref{lst:tales-py}) і користувачів~(лістинг~\ref{lst:user-py}). Модель даних для казки передбачає доступ до її атрибутів: ідентифікатора, заголовку, тексту і списку людей, яким вона сподобалась. Крім того, вона передбачає набір методів, які дозволяють отримати або змінити дані про них. Модель даних про користувачів передбачає доступ до єдиного атрибуту — ідентифікатора користувача, а також можливості додати нового користувача, а також отримати список усіх користувачів.
+
+				\begin{listingpython}{Файл~\filename{\textenglish{tales.py}}: модель даних про казки}{lst:tales-py}
+class Tale(object):
+    DBNAME = 'storyteller'
+    COLNAME = 'tales'
+
+    def __init__(self, client):
+        self.db = client[TaleModel.DBNAME]
+        self.col = self.db[TaleModel.COLNAME]
+
+    def get_random(self):
+        """ Gets a random tale document from the database """
+        rand_cursor = self.col.aggregate(
+            # Query the current collection using a pipeline
+            [{'$sample': {'size': 1}}]  # Random sample of 1
+        )
+        # Try to convert the cursor to a list
+        res_list = list(rand_cursor)
+        if not res_list:
+            return None
+
+        rand_tale = res_list[0]
+
+        return rand_tale
+
+    def get_by_id(self, tale_id):
+        tale_query = {'tale_id': tale_id}
+        tale = self.col.find_one(tale_query)
+
+        return tale
+
+    def like_id(self, tale_id, user_id):
+        tale = self.get_by_id(tale_id)
+
+        # To avoid duplicates, convert the list of likers to a set
+        liked_by = set(tale['liked_by'])
+
+        # Add a new liker
+        liked_by.add(user_id)
+
+        # MongoDB uses BSON and BSON does not accept sets, only lists, so
+        # convert back to a list
+        liked_by = list(liked_by)
+
+        # Push the update
+        self.col.update(
+            {'tale_id': tale_id},
+            {'$set': {'liked_by': liked_by}}
+        )
+
+    def remove_like_id(self, tale_id, user_id):
+        tale = self.get_by_id(tale_id)
+
+        # to avoid duplicates, convert the list of likers to a set
+        liked_by = set(tale['liked_by'])
+
+        # remove a like from user
+        try:
+            liked_by.remove(user_id)
+        except KeyError:
+            return
+
+        # MongoDB uses BSON and BSON does not accept sets, only lists, so
+        # convert back to a list
+        liked_by = list(liked_by)
+
+        # Push the update
+        self.col.update(
+            {'tale_id': tale_id},
+            {'$set': {'liked_by': liked_by}}
+        )
+				\end{listingpython}
+
+				\begin{listingpython}{Файл~\filename{\textenglish{user.py}}: модель даних про користувачів}{lst:user-py}
+class User(object):
+    DBNAME = 'storyteller'
+    COLNAME = 'users'
+
+    def __init__(self, client):
+        self.db = client[User.DBNAME]
+
+    def get_ids_iter(self):
+        collection = self.db[User.COLNAME]
+        for user in collection.find({}):
+            yield user['user_id']
+
+    def add_user(self, user_id):
+        collection = self.db[User.COLNAME]
+        try:
+            res = collection.insert_one({'user_id': user_id})
+        except pymongo.errors.DuplicateKeyError:
+            res = None
+        return res
+				\end{listingpython}
+				Тепер, коли моделі даних розроблені, можна переходити до розробки модулей керування ними. 
+
+			\subsubsection{Розробка модулів керування моделями даних}
+				Модулі керування дають можливість зручно керувати записами у базах даних, які представлені за допомогою моделей. Перевагою такого підходу є можливість змінювати лише модуль управління, якщо необхідно змінити запис або додати нову функцію для взаємодії з даними. При цьому, якщо модель даних вичерпно описує дані, її не потрібно змінювати, щоб додати нову функцію.
+
+				Отже, створюємо модулі керування для моделей даних про казки~(лістинг~\ref{lst:tales-py-controller}) і про користувачів~(лістинг~\ref{lst:user-py-controller}).
+
+				\begin{listingpython}{Файл~\filename{\textenglish{tales.py}}: модуль керування моделлю даних про користувачів}{lst:tales-py-controller}
+class TaleController(object):
+    def __init__(self, tale_model):
+        self.model = tale_model
+        self.summary = None
+
+    @property
+    def header(self):
+        return self.summary['header']
+
+    @property
+    def contents(self):
+        return self.summary['contents']
+
+    @property
+    def id(self):
+        return self.summary['tale_id']
+
+    @property
+    def liked_by(self):
+        return self.summary['liked_by']
+
+    @property
+    def likes(self):
+        return len(self.liked_by)
+
+    def refresh(self):
+        self.load_by_id(self.id)
+
+    def load_random(self):
+        self.summary = self.model.get_random()
+
+    def load_by_id(self, tale_id):
+        self.summary = self.model.get_by_id(tale_id)
+
+    def add_like(self, user_id):
+        self.model.like_id(self.id, user_id)
+        self.refresh()
+
+    def remove_like(self, user_id):
+        self.model.remove_like_id(self.id, user_id)
+        self.refresh()
+				\end{listingpython}
+
+				\begin{listingpython}{Файл~\filename{\textenglish{user.py}}: модуль керування моделлю даних про користувачів}{lst:user-py-controller}
+class UserController(object):
+    def __init__(self, model):
+        self.model = model
+
+    def new_user(self, user_id):
+        self.model.add_user(user_id)
+
+    def get_all_user_ids(self):
+        for user_id in self.model.get_ids_iter():
+            yield user_id
+				\end{listingpython}
+
+				Після створення модулів керування для описаних моделей даних їх можна зручно використовувати, щоб додавати і оновлювати записи у базі даних. Таким чином, залишається остання ланка у моделі~\textenglish{\allcaps{MVC}}~— представлення.
+
+			\subsubsection{Розробка модуля чат-бота}
+				Представленням для даних буде сам чат-бот: він буде отримувати інструкції від користувача і представлятиме йому дані. Бот побудований на принципі обробників~— об'єктів, які перевіряють, чи потрібно їм працювати, і якщо так, то вони виконують свої функції. Обробники реалізовані за допомогою засобів пакету~\textenglish{Python Telegram Bot}. Цими засобами є об'єкти класів, які~наслідують клас~\pythoninline{telegram.ext.Handler}, а саме об'єкти таких класів:
+				\begin{enumerate}
+					\item \pythoninline{telegram.ext.CommandHandler}
+					\item \pythoninline{telegram.ext.MessageHandler}
+					\item \pythoninline{telegram.ext.CallbackQueryHandler}
+				\end{enumerate}
+
+				\paragraph{Обробка команд}
+				Об'єкти класу~\pythoninline{telegram.ext.CommandHandler} призначені для обробки команд формату~\verb|/<команда>|, які отримує чат-бот. Прототип об'єктів цього класу такий:
+				\begin{pythoncode}
+					class CommandHandler(command, callback, filters=None, allow_edited=None, pass_args=False, pass_update_queue=False, pass_job_queue=False, pass_user_data=False, pass_chat_data=False)
+				\end{pythoncode}
+				Основними параметрами прототипу є~\pythoninline{command}, \pythoninline{callback}. Параметр~\pythoninline{command} повинен містити текст команди, яку необхідну обробити. Наприклад, щоб обробити команду~\verb|/start|, необхідно ініціалізувати об'єкт так:
+				\begin{pythoncode}
+					telegram.ext.CommandHandler(command='start', callback)
+				\end{pythoncode}
+				Параметр~\pythoninline{callback} повинен містити об'єкт, який можна і треба викликати для обробки команди. Наприклад, щоб при обробці команди~\verb|/start| викликати функцію~\pythoninline{h_start}, необхідно ініціалізувати об'єкт так:
+				\begin{pythoncode}
+					def h_start(update, context):
+					    pass
+					telegram.ext.CommandHandler(command='start', callback=h_start)
+				\end{pythoncode}
+
+				\paragraph{Обробка повідомлень}
+				Об'єкти класу~\pythoninline{telegram.ext.MessageHandler} призначені для обробки текстових повідомлень, які отримує чат-бот. Прототип об'єктів цього класу такий:
+				\begin{pythoncode}
+class MessageHandler(filters, callback, pass_update_queue=False, pass_job_queue=False, pass_user_data=False, pass_chat_data=False, message_updates=None, channel_post_updates=None, edited_updates=None)
+				\end{pythoncode}
+				Основними параметрами прототипу є~\pythoninline{filters}, \pythoninline{callback}. Параметр~\pythoninline{filters} повинен містити фільтри~(об'єкти класу~\pythoninline{telegram.ext.BaseFiler}), що описують повідомлення, яке треба обробити. Наприклад, щоб обробити повідомлення, яке містить текст~«Привіт», можна ініціалізувати об'єкт так:
+				\begin{pythoncode}
+					MessageHandler(
+					    Filters.regex('^(Привіт)'),
+					    callback
+					)
+				\end{pythoncode}
+				Як і в інших обробниках, параметр~\pythoninline{callback} повинен містити об'єкт, який можна і треба викликати для обробки повідомлення.
+
+				\paragraph{Обробка запитів}
+				Об'єкти класу~\pythoninline{telegram.ext.CallbackQueryHandler} призначені для обробки запитів від натискання кнопок, які отримує чат-бот. Прототип об'єктів цього класу такий:
+				\begin{pythoncode}
+class CallbackQueryHandler(callback, pass_update_queue=False, pass_job_queue=False, pattern=None, pass_groups=False, pass_groupdict=False, pass_user_data=False, pass_chat_data=False)
+				\end{pythoncode}
+				Основним параметром цього об'єкта є параметр~\pythoninline{callback}, який, як і в інших обробниках, повинен містити об'єкт, який можна і треба викликати для обробки запиту.
+				
+				\paragraph{Щоденна розсилка}
+				Також, важливою функцією є періодична розсилка повідомлень. Для цього використовується черга завдань, представлена об'єктом класу~\pythoninline{telegram.ext.JobQueue}. У цей об'єкт можна додавати завдання, які виконуються один раз або з певною періодичністю (наприклад, щодня). Припустимо, що ініціалізований об'єкт~\pythoninline{jq} класу~\pythoninline{telegram.ext.JobQueue}. Тоді додати щоденне завдання до нього можна так:
+				\begin{pythoncode}
+					import datetime
+					jq.run_daily(
+					    callback,
+					    time=datetime.time(12, 00)
+					)
+				\end{pythoncode}
+
+				Отже, вся функціональність чат-бота будується на основі вищезазначених об'єктів і спеціально написаних обробників. Робота бота відбувається за допомогою об'єкта~\pythoninline{bot.Storyteller}, який в свою чергу працює з платформою~\textenglish{Telegram} за допомогою об'єкта класу~\pythoninline{telegram.ext.Dispatcher}~— диспетчера, який обмінюється даними з серверами~\textenglish{Telegram~\allcaps{API}}.
+
+			\subsubsection{Результати}
+				Під час розробки програмного продукту був створений чат-бот, який відповідає поставленим вимогам:
+				\begin{itemize}
+					\item надсилає користувачам, які до нього звернулись, випадкові казки з бази даних;
+					\item періодично розсилає казки користувачам;
+					\item підтримує оцінку казок.
+				\end{itemize}
+				
+				У процесі створення чат-бота додавались нові файли, тому в результаті сформувалась нова файлова структура проекту~(рис.~\ref{fig:project-dirtree}).
+				\begin{figure}[!htbp]
+					\centering
+					\begin{forest}
+						for tree={
+							font=\ttfamily,
+							grow'=0,
+							child anchor=west,
+							parent anchor=south,
+							anchor=west,
+							calign=first,
+							edge path={
+								\noexpand\path [draw, \forestoption{edge}]
+								(!u.south west) +(7.5pt,0) |- node[fill,inner sep=1.25pt] {} (.child anchor)\forestoption{edge label};
+							},
+							before typesetting nodes={
+								if n=1
+									{insert before={[,phantom]}}
+									{}
+							},
+							fit=band,
+							before computing xy={l=15pt},
+						}
+					[storyteller
+						[assets
+							[tales.json]
+						]
+						[scripts
+							[tale\_db\_txt\_to\_json.py]
+						]
+						[storyteller
+							[\_\_init\_\_.py]
+							[bot.py]
+							[strings.py]
+							[tales.py]
+							[user.py]
+						]
+						[requirements.txt]
+						[run.py]
+					]
+					\end{forest}
+					\caption{Файлова структура проекту}
+					\label{fig:project-dirtree}
+				\end{figure}
+
+			Створивши необхідний продукт, можна переходити до розробки рішення для його розгортання і запуску.
+
+		\subsection{Розробка рішення для розгортання продукту}
+			Розгортання продукту~— це послідовність дій, яка передбачає його налаштування і запуск для кінцевих користувачів. Основними задачами при розгортанні продукту є можливість швидкого налаштування і запуску на максимальній кількості обчислювальних машин різних конфігурацій.
 			
-			Так як облікові дані користувачів будуть часто змінюватись (будуть з'я\-вля\-тись нові користувачі, оцінки тощо), для збереження цих даних зручно використати базу даних. В організації вже використовують систему керування базами даних~\textenglish{MongoDB}, тому для вирішення поставленої задачі використаємо її.
+			Щоб вирішити ці задачі і розгорнути розроблений чат-бот, скористаємось платформою контейнеризації~\textenglish{Docker}, яка входить в інфраструктуру компанії. Ця технологія дозволяє використати віртуалізацію на рівні операційної системи, щоб запускати програмне забезпечення в ізольованому середовищі.
 
-			Щоб отримати доступ до бази даних з~\textenglish{Python}-модуля, використаємо пакет~\textenglish{PyMongo}, який надає офіційний розробник системи керування базами даних~\textenglish{MongoDB}.
+			Такі ізольовані середовища запуску створюються з об'єктів платформи~\textenglish{Docker}, які називаються образами. \emph{Образи}~— це файли, які містять усі необхідні складові для запуску бажаного програмного забезпечення. Щоб створити образ, перш за все необхідно створити файл, який описує процес його створення. Такий файл називається~\filename{\textenglish{Dockerfile}}. Розробимо відповідний файл для створеного чат-бота~(лістинг~\ref{lst:dockerfile}).
+
+			\begin{listingdocker}{\filename{\textenglish{Dockerfile}} для створення образу чат-бота}{lst:dockerfile}
+# Use official Python distro
+FROM python:3.6-alpine
+
+# Add a priviledged user who is not root inside the container
+# This creates the /home/storyteller directory inside the
+# container
+RUN adduser -D storyteller
+
+# Install build dependencies for Python telegram bot
+RUN apk add build-base python-dev libffi-dev openssl-dev
+
+# Set the containter's working directory to /storyteller
+WORKDIR /home/storyteller
+
+# Copy requirements.txt file to container
+COPY requirements.txt requirements.txt
+# Set up a venv inside the container
+RUN python -m venv venv
+
+# Install app requirements
+RUN venv/bin/pip install -r requirements.txt
+
+# Copy application contents to container
+COPY assets assets
+COPY scripts scripts
+COPY storyteller storyteller
+COPY run.py run.py
+COPY run_storyteller.sh run_storyteller.sh
+
+# Make `run_storyteller.sh` script executable
+RUN chmod +x run_storyteller.sh
+
+# Recursively change owner of files in current directory to user
+# "storyteller"
+RUN chown -R storyteller:storyteller ./
+USER storyteller
+
+ENTRYPOINT ["./run_storyteller.sh"]
+			\end{listingdocker}
+
+			Розробивши~\filename{\textenglish{Dockerfile}} для створеного чат-бота, створюємо його образ. Для цього за допомогою інтерфейсу командного рядка платформи~\textenglish{Docker} запускаємо створення образу~«\textenglish{storyteller}» за файлом у поточній директорії, виконавши таку команду:
+			\begin{bashterm}
+				docker build -t storyteller .
+			\end{bashterm}
+			Після завершення виконання команди буде створений образ~«\textenglish{storyteller:latest}». Зі створеного образу можна створити ізольоване середовище, в якому буде запущений чат-бот. Таке середовище називається~\emph{контейнером}.
+
+			Однак, чат-бот~— не єдина складова цілого програмного продукту. Для його правильної роботи також необхідна база даних, тому одного лише контейнера чат-бота буде недостатньо. Отже, необхідно контейнеризувати систему керування базами даних і об'єднати їх у багатосервісний додаток.
+
+			Для цього використаємо програмний продукт~\textenglish{Docker Compose}, який входить до складу платформи~\textenglish{Docker}. Щоб створити бажаний багатосервісний додаток, необхідно описати його у спеціальному файлі~\filename{\textenglish{docker-compose.yml}}. У цьому файлі описують сервіси, які використовує багатосервісний додаток, а також параметри їх запуску.
+
+			Щоб зробити розгортання програмного продукту зручнішим, додамо конфігураційний файл, який описуватиме специфіку роботи розробленого чат-бота за допомогою змінних середовища~(лістинг~\ref{lst:release-env}).
+
+			\begin{listingplaintext}{Файл~\filename{\textenglish{release.env}}, який містить конфігурацію для чат-бота}{lst:release-env}
+STORYTELLER_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
+STORYTELLER_MONGO_URI=mongodb://mongo:27017/
+STORYTELLER_MONGO_DBNAME=storyteller
+STORYTELLER_TALES_PATH=./assets/tales.json
+STORYTELLER_MAILING_HH=12
+STORYTELLER_MAILING_MM=00
+			\end{listingplaintext}
+			
+			Після створення файлу, який описує конфігураційні змінні середовища, створюємо необхідний файл~(лістинг~\ref{lst:docker-compose-yml}) з описом багатосервісного додатку.
+
+			\begin{listingdockercompose}{Файл~\filename{\textenglish{docker-compose.yml}}, який описує необхідний багатосервісний додаток}{lst:docker-compose-yml}
+version: "3"
+services:
+  # The bot itself
+  storyteller:
+    build: .
+    depends_on:
+      - mongo
+    # MessageQueue prevents the bot from stopping gracefully, so time out
+    # after 30 seconds
+    stop_grace_period: 30s
+    env_file:
+      - release.env
+    entrypoint: ./run_storyteller.sh
+
+  mongo:
+    image: "mongo:4"
+    restart: always
+    environment:
+      # Set data directory inside the container for MongoDB
+      DATA_DIR: "/data/db"
+    volumes:
+      - "mongodata:/data/db"
+
+volumes:
+  mongodata:
+			\end{listingdockercompose}
+
+			Створивши образ чат-бота і описавши багатосервісний додаток, його можна зручно розгортати за допомогою програми~\textenglish{Docker Compose}. Для цього треба перейти у директорію з файлом~\filename{\textenglish{docker-compose.yml}} і виконати таку команду:
+			\begin{bashterm}
+				sudo docker-compose up -d
+			\end{bashterm}
+			В результаті виконання цієї команди у фоновому режимі буде запущений багатосервісний додаток, який ми описали, тобто всі складові, необхідні для правильної роботи чат-бота.
+
+		\subsection{Тестування і запуск розробленого програмного продукту}
+
+	\newpage
+	\printbibliography
 
 \end{document}
 
