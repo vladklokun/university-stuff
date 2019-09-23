@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <title>Форма</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Форма</h1>
+      <form action="api/" method="get">
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-3 pt-0">Колір</legend>
+            <div class="col-sm-9">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="cvet" id="gridRadiosBlue" value="синій" checked>
+                <label class="form-check-label" for="gridRadiosBlue" style="color: blue;">
+                  Синій
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosViolet" value="бузковий">
+                <label class="form-check-label" for="gridRadiosViolet" style="color: violet;">
+                  Бузковий
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosSkyBlue" value="блакитний">
+                <label class="form-check-label" for="gridRadiosSkyBlue" style="color: skyblue;">
+                  Блакитний
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosGreen" value="зелений">
+                <label class="form-check-label" for="gridRadiosGreen" style="color: green;">
+                  Зелений
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-12 pt-0">Геометрична фігура</legend>
+            <div class="col-sm-12" align="center">
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesPoint" value="точка" checked>
+                <label class="form-check-label" for="gridCheckboxesPoint">
+                  Точка
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesTriangle" value="трикутник">
+                <label class="form-check-label" for="gridCheckboxesTriangle">
+                  Трикутник
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesRectangle" value="прямокутник">
+                <label class="form-check-label" for="gridCheckboxesRectangle">
+                  Прямокутник
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesSquare" value="квадрат">
+                <label class="form-check-label" for="gridCheckboxesSquare">
+                  Квадрат
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesCircle" value="коло">
+                <label class="form-check-label" for="gridCheckboxesCircle">
+                  Коло
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesEllipse" value="еліпс">
+                <label class="form-check-label" for="gridCheckboxesEllipse">
+                  Еліпс
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesAngle" value="кут">
+                <label class="form-check-label" for="gridCheckboxesAngle">
+                  Кут
+                </label>
+              </div>
+              <div class="form-check">
+                <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesLine" value="лінія">
+                <label class="form-check-label" for="gridCheckboxesLine">
+                  Лінія
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputName">Ім'я</label>
+            <input type="text" class="form-control" name="imya" id="inputName" placeholder="Іван">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputSurname">Прізвище</label>
+            <input type="text" class="form-control" name="fam" id="inputName" placeholder="Руденко">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputDepartment">Кафедра</label>
+            <select name="fakultet" id="inputDepartment" class="form-control">
+              <option selected>Виберіть кафедру...</option>
+              <option>КСУ</option>
+              <option>КСМ</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="inputState">Група</label>
+            <select name="grupa" id="inputState" class="form-control">
+              <option selected>СП-320</option>
+              <option>СП-321</option>
+              <option>СП-322</option>
+              <option>СП-323</option>
+              <option>СП-324</option>
+              <option>СП-325</option>
+              <option>СП-326</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <input type="reset" class="btn btn-danger btn-block" value="Очистити поля форми">
+          </div>
+          <div class="form-group col-sm-6">
+            <button type="submit" class="btn btn-primary btn-block float-right">Відправити</button>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="textarea_01">Textarea</label>
+          <textarea class="form-control" id="textarea_01" rows="12" style="font-family: monospace;">
+                       \\|//
+                       (@ @)
+------------------oOO---(_)---OOo-------------------
+: Це наочно показує, що якщо ви надрукуєте щось    :
+:    між тегами textarea, то це буде показано,     :
+:          як коментарій за замовчуванням.         :
+:                                                  :
+:               Тут можна надрукувати              :
+:                  Все, ЩО, БАЖАЄТЕ!               :
+----------------------------------------------------</textarea>
+          </div>
+      </form>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
