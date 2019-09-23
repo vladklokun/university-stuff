@@ -24,10 +24,32 @@
             <input type="text" class="form-control" name="fam" id="inputName" placeholder="Константинопольский">
           </div>
         </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputDepartment">Кафедра</label>
+            <select name="fakultet" id="inputDepartment" class="form-control">
+              <option selected>Виберіть кафедру...</option>
+              <option>КСУ</option>
+              <option>КСМ</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputState">Група</label>
+            <select name="grupa" id="inputState" class="form-control">
+              <option selected>СП-320</option>
+              <option>СП-321</option>
+              <option>СП-322</option>
+              <option>СП-323</option>
+              <option>СП-324</option>
+              <option>СП-325</option>
+              <option>СП-326</option>
+            </select>
+          </div>
+        </div>
         <fieldset class="form-group">
           <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Колір</legend>
-            <div class="col-sm-10">
+            <legend class="col-form-label col-sm-6 pt-0">Колір</legend>
+            <div class="col-sm-6">
               <div class="form-check">
                 <input class="form-check-input" type="radio" name="cvet" id="gridRadiosBlue" value="синій" checked>
                 <label class="form-check-label" for="gridRadiosBlue" style="color: blue;">
@@ -57,8 +79,8 @@
         </fieldset>
         <fieldset class="form-group">
           <div class="row">
-            <legend class="col-form-label col-sm-2 pt-0">Геометрична фігура</legend>
-            <div class="col-sm-10">
+            <legend class="col-form-label col-sm-12 pt-0">Геометрична фігура</legend>
+            <div class="col-sm-12" align="center">
               <div class="form-check">
                 <input name="figura" class="form-check-input" type="checkbox" name="gridCheckboxes" id="gridCheckboxesPoint" value="точка" checked>
                 <label class="form-check-label" for="gridCheckboxesPoint">
@@ -111,29 +133,13 @@
           </div>
         </fieldset>
         <div class="form-row">
-          <div class="form-group col-md-6">
-            <label for="inputDepartment">Кафедра</label>
-            <select name="fakultet" id="inputDepartment" class="form-control">
-              <option selected>Виберіть кафедру...</option>
-              <option>КСУ</option>
-              <option>КСМ</option>
-            </select>
+          <div class="form-group col-sm-6">
+            <input type="reset" class="btn btn-danger" value="Очистити поля форми">
           </div>
-          <div class="form-group col-md-6">
-            <label for="inputState">Група</label>
-            <select name="grupa" id="inputState" class="form-control">
-              <option selected>СП-320</option>
-              <option>СП-321</option>
-              <option>СП-322</option>
-              <option>СП-323</option>
-              <option>СП-324</option>
-              <option>СП-325</option>
-              <option>СП-326</option>
-            </select>
+          <div class="form-group col-sm-6">
+            <button type="submit" class="btn btn-primary float-right">Відправити</button>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary">Sign in</button>
-        <input type="reset" class="btn btn-danger">
         <div class="form-group">
           <label for="textarea_01">Textarea</label>
           <textarea class="form-control" id="textarea_01" rows="12" style="font-family: monospace;">
@@ -151,8 +157,6 @@
       </form>
     </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
