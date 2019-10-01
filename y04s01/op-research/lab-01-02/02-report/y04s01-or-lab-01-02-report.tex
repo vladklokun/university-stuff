@@ -522,7 +522,7 @@
     \begin{center}
       Міністерство освіти і~науки України\\
       Національний авіаційний університет\\
-      Факультет кібербезпеки, комп'ютерної та програмної інженерії\\
+      Факультет кібербезпеки, комп'ютерної та~програмної інженерії\\
       Кафедра комп'ютеризованих систем управління
 
       \vspace{\fill}
@@ -534,7 +534,7 @@
 
       \begin{flushright}
         Виконав:\\
-        студент \allcaps{ННІКІТ}\\
+        студент \allcaps{ФККПІ}\\
         групи \allcaps{СП}-425\\
         Клокун В.\,Д.\\
         Перевірила:\\
@@ -565,23 +565,34 @@
       \right.
     \end{IEEEeqnarray*}
 
-  \section{Хід роботи}
-    Щоб розв'язати поставлену задачу лінійного програмування, перш за все треба визначити область можливих розв'язків. Для цього побудуємо многокутник обмежень. Щоб побудувати многокутник обмежень, необхідно побудувати області з системи обмежень.
+  \section{Хід~роботи}
+    Щоб~розв'язати поставлену задачу графічним методом, необхідно визначити область можливих розв'язків за~допомогою многокутника обмежень. Многокутник обмежень будується на~основі півплощин, які~відповідають нерівностям із~системи обмежень. Розробимо програму, яка~побудує многокутник обмежень поставленої задачі та~покаже область можливих розв'язків~(лістинг~\ref{lst:01-solver-src}). Програма виводить рисунок для~графічного розв'язку задачі на~екран~(рис.~\ref{fig:01-plot-export}).
 
     \begin{figure}[!htbp]
       \centering
-      \begin{tikzpicture}
+      \resizebox{9\gridunitwidth}{!}{\input{./assets/Figure_1.pgf}}
+      \caption{}
+      \label{fig:01-plot-export}
+    \end{figure}
+
+    За~отриманим рисунком видно, що~вершини многокутника обмежень мають такі координати: $A\,(0; 1)$, $B\,(0; 4)$, $C\,(10/3; 4/3)$~(рис.~\ref{fig:02-plot-explicit}).
+
+    \begin{figure}[!htbp]
+      \centering
+      \begin{tikzpicture}[
+        plot expl/.style = {sloped, font = {\footnotesize}},
+      ]
         \begin{axis}[
           width=10\gridunitwidth,
           axis x line = middle,
           axis y line = middle,
-          xmin = -1.5,
-          xmax = 9.5,
+          xmin = -4.5,
+          xmax = 10.5,
           ymin = -1.5,
-          ymax = 9.5,
+          ymax = 10.5,
           xtick distance = 1,
           ytick distance = 1,
-          domain = -1:10,
+          domain = -4:10,
           domain y = -1:10,
           xlabel = $x_1$,
           ylabel = $x_2$,
@@ -590,36 +601,83 @@
             name path = 1,
           ] {
             (20 - 4*x) / 5
-          };
+          }
+            node [plot expl, below, pos=0.15] {$4 x_1 + 5 x_2 \leqslant 20$};
+
           \addplot [
             name path = 2,
           ] {
             (10 + x) / 10
-          };
+          }
+            node [plot expl, above, pos=0.10] {$-x_1 + 10 x_2 \geqslant 10$};
+          ;
+
           \addplot [
             name path = 3,
           ] {
             (35 - 7*x) / 5
-          };
-          \draw ({axis cs:7,0}|-{rel axis cs:0,0}) -- ({axis cs:7,0}|-{rel axis cs:0,1});
+          }
+            node [plot expl, below, pos=0.20] {$7 x_1 + 5 x_2 \leqslant 35$};
+          ;
+
+          % Draw x_1 = 7
+          \draw ({axis cs:7,0}|-{rel axis cs:0,0}) -- ({axis cs:7,0}|-{rel axis cs:0,1})
+            node [plot expl, above, pos=0.85] {$x_1 \leqslant 7$};
+
+          % Draw x_2 = 4.
           \addplot [
+            name path = 4,
           ] {
             4
-          };
+          }
+            node [plot expl, below, pos=0.10] {$x_2 \leqslant 4$};
+          ;
+
+          % Draw axes
+          % OX
+          \path [name path=xaxis] (axis cs: \pgfkeysvalueof{/pgfplots/xmin}, 0) -- (axis cs: \pgfkeysvalueof{/pgfplots/xmax}, 0);
+
+          % OY
+          \path [name path=yaxis] (axis cs: 0, \pgfkeysvalueof{/pgfplots/ymin}) -- (axis cs: 0, \pgfkeysvalueof{/pgfplots/ymax});
+
           % Draw solution space fill
-          \path [name path=xaxis] (\pgfkeysvalueof{/pgfplots/xmin}, 0) -- (\pgfkeysvalueof{/pgfplots/xmax}, 0);
-          \path [name path=xaxis] (\pgfkeysvalueof{/pgfplots/xmin}, 0) -- (\pgfkeysvalueof{/pgfplots/xmax}, 0);
           \addplot [gray, pattern=north east lines] fill between[
             of=1 and 2,
             soft clip = {
               domain = 0:3.35,
             }
           ];
+          % Draw interseciton points
+          \fill [name intersections = {of = 2 and yaxis}]
+            (intersection-1) circle[radius = 2pt] node [below right] {\footnotesize$A\,(0, 1)$};
+
+          \fill [name intersections = {of = 1 and 4}]
+            (intersection-1) circle[radius = 2pt] node [above right] {\footnotesize$B\,(0, 4)$};
+
+          \fill [name intersections = {of = 1 and 2}]
+            (intersection-1) circle[radius = 2pt] node [below] {\footnotesize$C\,\left(\frac{10}{3}, \frac{4}{3}\right)$};
         \end{axis}
       \end{tikzpicture}
+      \caption{Графік області можливих розв'язків}
+      \label{fig:02-plot-explicit}
     \end{figure}
 
+    Відомо, що~якщо задача лінійного програмування має~оптимальне рішення, то~воно співпадає з~однією (двома) вершинами многокутника обмежень. Отже, щоб~знайти оптимальне рішення, необхідно визначити вершину, при~якій значення функції найменше. Для~цього підставляємо значення координат у~цільову функцію і~знаходимо її~значення:
+    \begin{IEEEeqnarray*}{rCl}
+      L(A) &=& -4 \cdot 0 - 5 \cdot 1 = -5,\\
+      L(B) &=& -4 \cdot 0 - 5 \cdot 4 = -20,\\
+      L(C) &=& -4 \cdot \frac{10}{3} - 5 \cdot \frac{4}{3}
+               = \frac{-40}{3} - \frac{20}{3}
+               = \frac{-60}{3}
+               = -20.
+    \end{IEEEeqnarray*}
+    Як~бачимо, цільова функція~$L$ набуває найменших значень у~точках~$B\,(0; 4)$ і~$C\,(10/3; 4/3)$, а~отже розв'язками задачі будуть такі пари значень керованих змінних: $x_{1} = 0, \, x_{2} = 4$ та~$x_{1} = 10/3, \, x_{2} = 4/3$.
+
   \section{Висновок}
-    Виконуючи дану лабораторну роботу, ми~ознайомились з~предметом, методами та~завданням курсу «Дослідження операцій», а~також побудували оптимізаційну економіко-математичну модель поставленої задачі.
+    Виконуючи дану лабораторну роботу, ми~навчились використовувати графічний метод розв'язання задач лінійного програмування, а~також розробляти програмне забезпечення для~допомоги при~розв'язанні задачі лінійного програмування графічним методом.
+
+  \appendix
+  \section{Програма для~розв'язку поставленої задачі}
+    \inputpython{../01-solution/y04s01-lab-01-02-solver.py}{Початковий код~програми для~побудови півплощин обмежень}{lst:01-solver-src}
 
 \end{document}
