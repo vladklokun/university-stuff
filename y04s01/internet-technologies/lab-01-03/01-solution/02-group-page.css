@@ -1,0 +1,64 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  font-family: "Source Sans Pro", sans-serif;
+  line-height: 1.5;
+  font-size: 100%;
+  color: #333;
+}
+
+a {
+  color: #2b4fd7;
+  border-bottom: 1px dashed #2b4fd7;
+  text-decoration: none;
+}
+
+a:hover {
+  color: orange;
+  border-bottom: 1px solid orange;
+}
+
+h1 {
+  color: #2b4fd7;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+}
+
+h2 {
+  color: #2b4fd7;
+  line-height: 1;
+  font-size: 3rem;
+  font-weight: 500;
+  font-variant: small-caps;
+  letter-spacing: 0.05em;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-feature-settings: "onum";
+}
+
+abbr {
+  font-feature-settings: "c2sc" 1;
+  letter-spacing: 0.05em;
+}
+
+footer {
+  font-style: italic;
+}
+
+.copyright {
+  color: #2b4fd7;
+}
+
+.breadcrumbs {
+  border-top: 1px solid #333;
+  border-bottom: 1px solid #333;
+}
+
+td > blockquote {
+  margin: 0;
+  margin-bottom: 1.5rem;
+}
