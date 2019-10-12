@@ -3,23 +3,23 @@ from scipy.optimize import linprog
 # Objective function coefficients
 c = [-4, -3, 2]
 
-# Ineqality contraints coefficients
+# Upper bound ineqality constraints coefficients
 A_ub = [
     [-1, -1, 0],
     [0, 0, 1],
 ]
 
-# Inequality (less than) constraints vector
+# Upper bound inequality (less than) constraints vector
 b_ub = [
     2,
     -5
 ]
 
-# Equality constraints coefficients
+# Equation constraints coefficients
 A_eq = [
     [-2, -2, 1],
 ]
-# Equality constraints vector
+# Equation constraints vector
 b_eq = [
     4,
 ]
