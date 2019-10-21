@@ -1,0 +1,56 @@
+Решение задачи коммивояжера для Иры.
+ (5) (5) (4) (5) (5) (9)
+1 → 6 → 5 → 4 → 3 → 2 → 1
+
+*************************************************************
+
+   NEOS Server Version 5.0
+   Job#     : 7625716
+   Password : KOlmutXs
+   User     : None
+   Solver   : co:concorde:TSP
+   Start    : 2019-10-20 08:57:02
+   End      : 2019-10-20 08:57:10
+   Host     : sokrates.la.asu.edu
+
+   Disclaimer:
+
+   This information is provided without any express or
+   implied warranty. In particular, there is no warranty
+   of any kind concerning the fitness of this
+   information  for any particular purpose.
+*************************************************************
+/home/neos6/bin/concorde.cplex -s 99 -f sample.tsp
+Host: sokrates  Current process id: 21330
+Using random seed 99
+Problem Name: demo
+Problem Type: TSP
+4 vertexes asymmetric problem
+Number of Nodes: 6
+Explicit Lengths (CC_MATRIXNORM)
+Optimal Solution: 33.00
+Total Running Time: 0.00 (seconds)
+
+
+***  ***
+
+
+
+*** You chose the Concorde(CPLEX) solver ***
+
+
+
+*** Cities are numbered 0..n-1 and each line shows a leg from one city to the next 
+ followed by the distance rounded to integers***
+
+6 6
+0 5 5
+5 4 5
+4 3 4
+3 2 5
+2 1 5
+1 0 9
+
+
+***PDF of optimal tour***unzip this file***
+Additional Output: https://neos-server.org/neos/jobs/7620000/7625716-KOlmutXs-solver-output.zip

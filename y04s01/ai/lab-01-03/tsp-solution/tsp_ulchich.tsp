@@ -1,0 +1,14 @@
+NAME:  demo
+TYPE: TSP
+COMMENT: 4 vertexes asymmetric problem
+DIMENSION:  6
+EDGE_WEIGHT_TYPE: EXPLICIT
+EDGE_WEIGHT_FORMAT: FULL_MATRIX
+EDGE_WEIGHT_SECTION
+9999    9    7 9999 9999    5
+   9 9999    5    9   10 9999
+   7    5 9999    5 9999    3
+9999    9    5 9999    4    9
+   9   10 9999    4 9999    5
+   5    8    3    6    5 9999
+EOF
