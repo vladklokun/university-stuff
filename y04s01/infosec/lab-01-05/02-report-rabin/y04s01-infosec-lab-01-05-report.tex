@@ -1,0 +1,604 @@
+\documentclass[
+	a4paper,
+	oneside,
+	BCOR = 10mm,
+	DIV = 12,
+	12pt,
+	headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+	SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+	Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+	Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{IEEEtrantools}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+	label*      = {\arabic*.},
+	left        = \parindent,
+	topsep      = 0\baselineskip,
+	parsep      = 0\baselineskip,
+	noitemsep, % override itemsep
+}
+% List settings for levels 2–4
+\setlist[enumerate, 2, 3, 4]{
+	label*      = {\arabic*.},
+	left        = 0em,
+	topsep      = 0\baselineskip,
+	parsep      = 0\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[itemize]{
+	label*      = {—},
+	left        = \parindent,
+	topsep      = 0\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 1\baselineskip,
+	noitemsep, % override itemsep
+}
+
+\setlist[description]{
+	font        = {\rmfamily\upshape\bfseries},
+	topsep      = 1\baselineskip,
+	parsep      = 0\baselineskip,
+	itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = 1\baselineskip,
+	font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+	beforeskip = -1\baselineskip,
+	afterskip  = -0.5em,
+	font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguages{english}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+	aboveskip = 0\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+	aboveskip = 1\baselineskip,
+	belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+	labelformat = simple,
+	labelformat = brace,
+	% justification = RaggedRight,
+	% singlelinecheck = false,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+	output-decimal-marker = {,},
+	exponent-product      = {\cdot},
+	inter-unit-product    = \ensuremath{{} \cdot {}},
+	per-mode              = symbol,
+}
+%%%
+
+% Code Highlighting
+\usepackage{minted}
+\setmintedinline{
+	style = bw,
+	breaklines,
+}
+
+\newminted[bashterm]{text}{%
+	autogobble,%
+	breaklines,%
+	style=bw,%
+}
+
+\newminted[codegeneric]{text}{%
+	autogobble,%
+	style=bw,%
+	breaklines,%
+	fontsize=\small,%
+}
+
+\newmintinline{bash}{%
+}
+
+\newmintinline[minttext]{text}{%
+	breaklines,%
+	breakanywhere,%
+}
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+% Text file listing
+\newtcblisting[
+	auto counter,
+	list inside,
+	number within = section,
+]{listingplaintext}[3][]{%
+	minted language = text,
+	minted style    = bw,
+	minted options  = {
+		autogobble,
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakanywhere,
+		fontsize = \footnotesize,
+	},
+	empty,
+	sharp corners,
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},%
+}
+
+\newtcblisting[
+	use counter from = listingplaintext,
+	list inside,
+	number within = section,
+]{listingpython}[3][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		autogobble,
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakanywhere,
+		fontsize = \footnotesize,
+	},
+	empty,
+	sharp corners,
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},
+	%
+	#1%
+}
+
+\newtcbinputlisting[
+	use counter from = listingplaintext,
+	list inside,
+	number within = section
+]{\inputpython}[4][]{%
+	minted language = python,
+	minted style    = bw,
+	minted options  = {
+		autogobble,
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakanywhere,
+		fontsize = \footnotesize,
+	},
+	empty,
+	sharp corners,
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #3},
+	list entry       = {\protect\numberline{\thetcbcounter}#3},
+	left = 0em,
+	right = 0em,
+	%
+	listing file={#2},
+	listing only,
+	breakable,
+	%
+	label = {#4}
+}
+
+% Linux command-line listing
+\newtcblisting{linuxterm}%
+{%
+	% Syntax highlighing options
+	listing only,%
+	minted language = bash,%
+	minted options={%
+		autogobble,%
+		linenos%
+	},%
+	% Presentation options
+	empty,%
+	%% Margins
+	sharp corners,%
+	toptitle = 0.0em,%
+	bottomtitle = 0.0em,%
+	left = 0em,%
+	right = 0em,%
+	before skip = \intextsep,%
+	after skip = \intextsep,%
+}
+
+\newtcblisting{linuxtermout}%
+{%
+	% Syntax highlighing options
+	listing only,%
+	minted language = text,%
+	minted options={%
+		autogobble,%
+		linenos%
+	},%
+	% Presentation options
+	empty,%
+	%% Margins
+	sharp corners,%
+	toptitle = 0.0em,%
+	bottomtitle = 0.0em,%
+	left = 0em,%
+	right = 0em,%
+	before skip = \intextsep,%
+	after skip = \intextsep,%
+}
+
+% Dockerfile listings
+\newtcblisting[
+	use counter from = listingplaintext,
+	list inside,
+	number within = section,
+]{listingdocker}[3][]{%
+	minted language = dockerfile,
+	minted style    = bw,
+	minted options  = {
+		autogobble,%
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakanywhere,
+		fontsize = \footnotesize,
+	},
+	empty,
+	sharp corners,
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},%
+}
+
+% Docker Compose listings
+\newtcblisting[
+	use counter from = listingplaintext,
+	list inside,
+	number within = section,
+]{listingdockercompose}[3][]{%
+	minted language = yaml,
+	minted style    = bw,
+	minted options  = {
+		autogobble,%
+		linenos,
+		tabsize = 4,
+		breaklines,
+		breakanywhere,
+		fontsize = \footnotesize,
+	},
+	empty,
+	sharp corners,
+	coltitle = black,
+	borderline horizontal = {1pt}{0pt}{black},
+	titlerule = {0.5pt},
+	titlerule style = {
+		black,
+	},
+	toptitle = 0.3em,
+	bottomtitle = 0.3em,
+	before skip      = \intextsep,
+	after  skip      = \intextsep,
+	title            = {Лістинг \thetcbcounter: #2},
+	list entry       = {\protect\numberline{\thetcbcounter}#2},
+	left = 0em,
+	right = 0em,
+	%
+	listing only,
+	breakable,
+	%
+	label = {#3},%
+}
+
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Typeset menus and keys
+\usepackage{menukeys}[
+	os=win,
+]
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+	bookmarksnumbered = true,
+	colorlinks      = false,
+	linkbordercolor = red,
+	urlbordercolor  = lightblue,
+	pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustment
+
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{%
+	{%
+		\addfontfeatures{%
+			Letters = UppercaseSmallCaps,
+			LetterSpace = 8,%
+		}%
+		#1%
+	}%
+}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\progname}[1]{\texttt{#1}}
+\newcommand{\commandname}[1]{\texttt{#1}}
+\newcommand{\modulename}[1]{\texttt{#1}}
+\newcommand{\ifname}[1]{\texttt{#1}} % typesets a network interface's name
+
+\newcommand{\transeng}[1]{{англ.}~\textit{\textenglish{#1}}}
+%%%
+
+%%% Custom math commands
+\newcommand{\longvar}[1]{\mathit{#1}}
+%%%
+
+\begin{document}
+
+\begin{titlepage}
+		\begin{center}
+			Міністерство освіти і~науки України\\
+			Національний авіаційний університет\\
+			Факультет кібербезпеки, комп'ютерної та~програмної інженерії\\
+			Кафедра комп'ютеризованих систем управління
+
+			\vspace{\fill}
+				Лабораторна робота №~1.5\\
+				з~дисципліни «Захист інформації в~комп'ютерних системах»\\
+				на~тему «Аналіз інформації, що~передається в~мережі»
+
+			\vspace{\fill}
+
+			\begin{flushright}
+				Виконав:\\
+				студент \allcaps{ФККПІ}\\
+				групи \allcaps{СП}-425\\
+				Рабін І.\,Р.\\
+				Перевірила:\\
+				Супрун О.\,М.
+			\end{flushright}
+
+			Київ 2019
+		\end{center}
+	\end{titlepage}
+
+	\section{Мета роботи}
+		Ознайомитись з~можливостями реєстрації третьою стороною інформації, що~передається у~комп'ютерній мережі.
+
+	\section{Завдання роботи}
+		Встановити програму перехоплення мережевої інформації \textenglish{Wireshark}, ознайомитись з~її~можливостями.
+
+	\section{Хід~роботи}
+		Встановлюємо та~запускаємо програму~\textenglish{Wireshark}. Коли програма запущена, вона покаже список інтерфейсів, на~яких можна прослуховувати трафік. Обираємо інтерфейс, на~якому будемо перехоплювати трафік~(рис.~\ref{subfig:01-wireshark-ifs}). Обираємо інтерфейс~\ifname{en0}, який відповідає бездротовому підключенню за~технологією~\textenglish{Wi-Fi}, двічі клікнувши по~ньому, і~відкриється вікно із~захопленими пакетами~(рис.~\ref{subfig:01-wireshark-if-capture}).
+
+		\begin{figure}[!htbp]
+			\centering
+			\begin{subfigure}[b]{0.5\columnwidth - 0.5em}
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/p01.png}
+				\caption{}
+				\label{subfig:01-wireshark-ifs}
+			\end{subfigure}%
+			\hspace{1em}%
+			\begin{subfigure}[b]{0.5\columnwidth - 0.5em}
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/p02.png}
+				\caption{}
+				\label{subfig:01-wireshark-if-capture}
+			\end{subfigure}
+			\caption{Захоплення трафіку у~програмі~\textenglish{Wireshark}}
+			\label{fig:01-wireshark}
+		\end{figure}
+
+		Щоб~закінчити збір даних, натискаємо кнопку~«Стоп». Після цього можна детальніше відфільтрувати зібрані дані. Для~цього відкриваємо вікно з~параметрами збору даних за~допомогою комбінації клавіш \keys{\cmd + K}~— з'явиться вікно налаштування інтерфейсів~(рис.~\ref{subfig:02-wireshark-filter-window}). У~з'явившомуся вікні обираємо потрібний інтерфейс~— \textenglish{Wi-Fi}-інтерфейс~\ifname{en0} і~застосовуємо фільтр. Наприклад, оберемо лише ті~пакети, які~були передані за~допомогою протоколу~\textenglish{\allcaps{TCP}}~(рис.~\ref{subfig:02-wireshark-filter-applied}).
+
+		\begin{figure}[!htbp]
+			\centering
+			\begin{subfigure}[b]{\columnwidth}
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/p03.png}
+				\caption{}
+				\label{subfig:02-wireshark-filter-window}
+			\end{subfigure}
+			\begin{subfigure}[b]{\columnwidth}
+				\centering
+				\includegraphics[height = 10\baselineskip]{./assets/p04.png}
+				\caption{}
+				\label{subfig:02-wireshark-filter-applied}
+			\end{subfigure}
+			\caption{Детальна фільтрація трафіку у~програмі~\textenglish{Wireshark}}
+			\label{fig:02-wireshark-filter}
+		\end{figure}
+
+		В~результаті фільтрації, отримали відповідний список захоплених пакетів, які~були передані за~допомогою протоколу~\textenglish{\allcaps{TCP}}~(рис.~\ref{fig:03-wireshark-filtered-packets}).
+
+		\begin{figure}[!htbp]
+			\centering
+			\includegraphics[height = 10\baselineskip]{./assets/p05.png}
+			\caption{Захоплені пакети, які~були передані за~допомогою протоколу~\textenglish{\allcaps{TCP}}}
+			\label{fig:03-wireshark-filtered-packets}
+		\end{figure}
+
+
+	\section{Висновок}
+		Виконуючи дану лабораторну роботу, ми~встановили програму перехоплення мережевої інформації \textenglish{Wireshark}, ознайомились з~її~можливостями і~з~її~допомогою ознайомились з~можливостями реєстрації третьою стороною інформації, яка~передається у~комп'ютерній мережі.
+
+\end{document}
