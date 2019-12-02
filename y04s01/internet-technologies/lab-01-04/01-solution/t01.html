@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="./t01.css">
 
-    <title>Hello, world!</title>
+    <title>Список дисциплін</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -21,20 +21,13 @@
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        <a class="nav-link" href="./t01.html">Додому <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Сторінки</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" href="./t03-autobiography.htm">Автобіографія</a>
+          <a class="dropdown-item" href="./t03-group-page.htm">Про групу</a>
         </div>
       </li>
     </ul>
@@ -45,14 +38,36 @@
   </div>
 </nav>
 
-<main role="main" class="container">
+<body>
 
-  <div class="starter-template">
-    <h1>Bootstrap starter template</h1>
-    <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Список дисциплін</h1>
+        <p class="lead">На цій сторінці знаходиться список дисциплін.</p>
+        <p><a href="./t03-group-page.htm" class="inline-link">Група СП-425</a> вивчає такі дисципліни:
+          <ul>
+            <li class="item1 done">
+              Системне <a href="./t03-autobiography.htm">програмування</a>.
+            </li>
+            <li class="not-done">
+              Інтернет-технології.
+            </li>
+            <li class="not-done">
+              Математичне програмування.
+            </li>
+            <li class="not-done">
+              Паралельні і розподілені обчислення.
+            </li>
+          </ul>
+        </p>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
   </div>
-
-</main><!-- /.container -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

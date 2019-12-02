@@ -4,9 +4,48 @@ body {
 
 .starter-template {
   padding: 3rem 1.5rem;
-  text-align: center;
 }
 
-h1:hover {
-  color: orange;
+a {
+  color: var(--blue);
+}
+
+a.inline-link:link {
+  border-bottom: 1px dashed;
+  color: var(--blue);
+}
+
+a.inline-link:link:hover {
+  border-bottom: 1px solid;
+  color: var(--blue);
+  text-decoration: unset;
+}
+
+a.inline-link:visited {
+  border-bottom: 1px dashed;
+  color: var(--green);
+}
+
+ul {
+  list-style-type: "—";
+}
+
+ul.ul-menu {
+  list-style-type: "";
+  padding: 0;
+  margin: 0;
+}
+
+li::first-letter {
+  color: var(--blue);
+}
+
+li.done:hover::after {
+  content: "DONE";
+  color: var(--green);
+}
+
+li.not-done:hover::after {
+  content: "NOT DONE";
+  color: var(--red);
 }
