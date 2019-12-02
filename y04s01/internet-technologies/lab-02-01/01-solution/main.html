@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>JS and Whatnot</title>
+  </head>
+  <script>
+    function changeBG() {
+      document.getElementById("body").style.background = "var(--red)";
+    }
+  </script>
+  <body id="body" ondblclick="changeBG()">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Обчислення розміру премії</h1>
+        <script>
+          function calcIncentive() {
+            var salary_input = document.getElementById("salary");
+            salary = Number(salary_input.value);
+            incentive = 0.25 * salary;
+
+            var incentive_res = document.getElementById("incentive-res");
+            incentive_res.value = incentive;
+          }
+
+          function calcTotal() {
+            calcIncentive();
+
+            var incentive_res = document.getElementById("incentive-res");
+            incentive = Number(incentive_res.value);
+
+            var total_elem = document.getElementById("total-res");
+            var total = salary + incentive;
+            total_elem.value = total;
+          }
+        </script>
+        <form>
+          <div class="form-group" id="salary-form">
+            <label for="salary">Дохід</label>
+            <input type="text" class="form-control" id="salary">
+            <small id="salaryhelp" class="form-text text-muted">Введіть дохід сюди.</small>
+          </div>
+          <div class="form-group">
+            <label for="incentive">Премія</label>
+            <input type="text" class="form-control" id="incentive-res" readonly>
+          </div>
+          <div class="form-group">
+            <label for="result">Дохід + премія</label>
+            <input type="text" class="form-control" id="total-res" readonly>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calcIncentive()">Обчислити</button>
+          <button type="button" class="btn btn-primary" onclick="calcTotal()">Разом</button>
+        </form>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Час</h1>
+        <script>
+          function display_time() {
+            var now = new Date()
+            var current_time = now.toLocaleTimeString()
+            var current_date = now.toLocaleDateString()
+
+            html = "Поточна дата: " + current_date + "<br>Поточний час: " + current_time;
+
+            var tab = window.open('about:blank', '_blank');
+            tab.document.write(html);
+            tab.document.close();
+          }
+        </script>
+        <form>
+          <button type="button" class="btn btn-primary" onclick="display_time()">Показати час</button>
+        </form>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Площа прямокутника</h1>
+        <script>
+          function calcRectArea() {
+            var side_a = Number(document.getElementById("side-a").value);
+            var side_b = Number(document.getElementById("side-b").value);
+
+            area = side_a * side_b;
+
+            var area_elem = document.getElementById("area");
+            area_elem.value = area;
+          }
+        </script>
+        <form>
+          <div class="form-group" id="side-a-form">
+            <label for="side-a">Сторона A</label>
+            <input type="text" class="form-control" id="side-a" placeholder="Введіть довжину сторони A...">
+          </div>
+          <div class="form-group" id="side-b-form">
+            <label for="side-b">Сторона B</label>
+            <input type="text" class="form-control" id="side-b" placeholder="Введіть довжину сторони B...">
+          </div>
+          <div class="form-group" id="area-form">
+            <label for="area">Площа</label>
+            <input type="text" class="form-control" id="area" placeholder="Площа дорівнює..." readonly>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calcRectArea()">Обчислити площу</button>
+        </form>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./bootstrap/js/jquery-3.4.1.slim.js"></script>
+    <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
