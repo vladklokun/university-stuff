@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./main.css">
+
+    <title>JS and Whatnot</title>
+  </head>
+  <body id="body">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Площа прямокутника</h1>
+        <script>
+          function calcRectArea() {
+            let side_a = Number(document.getElementById("side-a").value);
+            let side_b = Number(document.getElementById("side-b").value);
+
+            area = side_a * side_b;
+
+            let area_elem = document.getElementById("area");
+            area_elem.value = area;
+
+            area_msg = "Площа прямокутника: " + area;
+            alert(area_msg);
+          }
+        </script>
+        <form>
+          <div class="form-group" id="side-a-form">
+            <label for="side-a">Сторона A</label>
+            <input type="text" class="form-control" id="side-a" placeholder="Введіть довжину сторони A...">
+          </div>
+          <div class="form-group" id="side-b-form">
+            <label for="side-b">Сторона B</label>
+            <input type="text" class="form-control" id="side-b" placeholder="Введіть довжину сторони B...">
+          </div>
+          <div class="form-group" id="area-form">
+            <label for="area">Площа</label>
+            <input type="text" class="form-control" id="area" placeholder="Площа дорівнює..." readonly>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="calcRectArea()">Обчислити площу</button>
+        </form>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Реєстрація</h1>
+        <script>
+          function parseForm(form) {
+            name = prompt("Введіть ваше ім'я:");
+
+            if (name) {
+              name = name;
+            } else {
+              name = "Іван";
+            }
+
+            alert("Ви ввели: " + name + ".");
+
+            let group = document.querySelector('input[name="group"]:checked').value;
+            if (group) {
+              let group_text_field = document.getElementById("group");
+              group_text_field.value = group;
+            } else {
+              alert("Ви не обрали групу.");
+            }
+          }
+        </script>
+        <form id="form1">
+          <div class="form-check" id="radio01">
+            <input type="radio" class="form-check-input" name="group" id="radio401" value="401">
+            <label for="mark1">401</label>
+          </div>
+          <div class="form-check" id="radio02">
+            <input type="radio" class="form-check-input" name="group" id="radio402" value="402">
+            <label for="mark1">402</label>
+          </div>
+          <div class="form-check" id="radio03">
+            <input type="radio" class="form-check-input" name="group" id="radio406" value="406">
+            <label for="mark1">406</label>
+          </div>
+          <div class="form-group" id="group-form">
+            <label for="area">Група</label>
+            <input type="text" class="form-control" id="group" placeholder="Ваша група..." readonly>
+          </div>
+          <button type="button" class="btn btn-primary" onclick="parseForm(form1)">Реєстрація</button>
+        </form>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Зображення</h1>
+        <div class="row">
+          <div class="col-6">
+            <img src="inter.png" class="img-fluid" id="inter01" alt="Image">
+          </div>
+          <div class="col-6">
+            <img src="inter.png" class="img-fluid" id="inter01" alt="Image" onclick="maximizeImage(this)" ondblclick="minimizeImage(this)">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <script>
+              function forEachNode(nodeList, func) {
+                for (let i = 0, n = nodeList.length; i < n; i++) {
+                  func(nodeList[i], i, nodeList);
+                }
+              }
+
+              function maximizeAll() {
+                console.log(document.images);
+                forEachNode(document.images, maximizeImage);
+              }
+
+              function minimizeAll() {
+                forEachNode(document.images, minimizeImage);
+              }
+
+              function maximizeImage(item, index=null, list=null) {
+                item.style.maxHeight = "100%";
+                item.style.maxWidth = "100%";
+                item.style.border = "1px solid red";
+              }
+
+              function minimizeImage(item, index=null, list=null) {
+                item.style.maxHeight = "50%";
+                item.style.maxWidth = "50%";
+              }
+            </script>
+            <form id="form1">
+              <button type="button" class="btn btn-primary" onclick="maximizeAll()">Збільшити</button>
+            </form>
+          </div>
+          <div class="col-6">
+            <form id="form1">
+              <button type="button" class="btn btn-primary" onclick="minimizeAll()">Відновити</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+      </div>
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <h1>Зображення за номером</h1>
+        <div class="row">
+          <div class="col-6">
+            <img src="inter_1.png" class="img-fluid" id="inter0201" alt="Image">
+          </div>
+          <div class="col-6">
+            <img src="inter_2.png" class="img-fluid" id="inter0202" alt="Image" onclick="maximizeImage(this)" ondblclick="minimizeImage(this)">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <img src="inter_3.png" class="img-fluid" id="inter0203" alt="Image">
+          </div>
+          <div class="col-6">
+            <img src="inter_4.png" class="img-fluid" id="inter0204" alt="Image" onclick="maximizeImage(this)" ondblclick="minimizeImage(this)">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <script>
+              function openImageNewWindow() {
+                let imagenum = Number(document.getElementById("pic-id").value);
+
+                img_path = "inter_" + imagenum + ".png";
+                // Open new tab with the image
+                var tab = window.open(img_path);
+                tab.document.close();
+              }
+            </script>
+            <form id="form1">
+              <div class="form-group" id="area-form">
+                <label for="pic-id">Номер зображення</label>
+                <input type="text" class="form-control" id="pic-id" placeholder="Оберіть номер зображення...">
+              </div>
+              <button type="button" class="btn btn-primary" onclick="openImageNewWindow()">Відкрити</button>
+              <button type="button" class="btn btn-primary" onclick="minimizeAll()">Закрити</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-2">
+      </div>
+    </div>
+    </div>
+  </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="./bootstrap/js/jquery-3.4.1.slim.js"></script>
+    <script src="./bootstrap/js/bootstrap.bundle.js"></script>
+  </body>
+</html>
