@@ -1,0 +1,12 @@
+body {
+  padding-top: 5rem;
+}
+
+nav:hover {
+  box-shadow: 1px 1px;
+  text-shadow: 0.5px 0.5px;
+}
+
+.navbar:hover {
+  border-radius: 10px;
+}
