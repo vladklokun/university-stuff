@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="form.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <title>Форма</title>
+  </head>
+  <body onload="loadCanvas()">
+    <canvas id="canvas_image"></canvas>
+    <div class="container">
+      <h1>Форма</h1>
+      <form action="api/" method="get">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">Ім'я</label>
+            <input type="text" class="form-control" name="imya" id="inputName" placeholder="Костянтин" autofocus>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputSurname">Прізвище</label>
+            <input type="text" class="form-control" name="fam" id="inputName" placeholder="Константинопольский">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputName">E-mail</label>
+            <input type="email" class="form-control" name="imya" id="inputName" placeholder="kk@example.com">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputSurname">Телефон</label>
+            <input type="tel" class="form-control" name="fam" id="inputName" placeholder="+38 099 123 45 67">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputDepartment">Кафедра</label>
+            <select name="fakultet" id="inputDepartment" class="form-control">
+              <option selected>Виберіть кафедру...</option>
+              <option>КСУ</option>
+              <option>КСМ</option>
+            </select>
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputState">Група</label>
+            <select name="grupa" id="inputState" class="form-control">
+              <option selected>СП-320</option>
+              <option>СП-321</option>
+              <option>СП-322</option>
+              <option>СП-323</option>
+              <option>СП-324</option>
+              <option>СП-325</option>
+              <option>СП-326</option>
+            </select>
+          </div>
+        </div>
+        <fieldset class="form-group">
+          <div class="row">
+            <legend class="col-form-label col-sm-6 pt-0">Оцінка</legend>
+            <div class="col-sm-6">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="cvet" id="gridRadiosBlue" value="синій" checked>
+                <label class="form-check-label" for="gridRadiosBlue">
+                  2
+                </label>
+              </div>
+              <div class="form-chec form-check-inline">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosViolet" value="бузковий">
+                <label class="form-check-label" for="gridRadiosViolet">
+                  3
+                </label>
+              </div>
+              <div class="form-chec form-check-inline">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosSkyBlue" value="блакитний">
+                <label class="form-check-label" for="gridRadiosSkyBlue" >
+                  4
+                </label>
+              </div>
+              <div class="form-chec form-check-inline">
+                <input name="cvet" class="form-check-input" type="radio" name="gridRadios" id="gridRadiosGreen" value="зелений">
+                <label class="form-check-label" for="gridRadiosGreen">
+                  5
+                </label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="inputSurname">Веб-сайт</label>
+            <input type="url" class="form-control" name="fam" id="inputName" placeholder="https://example.com/">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="inputName">Оптимізація</label>
+            <input type="range" class="form-control" name="imya" id="inputName">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="groups">Вибір</label>
+            <select class="form-control" id="groups" name="groups">
+              <optgroup label="fruits">
+                <option>Banana</option>
+                <option selected>Cherry</option>
+                <option>Lemon</option>
+              </optgroup>
+              <optgroup label="vegetables">
+                <option>Carrot</option>
+                <option>Eggplant</option>
+                <option>Potato</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+            <label for="groups">Множнний вибір</label>
+            <select multiple class="form-control" id="groups" name="groups">
+              <optgroup label="fruits">
+                <option>Banana</option>
+                <option selected>Cherry</option>
+                <option>Lemon</option>
+              </optgroup>
+              <optgroup label="vegetables">
+                <option>Carrot</option>
+                <option>Eggplant</option>
+                <option>Potato</option>
+              </optgroup>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-12">
+              <label for="myFruit">Підказки</label>
+              <input type="text" class="form-control" id="myFruit" name="fruit" list="fruitList">
+            <datalist id="fruitList">
+              <label for="suggestion">or pick a fruit</label>
+              <select id="suggestion" name="altFruit">
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Blackberry</option>
+                <option>Blueberry</option>
+                <option>Lemon</option>
+                <option>Lychee</option>
+                <option>Peach</option>
+                <option>Pear</option>
+              </select>
+            </datalist>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-sm-6">
+            <input type="reset" class="btn btn-danger btn-block" value="Очистити поля форми">
+          </div>
+          <div class="form-group col-sm-6">
+            <button type="submit" class="btn btn-primary btn-block float-right">Відправити</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      function loadCanvas() {
+        var canvas = document.getElementById('canvas_image');
+        if(!canvas.getContext('2d'))
+        {
+          document.getElementById('housesPlan').style.display = 'none';
+          document.getElementById('no-canvas').style.display = 'block';
+          return;
+        }
+        canvas.width = 720;
+        canvas.height = 1280;
+        drawPlan(canvas);
+      }
+
+      function randRange(min, max) {
+        return Math.ceil(Math.random() * (max-min) + min);
+      }
+      function drawPlan(canvas) {
+        var ctx = canvas.getContext('2d');
+        //ctx.rotate(Math.random() * 2 * Math.PI);
+        ctx.fillStyle = "rgb(200,0,0)";
+        startx = randRange(0, 720);
+        ctx.fillRect (startx, startx, 400, 400);
+
+        ctx.fillStyle = "rgba(0, 0, 200, 0.5)";
+        ctx.fillRect (startx + 50, startx + 50, 450, 450);
+      }
+    </script>
+  </body>
+</html>

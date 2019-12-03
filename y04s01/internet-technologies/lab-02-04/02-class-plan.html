@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+
+    <title>Форма</title>
+  </head>
+  <body onload="loadCanvas()">
+
+    <canvas id="housesPlan"></canvas>
+
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script>
+      function loadCanvas() {
+        var canvas = document.getElementById('housesPlan');
+        if(!canvas.getContext('2d'))
+        {
+          document.getElementById('housesPlan').style.display = 'none';
+          document.getElementById('no-canvas').style.display = 'block';
+          return;
+        }
+        canvas.width = 800;
+        canvas.height = 1280;
+        drawPlan(canvas);
+      }
+
+      function drawPlan(canvas) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#00f'; // blue ctx.strokeStyle = '#f00'; // red ctx.lineWidth = 4;
+        // стіни кімнати
+        ctx.strokeRect(10, 10, 790, 790);
+        ctx.strokeRect(20, 20, 770, 770);
+        // двері
+        ctx.strokeRect(10, 70, 10, 80);
+        ctx.beginPath();
+        ctx.moveTo(20, 70);
+        ctx.lineTo(100, 70);
+        ctx.stroke();
+        // вікно
+        ctx.strokeRect(790, 100, 10, 120);
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(795, 100);
+        ctx.lineTo(796, 220);
+        ctx.stroke();
+
+        ctx.lineWidth = 4;
+        // stil
+        ctx.strokeRect(100, 200, 200, 90);
+        ctx.strokeRect(320, 200, 200, 90);
+        ctx.strokeRect(540, 200, 200, 90);
+
+        // Row 2
+        ctx.strokeRect(100, 400, 200, 90);
+        ctx.strokeRect(320, 400, 200, 90);
+        ctx.strokeRect(540, 400, 200, 90);
+
+        // Row 4
+        ctx.strokeRect(100, 600, 200, 90);
+        ctx.strokeRect(320, 600, 200, 90);
+        ctx.strokeRect(540, 600, 200, 90);
+        // TV
+        ctx.beginPath();
+        ctx.moveTo(200, 40);
+        ctx.lineTo(210, 30);
+        ctx.lineTo(660, 30);
+        ctx.lineTo(670, 40);
+        ctx.fill();
+        ctx.stroke();
+      }
+    </script>
+  </body>
+</html>
