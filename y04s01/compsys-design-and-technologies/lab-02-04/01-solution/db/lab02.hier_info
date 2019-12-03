@@ -1,0 +1,9 @@
+|element
+IN1 => _~2.IN0
+IN1 => OUT1~0.IN1
+IN2 => _~1.IN0
+IN3 => _~0.IN0
+IN4 => _~0.IN1
+OUT1 <= OUT1~0.DB_MAX_OUTPUT_PORT_TYPE
+
+
