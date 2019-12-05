@@ -1,0 +1,20 @@
+subdesign 1
+(
+X1: input;
+X2: input;
+X3: input;
+X4: input;
+
+OUT1: output;
+OUT2: output;
+OUT3: output;
+OUT4: output;
+)
+
+begin
+OUT1 = X1 and X2 and X3;
+OUT2 = X4 and X1;
+OUT3 = OUT1 or OUT2;
+OUT4 = OUT3 and X1;
+
+end;

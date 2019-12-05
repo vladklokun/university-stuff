@@ -1,0 +1,44 @@
+Quartus II
+Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+11
+3700
+OFF
+OFF
+OFF
+ON
+ON
+ON
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+1
+# storage
+db|1.(0).cnf
+db|1.(0).cnf
+# case_insensitive
+# source_file
+1.tdf
+1bab3851951cc44f8b5c98f257ec5fa
+7
+# used_port {
+0
+-1
+0
+}
+# hierarchies {
+|
+}
+# macro_sequence
+
+# end
+# complete
+

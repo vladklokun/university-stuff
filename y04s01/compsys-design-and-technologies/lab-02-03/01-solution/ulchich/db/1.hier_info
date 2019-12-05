@@ -1,0 +1,9 @@
+|1
+y0 <= inst4.DB_MAX_OUTPUT_PORT_TYPE
+x0 => inst2.IN0
+x1 => inst.IN0
+y1 <= inst5.DB_MAX_OUTPUT_PORT_TYPE
+y2 <= inst6.DB_MAX_OUTPUT_PORT_TYPE
+y3 <= inst7.DB_MAX_OUTPUT_PORT_TYPE
+
+
