@@ -1,0 +1,57 @@
+body {
+  padding-top: 5rem;
+}
+
+.starter-template {
+  padding: 3rem 1.5rem;
+}
+
+a {
+  color: var(--yellow);
+}
+
+a.inline-link:link {
+  border-bottom: 1px dotted;
+  color: var(--yellow);
+}
+
+a.inline-link:link:hover {
+  border-bottom: 1px solid;
+  color: var(--yellow);
+  text-decoration: unset;
+}
+
+a.inline-link:visited {
+  border-bottom: 1px dashed;
+  color: var(--green);
+}
+
+ul.ul-menu {
+  list-style-type: "⌀";
+  padding: 0;
+  margin: 0;
+  padding-left: 0;
+}
+
+li::first-letter {
+  color: var(--yellow);
+}
+
+li.done:hover::after {
+  content: "Здана на 3 курсі";
+  color: var(--green);
+  text-transform: uppercase;
+  font-feature-settings: "c2sc";
+}
+
+li.not-done:hover::after {
+  content: "Здається на 4 курсі";
+  color: var(--red);
+  text-transform: uppercase;
+  font-feature-settings: "c2sc";
+}
+
+h1 {
+  font-feature-settings: "smcp";
+  letter-spacing: 0.03em;
+}
