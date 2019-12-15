@@ -1,0 +1,155 @@
+!
+version 12.2(37)SE1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname Switch
+!
+!
+!
+ip dhcp excluded-address 192.168.56.193
+ip dhcp excluded-address 192.168.56.225
+ip dhcp excluded-address 192.168.56.241
+ip dhcp excluded-address 192.168.56.242
+!
+ip dhcp pool DHCP-VLAN2
+ network 192.168.56.192 255.255.255.224
+ default-router 192.168.56.193
+ dns-server 1.1.1.1
+ip dhcp pool DHCP-VLAN3
+ network 192.168.56.224 255.255.255.240
+ default-router 192.168.56.225
+ dns-server 1.1.1.1
+ip dhcp pool DHCP-VLAN4
+ network 192.168.56.240 255.255.255.240
+ default-router 192.168.56.242
+ dns-server 1.1.1.1
+!
+!
+ip routing
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+spanning-tree mode pvst
+!
+!
+!
+!
+!
+!
+interface FastEthernet0/1
+ switchport trunk allowed vlan 2-4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/2
+ switchport trunk allowed vlan 2-4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/3
+ switchport trunk allowed vlan 2-4
+ switchport trunk encapsulation dot1q
+ switchport mode trunk
+!
+interface FastEthernet0/4
+!
+interface FastEthernet0/5
+!
+interface FastEthernet0/6
+!
+interface FastEthernet0/7
+!
+interface FastEthernet0/8
+!
+interface FastEthernet0/9
+!
+interface FastEthernet0/10
+!
+interface FastEthernet0/11
+!
+interface FastEthernet0/12
+!
+interface FastEthernet0/13
+!
+interface FastEthernet0/14
+!
+interface FastEthernet0/15
+!
+interface FastEthernet0/16
+!
+interface FastEthernet0/17
+!
+interface FastEthernet0/18
+!
+interface FastEthernet0/19
+!
+interface FastEthernet0/20
+!
+interface FastEthernet0/21
+!
+interface FastEthernet0/22
+!
+interface FastEthernet0/23
+!
+interface FastEthernet0/24
+!
+interface GigabitEthernet0/1
+ switchport access vlan 4
+ switchport mode access
+ switchport nonegotiate
+!
+interface GigabitEthernet0/2
+!
+interface Vlan1
+ no ip address
+ shutdown
+!
+interface Vlan2
+ mac-address 000a.f353.0d01
+ ip address 192.168.56.193 255.255.255.224
+!
+interface Vlan3
+ mac-address 000a.f353.0d02
+ ip address 192.168.56.225 255.255.255.240
+!
+interface Vlan4
+ mac-address 000a.f353.0d03
+ ip address 192.168.56.242 255.255.255.240
+!
+ip classless
+ip route 0.0.0.0 0.0.0.0 192.168.56.241 
+!
+ip flow-export version 9
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+!
+line aux 0
+!
+line vty 0 4
+ login
+!
+!
+!
+!
+end
+
