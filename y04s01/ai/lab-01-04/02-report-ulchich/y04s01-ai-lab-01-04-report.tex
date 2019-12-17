@@ -626,19 +626,17 @@
       ]
           \path [-] (A) edge node[pos = 0.50] {$9$} (B);
           \path [-] (A) edge node[pos = 0.50] {$7$} (C);
-          \path [-] (A) edge node[pos = 0.20] {$7$} (D);
-          \path [-] (A) edge node[pos = 0.15] {$4$} (E);
-          \path [-] (A) edge node[pos = 0.20] {$2$} (F);
-          \path [-] (B) edge node[pos = 0.50] {$1$} (C);
-          \path [-] (B) edge node[pos = 0.50] {$5$} (D);
-          \path [-] (B) edge node[pos = 0.15] {$1$} (E);
-          \path [-] (B) edge node[pos = 0.15] {$4$} (F);
-          \path [-] (C) edge node[pos = 0.50] {$3$} (D);
-          \path [-] (C) edge node[pos = 0.50] {$1$} (E);
-          \path [-] (C) edge node[pos = 0.80] {$4$} (F);
-          \path [-] (D) edge node[pos = 0.50] {$2$} (E);
-          \path [-] (D) edge node[pos = 0.25] {$4$} (F);
-          \path [-] (E) edge node[pos = 0.50] {$2$} (F);
+          \path [-] (A) edge node[pos = 0.15] {$9$} (E);
+          \path [-] (A) edge node[pos = 0.20] {$5$} (F);
+          \path [-] (B) edge node[pos = 0.50] {$5$} (C);
+          \path [-] (B) edge node[pos = 0.50] {$9$} (D);
+          \path [-] (B) edge node[pos = 0.15] {$10$} (E);
+          \path [-] (B) edge node[pos = 0.15] {$8$} (F);
+          \path [-] (C) edge node[pos = 0.50] {$5$} (D);
+          \path [-] (C) edge node[pos = 0.80] {$3$} (F);
+          \path [-] (D) edge node[pos = 0.50] {$4$} (E);
+          \path [-] (D) edge node[pos = 0.25] {$6$} (F);
+          \path [-] (E) edge node[pos = 0.50] {$5$} (F);
       \end{scope}
       \end{tikzpicture}
       \caption{Граф, який описує умову задачі комівояжера}
@@ -647,7 +645,7 @@
 
     Щоб~розв'язати задачу, розроблюємо програму, яка~шукатиме розв'язок задачі за~допомогою методу повного перебору можливих розв'язків у~просторі станів. Необхідно розв'язати задачу двома способами: перебор в ширину та в глибину. Розробивши програму~(лістинг~\ref{lst:source-code}), запускаємо її~і~спостерігаємо за~результатом~(рис.~\ref{fig:res-screenshot}). Як бачимо, програма знайшла такий найкоротший шлях:
     \[
-      A \xrightarrow{4} B \xrightarrow{1} C \xrightarrow{3} D \xrightarrow{2} E \xrightarrow{2} F \xrightarrow{2} A = 14,
+      A \xrightarrow{9} B \xrightarrow{5} C \xrightarrow{5} D \xrightarrow{4} E \xrightarrow{5} F \xrightarrow{5} A = 33,
     \]
     перебравши можливі розв'язки у просторі станів двома обраними способами~(рис.~\ref{fig:graph-traversal-bfs}, \ref{fig:graph-traversal-dfs}).
 
