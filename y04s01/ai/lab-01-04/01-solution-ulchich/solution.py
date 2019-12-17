@@ -140,11 +140,11 @@ class SearchTree(nx.Graph):
 
 def main(method, print_search=False, *args, **kwargs):
     distances = {
-        "A": {"A": INF, "B":   9, "C":   7, "D":   INF, "E":   INF, "F":   5},
-        "B": {"A":   4, "B": INF, "C":   5, "D":   9, "E":   10, "F":   INF},
-        "C": {"A":   7, "B":   INF, "C": INF, "D":   5, "E":   INF, "F":   3},
-        "D": {"A":   INF, "B":   9, "C":   5, "D": INF, "E":   4, "F":   9},
-        "E": {"A":   9, "B":   10, "C":   INF, "D":   4, "E": INF, "F":   5},
+        "A": {"A": INF, "B":   9, "C":   7, "D": INF, "E":   9, "F":   5},
+        "B": {"A":   9, "B": INF, "C":   5, "D":   9, "E":  10, "F":   8},
+        "C": {"A":   7, "B":   5, "C": INF, "D":   5, "E": INF, "F":   3},
+        "D": {"A": INF, "B":   9, "C":   5, "D": INF, "E":   4, "F":   6},
+        "E": {"A":   9, "B":  10, "C": INF, "D":   4, "E": INF, "F":   5},
         "F": {"A":   5, "B":   8, "C":   3, "D":   6, "E":   5, "F": INF},
     }
 
