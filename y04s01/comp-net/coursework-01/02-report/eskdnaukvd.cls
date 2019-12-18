@@ -214,7 +214,8 @@
 % Replace vertical line with shorter variant to vacate the left upper quadrant
 % \put(17,0){\line(0,1){40}}
 \put(17,0){\line(0,1){25}}
-\put(40,0){\line(0,1){25}}
+% \put(40,0){\line(0,1){25}}
+\put(45,0){\line(0,1){25}}
 \put(55,0){\line(0,1){25}}
 \put(65,0){\line(0,1){40}}
 \put(135,0){\line(0,1){25}}
@@ -292,7 +293,7 @@
 \newcommand{\ESKD@stamp@nauplain@a@var}{%
 \begin{picture}(0,0)(0,0)
 \ifESKD@enable@column@vii
-  \put(175, 3){\makebox[10mm]{\ESKDfontIII\thepage}}
+  \put(175, 3){\makebox[10mm]{\thepage}}
 \fi
 \end{picture}}
 \newcommand{\ESKDdrawStampNAUText}{%
@@ -308,12 +309,17 @@
 
 %%% Misc adjustments
 
+% Define basic lengths
+\setlength{\emergencystretch}{1em}
+% \setlength{\parindent}{1.5em}
+
 % Every section from new page
 
 \usepackage{titlesec}
 \newcommand{\sectionbreak}{\clearpage}
 \titlespacing{\section}{\parindent}{\baselineskip}{\baselineskip}
 \titlespacing{\subsection}{\parindent}{\baselineskip}{\baselineskip}
+\titlespacing{\subsubsection}{\parindent}{\baselineskip}{\baselineskip}
 
 \ESKDsectAlign{section}{Center}
 \ESKDsectStyle{section}{\normalsize\bfseries%\MakeTextUppercase
@@ -324,6 +330,11 @@
 \ESKDsectStyle{subsection}{\normalsize\bfseries%\MakeTextUppercase
 }
 \ESKDsectSkip{subsection}{0pt}{0pt}
+
+\ESKDsectAlign{subsubsection}{Center}
+\ESKDsectStyle{subsubsection}{\normalsize\bfseries%\MakeTextUppercase
+}
+\ESKDsectSkip{subsubsection}{0pt}{0pt}
 
 %%% Set up captions
 \RequirePackage{caption}
@@ -357,6 +368,11 @@
   singlelinecheck = false,
   labelsep = period,
 }
+
+% Change caption counters
+\usepackage{chngcntr}
+\counterwithin{table}{section}
+\counterwithin{figure}{section}
 %%%
 
 %%% Support Ragged typesetting
@@ -387,3 +403,94 @@
 \newcommand{\modulename}[1]{\texttt{#1}}
 \newcommand{\transeng}[1]{{англ.}~\textit{\textenglish{#1}}}
 %%%
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+\newminted[codegeneric]{text}{%
+  autogobble,%
+  style=bw,%
+  breaklines,%
+  fontsize=\small,%
+}
+
+% Text file listing
+\newtcblisting[
+  auto counter,
+  list inside,
+  number within = section,
+]{listingplaintext}[3][]{%
+  minted language = text,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+		% linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},%
+}
+
+\newtcbinputlisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section
+]{\inputplaintext}[4][]{%
+  minted language = text,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #3},
+  list entry       = {\protect\numberline{\thetcbcounter}#3},
+  left = 0em,
+  right = 0em,
+  %
+  listing file={#2},
+  listing only,
+  breakable,
+  %
+  label = {#4}
+}
