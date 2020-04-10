@@ -1,0 +1,806 @@
+\documentclass[
+  a4paper,
+  oneside,
+  BCOR = 10mm,
+  DIV = 12,
+  12pt,
+  headings = normal,
+]{scrartcl}
+
+%%% Length calculations
+\usepackage{calc}
+%%%
+
+%%% Support for color
+\usepackage{xcolor}
+\definecolor{lightblue}{HTML}{03A9F4}
+\definecolor{red}{HTML}{F44336}
+%%%
+
+%%% Including graphics
+\usepackage{graphicx}
+%%%
+
+%%% Font selection
+\usepackage{fontspec}
+
+\setromanfont{STIX Two Text}[
+  SmallCapsFeatures = {LetterSpace = 8},
+]
+
+\setsansfont{IBM Plex Sans}[
+  Scale = MatchUppercase,
+]
+
+\setmonofont{IBM Plex Mono}[
+  Scale = MatchUppercase,
+]
+%%%
+
+%%% Math typesetting
+\usepackage{amsmath}
+\usepackage{mathtools}
+
+\usepackage{unicode-math}
+\setmathfont{STIX Two Math}
+
+\usepackage{IEEEtrantools}
+%%%
+
+%%% List settings
+\usepackage{enumitem}
+\setlist[enumerate]{
+  label*      = {\arabic*.},
+  left        = \parindent,
+  topsep      = 0\baselineskip,
+  parsep      = 0\baselineskip,
+  noitemsep, % override itemsep
+}
+% List settings for levels 2–4
+\setlist[enumerate, 2, 3, 4]{
+  label*      = {\arabic*.},
+  left        = 0em,
+  topsep      = 0\baselineskip,
+  parsep      = 0\baselineskip,
+  noitemsep, % override itemsep
+}
+
+\setlist[itemize]{
+  label*      = {—},
+  left        = \parindent,
+  topsep      = 0\baselineskip,
+  parsep      = 0\baselineskip,
+  itemsep     = 1\baselineskip,
+  noitemsep, % override itemsep
+}
+
+\setlist[description]{
+  font        = {\rmfamily\upshape\bfseries},
+  topsep      = 1\baselineskip,
+  parsep      = 0\baselineskip,
+  itemsep     = 0\baselineskip,
+}
+
+%%%
+
+%%% Structural elements typesetting
+\setkomafont{pagenumber}{\rmfamily\upshape}
+\setkomafont{disposition}{\rmfamily\bfseries}
+
+% Sectioning
+\RedeclareSectionCommand[
+  beforeskip = -1\baselineskip,
+  afterskip  = 1\baselineskip,
+  font       = {\normalsize\bfseries\scshape},
+]{section}
+
+\RedeclareSectionCommand[
+  beforeskip = -1\baselineskip,
+  afterskip  = 1\baselineskip,
+  font       = {\normalsize\bfseries\itshape},
+]{subsection}
+
+\RedeclareSectionCommand[
+  beforeskip = -1\baselineskip,
+  afterskip  = 1\baselineskip,
+  font       = {\normalsize\bfseries},
+]{subsubsection}
+
+\RedeclareSectionCommand[
+  beforeskip = -1\baselineskip,
+  afterskip  = -0.5em,
+  font       = {\normalsize\mdseries\scshape\addfontfeatures{Letters = {UppercaseSmallCaps}}},
+]{paragraph}
+%%%
+
+%%% Typographic enhancements
+\usepackage{microtype}
+%%%
+
+%%% Language-specific settings
+\usepackage{polyglossia}
+\setmainlanguage{ukrainian}
+\setotherlanguage{english}
+% \setotherlanguage{russian}
+%%%
+
+%%% Captions
+\usepackage{caption}
+\usepackage{subcaption}
+
+%\DeclareCaptionLabelFormat{closing}{#2)}
+%\captionsetup[subtable]{labelformat = closing}
+
+%\captionsetup[subfigure]{labelformat = closing}
+
+\captionsetup[table]{
+  aboveskip = 0\baselineskip,
+  belowskip = 0\baselineskip,
+}
+
+\captionsetup[figure]{
+  aboveskip = 1\baselineskip,
+  belowskip = 0\baselineskip,
+}
+
+\captionsetup[subfigure]{
+  labelformat = simple,
+  labelformat = brace,
+  justification = RaggedRight,
+  singlelinecheck = false,
+}
+%%%
+
+%%% Hyphenated ragged typesetting
+\usepackage{ragged2e}
+%%%
+
+%%% Table typesetting
+\usepackage{booktabs}
+\usepackage{longtable}
+
+\usepackage{multirow}
+
+\usepackage{array}
+\newcolumntype{v}[1]{>{\RaggedRight\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{b}[1]{>{\Centering\arraybackslash\hspace{0pt}}p{#1}}
+\newcolumntype{n}[1]{>{\RaggedLeft\arraybackslash\hspace{0pt}}p{#1}}
+%%%
+
+%%% Drawing
+\usepackage{tikz}
+\usepackage{tikzscale}
+\usetikzlibrary{datavisualization}
+\usetikzlibrary{datavisualization.formats.functions}
+\usetikzlibrary{positioning}
+\usetikzlibrary{patterns}
+\usetikzlibrary{intersections}
+\usetikzlibrary{arrows.meta} % Stealth arrow tips
+\usetikzlibrary{graphs}
+% \usetikzlibrary{graphdrawing}
+% \usegdlibrary{layered}
+\usetikzlibrary{quotes}
+
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+%%%
+
+%%% SI units typesetting
+\usepackage{siunitx}
+\sisetup{
+  output-decimal-marker = {,},
+  exponent-product      = {\cdot},
+  inter-unit-product    = \ensuremath{{} \cdot {}},
+  per-mode              = symbol,
+}
+%%%
+
+% Code Highlighting
+\usepackage{minted}
+\setmintedinline{
+  style = bw,
+  breaklines,
+}
+
+\newminted[bashterm]{text}{%
+  autogobble,%
+  breaklines,%
+  style=bw,%
+}
+
+\newminted[codegeneric]{text}{%
+  autogobble,%
+  style=bw,%
+  breaklines,%
+  fontsize=\small,%
+}
+
+\newmintinline{bash}{%
+}
+
+\newmintinline[minttext]{text}{%
+  breaklines,%
+  breakanywhere,%
+}
+
+%%% Framing code listings
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\tcbuselibrary{minted}
+\tcbuselibrary{skins}
+
+% Text file listing
+\newtcblisting[
+  auto counter,
+  list inside,
+  number within = section,
+]{listingplaintext}[3][]{%
+  minted language = text,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},%
+}
+
+\newtcbinputlisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section
+]{\inputplaintext}[4][]{%
+  minted language = text,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #3},
+  list entry       = {\protect\numberline{\thetcbcounter}#3},
+  left = 0em,
+  right = 0em,
+  %
+  listing file={#2},
+  listing only,
+  breakable,
+  %
+  label = {#4}
+}
+
+\newtcblisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section,
+]{listingpython}[3][]{%
+  minted language = python,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},
+  %
+  #1%
+}
+
+\newtcbinputlisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section
+]{\inputpython}[4][]{%
+  minted language = python,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #3},
+  list entry       = {\protect\numberline{\thetcbcounter}#3},
+  left = 0em,
+  right = 0em,
+  %
+  listing file={#2},
+  listing only,
+  breakable,
+  %
+  label = {#4}
+}
+
+% Linux command-line listing
+\newtcblisting{linuxterm}%
+{%
+  % Syntax highlighing options
+  listing only,%
+  minted language = bash,%
+  minted options={%
+    autogobble,%
+    linenos%
+  },%
+  % Presentation options
+  empty,%
+  %% Margins
+  sharp corners,%
+  toptitle = 0.0em,%
+  bottomtitle = 0.0em,%
+  left = 0em,%
+  right = 0em,%
+  before skip = \intextsep,%
+  after skip = \intextsep,%
+}
+
+\newtcblisting{linuxtermout}%
+{%
+  % Syntax highlighing options
+  listing only,%
+  minted language = text,%
+  minted options={%
+    autogobble,%
+    linenos%
+  },%
+  % Presentation options
+  empty,%
+  %% Margins
+  sharp corners,%
+  toptitle = 0.0em,%
+  bottomtitle = 0.0em,%
+  left = 0em,%
+  right = 0em,%
+  before skip = \intextsep,%
+  after skip = \intextsep,%
+}
+
+% Dockerfile listings
+\newtcblisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section,
+]{listingdocker}[3][]{%
+  minted language = dockerfile,
+  minted style    = bw,
+  minted options  = {
+    autogobble,%
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},%
+}
+
+% Docker Compose listings
+\newtcblisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section,
+]{listingdockercompose}[3][]{%
+  minted language = yaml,
+  minted style    = bw,
+  minted options  = {
+    autogobble,%
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},%
+}
+
+% SWI Prolog listings
+\newtcblisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section,
+]{listingprolog}[3][]{%
+  minted language = prolog,
+  minted style    = bw,
+  minted options  = {
+    autogobble,%
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #2},
+  list entry       = {\protect\numberline{\thetcbcounter}#2},
+  left = 0em,
+  right = 0em,
+  %
+  listing only,
+  breakable,
+  %
+  label = {#3},%
+}
+
+\newtcbinputlisting[
+  use counter from = listingplaintext,
+  list inside,
+  number within = section
+]{\inputprolog}[4][]{%
+  minted language = prolog,
+  minted style    = bw,
+  minted options  = {
+    autogobble,
+    linenos,
+    tabsize = 4,
+    breaklines,
+    breakanywhere,
+    fontsize = \footnotesize,
+  },
+  empty,
+  sharp corners,
+  coltitle = black,
+  borderline horizontal = {1pt}{0pt}{black},
+  titlerule = {0.5pt},
+  titlerule style = {
+    black,
+  },
+  toptitle = 0.3em,
+  bottomtitle = 0.3em,
+  before skip      = \intextsep,
+  after  skip      = \intextsep,
+  title            = {Лістинг \thetcbcounter: #3},
+  list entry       = {\protect\numberline{\thetcbcounter}#3},
+  left = 0em,
+  right = 0em,
+  %
+  listing file={#2},
+  listing only,
+  breakable,
+  %
+  label = {#4}
+}
+
+
+% Customize minted line numbers
+\renewcommand{\theFancyVerbLine}{\ttfamily\scriptsize\arabic{FancyVerbLine}}
+
+%%%
+
+%%% Bibliography
+\usepackage[
+  style    = gost-numeric,
+  language = auto,
+  autolang = other,
+  sorting  = none,
+  maxcitenames = 2,
+]{biblatex}
+\addbibresource{y04s02-decision-theory-homework-01-s02-report-bibliography.bib}
+%%%
+
+%%% Links and hyperreferences
+\usepackage{hyperref}
+\hypersetup{
+  bookmarksnumbered = true,
+  colorlinks      = false,
+  linkbordercolor = red,
+  urlbordercolor  = lightblue,
+  pdfborderstyle  = {/S/U/W 1.5},
+}
+%%%
+
+%%% Length adjustment
+
+% Set baselineskip, default is 14.5 pt
+\linespread{1.068966} % ~15.5 pt
+\setlength{\emergencystretch}{1em}
+\setlength{\parindent}{1.5em}
+\newlength{\gridunitwidth}
+\setlength{\gridunitwidth}{\textwidth / 12}
+%%%
+
+%%% Custom commands
+\newcommand{\allcaps}[1]{%
+  {%
+    \addfontfeatures{%
+      Letters = UppercaseSmallCaps,
+      LetterSpace = 8,%
+    }%
+    #1%
+  }%
+}
+\newcommand{\filename}[1]{\texttt{#1}}
+\newcommand{\progname}[1]{\texttt{#1}}
+\newcommand{\commandname}[1]{\texttt{#1}}
+\newcommand{\modulename}[1]{\texttt{#1}}
+\newcommand{\transeng}[1]{{англ.}~\textit{\textenglish{#1}}}
+%%%
+
+%%% Custom math commands
+\newcommand{\longvar}[1]{\mathit{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\matr}[1]{\mathbfit{#1}}
+
+\newcommand{\logequiv}{\mathrel{\Longleftrightarrow}} % Logically equivalent
+
+\newcommand{\ssep}{\mid} % set builder separator
+
+\DeclareMathOperator*{\minimize}{min} % minimize for linear programs
+\DeclareMathOperator*{\rand}{rand} % rand()
+
+\DeclarePairedDelimiter{\setpower}{\lvert}{\rvert} % set power
+%%%
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+      Міністерство освіти і~науки України\\
+      Національний авіаційний університет\\
+      Факультет кібербезпеки, комп'ютерної та~програмної інженерії\\
+      Кафедра комп'ютеризованих систем управління
+
+      \vspace{\fill}
+        Домашнє завдання\\
+        з~дисципліни «Системи підтримки прийняття рішень»\\
+        на~тему «Метод побудови і аналізу множини Еджворта—Парето»\\
+
+      \vspace{\fill}
+
+      \begin{flushright}
+        Виконав:\\
+        студент \allcaps{ФККПІ}\\
+        групи \allcaps{СП}-425\\
+        Клокун В.\,Д.\\
+        Перевірила:\\
+        Росінська Г.\,П.
+      \end{flushright}
+
+      Київ 2020
+    \end{center}
+  \end{titlepage}
+
+  \tableofcontents
+
+  \clearpage
+  \section{Область і мета застосування}
+    Щоб дослідити метод побудови і аналізу множини Еджворта—Парето, необхідно зрозуміти, в яких областях він застосовується та які задачі вирішує. Основна область застосування методу побудови і аналізу множини Еджворта—Парето~— \emph{багатокритеріальна оптимізація} у дослідженні операцій та теорії прийняття рішень. Задачі багатокритеріальної оптимізації зазвичай потребують оптимізувати, тобто мінімізувати або максимізувати, значення декількох цільових характеристик або показників ефективності~\cite[42]{ventsel-or}. У такому випадку зазвичай немає єдиного оптимального розв'язку. Натомість, є множина альтернативних і однаково оптимальних розв'язків, але з різними компромісами. Метод побудови і аналізу множини Еджворта—Парето прекрасно описує сам себе: спочатку знаходять множину оптимальних розв'язків, яка називається множиною Еджворта—Парето, а потім кожен елемент цієї множини аналізують; далі на основі аналізу приймають рішення залежно від методу аналізу або побажань особи, що приймає рішення.
+
+    Розглянемо приклад задачі багатокритеріальної оптимізації. Припустимо, що особа, яка приймає рішення, хоче купити оптимальну машину. Кожна машина коштує певну суму~$c$, витрачає деяку кількість палива~$f$ на~\SI{100}{\kilo\metre}, виділяє~$p$~шкідливих викидів у атмосферу, а її зручність можна оцінити значенням~$k$. Як видно, навіть швидко формулюючи задачу, в ній можна виділити цілих 4~критерії ефективності кожного розв'язку. Чим глибше аналізують задачу, тим більше критеріїв можна виділити. Особа, що приймає рішення, має свої вимоги щодо значень кожного критерію: зменшити вартість~$c$, витрати палива~$f$ та кількість шкідливих викидів~$p$, при цьому збільшити значення комфорту~$k$.
+
+  \section{Суть метода}
+
+    \subsection{Математична постановка задачі}
+
+      Математично задача багатокритеріальної оптимізації формулюється так:
+      \begin{IEEEeqnarray*}{s.l}
+        Мінімізувати & \left\{ f_1(\vect{x}), f_2(\vect{x}), \dots, f_k (\vect{x}) \right\}\\
+          так, щоб & \vect{x} \in S_i.
+      \end{IEEEeqnarray*}
+      Це означає, що в ній представлені~$k \geqslant 2$ \emph{цільових функцій}~$f_i$, де~$\, i \in \{1, \dots, k\}$, причому~$f_i \colon \mathbb{R}^n \mapsto \mathbb{R}$. Кожна цільова функція~$f_i$ приймає на вхід \emph{вектор вирішальних змінних} (або просто \emph{вирішальний вектор})~$\vect{x} = (x_1, x_2, \dots, x_n)^{T}$, а кожен вектор вирішальних змінних~$\vect{x}$ лежить в непустій \emph{області допустимих розв'язків} $S \subset \mathbb{R}^n$. Кожному розв'язку відповідає \emph{цільовий вектор}, який складається з цільових значень, тобто значень функції~$\vect{z} = \vect{f}(\vect{x}) = \left( f_1(\vect{x}), f_2(\vect{x}), \dots, f_k (\vect{x}) \right)^{T}$, тобто цільові вектори є образом відображення вирішальних векторів. Крім цього, цільові вектори формують множину розв'язків~$Z = \vect{f} (S)$, яка в свою чергу є образом відображення області допустимих значень в цільовому просторі~\cite[X]{miettinen-moo}.
+
+    \subsection{Еталонні точки}
+      Щоб мати можливість оцінити якість знайдених розв'язків, зазвичай розглядають такі точки в області значення цільової функції:~\cite[34]{ehrgott-multiopt}
+      \begin{itemize}
+        \item ідеальна точка~$y^{I}$~— визначається як вектор~$y^{I}=(y_{1}^{I},\dots ,y_{p}^{I})$, кожна з координат якого має оптимальне значення відповідної складової цільової функції:
+          \begin{IEEEeqnarray*}{rCl}
+            y_{k}^{I} = \min_{x\in X} f_{k}(x) = \min_{y\in Y} y_{k}.
+          \end{IEEEeqnarray*}
+        \item утопічна точка~$y^{U}$, яку обчислюють на основі ідеальної:
+          \begin{IEEEeqnarray*}{rCl}
+            y^{U} = y^{I} - \varepsilon U.
+          \end{IEEEeqnarray*}
+          де~$\varepsilon > 0$, а~$U$~— одиничний вектор.
+        \item надир~$y^{N}$. Точка надиру~$y^{N}=(y_{1}^{N},\dots ,y_{p}^{N})$ визначається як вектор:
+          \begin{IEEEeqnarray*}{rCl}
+            y_{k}^{N}
+            = \max_{x\in X_{E}} y_{k}(x)
+            = \max_{y\in Y_{N}}y_{k}, \quad k = 1, \dots, p.
+          \end{IEEEeqnarray*}
+      \end{itemize}
+      Ці точки дозволяють порівняти певний розв'язок та оцінити його цінність. У деяких випадках ці точки можуть бути розв'язками.
+
+    \subsection{Множина Еджворта—Парето}
+      \label{ssec:pareto-set}
+      Оцінити якість розв'язків можна не лише за допомогою еталонних точок, адже можна перевірити, чи є цільовий вектор оптимальним. В багатокритеріальній оптимізації, цільовий вектор вважають оптимальним, якщо неможливо покращити жодну з його компонент, не погіршивши як мінімум одну іншу. Точніше, вирішальний вектор~$\vect{x'} \in S$ називається \emph{Парето-оптимальним}, якщо не існує такого іншого вирішального вектора~$\vect{x} \in S$, що~$f_i (\vect{x}) \leqslant f_i (\vect{x'})$ для усіх~$i \in {1, \dots, k}$ та~$f_j (\vect{x}) < f_j(\vect{x'})$ для як мінімум одного індексу~$j$. Кожна задача може мати декілька Парето-оптимальних векторів, або навіть їх нескінченно велику кількість. Множина усіх Парето-оптимальних вирішальних векторів називається \emph{множиною Еджворта—Парето}, позначимо її як~$P(S)$. Відповідно, цільовий вектор вважають оптимальним, якщо відповідний йому вирішальний вектор є Парето-оптимальним. Тоді множину Парето-оптимальних цільових векторів позначимо як~$P(Z)$.
+
+    \subsection{Побудова множини Еджворта—Парето}
+      Щоб побудувати множину Еджворта—Парето, найпоширенішими є два підходи: \emph{наївний} і \emph{метод скаляризації}. Розглянемо їх детальніше.
+
+      \subsubsection{Наївний алгоритм}
+        Перш за все зазначимо, що так як множина цільових векторів є образом відображення множини можливих розв'язків, то наївний алгоритм можна абсолютно аналогічно застосувати і для множини цільових векторів. У цьому прикладі наївний метод розглянутий на прикладі множини можливих розв'язків.
+
+        Також домовимось про позначення відношення «менше або дорівнює» для векторів. Відношення~$\vect{x} \leqq \vect{x'}$ справедливе тоді і тільки тоді, коли для будь-якого значення~$i \in \{1, \dots, k\}$ значення компонент вектора~$x_{i} \leqslant x'_{i}$, причому~$x_{i} \neq x'_{i}$.
+
+        Отже, нехай множина можливих розв'язків~$X$ містить скінченну кількість елементів. Щоб побудувати множину Еджворта—Парето за наївним підходом, необхідно дотримуватись таких кроків:
+        \begin{enumerate}
+          \item Обрати можливий розв'язок~$\vect{x} \in S_i$.
+          \item Порівняти його з усіма іншими можливими розв'язками~$\vect{x'} \in \{ S_i \setminus \vect{x} \}$.
+          \item Якщо для всіх інших можливих розв'язків~$\vect{x'}$ справджується умова~$\vect{x} \leqq \vect{x'}$, вилучаємо обраний можливий розв'язок~$\vect{x}$ і додаємо його у множину~Парето–Еджворта~$P(S)$.
+          \item Якщо ж для обраного розв'язку навпаки справджується умова~$\vect{x'} \leqq \vect{x}$, обраний розв'язок~$\vect{x}$ необхідно видалити з множини~$S_i$ і перейти до наступного можливого розв'язку.
+          \item Якщо жодна з умов не справдилась, не потрібно нічого видаляти, а лише перейти до наступного елемента в множині~$S_i$.
+        \end{enumerate}
+        Інакше кажучи, необхідно перевірити кожен можливий розв'язок~$\vect{x} \in S_i$ на Парето-оптимальність, як описано в підрозділі~\ref{ssec:pareto-set}.
+
+      \subsection{Метод скаляризації}
+        Для отримання оптимальних за Парето розв'язків часто використовують методи скаляризації. Оскільки цільова функція задачі багатокритеріальної оптимізації має векторні значення, її перетворюють на функцію зі скалярним значенням. Таким чином, задача багатокритеріальної оптимізації зводиться до задачі оптимізації з однією скалярною цільовою функцією. Функція скаляризації має задовільняти наступним умовам.
+
+        Нехай~$F$~— функція скаляризації, що перетворює векторну функцію~$\vect {y} = {\vect {f}} ({\vect {x}})$ на скалярну. Якщо~$F$ зберігає впорядкованість за Парето~$\vect {y}$, тобто, якщо для довільних~${\vect {y}}^{1}, \, {\vect {y}}^{2} \in {\vect {f}}(X)$ виконується:
+        \begin{IEEEeqnarray*}{rCl}
+          {\vect {y}}^{1}\leq {\vect {y}}^{2}\implies F({\vect {y}}^{1})<F({\vect {y}}^{2}),
+        \end{IEEEeqnarray*}
+        тоді розв'язок~${\vect {x}}^{0}$, що мінімізує~$F$ на~$X$ є розв'язком за Парето.
+
+        Якщо~$F$ зберігає відношення порядку~$<$ в~${\vect {y}}$, тобто, якщо для довільних~${\vect {y}}^{1}, \, {\vect {y}}^{2}\in {\vect {f}}(X)$ виконується:
+        \begin{IEEEeqnarray*}{rCl}
+          {\vect {y}}^{1}<{\vect {y}}^{2}\implies F({\vect {y}}^{1})<F({\vect {y}}^{2}),
+        \end{IEEEeqnarray*}
+        тоді розв'язок~$\vect {x}^{0}$, що мінімізує~$F$ на~$X$ є слабким за Парето. Якщо~$F$ неперервна на~${\vect {y}}$, та~$\displaystyle {\vect {x}}^{0}$ єдина точка мінімуму~$F$ на~$X$, тоді~$\vect {x}^{0}$ є розв'язком за Парето.
+
+        \subsubsection{Зважена сума}
+
+          Одним із інструментів скаляризації є зважена сума:
+          \begin{IEEEeqnarray*}{rCl}
+            F_{1}({\vect {f}}({\vect {x}}))=w_{1}f_{1}({\vect {x}})+\dots +w_{r}f_{r}({\vect {x}}).
+          \end{IEEEeqnarray*}
+
+          Наведена функція~$F_{1}$ зберігає впорядкованість за Парето для~$w>0$. Тому розв'язки, що мінімізують~$F_{1}$ на~$X$ для довільних~$w>0$ є оптимальними за Парето. Однак~$F_{1}$ не зберігає впорядкованість за Парето для~$w\geq 0$, а зберігає лише відношення~$<$ і тому розв'язки, що мінімізують~$F_{1}$ на~$X$ для~$w\geq 0$ є слабкими за Парето.
+
+          Недоліком методу зважених сум у випадку неопуклої множини значень цільових функцій є неможливість охопити всі оптимальні за Парето точки з множини Парето-фронту.
+
+          У задачах комбінаторної багатокритеріальної оптимізації множина цільових значень не є опуклою, тому метод зважених сум не підходить для скаляризації цільових функцій для цих задач.
+
+        \subsubsection{Функція скаляризації Чебишева}
+
+          Також для скаляризації використовують функцію Чебишева:
+          \begin{IEEEeqnarray*}{rCl}
+            F_{\infty }({\vect {f}}({\vect {x}}))=\max _{1\leq i\leq r}w_{i}f_{i}({\vect {x}}).
+          \end{IEEEeqnarray*}
+          Зважена функція скаляризації Чебишева зберігає відношення~$<$ і тому мінімум~$F_{\infty }$ є слабким за Парето.
+
+
+        \subsubsection{Метод зміни обмежень ε-обмеження}
+
+          За методом зміни обмежень одну з цільових функцій залишають як цільову, а решту перетворюють на обмеження. Тобто, нехай~$f_{r}$ буде цільовою, а решта~$f_{1},\dots ,f_{r-1}$ як обмеження нерівності:
+          \begin{IEEEeqnarray*}{rCl}
+            \begin{IEEEeqnarraybox}[
+            ][c]{s.l}
+              $\min_{x}$ & f_{r}({\vect {x}}),\\
+              за умов  & f_{i}({\vect {x}})\leq \varepsilon _{i},i=1,\dots ,r-1,\\
+                       &\vect {x} \in X.
+            \end{IEEEeqnarraybox}
+          \end{IEEEeqnarray*}
+          Значення~$\varepsilon _{1},\dots ,\varepsilon _{r-1}$ можуть розглядатись як припустимі рівні для~$f_{1},\dots ,f_{r-1}$.
+
+  \section{Реалізація метода}
+
+  % Bibliography
+  \clearpage
+  \addcontentsline{toc}{section}{Література}
+  \printbibliography
+
+\end{document}
