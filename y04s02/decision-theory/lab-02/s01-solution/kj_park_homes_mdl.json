@@ -1,0 +1,44 @@
+{
+  "name": "Kevin and June Park Home Decision",
+  "method": "approximate",
+  "criteria": ["Kevin", "June"],
+  "subCriteria": {
+    "Kevin": ["KYardWork", "KWorkProximity"],
+    "June": ["JYardWork", "JWorkProximity"]
+  },
+  "alternatives": ["altA", "altB", "altC"],
+  "preferenceMatrices": {
+    "criteria": [
+      [1, 2],
+      [0.5, 1]
+    ],
+    "subCriteria:Kevin": [
+      [1, 0.33],
+      [3, 1]
+    ],
+    "subCriteria:June": [
+      [1, 4],
+      [0.25, 1]
+    ],
+    "alternatives:KYardWork": [
+      [1, 2, 3],
+      [0.5, 1, 2],
+      [0.33, 0.5, 1]
+    ],
+    "alternatives:KWorkProximity": [
+      [1, 2, 0.5],
+      [0.5, 1, 0.33],
+      [2, 3, 1]
+    ],
+    "alternatives:JYardWork": [
+      [1, 4, 2],
+      [0.25, 1, 3],
+      [0.5, 0.33, 1]
+    ],
+    "alternatives:JWorkProximity": [
+      [1, 2, 4],
+      [0.5, 1, 3],
+      [0.25, 0.33, 1]
+    ]
+  }
+}
